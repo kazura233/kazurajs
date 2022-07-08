@@ -1,1 +1,5 @@
-# kazura.js
+# kazurajs
+
+## @kazurajs/emojis
+
+## @kazurajs/utils

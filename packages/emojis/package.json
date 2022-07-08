@@ -27,7 +27,8 @@
     "build": "rollup -c",
     "fetch": "tsx ./scripts/fetch.ts",
     "download": "tsx ./scripts/download.ts",
-    "pack": "tsx ./scripts/pack.ts"
+    "pack": "tsx ./scripts/pack.ts",
+    "generate": "tsx ./scripts/generate-types.ts"
   },
   "dependencies": {
     "@babel/runtime": "^7.18.6"

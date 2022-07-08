@@ -6,7 +6,7 @@ const fetch = (url: string, path: string) => {
   get(
     url,
     {
-      headers: { 'User-Agent': '@kazurajs/emojis233' },
+      headers: { 'User-Agent': '@kazurajs/emojis' },
     },
     (res) => {
       let data = ''

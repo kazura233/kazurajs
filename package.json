@@ -4,7 +4,7 @@
     "packages/*"
   ],
   "scripts": {
-    "clean:sdk": "lerna run clean --scope @kazura/*",
-    "build:sdk": "lerna run build --scope @kazura/*"
+    "clean:all": "pnpm -r --filter=./packages/* run clean",
+    "build:all": "pnpm -r --filter=./packages/* run build"
   }
 }

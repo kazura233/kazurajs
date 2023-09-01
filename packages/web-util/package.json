@@ -1,0 +1,64 @@
+{
+  "name": "@kazura/web-util",
+  "version": "0.1.0",
+  "description": "web-util",
+  "keywords": [
+    "util"
+  ],
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/web-util#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kazura233/kazurajs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kazura233/kazurajs/issues"
+  },
+  "author": {
+    "name": "kazura233",
+    "email": "kazira233@gmail.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/web-util.js",
+  "unpkg": "dist/web-util.js",
+  "module": "es/web-util.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src",
+    "types"
+  ],
+  "scripts": {
+    "clean": "rimraf dist lib es types",
+    "build": "pnpm clean & rollup --config rollup.config.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/plugin-transform-runtime": "^7.22.10",
+    "@babel/preset-env": "^7.22.14",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-terser": "^0.4.3",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.28.1",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  },
+  "npmName": "@kazura233/web-util",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

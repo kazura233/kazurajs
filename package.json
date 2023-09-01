@@ -1,22 +1,10 @@
 {
-  "name": "kazurajs",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "clean:sdk": "lerna run clean --scope @kazurajs/*",
-    "build:sdk": "lerna run build --scope @kazurajs/*"
-  },
-  "devDependencies": {
-    "@types/node": "^18.0.3",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.19.0",
-    "eslint-config-react-app": "^7.0.1",
-    "lerna": "^5.1.6",
-    "tsx": "^3.7.1",
-    "typescript": "^4.7.4"
+    "clean:sdk": "lerna run clean --scope @kazura/*",
+    "build:sdk": "lerna run build --scope @kazura/*"
   }
 }

@@ -2,7 +2,7 @@
 [npm-url]: https://www.npmjs.com/package/@kazura/node-util
 [size]: https://packagephobia.now.sh/badge?p=@kazura/node-util
 [size-url]: https://packagephobia.now.sh/result?p=@kazura/node-util
-[license]: https://img.shields.io/badge/License-MIT-yellow
+[license]: https://img.shields.io/badge/License-MIT-blue
 [license-url]: https://github.com/kazura233/kazurajs/blob/master/LICENSE
 
 [![npm][npm]][npm-url]

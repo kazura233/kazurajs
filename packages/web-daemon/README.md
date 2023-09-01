@@ -1,7 +1,7 @@
-[npm]: https://img.shields.io/npm/v/@kazura/lock-native-back
-[npm-url]: https://www.npmjs.com/package/@kazura/lock-native-back
-[size]: https://packagephobia.now.sh/badge?p=@kazura/lock-native-back
-[size-url]: https://packagephobia.now.sh/result?p=@kazura/lock-native-back
+[npm]: https://img.shields.io/npm/v/@kazura/web-daemon
+[npm-url]: https://www.npmjs.com/package/@kazura/web-daemon
+[size]: https://packagephobia.now.sh/badge?p=@kazura/web-daemon
+[size-url]: https://packagephobia.now.sh/result?p=@kazura/web-daemon
 [license]: https://img.shields.io/badge/License-MIT-blue
 [license-url]: https://github.com/kazura233/kazurajs/blob/master/LICENSE
 
@@ -9,20 +9,33 @@
 [![size][size]][size-url]
 [![license][license]][license-url]
 
-# @kazura/lock-native-back
+# @kazura/web-daemon
 
-web util
+web daemon
 
 ## Install
 
 ```sh
-pnpm i @kazura/lock-native-back
+pnpm i @kazura/web-daemon
 ```
 
 ## Usage
 
 ```javascript
-import * as utils from '@kazura/lock-native-back'
+import WebDaemon from '@kazura/web-daemon'
+
+let point = 1
+
+const daemon = new WebDaemon((next) => {
+  console.log(point++)
+  next()
+})
+
+daemon.start()
+
+daemon.pause()
+
+WebDaemon.pauseAll()
 ```
 
 ## Author

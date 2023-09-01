@@ -1,11 +1,11 @@
 {
-  "name": "@kazura/web-util",
+  "name": "@kazura/web-storage",
   "version": "0.1.0",
-  "description": "web-util",
+  "description": "web-storage",
   "keywords": [
     "util"
   ],
-  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/web-util#readme",
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/web-storage#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kazura233/kazurajs.git"
@@ -51,7 +51,7 @@
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"
   },
-  "npmName": "@kazura233/web-util",
+  "npmName": "@kazura233/web-storage",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

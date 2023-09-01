@@ -1,7 +1,7 @@
-[npm]: https://img.shields.io/npm/v/@kazura/lock-native-back
-[npm-url]: https://www.npmjs.com/package/@kazura/lock-native-back
-[size]: https://packagephobia.now.sh/badge?p=@kazura/lock-native-back
-[size-url]: https://packagephobia.now.sh/result?p=@kazura/lock-native-back
+[npm]: https://img.shields.io/npm/v/@kazura/web-storage
+[npm-url]: https://www.npmjs.com/package/@kazura/web-storage
+[size]: https://packagephobia.now.sh/badge?p=@kazura/web-storage
+[size-url]: https://packagephobia.now.sh/result?p=@kazura/web-storage
 [license]: https://img.shields.io/badge/License-MIT-blue
 [license-url]: https://github.com/kazura233/kazurajs/blob/master/LICENSE
 
@@ -9,20 +9,30 @@
 [![size][size]][size-url]
 [![license][license]][license-url]
 
-# @kazura/lock-native-back
+# @kazura/web-storage
 
-web util
+web storage
 
 ## Install
 
 ```sh
-pnpm i @kazura/lock-native-back
+pnpm i @kazura/web-storage
 ```
 
 ## Usage
 
 ```javascript
-import * as utils from '@kazura/lock-native-back'
+import WebStorage from '@kazura/web-storage'
+
+const storage = new WebStorage(window.localStorage, 'STORAGE_DEMO', String)
+
+storage.setItem('demo')
+
+storage.getItem()
+
+storage.removeItem()
+
+storage.clear()
 ```
 
 ## Author

@@ -23,7 +23,7 @@ export default defineConfig([
       file: pkg.main,
       format: 'cjs',
       indent: false,
-      exports: 'named',
+      exports: 'default',
     },
     external: [...Object.keys(pkg.dependencies)],
     plugins: [
@@ -71,9 +71,9 @@ export default defineConfig([
     output: {
       file: pkg.unpkg,
       format: 'umd',
-      name: 'WebUtil',
+      name: 'PostMsgBuilder',
       indent: false,
-      exports: 'named',
+      exports: 'default',
       globals: {},
     },
     external: [...Object.keys(pkg.dependencies)],
@@ -100,9 +100,9 @@ export default defineConfig([
     output: {
       file: 'dist/index.min.js',
       format: 'umd',
-      name: 'WebUtil',
+      name: 'PostMsgBuilder',
       indent: false,
-      exports: 'named',
+      exports: 'default',
       globals: {},
       sourcemap: true,
     },

@@ -71,7 +71,7 @@ export default defineConfig([
     output: {
       file: pkg.unpkg,
       format: 'umd',
-      name: 'WebUtil',
+      name: 'WebCrypto',
       indent: false,
       exports: 'named',
       globals: {},
@@ -100,7 +100,7 @@ export default defineConfig([
     output: {
       file: 'dist/index.min.js',
       format: 'umd',
-      name: 'WebUtil',
+      name: 'WebCrypto',
       indent: false,
       exports: 'named',
       globals: {},

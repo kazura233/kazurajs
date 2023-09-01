@@ -16,7 +16,7 @@ node util
 ## Install
 
 ```sh
-pnpm add @kazura/node-util
+pnpm i @kazura/node-util
 ```
 
 ## Usage

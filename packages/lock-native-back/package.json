@@ -1,6 +1,6 @@
 {
   "name": "@kazura/lock-native-back",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "lock-native-back",
   "keywords": [
     "util"
@@ -8,20 +8,18 @@
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/lock-native-back#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kazura233/kazurajs.git"
+    "url": "git+https://github.com/kazura233/kazurajs.git"
   },
-  "bugs": {
-    "url": "https://github.com/kazura233/kazurajs/issues"
-  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
   "author": {
     "name": "kazura233",
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
   "type": "module",
-  "main": "lib/lock-native-back.js",
-  "unpkg": "dist/lock-native-back.js",
-  "module": "es/lock-native-back.js",
+  "main": "lib/index.js",
+  "unpkg": "dist/index.js",
+  "module": "es/index.js",
   "types": "types/index.d.ts",
   "files": [
     "dist",

@@ -1,7 +1,7 @@
-[npm]: https://img.shields.io/npm/v/@kazura/lock-native-back
-[npm-url]: https://www.npmjs.com/package/@kazura/lock-native-back
-[size]: https://packagephobia.now.sh/badge?p=@kazura/lock-native-back
-[size-url]: https://packagephobia.now.sh/result?p=@kazura/lock-native-back
+[npm]: https://img.shields.io/npm/v/@kazura/web-postmsg
+[npm-url]: https://www.npmjs.com/package/@kazura/web-postmsg
+[size]: https://packagephobia.now.sh/badge?p=@kazura/web-postmsg
+[size-url]: https://packagephobia.now.sh/result?p=@kazura/web-postmsg
 [license]: https://img.shields.io/badge/License-MIT-blue
 [license-url]: https://github.com/kazura233/kazurajs/blob/master/LICENSE
 
@@ -9,21 +9,19 @@
 [![size][size]][size-url]
 [![license][license]][license-url]
 
-# @kazura/lock-native-back
+# @kazura/web-postmsg
 
-web util
+web postmsg
 
 ## Install
 
 ```sh
-pnpm i @kazura/lock-native-back
+pnpm i @kazura/web-postmsg @kazura/postmsg-builder
 ```
 
 ## Usage
 
-```javascript
-import * as utils from '@kazura/lock-native-back'
-```
+[Example](https://github.com/kazura233/kazurajs/tree/master/packages/web-postmsg/example)
 
 ## Author
 

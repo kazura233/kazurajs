@@ -9,19 +9,17 @@
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/node-util#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kazura233/kazurajs.git"
+    "url": "git+https://github.com/kazura233/kazurajs.git"
   },
-  "bugs": {
-    "url": "https://github.com/kazura233/kazurajs/issues"
-  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
   "author": {
     "name": "kazura233",
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
   "type": "module",
-  "main": "lib/node-util.js",
-  "module": "es/node-util.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "types": "types/index.d.ts",
   "files": [
     "dist",

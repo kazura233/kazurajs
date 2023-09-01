@@ -16,7 +16,7 @@ web util
 ## Install
 
 ```sh
-pnpm add @kazura/web-util
+pnpm i @kazura/web-util
 ```
 
 ## Usage

@@ -71,7 +71,7 @@ export default defineConfig([
     output: {
       file: pkg.unpkg,
       format: 'umd',
-      name: 'WebUtil',
+      name: 'LockNativeBack',
       indent: false,
       exports: 'named',
       globals: {},
@@ -98,9 +98,9 @@ export default defineConfig([
   {
     input: 'src/index.ts',
     output: {
-      file: 'dist/web-util.min.js',
+      file: 'dist/lock-native-back.min.js',
       format: 'umd',
-      name: 'WebUtil',
+      name: 'LockNativeBack',
       indent: false,
       exports: 'named',
       globals: {},

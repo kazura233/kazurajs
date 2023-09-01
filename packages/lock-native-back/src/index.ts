@@ -1,16 +1,13 @@
 export interface Options {
-  onPopState?: () => any // 导航发生变化，一般是用户点击了系统返回时触发
+  onPopState?: Function
 }
 
 const noop = () => {}
 
-/**
- * 用于阻止用户点击系统返回后阻止页面路由自动回退
- */
 class LockNativeBack {
   private isLocked = false
   private url = ''
-  public onPopState: () => any
+  public onPopState: Function
 
   public constructor(options: Options = {}) {
     this.onPopState = options.onPopState ?? noop

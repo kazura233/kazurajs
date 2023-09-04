@@ -28,7 +28,7 @@ export default defineConfig([
     external: [
       ...Object.keys(pkg.peerDependencies),
       ...Object.keys(pkg.dependencies),
-      'jsencrypt/lib',
+      'jsencrypt/lib/JSEncrypt',
     ],
     plugins: [
       json(),
@@ -55,7 +55,7 @@ export default defineConfig([
     external: [
       ...Object.keys(pkg.peerDependencies),
       ...Object.keys(pkg.dependencies),
-      'jsencrypt/lib',
+      'jsencrypt/lib/JSEncrypt',
     ],
     plugins: [
       json(),
@@ -84,13 +84,13 @@ export default defineConfig([
       exports: 'named',
       globals: {
         'crypto-js': 'CryptoJS',
-        'jsencrypt/lib': 'JSEncrypt',
+        'jsencrypt/lib/JSEncrypt': 'JSEncrypt',
       },
     },
     external: [
       ...Object.keys(pkg.peerDependencies),
       ...Object.keys(pkg.dependencies),
-      'jsencrypt/lib',
+      'jsencrypt/lib/JSEncrypt',
     ],
     plugins: [
       json(),
@@ -120,14 +120,14 @@ export default defineConfig([
       exports: 'named',
       globals: {
         'crypto-js': 'CryptoJS',
-        'jsencrypt/lib': 'JSEncrypt',
+        'jsencrypt/lib/JSEncrypt': 'JSEncrypt',
       },
       sourcemap: true,
     },
     external: [
       ...Object.keys(pkg.peerDependencies),
       ...Object.keys(pkg.dependencies),
-      'jsencrypt/lib',
+      'jsencrypt/lib/JSEncrypt',
     ],
     plugins: [
       json(),

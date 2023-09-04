@@ -1,4 +1,4 @@
-import JSEncrypt from 'jsencrypt/lib'
+import { JSEncrypt } from 'jsencrypt/lib/JSEncrypt'
 
 export interface Certificate {
   privkey: string

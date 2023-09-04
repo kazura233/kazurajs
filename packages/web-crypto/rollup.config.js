@@ -25,7 +25,11 @@ export default defineConfig([
       indent: false,
       exports: 'named',
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [
+      ...Object.keys(pkg.peerDependencies),
+      ...Object.keys(pkg.dependencies),
+      'jsencrypt/lib',
+    ],
     plugins: [
       json(),
       resolve({
@@ -48,7 +52,11 @@ export default defineConfig([
       format: 'es',
       indent: false,
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [
+      ...Object.keys(pkg.peerDependencies),
+      ...Object.keys(pkg.dependencies),
+      'jsencrypt/lib',
+    ],
     plugins: [
       json(),
       resolve({
@@ -74,9 +82,16 @@ export default defineConfig([
       name: 'WebCrypto',
       indent: false,
       exports: 'named',
-      globals: {},
+      globals: {
+        'crypto-js': 'CryptoJS',
+        'jsencrypt/lib': 'JSEncrypt',
+      },
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [
+      ...Object.keys(pkg.peerDependencies),
+      ...Object.keys(pkg.dependencies),
+      'jsencrypt/lib',
+    ],
     plugins: [
       json(),
       resolve({ extensions }),
@@ -103,10 +118,17 @@ export default defineConfig([
       name: 'WebCrypto',
       indent: false,
       exports: 'named',
-      globals: {},
+      globals: {
+        'crypto-js': 'CryptoJS',
+        'jsencrypt/lib': 'JSEncrypt',
+      },
       sourcemap: true,
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [
+      ...Object.keys(pkg.peerDependencies),
+      ...Object.keys(pkg.dependencies),
+      'jsencrypt/lib',
+    ],
     plugins: [
       json(),
       resolve({ extensions }),

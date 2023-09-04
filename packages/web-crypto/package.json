@@ -1,9 +1,12 @@
 {
   "name": "@kazura/web-crypto",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "web-crypto",
   "keywords": [
-    "crypto"
+    "crypto",
+    "rsa",
+    "aes",
+    "md5"
   ],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/web-crypto#readme",
   "repository": {
@@ -33,7 +36,10 @@
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.22.11"
+    "@babel/runtime": "^7.22.11",
+    "@types/crypto-js": "^4.1.1",
+    "crypto-js": "^4.1.1",
+    "jsencrypt": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",

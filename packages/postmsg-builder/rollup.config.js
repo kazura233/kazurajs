@@ -25,7 +25,7 @@ export default defineConfig([
       indent: false,
       exports: 'default',
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
     plugins: [
       json(),
       resolve({
@@ -48,7 +48,7 @@ export default defineConfig([
       format: 'es',
       indent: false,
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
     plugins: [
       json(),
       resolve({
@@ -74,9 +74,11 @@ export default defineConfig([
       name: 'PostMsgBuilder',
       indent: false,
       exports: 'default',
-      globals: {},
+      globals: {
+        '@kazura/web-postmsg': 'WebPostMsg',
+      },
     },
-    external: [...Object.keys(pkg.dependencies)],
+    // external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
     plugins: [
       json(),
       resolve({ extensions }),
@@ -103,10 +105,12 @@ export default defineConfig([
       name: 'PostMsgBuilder',
       indent: false,
       exports: 'default',
-      globals: {},
+      globals: {
+        '@kazura/web-postmsg': 'WebPostMsg',
+      },
       sourcemap: true,
     },
-    external: [...Object.keys(pkg.dependencies)],
+    // external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
     plugins: [
       json(),
       resolve({ extensions }),

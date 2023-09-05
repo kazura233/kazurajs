@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "web-storage",
   "keywords": [
-    "util"
+    "storage",
+    "sessionStorage",
+    "localStorage"
   ],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/web-storage#readme",
   "repository": {

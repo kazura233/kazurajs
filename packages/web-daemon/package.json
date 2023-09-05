@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "web-daemon",
   "keywords": [
-    "daemon"
+    "daemon",
+    "setTimeout",
+    "setInterval"
   ],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/web-daemon#readme",
   "repository": {

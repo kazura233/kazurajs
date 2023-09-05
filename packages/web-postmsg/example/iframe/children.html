@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../packages/web-postmsg/dist/web-postmsg.js"></script>
+    <script src="../../packages/postmsg-builder/dist/postmsg-builder.js"></script>
+  </head>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: darkgrey;
+    }
+
+    h1 {
+      margin: 0;
+    }
+  </style>
+  <body>
+    <h1>Child</h1>
+    <button class="btn">Hello</button>
+  </body>
+</html>
+
+<script>
+  webPostMsg = new window.PostMsgBuilder().createParentIFrameReceiver().build()
+
+  document.querySelector('.btn').addEventListener('click', () => {
+    webPostMsg.emit('example', 'Hello').then((res) => console.log(res))
+  })
+</script>

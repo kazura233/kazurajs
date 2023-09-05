@@ -1,9 +1,9 @@
 {
   "name": "@kazura/web-postmsg",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "web-postmsg",
   "keywords": [
-    "postmsg"
+    "postMessage"
   ],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/web-postmsg#readme",
   "repository": {
@@ -32,8 +32,12 @@
     "clean": "rimraf dist lib es types",
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
+  "peerDependencies": {
+    "@kazura/web-util": "^0.1.0"
+  },
   "dependencies": {
-    "@babel/runtime": "^7.22.11"
+    "@babel/runtime": "^7.22.11",
+    "@kazura/web-util": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",

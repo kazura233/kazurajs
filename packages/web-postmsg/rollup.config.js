@@ -74,9 +74,10 @@ export default defineConfig([
       name: 'WebPostMsg',
       indent: false,
       exports: 'default',
-      globals: {},
+      // globals: {},
     },
-    external: [...Object.keys(pkg.dependencies)],
+    // external: [...Object.keys(pkg.dependencies)],
+
     plugins: [
       json(),
       resolve({ extensions }),
@@ -103,10 +104,12 @@ export default defineConfig([
       name: 'WebPostMsg',
       indent: false,
       exports: 'default',
-      globals: {},
+      // globals: {},
+
       sourcemap: true,
     },
-    external: [...Object.keys(pkg.dependencies)],
+    // external: [...Object.keys(pkg.dependencies)],
+
     plugins: [
       json(),
       resolve({ extensions }),

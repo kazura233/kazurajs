@@ -4,6 +4,7 @@ export * from './register-event'
 export * from './window-fission'
 export * from './get-query-variable'
 export * from './pattern'
+export * from './create-uuid'
 
 /**
  * 随机一个min到max之间的整数

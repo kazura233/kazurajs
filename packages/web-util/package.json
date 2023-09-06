@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-util",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "web-util",
   "keywords": [
     "util"
@@ -33,8 +33,13 @@
     "clean": "rimraf dist lib es types",
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
+  "peerDependencies": {
+    "uuid": "^9.0.0"
+  },
   "dependencies": {
-    "@babel/runtime": "^7.22.11"
+    "@babel/runtime": "^7.22.11",
+    "@types/uuid": "^9.0.3",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",

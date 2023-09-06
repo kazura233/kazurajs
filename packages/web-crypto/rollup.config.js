@@ -85,6 +85,7 @@ export default defineConfig([
       globals: {
         'crypto-js': 'CryptoJS',
         'jsencrypt/lib/JSEncrypt': 'JSEncrypt',
+        time2fa: 'time2fa',
       },
     },
     external: [
@@ -121,6 +122,7 @@ export default defineConfig([
       globals: {
         'crypto-js': 'CryptoJS',
         'jsencrypt/lib/JSEncrypt': 'JSEncrypt',
+        time2fa: 'time2fa',
       },
       sourcemap: true,
     },

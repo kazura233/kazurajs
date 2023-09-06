@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web-broadcast-example</title>
+    <script src="web-broadcast.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <p>receiver:<input class="to" type="text" /></p>
+      <p>message:<input class="input" type="text" /></p>
+      <p><button class="button">post</button></p>
+      <ul style="background-color: #eee"></ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  const broadcast = new WebBroadcast({
+    listenSelf: true,
+    proxy: 'http://127.0.0.1:8181/proxy.html',
+  })
+
+  window.__broadcast = broadcast
+  console.log(broadcast)
+
+  const list = document.querySelector('#root ul')
+  const to = document.querySelector('.to')
+  const input = document.querySelector('.input')
+  const button = document.querySelector('.button')
+
+  button.addEventListener('click', () => {
+    const receiver = to.value.trim()
+    if (receiver) {
+      broadcast.postPrivateMessage('demo', input.value, receiver)
+    } else {
+      broadcast.postPublicMessage('demo', input.value)
+    }
+  })
+
+  broadcast.on('demo', (data, event) => {
+    console.log(event)
+    const element = document.createElement('li')
+    element.innerText = data
+    list.appendChild(element)
+  })
+</script>

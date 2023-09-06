@@ -28,7 +28,8 @@
     "lib",
     "es",
     "src",
-    "types"
+    "types",
+    "iife"
   ],
   "scripts": {
     "clean": "rimraf dist lib es types",

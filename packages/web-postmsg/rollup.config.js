@@ -77,7 +77,6 @@ export default defineConfig([
       // globals: {},
     },
     // external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
-
     plugins: [
       json(),
       resolve({ extensions }),
@@ -105,11 +104,9 @@ export default defineConfig([
       indent: false,
       exports: 'default',
       // globals: {},
-
       sourcemap: true,
     },
     // external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
-
     plugins: [
       json(),
       resolve({ extensions }),

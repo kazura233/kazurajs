@@ -104,3 +104,9 @@ export enum SpaceType {
    */
   HalfWidthSpace = ' ',
 }
+
+// 获取文件扩展名
+export const getFileExtension = (file: File | string): string => {
+  const filename = file instanceof File ? file.name : file
+  return filename.split('.').pop() || ''
+}

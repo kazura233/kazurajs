@@ -5,8 +5,10 @@
  * @returns
  */
 export const spawnNotification = (title: string, options?: NotificationOptions) => {
-  if (Notification.permission !== 'denied') requestNotificationPermission()
-  if (Notification.permission === 'granted') return new Notification(title, options)
+  if ('Notification' in window) {
+    if (Notification.permission !== 'denied') requestNotificationPermission()
+    if (Notification.permission === 'granted') return new Notification(title, options)
+  }
 }
 
 /**
@@ -14,13 +16,15 @@ export const spawnNotification = (title: string, options?: NotificationOptions) 
  * @returns
  */
 export const requestNotificationPermission = async (): Promise<boolean> => {
-  if (Notification.permission === 'granted') {
-    return true
-  }
+  if ('Notification' in window) {
+    if (Notification.permission === 'granted') {
+      return true
+    }
 
-  if (Notification.permission !== 'denied') {
-    const permission = await Notification.requestPermission()
-    return permission === 'granted'
+    if (Notification.permission !== 'denied') {
+      const permission = await Notification.requestPermission()
+      return permission === 'granted'
+    }
   }
 
   return false

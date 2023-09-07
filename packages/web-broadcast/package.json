@@ -34,7 +34,7 @@
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
   "peerDependencies": {
-    "@kazura/web-util": "^0.1.0"
+    "@kazura/web-util": ">=0.1"
   },
   "dependencies": {
     "@babel/runtime": "^7.22.11",

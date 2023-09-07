@@ -38,13 +38,13 @@
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
   "peerDependencies": {
-    "redux": "^4.2",
-    "@reduxjs/toolkit": "^1.9"
+    "redux": ">=4.2",
+    "@reduxjs/toolkit": ">=1.9"
   },
   "dependencies": {
     "@babel/runtime": "^7.22.11",
-    "redux": "^4.2",
-    "@reduxjs/toolkit": "^1.9"
+    "redux": "^4.2.0",
+    "@reduxjs/toolkit": "^1.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",

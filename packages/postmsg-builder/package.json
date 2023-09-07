@@ -34,11 +34,11 @@
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
   "peerDependencies": {
-    "@kazura/web-postmsg": "^1"
+    "@kazura/web-postmsg": ">=1.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.22.11",
-    "@kazura/web-postmsg": "^1"
+    "@kazura/web-postmsg": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",

@@ -38,7 +38,7 @@ export class BlinkTitle {
    * @param autoCloseDelay 自动关闭
    * @returns 返回一个函数，调用该函数可以停止闪烁
    */
-  public startBlinking(interval: number, autoCloseDelay: number) {
+  public startBlinking(interval: number, autoCloseDelay: number = 5000) {
     if (this.timer) this.stopBlinking()
     if (this.autoCloseDelayTimer) window.clearTimeout(this.autoCloseDelayTimer)
 

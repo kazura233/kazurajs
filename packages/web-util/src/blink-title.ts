@@ -20,6 +20,7 @@ export class BlinkTitle {
    * 定时器
    */
   public timer: number | null = null
+  public autoCloseDelayTimer: number | null = null
 
   /**
    * 构造函数
@@ -34,19 +35,24 @@ export class BlinkTitle {
   /**
    * 开始闪烁
    * @param interval 闪烁间隔
+   * @param autoCloseDelay 自动关闭
    * @returns 返回一个函数，调用该函数可以停止闪烁
    */
-  public startBlinking(interval: number) {
+  public startBlinking(interval: number, autoCloseDelay: number) {
     if (this.timer) this.stopBlinking()
+    if (this.autoCloseDelayTimer) window.clearTimeout(this.autoCloseDelayTimer)
 
     let tag = true
 
     this.timer = window.setInterval(() => {
-      document.title = tag ? this.customText1 : this.customText2
+      document.title = (tag ? this.customText1 : this.customText2) + this.originalTitle
       tag = !tag
     }, interval)
 
-    return () => this.stopBlinking()
+    const stop = () => this.stopBlinking()
+    this.autoCloseDelayTimer = window.setTimeout(stop, autoCloseDelay)
+
+    return stop
   }
 
   /**

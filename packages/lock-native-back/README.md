@@ -22,7 +22,7 @@ pnpm i @kazura/lock-native-back
 ## Usage
 
 ```javascript
-import * as utils from '@kazura/lock-native-back'
+import LockNativeBack from '@kazura/lock-native-back'
 ```
 
 ## Author

@@ -74,11 +74,9 @@ export default defineConfig([
       name: 'WebUtil',
       indent: false,
       exports: 'named',
-      globals: {
-        uuid: 'uuid',
-      },
+      // globals: {},
     },
-    external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
+    // external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
     plugins: [
       json(),
       resolve({ extensions }),
@@ -105,12 +103,10 @@ export default defineConfig([
       name: 'WebUtil',
       indent: false,
       exports: 'named',
-      globals: {
-        uuid: 'uuid',
-      },
+      // globals: {},
       sourcemap: true,
     },
-    external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
+    // external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
     plugins: [
       json(),
       resolve({ extensions }),

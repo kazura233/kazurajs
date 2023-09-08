@@ -8,6 +8,7 @@ export * from './create-uuid'
 export * from './spawn-notification'
 export * from './blink-title'
 export * from './cors-enabled'
+export * from './save-file'
 
 /**
  * 随机一个min到max之间的整数

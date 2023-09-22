@@ -34,7 +34,8 @@
     "iife"
   ],
   "scripts": {
-    "clean": "rimraf dist lib es types",
+    "clean": "rimraf dist lib es types iife",
+    "dev": "rollup --config rollup.config.js --watch",
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
   "peerDependencies": {

@@ -25,7 +25,7 @@ export default defineConfig([
       indent: false,
       exports: 'named',
     },
-    external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
+    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       json(),
       resolve({
@@ -48,7 +48,7 @@ export default defineConfig([
       format: 'es',
       indent: false,
     },
-    external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
+    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       json(),
       resolve({
@@ -76,7 +76,7 @@ export default defineConfig([
       exports: 'named',
       // globals: {},
     },
-    // external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
+    // external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       json(),
       resolve({ extensions }),
@@ -106,7 +106,7 @@ export default defineConfig([
       // globals: {},
       sourcemap: true,
     },
-    // external: [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)],
+    // external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       json(),
       resolve({ extensions }),

@@ -23,7 +23,7 @@ export default defineConfig([
       indent: false,
       exports: 'named',
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       json(),
       resolve({
@@ -46,7 +46,7 @@ export default defineConfig([
       format: 'es',
       indent: false,
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       json(),
       resolve({

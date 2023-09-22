@@ -26,8 +26,8 @@ export default defineConfig([
       exports: 'named',
     },
     external: [
-      ...Object.keys(pkg.peerDependencies),
-      ...Object.keys(pkg.dependencies),
+      ...Object.keys(pkg.peerDependencies || {}),
+      ...Object.keys(pkg.dependencies || {}),
       'jsencrypt/lib/JSEncrypt',
     ],
     plugins: [
@@ -53,8 +53,8 @@ export default defineConfig([
       indent: false,
     },
     external: [
-      ...Object.keys(pkg.peerDependencies),
-      ...Object.keys(pkg.dependencies),
+      ...Object.keys(pkg.peerDependencies || {}),
+      ...Object.keys(pkg.dependencies || {}),
       'jsencrypt/lib/JSEncrypt',
     ],
     plugins: [

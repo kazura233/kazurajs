@@ -26,8 +26,8 @@ export default defineConfig([
       exports: 'named',
     },
     external: [
-      ...Object.keys(pkg.peerDependencies),
-      ...Object.keys(pkg.dependencies),
+      ...Object.keys(pkg.peerDependencies || {}),
+      ...Object.keys(pkg.dependencies || {}),
       'jsencrypt/lib/JSEncrypt',
     ],
     plugins: [
@@ -53,8 +53,8 @@ export default defineConfig([
       indent: false,
     },
     external: [
-      ...Object.keys(pkg.peerDependencies),
-      ...Object.keys(pkg.dependencies),
+      ...Object.keys(pkg.peerDependencies || {}),
+      ...Object.keys(pkg.dependencies || {}),
       'jsencrypt/lib/JSEncrypt',
     ],
     plugins: [
@@ -71,80 +71,6 @@ export default defineConfig([
         babelHelpers: 'runtime',
       }),
       commonjs(),
-    ],
-  },
-  // UMD Development
-  {
-    input: 'src/index.ts',
-    output: {
-      file: pkg.unpkg,
-      format: 'umd',
-      name: 'WebCrypto',
-      indent: false,
-      exports: 'named',
-      globals: {
-        'crypto-js': 'CryptoJS',
-        'jsencrypt/lib/JSEncrypt': 'JSEncrypt',
-      },
-    },
-    external: [
-      ...Object.keys(pkg.peerDependencies),
-      ...Object.keys(pkg.dependencies),
-      'jsencrypt/lib/JSEncrypt',
-    ],
-    plugins: [
-      json(),
-      resolve({ extensions }),
-      typescript({ tsconfigOverride: noDeclarationFiles }),
-      babel({
-        extensions,
-        plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
-        babelHelpers: 'runtime',
-        exclude: 'node_modules/**',
-      }),
-      commonjs(),
-      replace({
-        'process.env.NODE_ENV': JSON.stringify('development'),
-        preventAssignment: true,
-      }),
-    ],
-  },
-  // UMD Production
-  {
-    input: 'src/index.ts',
-    output: {
-      file: 'dist/index.min.js',
-      format: 'umd',
-      name: 'WebCrypto',
-      indent: false,
-      exports: 'named',
-      globals: {
-        'crypto-js': 'CryptoJS',
-        'jsencrypt/lib/JSEncrypt': 'JSEncrypt',
-      },
-      sourcemap: true,
-    },
-    external: [
-      ...Object.keys(pkg.peerDependencies),
-      ...Object.keys(pkg.dependencies),
-      'jsencrypt/lib/JSEncrypt',
-    ],
-    plugins: [
-      json(),
-      resolve({ extensions }),
-      typescript({ tsconfigOverride: noDeclarationFiles }),
-      babel({
-        extensions,
-        plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
-        babelHelpers: 'runtime',
-        exclude: 'node_modules/**',
-      }),
-      commonjs(),
-      replace({
-        'process.env.NODE_ENV': JSON.stringify('production'),
-        preventAssignment: true,
-      }),
-      terser(),
     ],
   },
 ])

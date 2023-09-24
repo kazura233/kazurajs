@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-util",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "web-util",
   "keywords": [
     "util"
@@ -26,14 +26,24 @@
     "lib",
     "es",
     "src",
-    "types"
+    "types",
+    "iife"
   ],
   "scripts": {
-    "clean": "rimraf dist lib es types",
+    "clean": "rimraf dist lib es types iife",
+    "dev": "rollup --config rollup.config.js --watch",
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
+  "peerDependencies": {
+    "file-saver": "^2.0.5",
+    "uuid": "^9.0.0"
+  },
   "dependencies": {
-    "@babel/runtime": "^7.22.11"
+    "@babel/runtime": "^7.22.11",
+    "@types/file-saver": "^2.0.5",
+    "@types/uuid": "^9.0.3",
+    "file-saver": "^2.0.5",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",

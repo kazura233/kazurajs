@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "web-storage",
   "keywords": [
-    "util"
+    "storage",
+    "sessionStorage",
+    "localStorage"
   ],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/web-storage#readme",
   "repository": {
@@ -26,10 +28,12 @@
     "lib",
     "es",
     "src",
-    "types"
+    "types",
+    "iife"
   ],
   "scripts": {
-    "clean": "rimraf dist lib es types",
+    "clean": "rimraf dist lib es types iife",
+    "dev": "rollup --config rollup.config.js --watch",
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
   "dependencies": {

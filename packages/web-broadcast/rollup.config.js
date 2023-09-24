@@ -25,7 +25,7 @@ export default defineConfig([
       indent: false,
       exports: 'default',
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       json(),
       resolve({
@@ -48,7 +48,7 @@ export default defineConfig([
       format: 'es',
       indent: false,
     },
-    external: [...Object.keys(pkg.dependencies)],
+    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       json(),
       resolve({
@@ -74,9 +74,9 @@ export default defineConfig([
       name: 'WebUtil',
       indent: false,
       exports: 'default',
-      globals: {},
+      // globals: {},
     },
-    external: [...Object.keys(pkg.dependencies)],
+    // external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
     plugins: [
       json(),
       resolve({ extensions }),
@@ -103,10 +103,62 @@ export default defineConfig([
       name: 'WebBroadcast',
       indent: false,
       exports: 'default',
-      globals: {},
+      // globals: {},
       sourcemap: true,
     },
-    external: [...Object.keys(pkg.dependencies)],
+    // external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
+    plugins: [
+      json(),
+      resolve({ extensions }),
+      typescript({ tsconfigOverride: noDeclarationFiles }),
+      babel({
+        extensions,
+        plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
+        babelHelpers: 'runtime',
+        exclude: 'node_modules/**',
+      }),
+      commonjs(),
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('production'),
+        preventAssignment: true,
+      }),
+      terser(),
+    ],
+  },
+  // IIFE Development
+  {
+    input: 'src/proxy-iife.ts',
+    output: {
+      file: 'iife/index.js',
+      format: 'iife',
+      indent: false,
+    },
+    plugins: [
+      json(),
+      resolve({ extensions }),
+      typescript({ tsconfigOverride: noDeclarationFiles }),
+      babel({
+        extensions,
+        plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
+        babelHelpers: 'runtime',
+        exclude: 'node_modules/**',
+      }),
+      commonjs(),
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('development'),
+        preventAssignment: true,
+      }),
+    ],
+  },
+  // IIFE Production
+  {
+    input: 'src/proxy-iife.ts',
+    output: {
+      file: 'iife/index.min.js',
+      format: 'iife',
+      indent: false,
+      sourcemap: true,
+    },
     plugins: [
       json(),
       resolve({ extensions }),

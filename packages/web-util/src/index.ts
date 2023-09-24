@@ -4,6 +4,11 @@ export * from './register-event'
 export * from './window-fission'
 export * from './get-query-variable'
 export * from './pattern'
+export * from './create-uuid'
+export * from './spawn-notification'
+export * from './blink-title'
+export * from './cors-enabled'
+export * from './save-file'
 
 /**
  * 随机一个min到max之间的整数
@@ -86,4 +91,24 @@ export const copy = (text: string): boolean => {
   }
 
   return sussess
+}
+
+/**
+ * 空格类型
+ */
+export enum SpaceType {
+  /**
+   * 使用全角空格的 Unicode 字符，Unicode 编码通常为 U+3000
+   */
+  FullWidthSpace = '　',
+  /**
+   * 使用半角空格的 Unicode 字符，Unicode 编码通常为 U+0020
+   */
+  HalfWidthSpace = ' ',
+}
+
+// 获取文件扩展名
+export const getFileExtension = (file: File | string): string => {
+  const filename = file instanceof File ? file.name : file
+  return filename.split('.').pop() || ''
 }

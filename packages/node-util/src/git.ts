@@ -7,7 +7,7 @@ export class GitUtil {
     cd(this.repositoriePath)
   }
 
-  public async getbranchName() {
+  public async getBranchName() {
     this.__cd()
     const branch = await $`git rev-parse --abbrev-ref HEAD`
     return branch.toString().trim()

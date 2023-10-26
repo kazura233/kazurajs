@@ -81,7 +81,9 @@ export const blobToFile = (blob: Blob, fileName: string) => {
  * @returns
  */
 export const fileToBlob = (file: File) => {
-  return new Blob([file])
+  return new Blob([file], {
+    type: file.type,
+  })
 }
 
 /**

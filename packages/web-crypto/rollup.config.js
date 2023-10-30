@@ -36,11 +36,11 @@ export default defineConfig([
         extensions,
       }),
       typescript({ useTsconfigDeclarationDir: true }),
-      babel({
-        extensions,
-        plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
-        babelHelpers: 'runtime',
-      }),
+      // babel({
+      //   extensions,
+      //   plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
+      //   babelHelpers: 'runtime',
+      // }),
       commonjs(),
     ],
   },
@@ -63,13 +63,13 @@ export default defineConfig([
         extensions,
       }),
       typescript({ tsconfigOverride: noDeclarationFiles }),
-      babel({
-        extensions,
-        plugins: [
-          ['@babel/plugin-transform-runtime', { version: babelRuntimeVersion, useESModules: true }],
-        ],
-        babelHelpers: 'runtime',
-      }),
+      // babel({
+      //   extensions,
+      //   plugins: [
+      //     ['@babel/plugin-transform-runtime', { version: babelRuntimeVersion, useESModules: true }],
+      //   ],
+      //   babelHelpers: 'runtime',
+      // }),
       commonjs(),
     ],
   },

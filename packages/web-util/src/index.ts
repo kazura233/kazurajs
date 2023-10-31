@@ -96,15 +96,15 @@ export const copy = (text: string): boolean => {
 /**
  * 空格类型
  */
-export enum SpaceType {
+export class SpaceType {
   /**
    * 使用全角空格的 Unicode 字符，Unicode 编码通常为 U+3000
    */
-  FullWidthSpace = '　',
+  public static readonly FullWidthSpace = '　'
   /**
    * 使用半角空格的 Unicode 字符，Unicode 编码通常为 U+0020
    */
-  HalfWidthSpace = ' ',
+  public static readonly HalfWidthSpace = ' '
 }
 
 // 获取文件扩展名

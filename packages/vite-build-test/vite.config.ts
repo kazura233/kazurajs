@@ -7,7 +7,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         'web-util': resolve(__dirname, './src/web-util.html'),
-        // nested: resolve(__dirname, 'nested/index.html'),
+        'web-crypto': resolve(__dirname, './src/web-crypto.html'),
       },
     },
   },

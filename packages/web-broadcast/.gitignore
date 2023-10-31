@@ -5,5 +5,5 @@ pnpm-lock.yaml
 /dist
 /lib
 /es
-/iief
+/iife
 /types

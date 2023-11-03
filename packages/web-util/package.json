@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-util",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "description": "web-util",
   "keywords": [
     "util"
@@ -17,8 +17,19 @@
   },
   "license": "MIT",
   "type": "module",
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./es/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./save-file": {
+      "require": "./lib/save-file.js",
+      "import": "./es/save-file.js",
+      "types": "./types/save-file.d.ts"
+    }
+  },
   "main": "lib/index.js",
-  "unpkg": "dist/index.js",
   "module": "es/index.js",
   "types": "types/index.d.ts",
   "files": [
@@ -33,10 +44,6 @@
     "clean": "rimraf dist lib es types iife",
     "dev": "rollup --config rollup.config.js --watch",
     "build": "pnpm clean & rollup --config rollup.config.js"
-  },
-  "peerDependencies": {
-    "file-saver": "^2.0.5",
-    "uuid": "^9.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.22.11",

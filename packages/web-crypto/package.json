@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-crypto",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "web-crypto",
   "keywords": [
     "crypto",
@@ -20,8 +20,34 @@
   },
   "license": "MIT",
   "type": "module",
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./es/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./aes-128-ecb": {
+      "require": "./lib/aes-128-ecb.js",
+      "import": "./es/aes-128-ecb.js",
+      "types": "./types/aes-128-ecb.d.ts"
+    },
+    "./base64": {
+      "require": "./lib/base64.js",
+      "import": "./es/base64.js",
+      "types": "./types/base64.d.ts"
+    },
+    "./md5": {
+      "require": "./lib/md5.js",
+      "import": "./es/md5.js",
+      "types": "./types/md5.d.ts"
+    },
+    "./rsa-1024": {
+      "require": "./lib/rsa-1024.js",
+      "import": "./es/rsa-1024.js",
+      "types": "./types/rsa-1024.d.ts"
+    }
+  },
   "main": "lib/index.js",
-  "unpkg": "dist/index.js",
   "module": "es/index.js",
   "types": "types/index.d.ts",
   "files": [
@@ -36,10 +62,6 @@
     "clean": "rimraf dist lib es types iife",
     "dev": "rollup --config rollup.config.js --watch",
     "build": "pnpm clean & rollup --config rollup.config.js"
-  },
-  "peerDependencies": {
-    "crypto-js": "^4.1.1",
-    "jsencrypt": "^3.3.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.22.11",

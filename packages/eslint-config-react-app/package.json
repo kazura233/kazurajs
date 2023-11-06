@@ -34,5 +34,10 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "npmName": "@kazura/eslint-config-react-app",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

@@ -58,7 +58,7 @@
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"
   },
-  "npmName": "@kazura233/taro-storage",
+  "npmName": "@kazura/taro-storage",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

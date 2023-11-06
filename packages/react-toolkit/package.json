@@ -53,5 +53,10 @@
   },
   "engines": {
     "node": ">=20.5.0"
+  },
+  "npmName": "@kazura/react-toolkit",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

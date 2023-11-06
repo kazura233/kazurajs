@@ -53,7 +53,7 @@
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"
   },
-  "npmName": "@kazura233/lock-native-back",
+  "npmName": "@kazura/lock-native-back",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

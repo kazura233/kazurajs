@@ -1,5 +1,5 @@
-import { ChainHandler, IChainHandler } from './ChainHandler'
-import { IMiddleware, Middleware as __Middleware } from './Middleware'
+import { ChainHandler, IChainHandler } from './chain-handler'
+import { IMiddleware, Middleware as __Middleware } from './_middleware'
 
 class Middleware<T> extends __Middleware<T> {
   public constructor(protected handleProcess: (data: T) => void) {

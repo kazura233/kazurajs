@@ -1,4 +1,4 @@
 export * from './chain-handler'
-export * from './_middleware'
-export * from './_observer'
+export * from './middleware'
+export * from './observer'
 export * from './chain-handler-composite'

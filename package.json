@@ -1,9 +1,6 @@
 {
   "private": true,
   "packageManager": "pnpm@8.6.12",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "clean:all": "pnpm -r --filter=./packages/* run clean",
     "build:all": "pnpm -r --filter=./packages/* run build"

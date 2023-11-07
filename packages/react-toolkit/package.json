@@ -1,7 +1,6 @@
 {
   "name": "@kazura/react-toolkit",
   "version": "0.1.0",
-  "private": true,
   "description": "react toolkit",
   "keywords": [
     "react",
@@ -35,8 +34,12 @@
     "dev": "rollup --config rollup.config.js --watch",
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
+  "peerDependencies": {
+    "@types/react": ">=18.2",
+    "react": ">=18.2"
+  },
   "dependencies": {
-    "@types/react": "^18.0.14",
+    "@types/react": "^18.2.36",
     "react": "^18.2.0"
   },
   "devDependencies": {

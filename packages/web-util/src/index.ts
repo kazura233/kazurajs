@@ -106,7 +106,11 @@ export class SpaceType {
   public static readonly HalfWidthSpace = ' '
 }
 
-// 获取文件扩展名
+/**
+ * 获取文件扩展名
+ * @param file
+ * @returns
+ */
 export const getFileExtension = (file: File | string): string => {
   const filename = file instanceof File ? file.name : file
   return filename.split('.').pop() || ''

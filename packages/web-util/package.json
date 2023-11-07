@@ -26,7 +26,7 @@
     "./save-file": {
       "require": "./lib/save-file.js",
       "import": "./es/save-file.js",
-      "types": "./types/save-file.d.ts"
+      "types": "./save-file/index.d.ts"
     }
   },
   "main": "lib/index.js",

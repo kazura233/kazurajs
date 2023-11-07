@@ -2,3 +2,4 @@ packages:
   - 'packages/*'
   - 'packages/web-broadcast/example'
   - 'packages/react-store/example'
+  - 'packages/build-test/*'

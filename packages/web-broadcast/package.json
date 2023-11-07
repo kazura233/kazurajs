@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-broadcast",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "web-broadcast",
   "keywords": [
     "broadcast"
@@ -35,11 +35,11 @@
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
   "peerDependencies": {
-    "@kazura/web-util": ">=0.1"
+    "@kazura/web-util": ">=1.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.22.11",
-    "@kazura/web-util": "^0.1.0"
+    "@kazura/web-util": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",

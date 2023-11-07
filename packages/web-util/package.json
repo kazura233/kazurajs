@@ -24,8 +24,8 @@
       "types": "./types/index.d.ts"
     },
     "./save-file": {
-      "require": "./lib/save-file.js",
-      "import": "./es/save-file.js",
+      "require": "./lib/save-file/index.js",
+      "import": "./es/save-file/index.js",
       "types": "./save-file/index.d.ts"
     }
   },

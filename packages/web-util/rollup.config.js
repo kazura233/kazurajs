@@ -18,7 +18,7 @@ const makeExternalPredicate = (externalArr) => {
   return (id) => pattern.test(id)
 }
 
-const inputFileNames = ['index', 'save-file']
+const inputFileNames = ['index', 'save-file/index']
 
 const config = []
 
@@ -44,7 +44,16 @@ inputFileNames.forEach((inputFile) => {
         resolve({
           extensions,
         }),
-        typescript({ useTsconfigDeclarationDir: true }),
+        typescript({
+          useTsconfigDeclarationDir: true,
+          tsconfigOverride:
+            inputFile !== 'index'
+              ? {
+                  compilerOptions: { declarationDir: 'save-file' },
+                  include: ['./src/save-file/*.ts'],
+                }
+              : undefined,
+        }),
         commonjs(),
       ],
     }),

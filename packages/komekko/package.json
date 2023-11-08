@@ -1,0 +1,32 @@
+{
+  "name": "komekko",
+  "version": "0.0.1-alpha.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/komekko#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazura233/kazurajs.git"
+  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
+  "author": {
+    "name": "kazura233",
+    "email": "kazira233@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "npmName": "komekko",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=20.5.0"
+  }
+}

@@ -1,8 +1,10 @@
 {
   "name": "komekko",
   "version": "0.0.1-alpha.1",
-  "description": "",
-  "main": "index.js",
+  "description": "komekko",
+  "bin": {
+    "komekko": "./es/cli.js"
+  },
   "scripts": {
     "tsc": "tsc"
   },
@@ -26,8 +28,9 @@
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-terser": "^0.4.4",
+    "pkg-types": "^1.0.3",
     "rimraf": "^5.0.5",
-    "rollup": "^4.3.0",
+    "rollup": "^3.29.4",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"

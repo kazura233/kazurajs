@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.22.11",
+    "pkg-types": "^1.0.3",
     "time2fa": "^1.2.2",
     "zx": "^7.2.3"
   },

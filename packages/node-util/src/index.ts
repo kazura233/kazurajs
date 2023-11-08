@@ -1,5 +1,6 @@
 import path from 'node:path'
 import fs from 'node:fs'
+import type { PackageJson } from 'pkg-types'
 
 export * from './git'
 export * from './totp'
@@ -48,20 +49,6 @@ export function lookupFile(
   if (parentDir !== dir && (!options?.rootDir || parentDir.startsWith(options?.rootDir))) {
     return lookupFile(parentDir, formats, options)
   }
-}
-
-export interface PackageJson {
-  [field: string]: any
-  name: string
-  version: string
-  type: string
-  main: string
-  unpkg: string
-  module: string
-  types: string
-  exports: string | Record<string, any> | string[]
-  dependencies: Record<string, string>
-  devDependencies: Record<string, string>
 }
 
 export function getPkgJson(root: string): PackageJson {

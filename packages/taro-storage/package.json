@@ -19,7 +19,7 @@
   "license": "MIT",
   "type": "module",
   "main": "lib/index.js",
-  "unpkg": "dist/index.js",
+  "umd:main": "dist/index.js",
   "module": "es/index.js",
   "types": "types/index.d.ts",
   "files": [

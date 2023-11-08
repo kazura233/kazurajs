@@ -23,14 +23,15 @@ const inputFileNames = ['index', 'aes-128-ecb', 'base64', 'md5', 'rsa-1024']
 const config = []
 
 inputFileNames.forEach((inputFile) => {
-  const input = `src/${inputFile}.ts`
+  const filePath = inputFile !== 'index' ? `${inputFile}/index` : inputFile
+  const input = `src/${filePath}.ts`
 
   config.push(
     // CommonJS
     defineConfig({
       input,
       output: {
-        file: `lib/${inputFile}.js`,
+        file: `lib/${filePath}.js`,
         format: 'cjs',
         indent: false,
         exports: 'named',
@@ -44,7 +45,16 @@ inputFileNames.forEach((inputFile) => {
         resolve({
           extensions,
         }),
-        typescript({ useTsconfigDeclarationDir: true }),
+        typescript({
+          useTsconfigDeclarationDir: true,
+          tsconfigOverride:
+            filePath !== 'index'
+              ? {
+                  compilerOptions: { declarationDir: inputFile },
+                  include: [`./src/${inputFile}/*.ts`],
+                }
+              : undefined,
+        }),
         commonjs(),
       ],
     }),
@@ -52,7 +62,7 @@ inputFileNames.forEach((inputFile) => {
     defineConfig({
       input,
       output: {
-        file: `es/${inputFile}.js`,
+        file: `es/${filePath}.js`,
         format: 'es',
         indent: false,
       },

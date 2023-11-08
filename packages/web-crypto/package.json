@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-crypto",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "web-crypto",
   "keywords": [
     "crypto",
@@ -27,24 +27,24 @@
       "types": "./types/index.d.ts"
     },
     "./aes-128-ecb": {
-      "require": "./lib/aes-128-ecb.js",
-      "import": "./es/aes-128-ecb.js",
-      "types": "./types/aes-128-ecb.d.ts"
+      "require": "./lib/aes-128-ecb/index.js",
+      "import": "./es/aes-128-ecb/index.js",
+      "types": "./aes-128-ecb/index.d.ts"
     },
     "./base64": {
-      "require": "./lib/base64.js",
-      "import": "./es/base64.js",
-      "types": "./types/base64.d.ts"
+      "require": "./lib/base64/index.js",
+      "import": "./es/base64/index.js",
+      "types": "./base64/index.d.ts"
     },
     "./md5": {
-      "require": "./lib/md5.js",
-      "import": "./es/md5.js",
-      "types": "./types/md5.d.ts"
+      "require": "./lib/md5/index.js",
+      "import": "./es/md5/index.js",
+      "types": "./md5/index.d.ts"
     },
     "./rsa-1024": {
-      "require": "./lib/rsa-1024.js",
-      "import": "./es/rsa-1024.js",
-      "types": "./types/rsa-1024.d.ts"
+      "require": "./lib/rsa-1024/index.js",
+      "import": "./es/rsa-1024/index.js",
+      "types": "./rsa-1024/index.d.ts"
     }
   },
   "main": "lib/index.js",
@@ -56,7 +56,11 @@
     "es",
     "src",
     "types",
-    "iife"
+    "iife",
+    "aes-128-ecb",
+    "base64",
+    "md5",
+    "rsa-1024"
   ],
   "scripts": {
     "clean": "rimraf dist lib es types iife",
@@ -64,16 +68,11 @@
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.22.11",
     "@types/crypto-js": "^4.1.1",
     "crypto-js": "^4.1.1",
     "jsencrypt": "^3.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.11",
-    "@babel/plugin-transform-runtime": "^7.22.10",
-    "@babel/preset-env": "^7.22.14",
-    "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.2.1",

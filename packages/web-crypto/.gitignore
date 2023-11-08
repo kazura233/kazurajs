@@ -7,3 +7,8 @@ pnpm-lock.yaml
 /es
 /iife
 /types
+
+/aes-128-ecb
+/base64
+/md5
+/rsa-1024

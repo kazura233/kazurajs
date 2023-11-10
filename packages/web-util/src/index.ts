@@ -73,24 +73,7 @@ export function runFn<T>(fn: Promise<T> | ((...args: any[]) => T)): Promise<T> {
  * @param text
  * @returns
  */
-export const copy = (text: string): boolean => {
-  const elm = document.createElement('textarea')
-  elm.value = text
-  document.body.appendChild(elm)
-  elm.select()
-
-  let sussess = false
-  try {
-    document.execCommand('copy')
-    sussess = true
-  } catch (error) {
-    console.error(error)
-  } finally {
-    document.body.removeChild(elm)
-  }
-
-  return sussess
-}
+export { default as copy } from 'copy-to-clipboard'
 
 /**
  * 空格类型

@@ -49,6 +49,7 @@
   "dependencies": {
     "@types/file-saver": "^2.0.5",
     "@types/uuid": "^9.0.3",
+    "copy-to-clipboard": "^3.3.3",
     "file-saver": "^2.0.5",
     "uuid": "^9.0.0"
   },

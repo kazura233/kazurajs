@@ -7,7 +7,11 @@
 export const spawnNotification = (title: string, options?: NotificationOptions) => {
   if ('Notification' in window) {
     if (Notification.permission !== 'denied') requestNotificationPermission()
-    if (Notification.permission === 'granted') return new Notification(title, options)
+    if (Notification.permission === 'granted') {
+      const notification = new Notification(title, options)
+      notification.onclick = () => window.focus()
+      return notification
+    }
   }
 }
 

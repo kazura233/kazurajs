@@ -5,8 +5,12 @@
   "bin": {
     "komekko": "./es/cli.js"
   },
+  "type": "module",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "clean": "rimraf dist lib es types iife",
+    "dev": "rollup --config rollup.config.js --watch",
+    "build": "pnpm clean & rollup --config rollup.config.js"
   },
   "keywords": [],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/komekko#readme",

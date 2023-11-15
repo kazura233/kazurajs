@@ -9,6 +9,7 @@ export * from './spawn-notification'
 export * from './blink-title'
 export * from './cors-enabled'
 export * from './validator'
+export * from './wx'
 
 /**
  * 随机一个min到max之间的整数

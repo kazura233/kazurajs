@@ -1,5 +1,6 @@
 export * from './typed-is-promise'
 export * from './typechecker'
+export * from './common'
 
 /**
  * 判断字符串是否是 base64 编码

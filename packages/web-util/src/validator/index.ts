@@ -1,6 +1,11 @@
-export * from './typed-is-promise'
-export * from './typechecker'
+export * from './array'
 export * from './common'
+export * from './date'
+export * from './number'
+export * from './object'
+// export * from './string'
+export * from './typechecker'
+export * from './typed-is-promise'
 
 /**
  * 判断字符串是否是 base64 编码

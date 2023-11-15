@@ -59,7 +59,7 @@ export default defineConfig([
   {
     input: 'src/index.ts',
     output: {
-      file: pkg.unpkg,
+      file: pkg['umd:main'],
       format: 'umd',
       name: 'WebDaemon',
       indent: false,

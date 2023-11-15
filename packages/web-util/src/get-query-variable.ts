@@ -1,15 +1,21 @@
 /**
  * 通过参数名获取url中的参数值
- * @param queryName
+ * @param paramName
+ * @param search
  */
-export const getQueryVariable = (queryName: string, search?: string): string => {
-  queryName = encodeURIComponent(queryName)
+export const getQueryVariable = (paramName: string, search?: string): string => {
+  paramName = encodeURIComponent(paramName)
   search = search || location.search
+
   search = search.substring(search.indexOf('?') + 1)
+
   if (typeof URLSearchParams === 'function') {
-    return decodeURIComponent(new URLSearchParams(search).get(queryName) || '')
+    const paramValue = new URLSearchParams(search).get(paramName)
+    return paramValue ? decodeURIComponent(paramValue) : ''
   }
-  const reg = new RegExp('(^|&)' + queryName + '=([^&]*)(&|$)', 'i')
-  const res = search.match(reg)
-  return res ? decodeURIComponent(res[2]) : ''
+
+  const reg = new RegExp('(^|&)' + paramName + '=([^&]*)(&|$)', 'i')
+  const match = search.match(reg)
+
+  return match ? decodeURIComponent(match[2]) : ''
 }

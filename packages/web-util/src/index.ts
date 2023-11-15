@@ -80,16 +80,16 @@ export { default as copy } from 'copy-to-clipboard'
 /**
  * 空格类型
  */
-export class SpaceType {
+export const SpaceType = {
   /**
    * 使用全角空格的 Unicode 字符，Unicode 编码通常为 U+3000
    */
-  public static readonly FullWidthSpace = '　'
+  FullWidthSpace: '　',
   /**
    * 使用半角空格的 Unicode 字符，Unicode 编码通常为 U+0020
    */
-  public static readonly HalfWidthSpace = ' '
-}
+  HalfWidthSpace: ' ',
+} as const
 
 /**
  * 获取文件扩展名

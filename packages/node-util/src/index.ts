@@ -58,3 +58,21 @@ export function getPkgJson(root: string): PackageJson {
 export function getPkgName(name: string) {
   return name?.startsWith('@') ? name.split('/')[1] : name
 }
+
+/**
+ * 将指定内容写入文件
+ * @param filename
+ * @param content
+ */
+export function writeFile(filename: string, content: string | Uint8Array): void {
+  // 获取文件路径的目录部分
+  const dir = path.dirname(filename)
+
+  // 检查目录是否存在，如果不存在则创建
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true })
+  }
+
+  //使用 fs 模块将内容写入指定文件
+  fs.writeFileSync(filename, content)
+}

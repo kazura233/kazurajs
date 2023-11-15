@@ -12,12 +12,18 @@ export function isJSON(str: string): boolean {
   }
 }
 
+const base64Regex = /^[A-Za-z0-9+/]*={0,2}$/
+
 /**
  * 判断字符串是否是 base64 编码
  * @param str
+ * @param regex 是否使用正则表达式判断，默认为 true，如果为 false，会尝试使用 atob 函数解码字符串，如果解码失败，则说明不是有效的 base64 编码
  * @returns
  */
-export const isBase64 = (str: string): boolean => {
+export function isBase64(str: string, regex = true): boolean {
+  // 如果 regex 为 true，直接使用正则表达式判断
+  if (regex) return base64Regex.test(str)
+
   try {
     // 使用 atob 函数尝试解码字符串
     const decodedStr = atob(str)

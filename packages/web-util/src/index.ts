@@ -100,3 +100,39 @@ export const getFileExtension = (file: File | string): string => {
   const filename = file instanceof File ? file.name : file
   return filename.split('.').pop() || ''
 }
+
+/**
+ * 此函数返回在 Node 和浏览器中通用的全局对象。
+ * 注意：globalThis 是标准化的方法，然而它在 Node.js 的版本 12 中才被添加。
+ * 我们需要包含这个片段，直到 Node 12 到达生命周期结束（EOL）。
+ * @returns
+ */
+export function getGlobal(): (Window & typeof globalThis) | undefined {
+  if (typeof globalThis !== 'undefined') {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: Type 'typeof globalThis' is not assignable to type 'Window & typeof globalThis'.
+    return globalThis
+  }
+
+  if (typeof global !== 'undefined') {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: Type 'typeof globalThis' is not assignable to type 'Window & typeof globalThis'.
+    return global
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: Cannot find name 'window'.
+  if (typeof window !== 'undefined') {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: Cannot find name 'window'.
+    return window
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: Cannot find name 'self'.
+  if (typeof self !== 'undefined') {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: Cannot find name 'self'.
+    return self
+  }
+}

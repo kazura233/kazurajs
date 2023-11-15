@@ -49,8 +49,14 @@ export const base64ToBlob = (data: string, mime: string) => {
  * @returns
  */
 export const dataURLToBlob = (data: string) => {
-  const [head, base64] = data.split(',')
-  const mime = head.match(/:(.*?);/)![1]
+  const match = data.match(/^data:(.*?);base64,(.*)$/)
+
+  if (!match) {
+    // 处理错误情况，可以返回默认 MIME 类型或抛出异常
+    throw new Error('Invalid DataURL format')
+  }
+
+  const [, mime, base64] = match
   return base64ToBlob(base64, mime)
 }
 

@@ -35,6 +35,19 @@ export function isBase64(str: string, regex = true): boolean {
   }
 }
 
+const dataURLRegex = /^data:([a-zA-Z]+\/[a-zA-Z]+);base64,(.*)$/
+
+/**
+ * 判断字符串是否是 DataURL
+ * @param str
+ * @param regex 是否使用正则表达式判断，默认为 true，如果为 false，会尝试使用 atob 函数解码字符串，如果解码失败，则说明不是有效的 base64 编码
+ * @returns
+ */
+export function isDataURL(str: string, regex = true): boolean {
+  const match = str.match(dataURLRegex)
+  return !!match && isBase64(match[2], regex)
+}
+
 const md5 = /^[a-f0-9]{32}$/
 
 /**

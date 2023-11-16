@@ -4,6 +4,8 @@
  */
 export function isInWeChatMiniProgram() {
   if (navigator.userAgent.toLowerCase().includes('miniprogram')) return true
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: Cannot find name 'wx'.
   return typeof wx !== 'undefined' && wx.miniProgram
 }
 

@@ -1,0 +1,61 @@
+{
+  "name": "@kazura/googleapis",
+  "version": "0.0.1",
+  "description": "googleapis",
+  "keywords": [
+    "googleapis"
+  ],
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/googleapis#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazura233/kazurajs.git"
+  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
+  "author": {
+    "name": "kazura233",
+    "email": "kazira233@gmail.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src",
+    "types",
+    "iife"
+  ],
+  "scripts": {
+    "clean": "rimraf dist lib es types iife",
+    "dev": "rollup --config rollup.config.js --watch",
+    "build": "pnpm clean & rollup --config rollup.config.js"
+  },
+  "dependencies": {
+    "@googleapis/oauth2": "^1.0.5",
+    "google-auth-library": "^9.1.0",
+    "googleapis-common": "^7.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-terser": "^0.2.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.8.1",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  },
+  "npmName": "@kazura/googleapis",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=20.5.0"
+  }
+}

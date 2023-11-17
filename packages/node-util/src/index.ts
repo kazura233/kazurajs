@@ -1,5 +1,7 @@
 import path from 'node:path'
 import fs from 'node:fs'
+import { createHash } from 'node:crypto'
+
 import type { PackageJson } from 'pkg-types'
 
 export * from './git'
@@ -76,3 +78,5 @@ export function writeFile(filename: string, content: string | Uint8Array): void 
   //使用 fs 模块将内容写入指定文件
   fs.writeFileSync(filename, content)
 }
+
+export const md5 = (str: string) => createHash('md5').update(str, 'utf-8').digest('hex')

@@ -12,6 +12,7 @@ export * from './validator'
 export * from './wx'
 export * from './register-handle-drop'
 export * from './register-handle-paste'
+export * from './date'
 
 /**
  * 生成指定范围内的随机整数

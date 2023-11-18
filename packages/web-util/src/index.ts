@@ -14,10 +14,10 @@ export * from './register-handle-drop'
 export * from './register-handle-paste'
 
 /**
- * 随机一个min到max之间的整数
- * @param min
- * @param max
- * @returns
+ * 生成指定范围内的随机整数
+ * @param min - 范围的最小值（包含）
+ * @param max - 范围的最大值（包含）
+ * @returns - 生成的随机整数
  */
 export const random = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -25,10 +25,10 @@ export const random = (min: number, max: number): number => {
 
 /**
  * 延缓执行
- * @param duration 暂停的毫秒数
- * @returns
+ * @param duration - 暂停的毫秒数，默认为 1000 毫秒
+ * @returns - 一个 Promise，在指定的时间后 resolve
  */
-export const sleep = (duration: number = 1000): Promise<undefined> => {
+export const sleep = (duration: number = 1000): Promise<void> => {
   return new Promise((resolve) => {
     setTimeout(resolve, duration)
   })
@@ -36,40 +36,51 @@ export const sleep = (duration: number = 1000): Promise<undefined> => {
 
 /**
  * 向页面中动态追加脚本
- * @param url
+ * @param url - 脚本的 URL
+ * @param async - 是否异步加载，默认为 false
+ * @param defer - 是否延迟加载，默认为 false
  */
-export const appendScript = (url: string) => {
-  const element = document.createElement('script')
-  element.src = url
-  document.body.appendChild(element)
+export const appendScript = (url: string, async = false, defer = false) => {
+  const script = document.createElement('script')
+  script.src = url
+  if (async) script.async = async
+  if (defer) script.defer = defer
+
+  document.body.appendChild(script)
 }
 
 /**
  * 在光标处插入，自动补正光标的偏移量
- * @param textarea
- * @param text
+ * @param textarea - 要插入文本的 textarea 元素
+ * @param text - 要插入的文本
  */
 export const insertAtTextarea = (textarea: HTMLTextAreaElement, text: string) => {
-  const leftText = textarea.value.substring(0, textarea.selectionStart)
-  const rightText = textarea.value.substring(textarea.selectionEnd)
+  const { selectionStart, selectionEnd, value } = textarea
+
+  const leftText = value.substring(0, selectionStart)
+  const rightText = value.substring(selectionEnd)
+
+  // 更新 textarea 的值
   textarea.value = leftText + text + rightText
+
+  // 使 textarea 获得焦点
   textarea.focus()
-  const v = leftText.length + text.length
-  textarea.setSelectionRange(v, v)
+
+  // 计算新的光标位置
+  const newPosition = leftText.length + text.length
+
+  // 设置新的光标位置
+  textarea.setSelectionRange(newPosition, newPosition)
 }
 
 /**
- * 执行一个函数，并把其结果通过promise包装的方式返回
- * 如果fn不是一个函数，是一个promise会原样返回，否则会通过promise包装后返回
- * @param fn
+ * 执行一个函数，并通过 Promise 包装其结果返回
+ * 如果 fn 不是一个函数，而是一个 Promise，则原样返回，否则通过 Promise 包装后返回
+ * @param fn - 要执行的函数或 Promise
+ * @returns - 通过 Promise 包装的结果
  */
 export function runFn<T>(fn: Promise<T> | ((...args: any[]) => T)): Promise<T> {
-  let res = typeof fn === 'function' ? fn() : fn
-  if (res instanceof Promise) {
-    return res
-  } else {
-    return new Promise((_) => _(res))
-  }
+  return Promise.resolve(typeof fn === 'function' ? fn() : fn)
 }
 
 /**
@@ -95,12 +106,18 @@ export const SpaceType = {
 
 /**
  * 获取文件扩展名
- * @param file
- * @returns
+ * @param file - 要获取扩展名的文件对象或文件名
+ * @returns - 文件的扩展名（不包括点号）
  */
 export const getFileExtension = (file: File | string): string => {
   const filename = file instanceof File ? file.name : file
-  return filename.split('.').pop() || ''
+  const dotIndex = filename.lastIndexOf('.')
+
+  if (dotIndex !== -1) {
+    return filename.slice(dotIndex + 1)
+  } else {
+    return ''
+  }
 }
 
 /**

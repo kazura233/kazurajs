@@ -1,15 +1,17 @@
 import { Win } from './add-event-listener'
 
-const KEY = '@kazura/web-util~window-fission__v1'
+const WINDOW_FISSION_KEY = '@kazura/web-util~window-fission__v1'
 
 /**
- * 每当打开一个新的页面(同浏览器同域)，便会执行一次listener。
- * @param listener
- * @returns
+ * 每当打开一个新的页面(同浏览器同域)，便会执行一次 listener。
+ * @param listener - 要执行的监听器函数
+ * @returns - 可以取消监听的函数
  */
-export function windowFission(listener: (event: StorageEvent) => any) {
-  window.localStorage.setItem(KEY, Math.random().toString())
+export function windowFission(listener: (event: StorageEvent) => any): () => void {
+  window.localStorage.setItem(WINDOW_FISSION_KEY, Math.random().toString())
   return Win.addEventListener('storage', (event) => {
-    event.key === KEY && listener(event)
+    if (event.key === WINDOW_FISSION_KEY) {
+      listener(event)
+    }
   })
 }

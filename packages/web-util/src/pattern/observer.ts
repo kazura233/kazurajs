@@ -14,6 +14,7 @@ export interface IObserver<T extends Record<string, any>> {
  */
 export class Observer<T extends Record<string, any>> implements IObserver<T> {
   public __target: T
+  public listeners: Array<(data: T) => void> = []
 
   public constructor(target: T) {
     this.__target = this.observer(target)
@@ -25,14 +26,12 @@ export class Observer<T extends Record<string, any>> implements IObserver<T> {
         return Reflect.get(target, propKey, receiver)
       },
       set: (target, propKey, value, receiver) => {
-        const ret = Reflect.set(target, propKey, value, receiver)
+        const result = Reflect.set(target, propKey, value, receiver)
         this.notify()
-        return ret
+        return result
       },
     })
   }
-
-  public listeners: Array<(data: T) => void> = []
 
   public subscribe(listener: (data: T) => void) {
     this.listeners.push(listener)

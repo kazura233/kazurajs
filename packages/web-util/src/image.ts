@@ -9,10 +9,10 @@ const createCanvas = (image: HTMLImageElement): HTMLCanvasElement => {
 
 /**
  * HTMLImageElement 转 Blob
- * @param image 要压缩的图片
- * @param mimeType mime类型
- * @param quality 质量 0~1之间的小数 默认1 小数点后两位有效
- * @returns
+ * @param image - 要压缩的图片
+ * @param mimeType - mime 类型
+ * @param quality - 质量 0~1 之间的小数，默认为 1（小数点后两位有效）
+ * @returns - 返回一个 Promise，包含 Blob 或 null
  */
 export const imageElementToBlob = (
   image: HTMLImageElement,
@@ -24,10 +24,10 @@ export const imageElementToBlob = (
 
 /**
  * HTMLImageElement 转 DataURL
- * @param image 要压缩的图片
- * @param mimeType mime类型
- * @param quality 质量 0~1之间的小数 默认1 小数点后两位有效
- * @returns
+ * @param image - 要压缩的图片
+ * @param mimeType - mime 类型
+ * @param quality - 质量 0~1 之间的小数，默认为 1（小数点后两位有效）
+ * @returns - 返回 DataURL 字符串
  */
 export const imageElementToDataURL = (
   image: HTMLImageElement,

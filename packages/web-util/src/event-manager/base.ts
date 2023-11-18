@@ -12,6 +12,6 @@ export interface IEventListenerOptions {
 }
 
 export class Event implements IEvent {
-  public readonly timeStamp: number = new Date().getTime()
+  public readonly timeStamp: number = Date.now()
   public returnValue: any
 }

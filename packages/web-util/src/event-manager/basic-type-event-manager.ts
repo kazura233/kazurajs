@@ -8,10 +8,8 @@ export interface IBasicTypeEvent extends IEvent {
   readonly type: string
 }
 export class BasicTypeEvent extends Event implements IBasicTypeEvent {
-  public readonly type: string
-  constructor(type: string) {
+  constructor(public readonly type: string) {
     super()
-    this.type = type
   }
 }
 
@@ -32,7 +30,8 @@ export class BasicTypeEventManager implements IBasicTypeEventManager {
     string,
     { callback: IBasicTypeEventListener; options: IBasicTypeEventListenerOptions }
   >()
-  public addEventListener(
+
+  addEventListener(
     type: string,
     callback: IBasicTypeEventListener,
     options?: IBasicTypeEventListenerOptions
@@ -44,29 +43,29 @@ export class BasicTypeEventManager implements IBasicTypeEventManager {
     }
     this.listeners.set(type, { callback, options })
   }
-  public removeEventListener(type: string): void {
+
+  removeEventListener(type: string): void {
     this.listeners.delete(type)
   }
-  public getEventListeners(): Map<string, IBasicTypeEventListener> {
+
+  getEventListeners(): Map<string, IBasicTypeEventListener> {
     const listeners = new Map<string, IBasicTypeEventListener>()
-    this.listeners.forEach(({ callback }, type) => {
-      listeners.set(type, callback)
-    })
+    this.listeners.forEach(({ callback }, type) => listeners.set(type, callback))
     return listeners
   }
-  public hasEventListener(callback: IBasicTypeEventListener): boolean {
-    let tag = false
-    this.listeners.forEach(({ callback: cb }) => {
-      if (cb === callback) tag = true
-    })
-    return tag
+
+  hasEventListener(callback: IBasicTypeEventListener): boolean {
+    return [...this.listeners.values()].some(({ callback: cb }) => cb === callback)
   }
-  public dispatchEvent(event: IBasicTypeEvent): boolean {
+
+  dispatchEvent(event: IBasicTypeEvent): boolean {
     const { type } = event
     const listener = this.listeners.get(type)
     if (listener) {
       listener.callback.call(this, event)
-      if (listener.options.once) this.listeners.delete(type)
+      if (listener.options.once) {
+        this.listeners.delete(type)
+      }
       return true
     }
     return false

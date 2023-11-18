@@ -2,7 +2,7 @@ import { ChainHandler, IChainHandler } from './chain-handler'
 import { IMiddleware, Middleware as __Middleware } from './middleware'
 
 class Middleware<T> extends __Middleware<T> {
-  public constructor(protected handleProcess: (data: T) => void) {
+  constructor(protected handleProcess: (data: T) => void) {
     super()
   }
 }
@@ -16,17 +16,22 @@ export abstract class ChainHandlerComposite<I, O>
   extends ChainHandler<I, O>
   implements IChainHandlerComposite<I, O>
 {
-  protected superExecute = (data: I) => super.execute(data)
-  protected superProceed = (result: O) => super.proceed(result)
+  private beforeMiddleware: IMiddleware<I> = new Middleware<I>((data) => this.execute(data))
+  private afterMiddleware: IMiddleware<O> = new Middleware<O>((result) => this.proceed(result))
 
-  public before: IMiddleware<I> = new Middleware<I>(this.superExecute)
-  public after: IMiddleware<O> = new Middleware<O>(this.superProceed)
+  public get before(): IMiddleware<I> {
+    return this.beforeMiddleware
+  }
 
-  public override execute(data: I) {
-    this.before.execute(data)
+  public get after(): IMiddleware<O> {
+    return this.afterMiddleware
+  }
+
+  override execute(data: I) {
+    this.beforeMiddleware.execute(data)
   }
 
   protected override proceed(result: O) {
-    this.after.execute(result)
+    this.afterMiddleware.execute(result)
   }
 }

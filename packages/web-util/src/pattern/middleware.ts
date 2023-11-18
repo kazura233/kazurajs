@@ -8,8 +8,10 @@ export interface IMiddlewareCore<T> {
 }
 
 export class MiddlewareCore<T> implements IMiddlewareCore<T> {
-  protected index = -1
-  protected handlers: Array<MiddlewareHandler<T>>
+  public static readonly INFINITY = Number.POSITIVE_INFINITY
+
+  private index = -1
+  public handlers: Array<MiddlewareHandler<T>>
 
   public data: T
 
@@ -31,11 +33,11 @@ export class MiddlewareCore<T> implements IMiddlewareCore<T> {
   }
 
   public abort() {
-    this.index = Number.POSITIVE_INFINITY
+    this.index = MiddlewareCore.INFINITY
   }
 
   public isAborted() {
-    return this.index >= Number.POSITIVE_INFINITY
+    return this.index >= MiddlewareCore.INFINITY
   }
 }
 
@@ -45,7 +47,7 @@ export interface IMiddleware<T> {
 }
 
 export abstract class Middleware<T> implements IMiddleware<T> {
-  protected handlers: Array<MiddlewareHandler<T>> = []
+  public handlers: Array<MiddlewareHandler<T>> = []
 
   public use(handler: MiddlewareHandler<T>) {
     this.handlers.push(handler)

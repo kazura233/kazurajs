@@ -1,27 +1,24 @@
 export interface IChainHandler<IN, OUT> {
-  setSucessor(sucessor: IChainHandler<OUT, any>): void
+  setSuccessor(successor: IChainHandler<OUT, any>): void
   execute(data: IN): void
 }
 
 export abstract class ChainHandler<IN, OUT> implements IChainHandler<IN, OUT> {
-  protected sucessor?: ChainHandler<OUT, any>
+  protected successor?: ChainHandler<OUT, any>
 
-  public setSucessor(sucessor: ChainHandler<OUT, any>) {
-    this.sucessor = sucessor
+  public setSuccessor(successor: ChainHandler<OUT, any>) {
+    this.successor = successor
   }
 
   public execute(data: IN) {
-    const result = this.handleProcess(data)
-    if (result instanceof Promise) {
-      result.then((_) => this.proceed(_))
-    } else {
+    Promise.resolve(this.handleProcess(data)).then((result) => {
       this.proceed(result)
-    }
+    })
   }
 
   protected proceed(result: OUT) {
-    if (this.sucessor) {
-      this.sucessor.execute(result)
+    if (this.successor) {
+      this.successor.execute(result)
     }
   }
 

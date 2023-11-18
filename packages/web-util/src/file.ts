@@ -1,58 +1,59 @@
 /**
- * Base64转Uint8Array
- * @param data
- * @returns
+ * Base64 转 Uint8Array
+ * @param data - Base64 字符串
+ * @returns - Uint8Array
  */
-export const base64ToArrayBufferView = (data: string) => {
-  data = atob(data) // 解base64
+export const base64ToArrayBufferView = (data: string): Uint8Array => {
+  data = atob(data)
   let len = data.length
-  const u8arr = new Uint8Array(len) // 8位无符号整型数组
+  const u8arr = new Uint8Array(len)
+
   while (len--) {
-    u8arr[len] = data.charCodeAt(len) // 返回0x00000~0xFFFF之间的Unicode码
+    u8arr[len] = data.charCodeAt(len)
   }
+
   return u8arr
 }
 
 /**
- * DataURL转Uint8Array
- * @param data
- * @returns
+ * DataURL 转 Uint8Array
+ * @param data - DataURL 字符串
+ * @returns - Uint8Array
  */
-export const dataURLToArrayBufferView = (data: string) => {
+export const dataURLToArrayBufferView = (data: string): Uint8Array => {
   const [, base64] = data.split(',')
   return base64ToArrayBufferView(base64)
 }
 
 /**
- * Uint8Array转Blob
- * @param u8arr
- * @param mime
- * @returns
+ * Uint8Array 转 Blob
+ * @param u8arr - Uint8Array
+ * @param mime - Blob 类型
+ * @returns - Blob
  */
-export const arrayBufferViewToBlob = (u8arr: Uint8Array, mime: string) => {
+export const arrayBufferViewToBlob = (u8arr: Uint8Array, mime: string): Blob => {
   return new Blob([u8arr], { type: mime })
 }
 
 /**
- * Base64转Blob
- * @param data
- * @param mime
- * @returns
+ * Base64 转 Blob
+ * @param data - Base64 字符串
+ * @param mime - Blob 类型
+ * @returns - Blob
  */
-export const base64ToBlob = (data: string, mime: string) => {
+export const base64ToBlob = (data: string, mime: string): Blob => {
   return arrayBufferViewToBlob(base64ToArrayBufferView(data), mime)
 }
 
 /**
- * DataURL转Blob
- * @param data
- * @returns
+ * DataURL 转 Blob
+ * @param data - DataURL 字符串
+ * @returns - Blob
  */
-export const dataURLToBlob = (data: string) => {
+export const dataURLToBlob = (data: string): Blob => {
   const match = data.match(/^data:(.*?);base64,(.*)$/)
 
   if (!match) {
-    // 处理错误情况，可以返回默认 MIME 类型或抛出异常
     throw new Error('Invalid DataURL format')
   }
 
@@ -61,43 +62,41 @@ export const dataURLToBlob = (data: string) => {
 }
 
 /**
- * Uint8Array转File
- * @param u8arr
- * @param fileName
- * @param mime
- * @returns
+ * Uint8Array 转 File
+ * @param u8arr - Uint8Array
+ * @param fileName - 文件名
+ * @param mime - 文件类型
+ * @returns - File
  */
-export const arrayBufferViewToFile = (u8arr: Uint8Array, fileName: string, mime: string) => {
+export const arrayBufferViewToFile = (u8arr: Uint8Array, fileName: string, mime: string): File => {
   return new File([u8arr], fileName, { type: mime })
 }
 
 /**
- * Blob转File
- * @param blob
- * @param fileName
- * @returns
+ * Blob 转 File
+ * @param blob - Blob
+ * @param fileName - 文件名
+ * @returns - File
  */
-export const blobToFile = (blob: Blob, fileName: string) => {
+export const blobToFile = (blob: Blob, fileName: string): File => {
   return new File([blob], fileName, { type: blob.type })
 }
 
 /**
- * File转Blob
- * @param file
- * @returns
+ * File 转 Blob
+ * @param file - File
+ * @returns - Blob
  */
-export const fileToBlob = (file: File) => {
-  return new Blob([file], {
-    type: file.type,
-  })
+export const fileToBlob = (file: File): Blob => {
+  return new Blob([file], { type: file.type })
 }
 
 /**
- * Blob转Base64
- * @param blob
- * @returns
+ * Blob 转 Base64
+ * @param blob - Blob
+ * @returns - Promise 包装的 Base64 字符串
  */
-export const blobToBase64 = (blob: Blob) => {
+export const blobToBase64 = (blob: Blob): Promise<string> => {
   return new Promise<string>((resolve) => {
     const reader = new FileReader()
     reader.onloadend = (event: ProgressEvent<FileReader>) => resolve(event.target!.result as string)
@@ -106,10 +105,10 @@ export const blobToBase64 = (blob: Blob) => {
 }
 
 /**
- * File转Base64
- * @param file
- * @returns
+ * File 转 Base64
+ * @param file - File
+ * @returns - Promise 包装的 Base64 字符串
  */
-export const fileToBase64 = (file: File) => {
+export const fileToBase64 = (file: File): Promise<string> => {
   return blobToBase64(fileToBlob(file))
 }

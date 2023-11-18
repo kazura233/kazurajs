@@ -1,33 +1,28 @@
+import { getElement } from './get-element'
+
 export const registerHandlePaste = (
   selectors: HTMLElement | string,
-  callback: (file: File, fileName: string) => void
+  callback: (files: File[]) => any
 ) => {
   const pasteListener = (event: ClipboardEvent) => {
     const { items, types } = event.clipboardData!
-    if (types.indexOf('Files') > -1) {
-      for (let index = 0; index < items.length; index++) {
-        const item = items[index]
-        if (item.kind === 'file') {
-          const file = item.getAsFile()
-          if (file) {
-            callback(file, file.name)
-            event.preventDefault()
-            event.stopPropagation()
-          }
-        }
+
+    if (types.includes('Files')) {
+      const files: File[] = Array.from(items)
+        .filter((item) => item.kind === 'file')
+        .map((item) => item.getAsFile()!)
+
+      if (files.length > 0) {
+        event.preventDefault()
+        event.stopPropagation()
+        callback(files)
       }
     }
   }
 
-  let element: HTMLElement
-  if (typeof selectors === 'string') {
-    const ele = document.querySelector<HTMLElement>(selectors)
-    if (!ele) throw Error()
-    element = ele
-  } else {
-    element = selectors
-  }
+  const element = getElement(selectors)
 
   element.addEventListener('paste', pasteListener)
+
   return () => element.removeEventListener('paste', pasteListener)
 }

@@ -2,15 +2,15 @@ import {
   Totp as __Totp,
   generateConfig,
   ValidTotpConfig,
-  generateSecret,
-  generateUrl,
+  generateSecret as generateTotpSecret,
+  generateUrl as generateTotpUrl,
 } from 'time2fa'
 
 export class Totp {
   public static readonly config: ValidTotpConfig = generateConfig()
 
   public static generateSecret(): string {
-    return generateSecret(Totp.config.secretSize)
+    return generateTotpSecret(Totp.config.secretSize)
   }
 
   public static generatePasscodes(secret: string): string {
@@ -23,6 +23,6 @@ export class Totp {
   }
 
   public static generateUrl(issuer: string, user: string, secret: string): string {
-    return generateUrl({ issuer, user, secret }, Totp.config)
+    return generateTotpUrl({ issuer, user, secret }, Totp.config)
   }
 }

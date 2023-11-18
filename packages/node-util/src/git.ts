@@ -1,90 +1,90 @@
 import { $, cd } from 'zx'
 
 export class GitUtil {
-  constructor(public readonly repositoriePath: string) {}
+  constructor(public readonly repositoryPath: string) {}
 
-  private __cd() {
-    cd(this.repositoriePath)
+  private changeDirectory() {
+    cd(this.repositoryPath)
   }
 
-  public async getBranchName() {
-    this.__cd()
+  public async getBranchName(): Promise<string> {
+    this.changeDirectory()
     const branch = await $`git rev-parse --abbrev-ref HEAD`
     return branch.toString().trim()
   }
 
-  public async getShortCommitId() {
-    this.__cd()
+  public async getShortCommitId(): Promise<string> {
+    this.changeDirectory()
     const commitId = await $`git rev-parse --short HEAD`
     return commitId.toString().trim()
   }
 
-  public async getCommitId() {
-    this.__cd()
+  public async getCommitId(): Promise<string> {
+    this.changeDirectory()
     const commitId = await $`git rev-parse HEAD`
     return commitId.toString().trim()
   }
 
-  public async getUserName() {
-    this.__cd()
+  public async getUserName(): Promise<string> {
+    this.changeDirectory()
     const username = await $`git config user.name`
     return username.toString().trim()
   }
 
-  public async getUserEMail() {
-    this.__cd()
+  public async getUserEmail(): Promise<string> {
+    this.changeDirectory()
     const email = await $`git config user.email`
     return email.toString().trim()
   }
 
-  public async add(file: string) {
-    this.__cd()
+  public async add(file: string): Promise<void> {
+    this.changeDirectory()
     await $`git add ${file}`
   }
 
-  public async addAll() {
-    this.__cd()
+  public async addAll(): Promise<void> {
+    this.changeDirectory()
     await $`git add .`
   }
 
-  public async commit(message: string) {
-    this.__cd()
+  public async commit(message: string): Promise<void> {
+    this.changeDirectory()
     await $`git commit -m "${message}"`
   }
 
-  public async commitAll(message: string) {
-    this.__cd()
+  public async commitAll(message: string): Promise<void> {
+    this.changeDirectory()
     await $`git commit -a -m ${message}`
   }
 
-  public async submodulesUpdateInit() {
-    this.__cd()
+  public async submodulesUpdateInit(): Promise<void> {
+    this.changeDirectory()
     await $`git submodule update --init`
   }
 
-  public async pullRebaseOrigin() {
-    this.__cd()
+  public async pullRebaseOrigin(): Promise<void> {
+    this.changeDirectory()
     await $`git pull --progress -v --rebase "origin"`
   }
 
-  public async pullNoRebaseOrigin() {
-    this.__cd()
+  public async pullNoRebaseOrigin(): Promise<void> {
+    this.changeDirectory()
     await $`git pull --progress -v --no-rebase "origin"`
   }
 
-  public async checkout(branch: string) {
-    this.__cd()
+  public async checkout(branch: string): Promise<void> {
+    this.changeDirectory()
     await $`git checkout ${branch}`
   }
 
-  public async checkoutOrigin(branch: string) {
-    this.__cd()
+  public async checkoutOrigin(branch: string): Promise<void> {
+    this.changeDirectory()
     await $`git checkout -b ${branch} --track origin/${branch}`
   }
 
-  public async pushOrigin(localbranch: string, remotebranch?: string) {
-    this.__cd()
-    remotebranch = remotebranch ?? localbranch
-    await $`git push --progress -v "origin" ${localbranch}:${remotebranch}`
+  public async pushOrigin(localBranch: string, remoteBranch?: string): Promise<void> {
+    this.changeDirectory()
+    remoteBranch = remoteBranch ?? localBranch
+    await $`git push --progress -v "origin" ${localBranch}:${remoteBranch}`
   }
 }

@@ -10,6 +10,8 @@ export * from './blink-title'
 export * from './cors-enabled'
 export * from './validator'
 export * from './wx'
+export * from './register-handle-drop'
+export * from './register-handle-paste'
 
 /**
  * 随机一个min到max之间的整数

@@ -1,3 +1,5 @@
+import { getElement } from './get-element'
+
 export const registerHandleDrop = (
   selectors: HTMLElement | string,
   callback: (file: File, fileName: string) => void
@@ -11,30 +13,21 @@ export const registerHandleDrop = (
     event.preventDefault()
     event.stopPropagation()
     const { items, types } = event.dataTransfer!
-    if (types.indexOf('Files') > -1) {
-      for (let index = 0; index < items.length; index++) {
-        const item = items[index]
-        if (item.kind === 'file') {
-          const file = item.getAsFile()
-          if (file) {
-            return callback(file, file.name)
-          }
-        }
+    const fileItem = Array.from(items).find((item) => item.kind === 'file')
+
+    if (fileItem && types.includes('Files')) {
+      const file = fileItem.getAsFile()
+      if (file) {
+        callback(file, file.name)
       }
     }
   }
 
-  let element: HTMLElement
-  if (typeof selectors === 'string') {
-    const ele = document.querySelector<HTMLElement>(selectors)
-    if (!ele) throw Error()
-    element = ele
-  } else {
-    element = selectors
-  }
+  const element = getElement(selectors)
 
   element.addEventListener('dragover', dragoverListener)
   element.addEventListener('drop', dropListener)
+
   return () => {
     element.removeEventListener('dragover', dragoverListener)
     element.removeEventListener('drop', dropListener)

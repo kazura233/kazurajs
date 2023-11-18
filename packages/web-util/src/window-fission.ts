@@ -1,4 +1,4 @@
-import { registerEvent } from './register-event'
+import { win } from './add-event-listener'
 
 const KEY = 'WINDOW-FISSION'
 
@@ -7,9 +7,9 @@ const KEY = 'WINDOW-FISSION'
  * @param listener
  * @returns
  */
-export function windowFission(listener: (event: StorageEvent) => void) {
+export function windowFission(listener: (event: StorageEvent) => any) {
   window.localStorage.setItem(KEY, Math.random().toString())
-  return registerEvent('storage', (event) => {
+  return win(window).addEventListener('storage', (event) => {
     event.key === KEY && listener(event)
   })
 }

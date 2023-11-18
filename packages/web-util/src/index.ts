@@ -1,6 +1,6 @@
 export * from './file'
 export * from './image'
-export * from './register-event'
+export * from './add-event-listener'
 export * from './window-fission'
 export * from './get-query-variable'
 export * from './pattern'

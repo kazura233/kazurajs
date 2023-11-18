@@ -7,6 +7,13 @@ export class Win {
     this.window = win
   }
 
+  /**
+   * 添加事件监听器，并返回一个函数，用于取消监听。
+   * @param type - 事件类型
+   * @param listener - 事件监听器函数
+   * @param options - 事件监听器选项
+   * @returns - 用于取消监听的函数
+   */
   addEventListener<K extends keyof WindowEventMap>(
     type: K,
     listener: (this: Window, ev: WindowEventMap[K]) => any,
@@ -21,6 +28,13 @@ export class Win {
     return () => this.window.removeEventListener(type, listener, options)
   }
 
+  /**
+   * 静态方法，向全局 window 添加事件监听器，并返回一个函数，用于取消监听。
+   * @param type - 事件类型
+   * @param listener - 事件监听器函数
+   * @param options - 事件监听器选项
+   * @returns - 用于取消监听的函数
+   */
   static addEventListener<K extends keyof WindowEventMap>(
     type: K,
     listener: (this: Window, ev: WindowEventMap[K]) => any,
@@ -45,6 +59,13 @@ export class Dom<T extends HTMLElement> {
     this.element = getElement(selector)
   }
 
+  /**
+   * 添加事件监听器，并返回一个函数，用于取消监听。
+   * @param type - 事件类型
+   * @param listener - 事件监听器函数
+   * @param options - 事件监听器选项
+   * @returns - 用于取消监听的函数
+   */
   addEventListener<K extends keyof HTMLElementEventMap>(
     type: K,
     listener: (this: T, ev: HTMLElementEventMap[K]) => any,
@@ -59,6 +80,13 @@ export class Dom<T extends HTMLElement> {
     return () => this.element.removeEventListener(type, listener, options)
   }
 
+  /**
+   * 静态方法，向全局 document 添加事件监听器，并返回一个函数，用于取消监听。
+   * @param type - 事件类型
+   * @param listener - 事件监听器函数
+   * @param options - 事件监听器选项
+   * @returns - 用于取消监听的函数
+   */
   static addEventListener<K extends keyof DocumentEventMap>(
     type: K,
     listener: (this: Document, ev: DocumentEventMap[K]) => any,

@@ -1,9 +1,23 @@
+/**
+ * 创建并返回一个包含图像内容的 HTMLCanvasElement。
+ * @param image - 要从中获取图像内容的 HTMLImageElement。
+ * @returns 包含图像内容的 HTMLCanvasElement。
+ */
 const createCanvas = (image: HTMLImageElement): HTMLCanvasElement => {
+  // 创建新的 canvas 元素。
   const canvas: HTMLCanvasElement = document.createElement('canvas')
+
+  // 获取 2D 渲染上下文。
   const ctx = canvas.getContext('2d')!
+
+  // 设置 canvas 的宽度和高度与图像相同。
   canvas.width = image.width
   canvas.height = image.height
+
+  // 将图像绘制到 canvas 上。
   ctx.drawImage(image, 0, 0)
+
+  // 返回包含图像内容的 canvas 元素。
   return canvas
 }
 

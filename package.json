@@ -5,5 +5,9 @@
     "clean:all": "pnpm -r --filter=./packages/* run clean",
     "build:all": "pnpm -r --filter=./packages/* run build",
     "docs:build": "pnpm -C docs build"
+  },
+  "dependencies": {
+    "@types/uuid": "^9.0.3",
+    "uuid": "^9.0.0"
   }
 }

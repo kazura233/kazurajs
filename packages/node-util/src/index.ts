@@ -6,6 +6,8 @@ import type { PackageJson } from 'pkg-types'
 
 export * from './git'
 export * from './totp'
+export * from './worker.class'
+export * from './task-worker.class'
 
 export interface LookupFileOptions {
   /**

@@ -14,9 +14,9 @@ class NodeWorker extends _Worker {
 
 export interface WorkerOptions extends _WorkerOptions {
   /**
-   * 最大并发数
+   * 最大并发数 (默认为 CPU 核心数 - 1)
    */
-  max: number
+  max?: number
 }
 
 export class Worker<Args extends any[], Ret = any> {
@@ -33,13 +33,10 @@ export class Worker<Args extends any[], Ret = any> {
    */
   private queue: [(worker: NodeWorker) => void, (err: Error) => void][] = []
 
-  public constructor(
-    private filename: string | URL,
-    private options: WorkerOptions = {
-      max: Math.max(1, os.cpus().length - 1), // 默认最大并发数为 CPU 核心数 - 1
-    }
-  ) {
-    if (options.max < 1) {
+  public constructor(private filename: string | URL, private options: WorkerOptions = {}) {
+    this.options.max = this.options.max ?? Math.max(1, os.cpus().length - 1) // 默认最大并发数为 CPU 核心数 - 1
+
+    if (this.options.max < 1) {
       throw new Error('options.max must be greater than 0')
     }
 
@@ -83,7 +80,7 @@ export class Worker<Args extends any[], Ret = any> {
     }
 
     // 如何可以创建新的工作线程
-    if (this.pool.length < this.options.max) {
+    if (this.pool.length < this.options.max!) {
       const worker = new NodeWorker(this.filename, this.options)
 
       worker.on('message', (res) => {

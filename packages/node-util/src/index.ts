@@ -81,4 +81,10 @@ export function writeFile(filename: string, content: string | Uint8Array): void 
   fs.writeFileSync(filename, content)
 }
 
-export const md5 = (str: string) => createHash('md5').update(str, 'utf-8').digest('hex')
+export function md5(text: string): string {
+  return createHash('md5').update(text, 'utf-8').digest('hex')
+}
+
+export function getHash(text: string): string {
+  return createHash('sha256').update(text, 'utf-8').digest('hex').substring(0, 8)
+}

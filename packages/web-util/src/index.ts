@@ -156,3 +156,7 @@ export function getGlobal(): (Window & typeof globalThis) | undefined {
     return self
   }
 }
+
+export function unique<T>(arr: T[]): T[] {
+  return Array.from(new Set(arr))
+}

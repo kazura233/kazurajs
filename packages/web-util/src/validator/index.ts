@@ -1,3 +1,5 @@
+import { toTypeString } from 'src/shared'
+
 export * from './array'
 export * from './common'
 export * from './date'
@@ -6,20 +8,6 @@ export * from './object'
 export * from './string'
 export * from './typechecker'
 export * from './typed-is-promise'
-
-/**
- * Object.prototype.toString
- */
-export const objectToString = Object.prototype.toString
-
-/**
- * Object.prototype.toString.call
- *
- * Object.prototype.toString.call(new Map()) // "[object Map]"
- */
-export const toTypeString = (value: unknown): string => {
-  return objectToString.call(value)
-}
 
 /**
  * 返回其原始类型的字符串表示

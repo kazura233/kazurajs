@@ -14,6 +14,7 @@ export * from './register-handle-drop'
 export * from './register-handle-paste'
 export * from './date'
 export * from './env'
+export * from './shared'
 
 /**
  * 生成指定范围内的随机整数

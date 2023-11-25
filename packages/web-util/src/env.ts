@@ -59,5 +59,3 @@ export function isNative(Ctor: any): boolean {
   }
   return false
 }
-
-export function noop(..._: any[]): any {}

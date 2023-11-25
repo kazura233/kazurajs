@@ -13,6 +13,7 @@ export * from './wx'
 export * from './register-handle-drop'
 export * from './register-handle-paste'
 export * from './date'
+export * from './env'
 
 /**
  * 生成指定范围内的随机整数
@@ -160,3 +161,14 @@ export function getGlobal(): (Window & typeof globalThis) | undefined {
 export function unique<T>(arr: T[]): T[] {
   return Array.from(new Set(arr))
 }
+
+/**
+ * 将微任务加入队列以在控制返回浏览器的事件循环之前的安全时间执行。
+ * @param callback - 要执行的函数
+ * @returns
+ */
+export const queueMicrotask: (callback: VoidFunction) => void =
+  window.queueMicrotask ||
+  function (callback: VoidFunction) {
+    Promise.resolve().then(callback)
+  }

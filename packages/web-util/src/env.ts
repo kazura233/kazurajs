@@ -1,10 +1,49 @@
-export const inBrowser = typeof window !== 'undefined'
-export const UA = inBrowser && window.navigator.userAgent.toLowerCase()
-export const isIE = UA && /msie|trident/.test(UA)
-export const isIE9 = UA && UA.indexOf('msie 9.0') > 0
-export const isEdge = UA && UA.indexOf('edge/') > 0
-export const isAndroid = UA && UA.indexOf('android') > 0
-export const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA)
-export const isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge
-export const isPhantomJS = UA && /phantomjs/.test(UA)
-export const isFF = UA && UA.match(/firefox\/(\d+)/)
+/*
+ * 判断是否在浏览器环境中
+ */
+export const isBrowser = typeof window !== 'undefined'
+
+/*
+ * 获取用户代理字符串（User Agent）
+ */
+export const userAgent = isBrowser ? window.navigator.userAgent.toLowerCase() : ''
+
+/*
+ * 判断是否为IE浏览器
+ */
+export const isIE = isBrowser && /msie|trident/.test(userAgent)
+
+/*
+ * 判断是否为IE 9
+ */
+export const isIE9 = isBrowser && userAgent.includes('msie 9.0')
+
+/*
+ * 判断是否为Edge浏览器
+ */
+export const isEdge = isBrowser && userAgent.includes('edge/')
+
+/*
+ * 判断是否为Android设备
+ */
+export const isAndroid = isBrowser && userAgent.includes('android')
+
+/*
+ * 判断是否为iOS设备
+ */
+export const isIOS = isBrowser && /iphone|ipad|ipod|ios/.test(userAgent)
+
+/*
+ * 判断是否为Chrome浏览器（不包括Edge）
+ */
+export const isChrome = isBrowser && /chrome\/\d+/.test(userAgent) && !isEdge
+
+/*
+ * 判断是否为PhantomJS浏览器
+ */
+export const isPhantomJS = isBrowser && userAgent.includes('phantomjs')
+
+/*
+ * 判断是否为Firefox浏览器，并获取版本号
+ */
+export const isFirefox = isBrowser && userAgent.match(/firefox\/(\d+)/) !== null

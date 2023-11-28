@@ -453,6 +453,89 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
+  packages/react-mobx:
+    dependencies:
+      '@types/react':
+        specifier: ^18.2.0
+        version: 18.2.36
+      mobx:
+        specifier: ^6.12.0
+        version: 6.12.0
+      mobx-react-lite:
+        specifier: ^4.0.5
+        version: 4.0.5(mobx@6.12.0)(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+    devDependencies:
+      '@rollup/plugin-commonjs':
+        specifier: ^25.0.4
+        version: 25.0.7(rollup@3.29.4)
+      '@rollup/plugin-json':
+        specifier: ^6.0.0
+        version: 6.0.1(rollup@3.29.4)
+      '@rollup/plugin-node-resolve':
+        specifier: ^15.2.1
+        version: 15.2.3(rollup@3.29.4)
+      '@rollup/plugin-replace':
+        specifier: ^5.0.2
+        version: 5.0.2(rollup@3.29.4)
+      '@rollup/plugin-terser':
+        specifier: ^0.4.3
+        version: 0.4.4(rollup@3.29.4)
+      rimraf:
+        specifier: ^5.0.1
+        version: 5.0.5
+      rollup:
+        specifier: ^3.28.1
+        version: 3.29.4
+      rollup-plugin-typescript2:
+        specifier: ^0.35.0
+        version: 0.35.0(rollup@3.29.4)(typescript@5.2.2)
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
+
+  packages/react-mobx/example:
+    dependencies:
+      '@kazura/react-mobx':
+        specifier: workspace:*
+        version: link:..
+      mobx:
+        specifier: ^6.12.0
+        version: 6.12.0
+      mobx-react-lite:
+        specifier: ^4.0.5
+        version: 4.0.5(mobx@6.12.0)(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@types/node':
+        specifier: ^20.5.9
+        version: 20.8.10
+      '@types/react':
+        specifier: ^18.2.21
+        version: 18.2.36
+      '@types/react-dom':
+        specifier: ^18.2.7
+        version: 18.2.14
+      '@vitejs/plugin-react':
+        specifier: ^4.0.4
+        version: 4.1.1(vite@4.5.0)
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
+      vite:
+        specifier: ^4.4.9
+        version: 4.5.0(@types/node@20.8.10)
+
   packages/react-store:
     dependencies:
       '@babel/runtime':
@@ -5472,8 +5555,8 @@ packages:
   /@types/babel__core@7.20.4:
     resolution: {integrity: sha512-mLnSC22IC4vcWiuObSRjrLd9XcBTGf59vUSoq2jkQDJ/QQ8PMI9rSuzE+aEV8karUMbskw07bKYoUJCKTUaygg==}
     dependencies:
-      '@babel/parser': 7.22.16
-      '@babel/types': 7.22.19
+      '@babel/parser': 7.23.0
+      '@babel/types': 7.23.0
       '@types/babel__generator': 7.6.7
       '@types/babel__template': 7.4.4
       '@types/babel__traverse': 7.20.4
@@ -11324,6 +11407,29 @@ packages:
       pkg-types: 1.0.3
       ufo: 1.3.1
 
+  /mobx-react-lite@4.0.5(mobx@6.12.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-StfB2wxE8imKj1f6T8WWPf4lVMx3cYH9Iy60bbKXEs21+HQ4tvvfIBZfSmMXgQAefi8xYEwQIz4GN9s0d2h7dg==}
+    peerDependencies:
+      mobx: ^6.9.0
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      mobx: 6.12.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
+
+  /mobx@6.12.0:
+    resolution: {integrity: sha512-Mn6CN6meXEnMa0a5u6a5+RKrqRedHBhZGd15AWLk9O6uFY4KYHzImdt8JI8WODo1bjTSRnwXhJox+FCUZhCKCQ==}
+    dev: false
+
   /morgan@1.10.0:
     resolution: {integrity: sha512-AbegBVI4sh6El+1gNwvD5YIck7nSA36weD7xvIxG4in80j/UoK8AEGaWnnz8v1GxonMCltmlNs5ZKbGvl9b1XQ==}
     engines: {node: '>= 0.8.0'}
@@ -13104,6 +13210,21 @@ packages:
       find-cache-dir: 3.3.2
       fs-extra: 10.1.0
       rollup: 3.29.3
+      semver: 7.5.4
+      tslib: 2.6.2
+      typescript: 5.2.2
+    dev: true
+
+  /rollup-plugin-typescript2@0.35.0(rollup@3.29.4)(typescript@5.2.2):
+    resolution: {integrity: sha512-szcIO9hPUx3PhQl91u4pfNAH2EKbtrXaES+m163xQVE5O1CC0ea6YZV/5woiDDW3CR9jF2CszPrKN+AFiND0bg==}
+    peerDependencies:
+      rollup: '>=1.26.3'
+      typescript: '>=2.4.0'
+    dependencies:
+      '@rollup/pluginutils': 4.2.1
+      find-cache-dir: 3.3.2
+      fs-extra: 10.1.0
+      rollup: 3.29.4
       semver: 7.5.4
       tslib: 2.6.2
       typescript: 5.2.2

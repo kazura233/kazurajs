@@ -2,5 +2,6 @@ packages:
   - 'docs'
   - 'packages/*'
   - 'packages/web-broadcast/example'
+  - 'packages/react-mobx/example'
   - 'packages/react-store/example'
   - 'packages/build-test/*'

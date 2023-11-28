@@ -12,11 +12,6 @@ export interface ProviderProps {
   stores: IStores
 }
 
-export interface MobxProviderProps {
-  children: React.ReactNode
-  stores: Array<Type>
-}
-
 export const MobXProviderContext = React.createContext<{ stores: IStores }>({
   stores: new Map(),
 })
@@ -26,7 +21,7 @@ export const Provider: FC<PropsWithChildren<ProviderProps>> = ({ children, store
 
   useEffect(() => {
     const listener = (change: IObjectDidChange) => {
-      console.log('Mobx -> Provider -> observer -> listener -> change', change)
+      console.log('Mobx -> Provider -> observe -> listener -> change', change)
       setContextValue((value) => ({ stores: value.stores }))
     }
 
@@ -42,6 +37,13 @@ export const Provider: FC<PropsWithChildren<ProviderProps>> = ({ children, store
   return (
     <MobXProviderContext.Provider value={contextValue}>{children}</MobXProviderContext.Provider>
   )
+}
+
+Provider.displayName = 'Provider'
+
+export interface MobxProviderProps {
+  children: React.ReactNode
+  stores: Array<Type>
 }
 
 export const MobxProvider: FC<PropsWithChildren<MobxProviderProps>> = ({
@@ -64,7 +66,7 @@ MobxProvider.displayName = 'MobxProvider'
 export function useStore<T extends Type>(type: T): InstanceType<T> {
   const contextValue = React.useContext(MobXProviderContext)
 
-  console.log('Mobx -> useStores -> contextValue', contextValue)
+  console.log('Mobx -> useStore -> contextValue', contextValue)
 
   if (!contextValue.stores.has(type)) {
     throw new Error(`Store ${type.name} is not provided`)

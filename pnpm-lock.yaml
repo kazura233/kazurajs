@@ -460,9 +460,6 @@ importers:
       mobx:
         specifier: ^6.12.0
         version: 6.12.0
-      mobx-react-lite:
-        specifier: ^4.0.5
-        version: 4.0.5(mobx@6.12.0)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0

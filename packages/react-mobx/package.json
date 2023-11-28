@@ -1,6 +1,6 @@
 {
   "name": "@kazura/react-mobx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "react-mobx",
   "keywords": [
     "react",
@@ -36,10 +36,14 @@
     "dev": "rollup --config rollup.config.js --watch",
     "build": "pnpm clean & rollup --config rollup.config.js"
   },
+  "peerDependencies": {
+    "@types/react": ">=18.2",
+    "mobx": "^>=6.12",
+    "react": ">=18.2"
+  },
   "dependencies": {
     "@types/react": "^18.2.0",
     "mobx": "^6.12.0",
-    "mobx-react-lite": "^4.0.5",
     "react": "^18.2.0"
   },
   "devDependencies": {

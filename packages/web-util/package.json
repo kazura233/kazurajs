@@ -27,6 +27,11 @@
       "require": "./lib/save-file/index.js",
       "import": "./es/save-file/index.js",
       "types": "./save-file/index.d.ts"
+    },
+    "./date": {
+      "require": "./lib/date/index.js",
+      "import": "./es/date/index.js",
+      "types": "./date/index.d.ts"
     }
   },
   "main": "lib/index.js",
@@ -39,7 +44,8 @@
     "src",
     "types",
     "iife",
-    "save-file"
+    "save-file",
+    "date"
   ],
   "scripts": {
     "clean": "rimraf dist lib es types iife",

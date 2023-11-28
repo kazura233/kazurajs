@@ -18,7 +18,7 @@ const makeExternalPredicate = (externalArr) => {
   return (id) => pattern.test(id)
 }
 
-const inputFileNames = ['index', 'save-file']
+const inputFileNames = ['index', 'save-file', 'date']
 
 const config = []
 

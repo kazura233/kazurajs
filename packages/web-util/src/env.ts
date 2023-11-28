@@ -1,52 +1,51 @@
 /**
  * 判断是否在浏览器环境中
  */
-export const isBrowser = typeof window !== 'undefined'
-
-/**
- * 获取用户代理字符串（User Agent）
- */
-export const userAgent = isBrowser ? window.navigator.userAgent.toLowerCase() : ''
+export const isBrowser = () => typeof window !== 'undefined'
 
 /**
  * 判断是否为IE浏览器
  */
-export const isIE = isBrowser && /msie|trident/.test(userAgent)
+export const isIE = () => isBrowser() && /msie|trident/.test(navigator.userAgent.toLowerCase())
 
 /**
  * 判断是否为IE 9
  */
-export const isIE9 = isBrowser && userAgent.includes('msie 9.0')
+export const isIE9 = () => isBrowser() && navigator.userAgent.toLowerCase().includes('msie 9.0')
 
 /**
  * 判断是否为Edge浏览器
  */
-export const isEdge = isBrowser && userAgent.includes('edge/')
+export const isEdge = () => isBrowser() && navigator.userAgent.toLowerCase().includes('edge/')
 
 /**
  * 判断是否为Android设备
  */
-export const isAndroid = isBrowser && userAgent.includes('android')
+export const isAndroid = () => isBrowser() && navigator.userAgent.toLowerCase().includes('android')
 
 /**
  * 判断是否为iOS设备
  */
-export const isIOS = isBrowser && /iphone|ipad|ipod|ios/.test(userAgent)
+export const isIOS = () =>
+  isBrowser() && /iphone|ipad|ipod|ios/.test(navigator.userAgent.toLowerCase())
 
 /**
  * 判断是否为Chrome浏览器（不包括Edge）
  */
-export const isChrome = isBrowser && /chrome\/\d+/.test(userAgent) && !isEdge
+export const isChrome = () =>
+  isBrowser() && /chrome\/\d+/.test(navigator.userAgent.toLowerCase()) && !isEdge()
 
 /**
  * 判断是否为PhantomJS浏览器
  */
-export const isPhantomJS = isBrowser && userAgent.includes('phantomjs')
+export const isPhantomJS = () =>
+  isBrowser() && navigator.userAgent.toLowerCase().includes('phantomjs')
 
 /**
  * 判断是否为Firefox浏览器，并获取版本号
  */
-export const isFirefox = isBrowser && userAgent.match(/firefox\/(\d+)/) !== null
+export const isFirefox = () =>
+  isBrowser() && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) !== null
 
 /**
  * 判断一个函数是否为 JavaScript 的内置函数

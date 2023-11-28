@@ -1,5 +1,7 @@
 import dayjs from 'dayjs'
 
+export { dayjs }
+
 /**
  * 格式化日期字符串
  * @param t - 日期字符串 (默认当前时间)

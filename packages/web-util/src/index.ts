@@ -12,7 +12,6 @@ export * from './validator'
 export * from './wx'
 export * from './register-handle-drop'
 export * from './register-handle-paste'
-export * from './date'
 export * from './env'
 export * from './shared'
 

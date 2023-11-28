@@ -1,6 +1,6 @@
 {
   "name": "@kazura/react-mobx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "react-mobx",
   "keywords": [
     "react",
@@ -38,7 +38,7 @@
   },
   "peerDependencies": {
     "@types/react": ">=18.2",
-    "mobx": "^>=6.12",
+    "mobx": ">=6.12",
     "react": ">=18.2"
   },
   "dependencies": {

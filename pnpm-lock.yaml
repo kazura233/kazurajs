@@ -6,14 +6,7 @@ settings:
 
 importers:
 
-  .:
-    dependencies:
-      '@types/uuid':
-        specifier: ^9.0.3
-        version: 9.0.6
-      uuid:
-        specifier: ^9.0.0
-        version: 9.0.1
+  .: {}
 
   docs:
     dependencies:
@@ -302,12 +295,18 @@ importers:
       '@babel/runtime':
         specifier: ^7.22.11
         version: 7.22.15
+      '@types/uuid':
+        specifier: ^9.0.3
+        version: 9.0.6
       pkg-types:
         specifier: ^1.0.3
         version: 1.0.3
       time2fa:
         specifier: ^1.2.2
         version: 1.2.2
+      uuid:
+        specifier: ^9.0.0
+        version: 9.0.1
       zx:
         specifier: ^7.2.3
         version: 7.2.3

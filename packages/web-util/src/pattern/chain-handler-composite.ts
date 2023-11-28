@@ -44,12 +44,12 @@ export abstract class ChainHandlerComposite<I, O>
   /**
    * 前置中间件实例。
    */
-  private beforeMiddleware: IMiddleware<I> = new Middleware<I>((data) => this.execute(data))
+  private beforeMiddleware: IMiddleware<I> = new Middleware<I>((data) => super.execute(data))
 
   /**
    * 后置中间件实例。
    */
-  private afterMiddleware: IMiddleware<O> = new Middleware<O>((result) => this.proceed(result))
+  private afterMiddleware: IMiddleware<O> = new Middleware<O>((result) => super.proceed(result))
 
   /**
    * 获取前置中间件。

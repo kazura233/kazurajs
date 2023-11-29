@@ -7,7 +7,7 @@ export interface Type<T = any> extends Function {
 
 export interface IStores extends Map<Type, InstanceType<Type>> {}
 
-export interface ProviderProps {
+export interface MobxProviderProps {
   children: React.ReactNode
   stores: IStores
 }
@@ -16,12 +16,12 @@ export const MobXProviderContext = React.createContext<{ stores: IStores }>({
   stores: new Map(),
 })
 
-export const Provider: FC<PropsWithChildren<ProviderProps>> = ({ children, stores }) => {
+export const MobxProvider: FC<PropsWithChildren<MobxProviderProps>> = ({ children, stores }) => {
   const [contextValue, setContextValue] = useState({ stores })
 
   useEffect(() => {
     const listener = (change: IObjectDidChange) => {
-      console.log('Mobx -> Provider -> observe -> listener -> change', change)
+      console.log('MobxProvider -> observe -> listener -> change', change)
       setContextValue((value) => ({ stores: value.stores }))
     }
 
@@ -39,29 +39,15 @@ export const Provider: FC<PropsWithChildren<ProviderProps>> = ({ children, store
   )
 }
 
-Provider.displayName = 'Provider'
+MobxProvider.displayName = 'MobxProvider'
 
-export interface MobxProviderProps {
-  children: React.ReactNode
-  stores: Array<Type>
-}
-
-export const MobxProvider: FC<PropsWithChildren<MobxProviderProps>> = ({
-  children,
-  stores: rawStores,
-}) => {
-  console.log('Mobx -> MobxProvider -> render')
-
-  const stores = new Map(
-    rawStores.map((store) => {
+export const createStores = (stores: Array<Type>): IStores => {
+  return new Map(
+    stores.map((store) => {
       return [store, new store()]
     })
   )
-
-  return <Provider stores={stores}>{children}</Provider>
 }
-
-MobxProvider.displayName = 'MobxProvider'
 
 export function useStore<T extends Type>(type: T): InstanceType<T> {
   const contextValue = React.useContext(MobXProviderContext)

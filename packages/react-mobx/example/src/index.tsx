@@ -12,3 +12,9 @@ root.render(
     <Root />
   </MobxProvider>
 )
+
+{
+  const win: any = window
+  win.DemoStore = DemoStore
+  win.stores = stores
+}

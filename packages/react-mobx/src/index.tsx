@@ -1,11 +1,9 @@
 import React, { FC, PropsWithChildren, useEffect, useState } from 'react'
 import { IObjectDidChange, observe } from 'mobx'
+import { Type } from './shared'
+import { MobxMap } from './mobx-map.class'
 
-export interface Type<T = any> extends Function {
-  new (...args: any[]): T
-}
-
-export interface IStores extends Map<Type, InstanceType<Type>> {}
+export type IStores = MobxMap
 
 export interface MobxProviderProps {
   children: React.ReactNode
@@ -13,7 +11,7 @@ export interface MobxProviderProps {
 }
 
 export const MobXProviderContext = React.createContext<{ stores: IStores }>({
-  stores: new Map(),
+  stores: new MobxMap(),
 })
 
 export const MobxProvider: FC<PropsWithChildren<MobxProviderProps>> = ({ children, stores }) => {
@@ -42,7 +40,7 @@ export const MobxProvider: FC<PropsWithChildren<MobxProviderProps>> = ({ childre
 MobxProvider.displayName = 'MobxProvider'
 
 export const createStores = (stores: Array<Type>): IStores => {
-  return new Map(
+  return new MobxMap(
     stores.map((store) => {
       return [store, new store()]
     })

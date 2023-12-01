@@ -49,8 +49,8 @@ export const isFirefox = () =>
 
 /**
  * 判断一个函数是否为 JavaScript 的内置函数
- * @param {any} Ctor - 要检查的函数。
- * @returns {boolean} - 如果函数是本地代码，则返回 true；否则返回 false。
+ * @param Ctor - 要检查的函数。
+ * @returns - 如果函数是本地代码，则返回 true；否则返回 false。
  */
 export function isNative(Ctor: any): boolean {
   if (typeof Ctor === 'function') {

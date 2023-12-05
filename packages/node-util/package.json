@@ -18,8 +18,8 @@
   },
   "license": "MIT",
   "type": "module",
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "main": "lib/index.cjs",
+  "module": "es/index.mjs",
   "types": "types/index.d.ts",
   "files": [
     "dist",

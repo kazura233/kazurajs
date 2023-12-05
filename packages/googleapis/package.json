@@ -16,8 +16,9 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "type": "module",
+  "main": "lib/index.cjs",
+  "module": "es/index.mjs",
   "types": "types/index.d.ts",
   "files": [
     "dist",

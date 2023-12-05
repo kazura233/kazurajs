@@ -45,6 +45,12 @@ importers:
         specifier: ~5.2.2
         version: 5.2.2
 
+  packages/build-test/nodejs:
+    dependencies:
+      '@kazura/googleapis':
+        specifier: workspace:*
+        version: link:../../googleapis
+
   packages/build-test/rollup:
     dependencies:
       '@kazura/web-util':

@@ -32,11 +32,6 @@ export default defineConfig([
         extensions,
       }),
       typescript({ useTsconfigDeclarationDir: true }),
-      // babel({
-      //   extensions,
-      //   plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
-      //   babelHelpers: 'runtime',
-      // }),
       commonjs(),
     ],
   },

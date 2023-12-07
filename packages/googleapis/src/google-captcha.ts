@@ -18,7 +18,7 @@ export interface VerifyResponse {
 export class GoogleCaptcha {
   constructor(public readonly secret: string) {}
 
-  async verify(token: string, remoteip?: string) {
+  async verify(token: string, remoteip?: string): Promise<VerifyResponse> {
     // https://developers.google.com/recaptcha/docs/verify
     const resp = await createAPIRequest<VerifyResponse>({
       options: {

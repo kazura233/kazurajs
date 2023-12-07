@@ -130,12 +130,16 @@ export const getFileExtension = (file: File | string): string => {
  * @returns
  */
 export function getGlobal(): (Window & typeof globalThis) | undefined {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: Cannot find name 'globalThis'.
   if (typeof globalThis !== 'undefined') {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore: Type 'typeof globalThis' is not assignable to type 'Window & typeof globalThis'.
     return globalThis
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: Cannot find name 'global'.
   if (typeof global !== 'undefined') {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore: Type 'typeof globalThis' is not assignable to type 'Window & typeof globalThis'.

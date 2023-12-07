@@ -39,14 +39,9 @@
     "@tarojs/taro": ">=3.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.23.5",
     "@tarojs/taro": "^3.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.5",
-    "@babel/plugin-transform-runtime": "^7.23.4",
-    "@babel/preset-env": "^7.23.5",
-    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",

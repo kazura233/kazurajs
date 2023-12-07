@@ -1,7 +1,6 @@
 import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import typescript from 'rollup-plugin-typescript2'
-import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { defineConfig } from 'rollup'
 
@@ -10,8 +9,6 @@ import pkg from './package.json' assert { type: 'json' }
 const extensions = ['.ts']
 
 const noDeclarationFiles = { compilerOptions: { declaration: false } }
-
-const babelRuntimeVersion = pkg.dependencies['@babel/runtime'].replace(/^[^0-9]*/, '')
 
 export default defineConfig([
   // CommonJS
@@ -30,11 +27,6 @@ export default defineConfig([
         extensions,
       }),
       typescript({ useTsconfigDeclarationDir: true }),
-      // babel({
-      //   extensions,
-      //   plugins: [['@babel/plugin-transform-runtime', { version: babelRuntimeVersion }]],
-      //   babelHelpers: 'runtime',
-      // }),
       commonjs(),
     ],
   },
@@ -53,13 +45,6 @@ export default defineConfig([
         extensions,
       }),
       typescript({ tsconfigOverride: noDeclarationFiles }),
-      // babel({
-      //   extensions,
-      //   plugins: [
-      //     ['@babel/plugin-transform-runtime', { version: babelRuntimeVersion, useESModules: true }],
-      //   ],
-      //   babelHelpers: 'runtime',
-      // }),
       commonjs(),
     ],
   },

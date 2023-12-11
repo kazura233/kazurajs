@@ -24,6 +24,9 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
+  "dependencies": {
+    "esbuild": "^0.19.9"
+  },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.0.1",
     "@rollup/plugin-commonjs": "^25.0.7",

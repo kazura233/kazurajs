@@ -25,7 +25,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "esbuild": "^0.19.9"
+    "esbuild": "^0.19.9",
+    "jiti": "^1.21.0"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.0.1",

@@ -210,6 +210,9 @@ importers:
       esbuild:
         specifier: ^0.19.9
         version: 0.19.9
+      jiti:
+        specifier: ^1.21.0
+        version: 1.21.0
     devDependencies:
       '@rollup/plugin-alias':
         specifier: ^5.0.1

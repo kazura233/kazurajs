@@ -36,6 +36,7 @@
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/pluginutils": "^5.1.0",
     "pkg-types": "^1.0.3",
     "rimraf": "^5.0.5",
     "rollup": "^3.28.1",

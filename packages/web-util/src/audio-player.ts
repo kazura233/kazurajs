@@ -4,7 +4,9 @@ export type AudioConfig = {
    */
   name?: string
   /**
-   * 音频URL
+   * 音频URL，请传递完整路径，包含协议部份。
+   * 错误的例子：/files/mp3/a.mp3
+   * 正确的例子：https://www.example.com/files/mp3/a.mp3
    */
   url: string
   /**
@@ -70,7 +72,7 @@ export class AudioPlayer {
     const currentlyPlaying = this.audioConfigs.find((audio) => audio.url === this.audio.src)
 
     // 如果正在播放的音频的优先级较高或相等，则不切换
-    if (currentlyPlaying && currentlyPlaying.priority <= selectedAudio.priority) {
+    if (currentlyPlaying && currentlyPlaying.priority >= selectedAudio.priority) {
       return
     }
 

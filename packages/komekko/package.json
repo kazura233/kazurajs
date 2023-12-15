@@ -7,10 +7,7 @@
   },
   "type": "module",
   "scripts": {
-    "tsc": "tsc",
-    "clean": "rimraf dist lib es types iife",
-    "dev": "rollup --config rollup.config.js --watch",
-    "build": "pnpm clean & rollup --config rollup.config.js"
+    "build": "jiti ./src/cli"
   },
   "keywords": [],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/komekko#readme",

@@ -2,14 +2,9 @@
   "name": "komekko",
   "version": "0.0.1-alpha.1",
   "description": "komekko",
-  "bin": {
-    "komekko": "./es/cli.js"
-  },
-  "type": "module",
-  "scripts": {
-    "build": "jiti ./src/cli"
-  },
-  "keywords": [],
+  "keywords": [
+    "komekko"
+  ],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/komekko#readme",
   "repository": {
     "type": "git",
@@ -21,25 +16,49 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
-  "dependencies": {
-    "esbuild": "^0.19.9",
-    "jiti": "^1.21.0"
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
   },
-  "devDependencies": {
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "komekko": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "jiti ./src/cli"
+  },
+  "dependencies": {
     "@rollup/plugin-alias": "^5.0.1",
     "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-dynamic-import-vars": "^2.1.0",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-replace": "^5.0.2",
-    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/pluginutils": "^5.1.0",
+    "citty": "^0.1.5",
+    "defu": "^6.1.3",
+    "esbuild": "^0.19.9",
+    "jiti": "^1.21.0",
+    "pathe": "^1.1.1",
     "pkg-types": "^1.0.3",
-    "rimraf": "^5.0.5",
     "rollup": "^3.28.1",
-    "rollup-plugin-typescript2": "^0.36.0",
-    "tslib": "^2.6.2",
-    "typescript": "^5.2.2"
+    "rollup-plugin-dts": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.9",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   },
   "npmName": "komekko",
   "publishConfig": {

@@ -7,10 +7,7 @@
   },
   "type": "module",
   "scripts": {
-    "tsc": "tsc",
-    "clean": "rimraf dist lib es types iife",
-    "dev": "rollup --config rollup.config.js --watch",
-    "build": "pnpm clean & rollup --config rollup.config.js"
+    "build": "jiti ./src/cli"
   },
   "keywords": [],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/komekko#readme",
@@ -24,6 +21,10 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
+  "dependencies": {
+    "esbuild": "^0.19.9",
+    "jiti": "^1.21.0"
+  },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.0.1",
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -32,6 +33,7 @@
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/pluginutils": "^5.1.0",
     "pkg-types": "^1.0.3",
     "rimraf": "^5.0.5",
     "rollup": "^3.28.1",

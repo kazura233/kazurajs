@@ -6,7 +6,7 @@ import {
 } from 'google-auth-library'
 import { oauth2, oauth2_v2 } from '@googleapis/oauth2'
 
-export { OAuth2Client, OAuth2ClientOptions, GenerateAuthUrlOpts, GetTokenOptions }
+export type { OAuth2Client, OAuth2ClientOptions, GenerateAuthUrlOpts, GetTokenOptions }
 
 export type UserInfo = oauth2_v2.Schema$Userinfo
 

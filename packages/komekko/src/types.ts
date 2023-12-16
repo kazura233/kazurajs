@@ -42,7 +42,7 @@ export interface BuildOptions {
   replace: { [str: string]: string }
   external: (string | RegExp)[]
   entries: BuildEntry[]
-  rollup: Partial<RollupPluginsOptions>
+  plugins: Partial<RollupPluginsOptions>
 }
 
 export interface KomekkoOptions extends Partial<BuildOptions> {}

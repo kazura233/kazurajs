@@ -1,9 +1,19 @@
 import { resolve } from 'pathe'
 import type { BuildEntry, BuildOptions, KomekkoOptions, ModuleFormat } from '../types'
-import { tryRequire } from '../utils'
+import { arrayIncludes, getpkg, md5, tryRequire } from '../utils'
 import type { PackageJson } from 'pkg-types'
 import Module from 'node:module'
 import defu from 'defu'
+import { InputPluginOption, OutputOptions, PreRenderedChunk, RollupOptions, rollup } from 'rollup'
+import commonjs from '@rollup/plugin-commonjs'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import alias from '@rollup/plugin-alias'
+import dts from 'rollup-plugin-dts'
+import replace from '@rollup/plugin-replace'
+import json from '@rollup/plugin-json'
+import { esbuildPlugin } from '../plugins/esbuild'
+
+const DEFAULT_EXTENSIONS = ['.ts', '.tsx', '.mjs', '.cjs', '.js', '.jsx', '.json']
 
 export type OutputDescriptor =
   | {
@@ -45,7 +55,7 @@ export class RollupBuilder {
         ...Module.builtinModules.map((module) => 'node:' + module),
       ],
       entries: [],
-      rollup: {
+      plugins: {
         replace: {
           preventAssignment: true,
         },
@@ -114,16 +124,31 @@ export class RollupBuilder {
 
     this.checkExtension(outputs)
 
-    return outputs.map<BuildEntry>((output) => ({
-      entryFileName: output.file,
-      entryFileDir: this.options.rootDir,
-      entryAlias: output.file,
-      outFileName: output.file,
-      outFileDir: this.options.outDir,
-      declaration: 'declaration' in output ? output.declaration : undefined,
-      sourcemap: this.options.sourcemap,
-      format: 'format' in output ? output.format : undefined,
-    }))
+    return outputs.map<BuildEntry>((output) => {
+      let entryFileName = ''
+      let outFileName = ''
+
+      if (output.file.startsWith('dist/')) {
+        entryFileName = output.file.replace(/^dist\//, 'src/')
+        outFileName = output.file.replace(/^dist\//, '')
+      } else if (output.file.startsWith('./dist/')) {
+        entryFileName = output.file.replace(/^\.\/dist\//, 'src/')
+        outFileName = output.file.replace(/^\.\/dist\//, '')
+      } else {
+        throw new Error(`Expected output file to start with dist/, received ${output.file}`)
+      }
+
+      return {
+        entryFileName: entryFileName,
+        entryFileDir: this.options.rootDir,
+        entryAlias: md5(outFileName),
+        outFileName: outFileName,
+        outFileDir: this.options.outDir,
+        declaration: 'declaration' in output ? output.declaration : undefined,
+        sourcemap: this.options.sourcemap,
+        format: 'format' in output ? output.format : undefined,
+      }
+    })
   }
 
   public checkExtension(outputs: OutputDescriptor[]) {
@@ -197,5 +222,252 @@ export class RollupBuilder {
     }
 
     return null
+  }
+
+  public async build() {
+    const rollupOptions = this.getRollupOptions()
+
+    for (const options of rollupOptions) {
+      const rollupBuild = await rollup(options)
+      await rollupBuild.write(options.output as OutputOptions)
+    }
+
+    await this.writeTypes()
+  }
+
+  public getRollupOptions(): RollupOptions[] {
+    const grouped = this.groupByFormat(this.options.entries)
+    const external = this.options.external
+    return Object.entries(grouped)
+      .filter(([, entries]) => entries.length > 0)
+      .map(([format, entries]) => {
+        const outputOptions: OutputOptions = this.getOutputOptionsByFormat(format as ModuleFormat)
+
+        outputOptions.entryFileNames = (chunkInfo: PreRenderedChunk) =>
+          this.getEntryFileNames(chunkInfo, entries)
+
+        const options: RollupOptions = {
+          input: Object.fromEntries(
+            entries.map((entry) => [
+              entry.entryAlias,
+              resolve(entry.entryFileDir, entry.entryFileName),
+            ])
+          ),
+
+          output: outputOptions,
+
+          external(id) {
+            const pkg = getpkg(id)
+            const isExplicitExternal = arrayIncludes(external, pkg) || arrayIncludes(external, id)
+            return isExplicitExternal
+          },
+
+          onwarn(warning, rollupWarn) {
+            if (!warning.code || !['CIRCULAR_DEPENDENCY'].includes(warning.code)) {
+              rollupWarn(warning)
+            }
+          },
+
+          plugins: this.getInputPluginOption(),
+        }
+
+        console.log('>>>>>>>>>>', 'RollupBuilder->getRollupOptions->options->input', options.input)
+        console.log(
+          '>>>>>>>>>>',
+          'RollupBuilder->getRollupOptions->options->output',
+          options.output
+        )
+
+        return options
+      })
+  }
+
+  resolveAliases() {
+    const aliases: Record<string, string> = {
+      [this.pkg.name!]: this.options.rootDir,
+      ...this.options.alias,
+    }
+
+    if (this.options.plugins.alias) {
+      if (Array.isArray(this.options.plugins.alias.entries)) {
+        Object.assign(
+          aliases,
+          Object.fromEntries(
+            this.options.plugins.alias.entries.map((entry) => {
+              return [entry.find, entry.replacement]
+            })
+          )
+        )
+      } else {
+        Object.assign(aliases, this.options.plugins.alias.entries || this.options.plugins.alias)
+      }
+    }
+
+    return aliases
+  }
+
+  groupByFormat(buildEntries: BuildEntry[]): Record<ModuleFormat, BuildEntry[]> {
+    return buildEntries.reduce<Record<ModuleFormat, BuildEntry[]>>(
+      (map, entry) => {
+        if (entry.format) {
+          map[entry.format].push(entry)
+        }
+        return map
+      },
+      {
+        esm: [],
+        cjs: [],
+        umd: [],
+        iife: [],
+      }
+    )
+  }
+
+  public async writeTypes() {
+    const entries = this.options.entries.filter(({ declaration }) => declaration)
+
+    const external = this.options.external
+
+    const outputOptions: OutputOptions = this.getESMOutputOptions()
+
+    outputOptions.entryFileNames = (chunkInfo: PreRenderedChunk) =>
+      this.getEntryFileNames(chunkInfo, entries)
+
+    const options: RollupOptions = {
+      input: Object.fromEntries(
+        entries.map((entry) => [entry.entryAlias, resolve(entry.entryFileDir, entry.entryFileName)])
+      ),
+
+      output: outputOptions,
+
+      external(id) {
+        const pkg = getpkg(id)
+        const isExplicitExternal = arrayIncludes(external, pkg) || arrayIncludes(external, id)
+        return isExplicitExternal
+      },
+
+      onwarn(warning, rollupWarn) {
+        if (!warning.code || !['CIRCULAR_DEPENDENCY'].includes(warning.code)) {
+          rollupWarn(warning)
+        }
+      },
+      plugins: [...this.getInputPluginOption(), dts(this.options.plugins.dts)],
+    }
+
+    console.log('>>>>>>>>>>', 'RollupBuilder->writeTypes->options->input', options.input)
+    console.log('>>>>>>>>>>', 'RollupBuilder->writeTypes->options->output', options.output)
+
+    const rollupBuild = await rollup(options)
+    await rollupBuild.write(options.output as OutputOptions)
+  }
+
+  public getEntryFileNames(chunk: PreRenderedChunk, entries: BuildEntry[]) {
+    const name = entries.find(({ entryAlias }) => entryAlias === chunk.name)
+    if (!name) {
+      console.log(entries)
+      throw new Error(`Could not find entry for chunk ${chunk.name}`)
+    }
+    return name.outFileName
+  }
+
+  public getChunkFilename(chunk: PreRenderedChunk, ext: string) {
+    if (chunk.isDynamicEntry) {
+      return `chunks/[name].${ext}`
+    }
+    const name = getpkg(this.pkg.name)
+    return `shared/${name}.[hash].${ext}`
+  }
+
+  public getCJSOutputOptions(): OutputOptions {
+    return {
+      dir: this.options.outDir,
+      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'cjs'),
+      format: 'cjs',
+      exports: 'auto',
+      interop: 'compat',
+      generatedCode: { constBindings: true },
+      externalLiveBindings: false,
+      freeze: false,
+      sourcemap: this.options.sourcemap,
+      ...this.options.plugins.rollup?.output,
+    }
+  }
+
+  public getESMOutputOptions(): OutputOptions {
+    return {
+      dir: this.options.outDir,
+      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'mjs'),
+      format: 'esm',
+      exports: 'auto',
+      generatedCode: { constBindings: true },
+      externalLiveBindings: false,
+      freeze: false,
+      sourcemap: this.options.sourcemap,
+      ...this.options.plugins.rollup?.output,
+    }
+  }
+
+  public getUMDOutputOptions(): OutputOptions {
+    return {} // TODO
+  }
+
+  public getIIFEOutputOptions(): OutputOptions {
+    return {} // TODO
+  }
+
+  public getOutputOptionsByFormat(format: ModuleFormat): OutputOptions {
+    switch (format) {
+      case 'cjs':
+        return this.getCJSOutputOptions()
+      case 'esm':
+        return this.getESMOutputOptions()
+      case 'umd':
+        return this.getUMDOutputOptions()
+      case 'iife':
+        return this.getIIFEOutputOptions()
+      default:
+        throw new Error(`Unexpected format ${format}`)
+    }
+  }
+
+  public getInputPluginOption(): InputPluginOption[] {
+    return [
+      this.options.plugins.replace &&
+        replace({
+          ...this.options.plugins.replace,
+          values: {
+            ...this.options.replace,
+            ...this.options.plugins.replace.values,
+          },
+        }),
+      this.options.plugins.alias &&
+        alias({
+          ...this.options.plugins.alias,
+          entries: this.resolveAliases(),
+        }),
+
+      this.options.plugins.resolve &&
+        nodeResolve({
+          extensions: DEFAULT_EXTENSIONS,
+          ...this.options.plugins.resolve,
+        }),
+
+      this.options.plugins.json &&
+        json({
+          ...this.options.plugins.json,
+        }),
+
+      this.options.plugins.esbuild &&
+        esbuildPlugin({
+          sourcemap: this.options.sourcemap,
+          ...this.options.plugins.esbuild,
+        }),
+
+      this.options.plugins.commonjs &&
+        commonjs({
+          extensions: DEFAULT_EXTENSIONS,
+          ...this.options.plugins.commonjs,
+        }),
+    ].filter(Boolean)
   }
 }

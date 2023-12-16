@@ -29,7 +29,7 @@ const main = defineCommand({
     const rootDir = resolve(process.cwd(), args.dir || './')
     await build(rootDir, {
       sourcemap: args.sourcemap,
-      rollup: {
+      plugins: {
         esbuild: {
           minify: args.minify,
         },

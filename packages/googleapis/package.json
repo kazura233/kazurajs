@@ -17,9 +17,9 @@
   },
   "license": "MIT",
   "type": "module",
-  "main": "lib/index.cjs",
-  "module": "es/index.mjs",
-  "types": "types/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "lib",
@@ -31,7 +31,8 @@
   "scripts": {
     "clean": "rimraf dist lib es types iife",
     "dev": "rollup --config rollup.config.js --watch",
-    "build": "pnpm clean & rollup --config rollup.config.js"
+    "build": "pnpm clean & rollup --config rollup.config.js",
+    "komekko": "komekko"
   },
   "dependencies": {
     "@googleapis/oauth2": "^1.0.5",
@@ -44,6 +45,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.5",
     "@rollup/plugin-terser": "^0.4.4",
+    "komekko": "workspace:*",
     "rimraf": "^5.0.5",
     "rollup": "^4.6.1",
     "rollup-plugin-typescript2": "^0.36.0",

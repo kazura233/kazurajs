@@ -1,4 +1,4 @@
-import { toTypeString } from 'src/shared'
+import { toTypeString } from '../shared'
 
 export * from './array'
 export * from './common'

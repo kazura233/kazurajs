@@ -16,41 +16,34 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
-  "type": "module",
   "exports": {
     ".": {
-      "require": "./lib/index.js",
-      "import": "./es/index.js",
-      "types": "./types/index.d.ts"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     },
     "./save-file": {
-      "require": "./lib/save-file/index.js",
-      "import": "./es/save-file/index.js",
-      "types": "./save-file/index.d.ts"
+      "require": "./dist/save-file/index.cjs",
+      "import": "./dist/save-file/index.mjs",
+      "types": "./dist/save-file/index.d.ts"
     },
     "./date": {
-      "require": "./lib/date/index.js",
-      "import": "./es/date/index.js",
-      "types": "./date/index.d.ts"
+      "require": "./dist/date/index.cjs",
+      "import": "./dist/date/index.mjs",
+      "types": "./dist/date/index.d.ts"
     }
   },
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "types/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "lib",
-    "es",
     "src",
-    "types",
-    "iife",
     "save-file",
     "date"
   ],
   "scripts": {
-    "clean": "rimraf dist lib es types iife",
-    "dev": "rollup --config rollup.config.js --watch",
-    "build": "pnpm clean & rollup --config rollup.config.js"
+    "build": "komekko"
   },
   "dependencies": {
     "@types/file-saver": "^2.0.5",
@@ -61,14 +54,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-json": "^6.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-replace": "^5.0.5",
-    "@rollup/plugin-terser": "^0.4.4",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.6.1",
-    "rollup-plugin-typescript2": "^0.36.0",
+    "komekko": "workspace:*",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   },

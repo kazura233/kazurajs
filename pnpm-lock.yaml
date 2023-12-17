@@ -174,33 +174,9 @@ importers:
         specifier: ^7.0.1
         version: 7.0.1
     devDependencies:
-      '@rollup/plugin-commonjs':
-        specifier: ^25.0.7
-        version: 25.0.7(rollup@4.6.1)
-      '@rollup/plugin-json':
-        specifier: ^6.0.1
-        version: 6.0.1(rollup@4.6.1)
-      '@rollup/plugin-node-resolve':
-        specifier: ^15.2.3
-        version: 15.2.3(rollup@4.6.1)
-      '@rollup/plugin-replace':
-        specifier: ^5.0.5
-        version: 5.0.5(rollup@4.6.1)
-      '@rollup/plugin-terser':
-        specifier: ^0.4.4
-        version: 0.4.4(rollup@4.6.1)
       komekko:
         specifier: workspace:*
         version: link:../komekko
-      rimraf:
-        specifier: ^5.0.5
-        version: 5.0.5
-      rollup:
-        specifier: ^4.6.1
-        version: 4.6.1
-      rollup-plugin-typescript2:
-        specifier: ^0.36.0
-        version: 0.36.0(rollup@4.6.1)(typescript@5.3.3)
       tslib:
         specifier: ^2.6.2
         version: 2.6.2
@@ -962,30 +938,9 @@ importers:
         specifier: ^9.0.0
         version: 9.0.1
     devDependencies:
-      '@rollup/plugin-commonjs':
-        specifier: ^25.0.7
-        version: 25.0.7(rollup@4.6.1)
-      '@rollup/plugin-json':
-        specifier: ^6.0.1
-        version: 6.0.1(rollup@4.6.1)
-      '@rollup/plugin-node-resolve':
-        specifier: ^15.2.3
-        version: 15.2.3(rollup@4.6.1)
-      '@rollup/plugin-replace':
-        specifier: ^5.0.5
-        version: 5.0.5(rollup@4.6.1)
-      '@rollup/plugin-terser':
-        specifier: ^0.4.4
-        version: 0.4.4(rollup@4.6.1)
-      rimraf:
-        specifier: ^5.0.5
-        version: 5.0.5
-      rollup:
-        specifier: ^4.6.1
-        version: 4.6.1
-      rollup-plugin-typescript2:
-        specifier: ^0.36.0
-        version: 0.36.0(rollup@4.6.1)(typescript@5.3.3)
+      komekko:
+        specifier: workspace:*
+        version: link:../komekko
       tslib:
         specifier: ^2.6.2
         version: 2.6.2
@@ -6510,7 +6465,7 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.9.1)
+      '@rollup/pluginutils': 5.0.4(rollup@4.9.1)
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-builtin-module: 3.2.1
@@ -6556,7 +6511,7 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.9.1)
+      '@rollup/pluginutils': 5.0.4(rollup@4.9.1)
       magic-string: 0.30.5
       rollup: 4.9.1
     dev: false

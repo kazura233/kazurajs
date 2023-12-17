@@ -19,53 +19,46 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
-  "type": "module",
   "exports": {
     ".": {
-      "require": "./lib/index.js",
-      "import": "./es/index.js",
-      "types": "./types/index.d.ts"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     },
     "./aes-128-ecb": {
-      "require": "./lib/aes-128-ecb/index.js",
-      "import": "./es/aes-128-ecb/index.js",
-      "types": "./aes-128-ecb/index.d.ts"
+      "require": "./dist/aes-128-ecb/index.cjs",
+      "import": "./dist/aes-128-ecb/index.mjs",
+      "types": "./dist/aes-128-ecb/index.d.ts"
     },
     "./base64": {
-      "require": "./lib/base64/index.js",
-      "import": "./es/base64/index.js",
-      "types": "./base64/index.d.ts"
+      "require": "./dist/base64/index.cjs",
+      "import": "./dist/base64/index.mjs",
+      "types": "./dist/base64/index.d.ts"
     },
     "./md5": {
-      "require": "./lib/md5/index.js",
-      "import": "./es/md5/index.js",
-      "types": "./md5/index.d.ts"
+      "require": "./dist/md5/index.cjs",
+      "import": "./dist/md5/index.mjs",
+      "types": "./dist/md5/index.d.ts"
     },
     "./rsa-1024": {
-      "require": "./lib/rsa-1024/index.js",
-      "import": "./es/rsa-1024/index.js",
-      "types": "./rsa-1024/index.d.ts"
+      "require": "./dist/rsa-1024/index.cjs",
+      "import": "./dist/rsa-1024/index.mjs",
+      "types": "./dist/rsa-1024/index.d.ts"
     }
   },
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "types/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "lib",
-    "es",
     "src",
-    "types",
-    "iife",
     "aes-128-ecb",
     "base64",
     "md5",
     "rsa-1024"
   ],
   "scripts": {
-    "clean": "rimraf dist lib es types iife",
-    "dev": "rollup --config rollup.config.js --watch",
-    "build": "pnpm clean & rollup --config rollup.config.js"
+    "build": "komekko"
   },
   "dependencies": {
     "@types/crypto-js": "^4.1.1",
@@ -73,14 +66,7 @@
     "jsencrypt": "^3.3.2"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-json": "^6.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-replace": "^5.0.5",
-    "@rollup/plugin-terser": "^0.4.4",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.6.1",
-    "rollup-plugin-typescript2": "^0.36.0",
+    "komekko": "workspace:*",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   },

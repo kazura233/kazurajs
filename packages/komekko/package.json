@@ -1,6 +1,6 @@
 {
   "name": "komekko",
-  "version": "0.0.1-alpha.1",
+  "version": "0.1.0",
   "description": "komekko",
   "keywords": [
     "komekko"
@@ -27,7 +27,8 @@
     "komekko": "./dist/cli.mjs"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "jiti ./src/cli"

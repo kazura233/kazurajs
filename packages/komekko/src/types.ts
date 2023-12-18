@@ -10,39 +10,39 @@ import type { EsbuildOptions } from './plugins/esbuild'
 export type RollupCommonJSOptions = NonNullable<Parameters<typeof commonjs>[0]>
 
 export interface RollupPluginsOptions {
-  replace: RollupReplaceOptions | false
-  alias: RollupAliasOptions | false
-  resolve: RollupNodeResolveOptions | false
-  json: RollupJsonOptions | false
-  esbuild: EsbuildOptions | false
-  commonjs: RollupCommonJSOptions | false
-  dts: RollupDtsOptions
-  rollup: RollupOptions
+  replaceOptions: RollupReplaceOptions | false
+  aliasOptions: RollupAliasOptions | false
+  nodeResolveOptions: RollupNodeResolveOptions | false
+  jsonOptions: RollupJsonOptions | false
+  esbuildOptions: EsbuildOptions | false
+  commonJSOptions: RollupCommonJSOptions | false
+  dtsOptions: RollupDtsOptions
 }
 
 export type ModuleFormat = 'esm' | 'cjs' | 'umd' | 'iife'
 
 export interface BuildEntry {
-  entryFileName: string
-  entryFileDir: string
+  input: string
+  name?: string
   entryAlias: string
   outFileName: string
-  outFileDir: string
   declaration?: boolean
-  sourcemap: boolean
   format?: ModuleFormat
 }
 
 export interface BuildOptions {
+  target: string
   rootDir: string
   sourcemap: boolean
+  minify: boolean
   declaration: boolean
   outDir: string
   alias: { [find: string]: string }
   replace: { [str: string]: string }
   external: (string | RegExp)[]
   entries: BuildEntry[]
-  plugins: Partial<RollupPluginsOptions>
+  rollupOptions: RollupOptions
+  rollupPluginsOptions: Partial<RollupPluginsOptions>
 }
 
 export interface KomekkoOptions extends Partial<BuildOptions> {}

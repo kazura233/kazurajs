@@ -29,11 +29,7 @@ const main = defineCommand({
     const rootDir = resolve(process.cwd(), args.dir || './')
     await build(rootDir, {
       sourcemap: args.sourcemap,
-      plugins: {
-        esbuild: {
-          minify: args.minify,
-        },
-      },
+      minify: args.minify,
     }).catch((error) => {
       console.error(`Error building ${rootDir}: ${error}`)
       throw error

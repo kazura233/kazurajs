@@ -33,7 +33,7 @@ export class RollupBuilder {
   constructor(buildOptions: KomekkoOptions) {
     const rootDir = resolve(process.cwd(), buildOptions.rootDir || './')
     this.pkg = tryRequire('./package.json', rootDir)
-    this.options = defu(buildOptions, this.defaultBuildOptions())
+    this.options = defu(this.defaultBuildOptions(), buildOptions)
     this.options.external.push(
       ...Object.keys(this.pkg.dependencies || {}),
       ...Object.keys(this.pkg.peerDependencies || {})
@@ -44,8 +44,10 @@ export class RollupBuilder {
 
   public defaultBuildOptions(): BuildOptions {
     return {
+      target: 'esnext',
       rootDir: resolve(process.cwd(), './'),
       sourcemap: false,
+      minify: false,
       declaration: false,
       outDir: resolve(process.cwd(), './dist'),
       alias: {},
@@ -55,22 +57,23 @@ export class RollupBuilder {
         ...Module.builtinModules.map((module) => 'node:' + module),
       ],
       entries: [],
-      plugins: {
-        replace: {
+      rollupOptions: {},
+      rollupPluginsOptions: {
+        replaceOptions: {
           preventAssignment: true,
         },
-        alias: {},
-        resolve: {
+        aliasOptions: {},
+        nodeResolveOptions: {
           preferBuiltins: true,
         },
-        json: {
+        jsonOptions: {
           preferConst: true,
         },
-        commonjs: {
+        commonJSOptions: {
           ignoreTryCatch: true,
         },
-        esbuild: { target: 'esnext' },
-        dts: {
+        esbuildOptions: {},
+        dtsOptions: {
           compilerOptions: { preserveSymlinks: false },
           respectExternal: true,
         },
@@ -125,27 +128,24 @@ export class RollupBuilder {
     this.checkExtension(outputs)
 
     return outputs.map<BuildEntry>((output) => {
-      let entryFileName = ''
+      let input = ''
       let outFileName = ''
 
       if (output.file.startsWith('dist/')) {
-        entryFileName = output.file.replace(/^dist\//, 'src/')
+        input = output.file.replace(/^dist\//, 'src/')
         outFileName = output.file.replace(/^dist\//, '')
       } else if (output.file.startsWith('./dist/')) {
-        entryFileName = output.file.replace(/^\.\/dist\//, 'src/')
+        input = output.file.replace(/^\.\/dist\//, 'src/')
         outFileName = output.file.replace(/^\.\/dist\//, '')
       } else {
         throw new Error(`Expected output file to start with dist/, received ${output.file}`)
       }
 
       return {
-        entryFileName: entryFileName,
-        entryFileDir: this.options.rootDir,
+        input: resolve(this.options.rootDir, input),
         entryAlias: md5(outFileName),
         outFileName: outFileName,
-        outFileDir: this.options.outDir,
         declaration: 'declaration' in output ? output.declaration : undefined,
-        sourcemap: this.options.sourcemap,
         format: 'format' in output ? output.format : undefined,
       }
     })
@@ -247,12 +247,7 @@ export class RollupBuilder {
           this.getEntryFileNames(chunkInfo, entries)
 
         const options: RollupOptions = {
-          input: Object.fromEntries(
-            entries.map((entry) => [
-              entry.entryAlias,
-              resolve(entry.entryFileDir, entry.entryFileName),
-            ])
-          ),
+          input: Object.fromEntries(entries.map((entry) => [entry.entryAlias, entry.input])),
 
           output: outputOptions,
 
@@ -288,18 +283,22 @@ export class RollupBuilder {
       ...this.options.alias,
     }
 
-    if (this.options.plugins.alias) {
-      if (Array.isArray(this.options.plugins.alias.entries)) {
+    if (this.options.rollupPluginsOptions.aliasOptions) {
+      if (Array.isArray(this.options.rollupPluginsOptions.aliasOptions.entries)) {
         Object.assign(
           aliases,
           Object.fromEntries(
-            this.options.plugins.alias.entries.map((entry) => {
+            this.options.rollupPluginsOptions.aliasOptions.entries.map((entry) => {
               return [entry.find, entry.replacement]
             })
           )
         )
       } else {
-        Object.assign(aliases, this.options.plugins.alias.entries || this.options.plugins.alias)
+        Object.assign(
+          aliases,
+          this.options.rollupPluginsOptions.aliasOptions.entries ||
+            this.options.rollupPluginsOptions.aliasOptions
+        )
       }
     }
 
@@ -334,9 +333,7 @@ export class RollupBuilder {
       this.getEntryFileNames(chunkInfo, entries)
 
     const options: RollupOptions = {
-      input: Object.fromEntries(
-        entries.map((entry) => [entry.entryAlias, resolve(entry.entryFileDir, entry.entryFileName)])
-      ),
+      input: Object.fromEntries(entries.map((entry) => [entry.entryAlias, entry.input])),
 
       output: outputOptions,
 
@@ -351,7 +348,7 @@ export class RollupBuilder {
           rollupWarn(warning)
         }
       },
-      plugins: [...this.getInputPluginOption(), dts(this.options.plugins.dts)],
+      plugins: [...this.getInputPluginOption(), dts(this.options.rollupPluginsOptions.dtsOptions)],
     }
 
     console.log('>>>>>>>>>>', 'RollupBuilder->writeTypes->options->input', options.input)
@@ -363,6 +360,7 @@ export class RollupBuilder {
 
   public getEntryFileNames(chunk: PreRenderedChunk, entries: BuildEntry[]) {
     const name = entries.find(({ entryAlias }) => entryAlias === chunk.name)
+
     if (!name) {
       console.log(entries)
       throw new Error(`Could not find entry for chunk ${chunk.name}`)
@@ -389,7 +387,7 @@ export class RollupBuilder {
       externalLiveBindings: false,
       freeze: false,
       sourcemap: this.options.sourcemap,
-      ...this.options.plugins.rollup?.output,
+      ...this.options.rollupOptions?.output,
     }
   }
 
@@ -403,7 +401,7 @@ export class RollupBuilder {
       externalLiveBindings: false,
       freeze: false,
       sourcemap: this.options.sourcemap,
-      ...this.options.plugins.rollup?.output,
+      ...this.options.rollupOptions?.output,
     }
   }
 
@@ -432,41 +430,43 @@ export class RollupBuilder {
 
   public getInputPluginOption(): InputPluginOption[] {
     return [
-      this.options.plugins.replace &&
+      this.options.rollupPluginsOptions.replaceOptions &&
         replace({
-          ...this.options.plugins.replace,
+          ...this.options.rollupPluginsOptions.replaceOptions,
           values: {
             ...this.options.replace,
-            ...this.options.plugins.replace.values,
+            ...this.options.rollupPluginsOptions.replaceOptions.values,
           },
         }),
-      this.options.plugins.alias &&
+      this.options.rollupPluginsOptions.aliasOptions &&
         alias({
-          ...this.options.plugins.alias,
+          ...this.options.rollupPluginsOptions.aliasOptions,
           entries: this.resolveAliases(),
         }),
 
-      this.options.plugins.resolve &&
+      this.options.rollupPluginsOptions.nodeResolveOptions &&
         nodeResolve({
           extensions: DEFAULT_EXTENSIONS,
-          ...this.options.plugins.resolve,
+          ...this.options.rollupPluginsOptions.nodeResolveOptions,
         }),
 
-      this.options.plugins.json &&
+      this.options.rollupPluginsOptions.jsonOptions &&
         json({
-          ...this.options.plugins.json,
+          ...this.options.rollupPluginsOptions.jsonOptions,
         }),
 
-      this.options.plugins.esbuild &&
+      this.options.rollupPluginsOptions.esbuildOptions &&
         esbuildPlugin({
+          target: this.options.target,
           sourcemap: this.options.sourcemap,
-          ...this.options.plugins.esbuild,
+          minify: this.options.minify,
+          ...this.options.rollupPluginsOptions.esbuildOptions,
         }),
 
-      this.options.plugins.commonjs &&
+      this.options.rollupPluginsOptions.commonJSOptions &&
         commonjs({
           extensions: DEFAULT_EXTENSIONS,
-          ...this.options.plugins.commonjs,
+          ...this.options.rollupPluginsOptions.commonJSOptions,
         }),
     ].filter(Boolean)
   }

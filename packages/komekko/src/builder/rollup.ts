@@ -325,6 +325,8 @@ export class RollupBuilder {
   public async writeTypes() {
     const entries = this.options.entries.filter(({ declaration }) => declaration)
 
+    if (!entries.length) return
+
     const external = this.options.external
 
     const outputOptions: OutputOptions = this.getESMOutputOptions()

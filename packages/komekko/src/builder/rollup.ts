@@ -125,8 +125,6 @@ export class RollupBuilder {
       })
     }
 
-    this.checkExtension(outputs)
-
     return outputs.map<BuildEntry>((output) => {
       let input = ''
       let outFileName = ''
@@ -152,28 +150,35 @@ export class RollupBuilder {
     })
   }
 
-  public checkExtension(outputs: OutputDescriptor[]) {
-    outputs.forEach((output) => {
-      if ('declaration' in output) {
-        if (!output.file.endsWith('.d.ts')) {
-          throw new Error(`Expected declaration file to end with .d.ts, received ${output.file}`)
+  public checkOutFileName(outFileName: string) {
+    if (outFileName.startsWith('.') || outFileName.startsWith('/')) {
+      throw new Error(`outFileName must be a relative path, but received "${outFileName}"`)
+    }
+  }
+
+  public checkExtension(filename: string, declaration?: boolean): void
+  public checkExtension(filename: string, format: ModuleFormat): void
+  public checkExtension($1: string, $2?: boolean | ModuleFormat): void {
+    if (!$2) return
+
+    if (typeof $2 === 'boolean') {
+      if (!$1.endsWith('.d.ts')) {
+        throw new Error(`Expected declaration file to end with .d.ts, received ${$1}`)
+      }
+    }
+
+    if (typeof $2 === 'string') {
+      if ($2 === 'esm') {
+        if (!$1.endsWith('.mjs') && !$1.endsWith('.js')) {
+          throw new Error(`Expected ESM file to end with .mjs or .js, received ${$1}`)
         }
       }
-
-      if ('format' in output) {
-        if (output.format === 'esm') {
-          if (!output.file.endsWith('.mjs') && !output.file.endsWith('.js')) {
-            throw new Error(`Expected ESM file to end with .mjs or .js, received ${output.file}`)
-          }
-        }
-
-        if (output.format === 'cjs') {
-          if (!output.file.endsWith('.cjs') && !output.file.endsWith('.js')) {
-            throw new Error(`Expected CJS file to end with .cjs or .js, received ${output.file}`)
-          }
+      if ($2 === 'cjs') {
+        if (!$1.endsWith('.cjs') && !$1.endsWith('.js')) {
+          throw new Error(`Expected CJS file to end with .cjs or .js, received ${$1}`)
         }
       }
-    })
+    }
   }
 
   public extractExports(exports: PackageJson['exports']): OutputDescriptor[] {
@@ -226,6 +231,10 @@ export class RollupBuilder {
   }
 
   public async build() {
+    if (!this.options.entries || !this.options.entries.length) {
+      throw new Error('No entries found')
+    }
+
     const rollupOptions = this.getRollupOptions()
 
     for (const options of rollupOptions) {
@@ -249,11 +258,8 @@ export class RollupBuilder {
                 typeof entry.outFileName === 'string'
                   ? entry.outFileName
                   : entry.outFileName(entry.input, format as ModuleFormat)
-              if (outFileName.startsWith('.') || outFileName.startsWith('/')) {
-                throw new Error(
-                  `outFileName must be a relative path, but received "${outFileName}"`
-                )
-              }
+              this.checkOutFileName(outFileName)
+              this.checkExtension(outFileName, format as ModuleFormat)
               return [outFileName, entry.input]
             })
           ),
@@ -337,13 +343,16 @@ export class RollupBuilder {
     const entries = this.options.entries
       .filter(({ declaration }) => declaration)
       .map((entry) => {
-        const outFileName =
+        let outFileName =
           typeof entry.outFileName === 'string'
             ? entry.outFileName
             : entry.outFileName(entry.input, 'esm')
+        outFileName = removeExtension(outFileName) + '.d.ts'
+        this.checkOutFileName(outFileName)
+        this.checkExtension(outFileName, true)
         return {
           ...entry,
-          outFileName: removeExtension(outFileName) + '.d.ts',
+          outFileName,
         }
       })
 

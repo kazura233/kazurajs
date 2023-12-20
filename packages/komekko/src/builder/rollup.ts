@@ -1,6 +1,6 @@
 import { resolve } from 'pathe'
 import type { BuildEntry, BuildOptions, KomekkoOptions, ModuleFormat } from '../types'
-import { arrayIncludes, getpkg, removeExtension, tryRequire } from '../utils'
+import { arrayIncludes, getpkg, removeExtension } from '../utils'
 import type { PackageJson } from 'pkg-types'
 import Module from 'node:module'
 import defu from 'defu'
@@ -26,13 +26,14 @@ export type OutputDescriptor =
     }
 
 export class RollupBuilder {
-  public options: BuildOptions
+  public rootDir: string
   public pkg: PackageJson
+  public options: BuildOptions
   public warnings: Set<string> = new Set()
 
-  constructor(buildOptions: KomekkoOptions) {
-    const rootDir = resolve(process.cwd(), buildOptions.rootDir || './')
-    this.pkg = tryRequire('./package.json', rootDir)
+  constructor(rootDir: string, pkg: PackageJson, buildOptions: KomekkoOptions) {
+    this.rootDir = rootDir
+    this.pkg = pkg
     this.options = defu(this.defaultBuildOptions(), buildOptions)
     this.options.external.push(
       ...Object.keys(this.pkg.dependencies || {}),
@@ -45,11 +46,11 @@ export class RollupBuilder {
   public defaultBuildOptions(): BuildOptions {
     return {
       target: 'esnext',
-      rootDir: resolve(process.cwd(), './'),
+      rootDir: resolve(this.rootDir, './'),
       sourcemap: false,
       minify: false,
       declaration: false,
-      outDir: resolve(process.cwd(), './dist'),
+      outDir: resolve(this.rootDir, './dist'),
       alias: {},
       replace: {},
       external: [

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import { defineCommand, runMain } from 'citty'
-import { resolve } from 'pathe'
 import { name, version, description } from '../package.json'
 import { build } from './build'
 
@@ -26,12 +25,11 @@ const main = defineCommand({
     },
   },
   async run({ args }) {
-    const rootDir = resolve(process.cwd(), args.dir || './')
-    await build(rootDir, {
+    await build(args.dir, {
       sourcemap: args.sourcemap,
       minify: args.minify,
     }).catch((error) => {
-      console.error(`Error building ${rootDir}: ${error}`)
+      console.error(`Error building ${args.dir}: ${error}`)
       throw error
     })
   },

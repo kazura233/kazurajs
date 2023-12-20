@@ -18,11 +18,6 @@ export async function build(rootDir: string, inputConfig: KomekkoOptions = {}) {
   for (const buildConfig of buildConfigs) {
     const builder = new RollupBuilder(defu(inputConfig, buildConfig))
     builder.autoPreset()
-    builder.options.entries.forEach((entry) => {
-      if (entry.outFileName.startsWith('.') || entry.outFileName.startsWith('/')) {
-        throw new Error(`outFileName must be a relative path, but received "${entry.outFileName}"`)
-      }
-    })
     await builder.build()
     console.log('>>>>>>>>>>', 'Successfully built', '🎉')
   }

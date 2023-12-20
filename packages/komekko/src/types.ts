@@ -33,9 +33,9 @@ export interface BuildEntry {
   /**
    * 相对于 outDir 的文件路径
    */
-  outFileName: string
+  outFileName: string | ((input: string, format: ModuleFormat) => string)
   declaration?: boolean
-  format?: ModuleFormat
+  formats: ModuleFormat[]
 }
 
 export interface BuildOptions {

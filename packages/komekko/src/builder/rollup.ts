@@ -147,7 +147,7 @@ export class RollupBuilder {
         input: resolve(this.options.rootDir, input),
         outFileName: outFileName,
         declaration: 'declaration' in output ? output.declaration : undefined,
-        format: 'format' in output ? output.format : undefined,
+        formats: 'format' in output ? [output.format] : [],
       }
     })
   }
@@ -243,7 +243,20 @@ export class RollupBuilder {
       .filter(([, entries]) => entries.length > 0)
       .map(([format, entries]) => {
         const options: RollupOptions = {
-          input: Object.fromEntries(entries.map((entry) => [entry.outFileName, entry.input])),
+          input: Object.fromEntries(
+            entries.map((entry) => {
+              const outFileName =
+                typeof entry.outFileName === 'string'
+                  ? entry.outFileName
+                  : entry.outFileName(entry.input, format as ModuleFormat)
+              if (outFileName.startsWith('.') || outFileName.startsWith('/')) {
+                throw new Error(
+                  `outFileName must be a relative path, but received "${outFileName}"`
+                )
+              }
+              return [outFileName, entry.input]
+            })
+          ),
 
           output: this.getOutputOptionsByFormat(format as ModuleFormat),
 
@@ -304,8 +317,10 @@ export class RollupBuilder {
   groupByFormat(buildEntries: BuildEntry[]): Record<ModuleFormat, BuildEntry[]> {
     return buildEntries.reduce<Record<ModuleFormat, BuildEntry[]>>(
       (map, entry) => {
-        if (entry.format) {
-          map[entry.format].push(entry)
+        if (entry.formats && entry.formats.length) {
+          for (const format of entry.formats) {
+            map[format].push(entry)
+          }
         }
         return map
       },
@@ -322,9 +337,13 @@ export class RollupBuilder {
     const entries = this.options.entries
       .filter(({ declaration }) => declaration)
       .map((entry) => {
+        const outFileName =
+          typeof entry.outFileName === 'string'
+            ? entry.outFileName
+            : entry.outFileName(entry.input, 'esm')
         return {
           ...entry,
-          outFileName: removeExtension(entry.outFileName) + '.d.ts',
+          outFileName: removeExtension(outFileName) + '.d.ts',
         }
       })
 
@@ -364,7 +383,14 @@ export class RollupBuilder {
     return chunk.name
   }
 
-  public getChunkFilename(chunk: PreRenderedChunk, ext: string) {
+  public getChunkFilename(chunk: PreRenderedChunk, format: ModuleFormat) {
+    let ext: string = 'js'
+    if (format === 'esm') {
+      ext = 'mjs'
+    } else if (format === 'cjs') {
+      ext = 'cjs'
+    }
+
     if (chunk.isDynamicEntry) {
       return `chunks/[name].${ext}`
     }
@@ -392,7 +418,7 @@ export class RollupBuilder {
     return {
       dir: this.options.outDir,
       entryFileNames: (chunk: PreRenderedChunk) => this.getEntryFileNames(chunk),
-      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'mjs'),
+      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'esm'),
       format: 'esm',
       exports: 'auto',
       generatedCode: { constBindings: true },

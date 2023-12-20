@@ -22,20 +22,37 @@ export interface RollupPluginsOptions {
 export type ModuleFormat = 'esm' | 'cjs' | 'umd' | 'iife'
 
 export interface BuildEntry {
+  /**
+   * 相对于 rootDir 的文件路径
+   */
   input: string
+  /**
+   * umd 模式下的全局变量名
+   */
   name?: string
-  entryAlias: string
+  /**
+   * 相对于 outDir 的文件路径
+   */
   outFileName: string
   declaration?: boolean
   format?: ModuleFormat
 }
 
 export interface BuildOptions {
+  /**
+   * 默认：esnext，参考 https://esbuild.github.io/api/#target
+   */
   target: string
+  /**
+   * 默认：./
+   */
   rootDir: string
   sourcemap: boolean
   minify: boolean
   declaration: boolean
+  /**
+   * 默认：./dist
+   */
   outDir: string
   alias: { [find: string]: string }
   replace: { [str: string]: string }

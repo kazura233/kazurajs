@@ -1,5 +1,5 @@
 import { resolve } from 'pathe'
-import { removeExtension, tryRequire } from './utils'
+import { tryRequire } from './utils'
 import { RollupBuilder } from './builder/rollup'
 import { KomekkoOptions } from './types'
 import defu from 'defu'
@@ -19,7 +19,6 @@ export async function build(rootDir: string, inputConfig: KomekkoOptions = {}) {
     const builder = new RollupBuilder(defu(inputConfig, buildConfig))
     builder.autoPreset()
     builder.options.entries.forEach((entry) => {
-      entry.input = removeExtension(entry.input)
       if (entry.outFileName.startsWith('.') || entry.outFileName.startsWith('/')) {
         throw new Error(`outFileName must be a relative path, but received "${entry.outFileName}"`)
       }

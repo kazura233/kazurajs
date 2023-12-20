@@ -1,6 +1,6 @@
 import { resolve } from 'pathe'
 import type { BuildEntry, BuildOptions, KomekkoOptions, ModuleFormat } from '../types'
-import { arrayIncludes, getpkg, md5, tryRequire } from '../utils'
+import { arrayIncludes, getpkg, removeExtension, tryRequire } from '../utils'
 import type { PackageJson } from 'pkg-types'
 import Module from 'node:module'
 import defu from 'defu'
@@ -141,9 +141,10 @@ export class RollupBuilder {
         throw new Error(`Expected output file to start with dist/, received ${output.file}`)
       }
 
-      return {
+      input = removeExtension(input)
+
+      return <BuildEntry>{
         input: resolve(this.options.rootDir, input),
-        entryAlias: md5(outFileName),
         outFileName: outFileName,
         declaration: 'declaration' in output ? output.declaration : undefined,
         format: 'format' in output ? output.format : undefined,
@@ -241,15 +242,10 @@ export class RollupBuilder {
     return Object.entries(grouped)
       .filter(([, entries]) => entries.length > 0)
       .map(([format, entries]) => {
-        const outputOptions: OutputOptions = this.getOutputOptionsByFormat(format as ModuleFormat)
-
-        outputOptions.entryFileNames = (chunkInfo: PreRenderedChunk) =>
-          this.getEntryFileNames(chunkInfo, entries)
-
         const options: RollupOptions = {
-          input: Object.fromEntries(entries.map((entry) => [entry.entryAlias, entry.input])),
+          input: Object.fromEntries(entries.map((entry) => [entry.outFileName, entry.input])),
 
-          output: outputOptions,
+          output: this.getOutputOptionsByFormat(format as ModuleFormat),
 
           external(id) {
             const pkg = getpkg(id)
@@ -323,21 +319,25 @@ export class RollupBuilder {
   }
 
   public async writeTypes() {
-    const entries = this.options.entries.filter(({ declaration }) => declaration)
+    const entries = this.options.entries
+      .filter(({ declaration }) => declaration)
+      .map((entry) => {
+        return {
+          ...entry,
+          outFileName: removeExtension(entry.outFileName) + '.d.ts',
+        }
+      })
 
     if (!entries.length) return
 
+    console.log('>>>>>>>>>>', 'RollupBuilder->writeTypes->entries', entries)
+
     const external = this.options.external
 
-    const outputOptions: OutputOptions = this.getESMOutputOptions()
-
-    outputOptions.entryFileNames = (chunkInfo: PreRenderedChunk) =>
-      this.getEntryFileNames(chunkInfo, entries)
-
     const options: RollupOptions = {
-      input: Object.fromEntries(entries.map((entry) => [entry.entryAlias, entry.input])),
+      input: Object.fromEntries(entries.map((entry) => [entry.outFileName, entry.input])),
 
-      output: outputOptions,
+      output: this.getESMOutputOptions(),
 
       external(id) {
         const pkg = getpkg(id)
@@ -360,14 +360,8 @@ export class RollupBuilder {
     await rollupBuild.write(options.output as OutputOptions)
   }
 
-  public getEntryFileNames(chunk: PreRenderedChunk, entries: BuildEntry[]) {
-    const name = entries.find(({ entryAlias }) => entryAlias === chunk.name)
-
-    if (!name) {
-      console.log(entries)
-      throw new Error(`Could not find entry for chunk ${chunk.name}`)
-    }
-    return name.outFileName
+  public getEntryFileNames(chunk: PreRenderedChunk) {
+    return chunk.name
   }
 
   public getChunkFilename(chunk: PreRenderedChunk, ext: string) {
@@ -381,6 +375,7 @@ export class RollupBuilder {
   public getCJSOutputOptions(): OutputOptions {
     return {
       dir: this.options.outDir,
+      entryFileNames: (chunk: PreRenderedChunk) => this.getEntryFileNames(chunk),
       chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'cjs'),
       format: 'cjs',
       exports: 'auto',
@@ -396,6 +391,7 @@ export class RollupBuilder {
   public getESMOutputOptions(): OutputOptions {
     return {
       dir: this.options.outDir,
+      entryFileNames: (chunk: PreRenderedChunk) => this.getEntryFileNames(chunk),
       chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'mjs'),
       format: 'esm',
       exports: 'auto',

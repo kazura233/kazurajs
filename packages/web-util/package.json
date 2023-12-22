@@ -46,12 +46,12 @@
     "build": "komekko"
   },
   "dependencies": {
-    "@types/file-saver": "^2.0.5",
-    "@types/uuid": "^9.0.3",
+    "@types/file-saver": "^2.0.7",
+    "@types/uuid": "^9.0.7",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.10",
     "file-saver": "^2.0.5",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -64,6 +64,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.5.0"
+    "node": ">=20.10.0"
   }
 }

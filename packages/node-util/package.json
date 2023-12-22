@@ -28,10 +28,10 @@
     "build": "komekko"
   },
   "dependencies": {
-    "@types/uuid": "^9.0.3",
+    "@types/uuid": "^9.0.7",
     "pkg-types": "^1.0.3",
     "time2fa": "^1.2.2",
-    "uuid": "^9.0.0",
+    "uuid": "^9.0.1",
     "zx": "^7.2.3"
   },
   "devDependencies": {
@@ -45,6 +45,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.5.0"
+    "node": ">=20.10.0"
   }
 }

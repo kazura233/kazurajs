@@ -28,11 +28,11 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.2",
+    "@types/react": ">=18.2.45",
     "react": ">=18.2"
   },
   "dependencies": {
-    "@types/react": "^18.2.36",
+    "@types/react": "^18.2.45",
     "react": "^18.2.0"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "typescript": "^5.3.3"
   },
   "engines": {
-    "node": ">=20.5.0"
+    "node": ">=20.10.0"
   },
   "npmName": "@kazura/react-toolkit",
   "publishConfig": {

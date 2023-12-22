@@ -28,7 +28,7 @@
     "build": "komekko"
   },
   "dependencies": {
-    "@babel/runtime": "^7.23.5"
+    "@babel/runtime": "^7.23.6"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -41,6 +41,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.5.0"
+    "node": ">=20.10.0"
   }
 }

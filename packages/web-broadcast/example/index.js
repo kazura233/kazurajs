@@ -1,11 +1,11 @@
 const server = require('live-server')
 const fs = require('fs')
 
-fs.copyFileSync('../dist/index.js', './server1/web-broadcast.js')
-fs.copyFileSync('../dist/index.js', './server2/web-broadcast.js')
+fs.copyFileSync('../umd/web-broadcast.js', './server1/js/web-broadcast.js')
+fs.copyFileSync('../umd/web-broadcast.js', './server2/js/web-broadcast.js')
 
-fs.copyFileSync('../iife/index.js', './server1/web-broadcast-proxy-iife.js')
-fs.copyFileSync('../iife/index.js', './server2/web-broadcast-proxy-iife.js')
+fs.copyFileSync('../iife/web-broadcast-proxy.js', './server1/js/web-broadcast-proxy.js')
+fs.copyFileSync('../iife/web-broadcast-proxy.js', './server2/js/web-broadcast-proxy.js')
 
 server.start({
   port: 8181,

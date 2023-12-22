@@ -41,6 +41,6 @@ export default defineConfig([
   {},
   getUMDOptions(fileName + '.js'),
   { ...getUMDOptions(fileName + '.min.js'), sourcemap: true, minify: true },
-  getIIFEOptions(fileName + '.js'),
-  { ...getIIFEOptions(fileName + '.min.js'), sourcemap: true, minify: true },
+  getIIFEOptions(fileName + '-proxy.js'),
+  { ...getIIFEOptions(fileName + '-proxy.min.js'), sourcemap: true, minify: true },
 ])

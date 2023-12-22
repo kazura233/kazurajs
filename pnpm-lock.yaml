@@ -383,8 +383,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(react-redux@9.0.4)(react@18.2.0)
       redux:
-        specifier: ^4.2.1
-        version: 4.2.1
+        specifier: ^5.0.0
+        version: 5.0.0
     devDependencies:
       komekko:
         specifier: workspace:*
@@ -409,10 +409,10 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-redux:
         specifier: ^9.0.4
-        version: 9.0.4(@types/react@18.2.45)(react@18.2.0)(redux@4.2.1)
+        version: 9.0.4(@types/react@18.2.45)(react@18.2.0)(redux@5.0.0)
       redux:
-        specifier: ^4.2.1
-        version: 4.2.1
+        specifier: ^5.0.0
+        version: 5.0.0
     devDependencies:
       '@types/node':
         specifier: ^20.10.5
@@ -3640,7 +3640,7 @@ packages:
     dependencies:
       immer: 10.0.3
       react: 18.2.0
-      react-redux: 9.0.4(@types/react@18.2.45)(react@18.2.0)(redux@4.2.1)
+      react-redux: 9.0.4(@types/react@18.2.45)(react@18.2.0)(redux@5.0.0)
       redux: 5.0.0
       redux-thunk: 3.1.0(redux@5.0.0)
       reselect: 5.0.1
@@ -11137,7 +11137,7 @@ packages:
       webpack: 5.89.0
     dev: false
 
-  /react-redux@9.0.4(@types/react@18.2.45)(react@18.2.0)(redux@4.2.1):
+  /react-redux@9.0.4(@types/react@18.2.45)(react@18.2.0)(redux@5.0.0):
     resolution: {integrity: sha512-9J1xh8sWO0vYq2sCxK2My/QO7MzUMRi3rpiILP/+tDr8krBHixC6JMM17fMK88+Oh3e4Ae6/sHIhNBgkUivwFA==}
     peerDependencies:
       '@types/react': ^18.2.25
@@ -11155,7 +11155,7 @@ packages:
       '@types/react': 18.2.45
       '@types/use-sync-external-store': 0.0.3
       react: 18.2.0
-      redux: 4.2.1
+      redux: 5.0.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
 
@@ -11285,12 +11285,6 @@ packages:
       redux: ^5.0.0
     dependencies:
       redux: 5.0.0
-    dev: false
-
-  /redux@4.2.1:
-    resolution: {integrity: sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==}
-    dependencies:
-      '@babel/runtime': 7.23.6
     dev: false
 
   /redux@5.0.0:

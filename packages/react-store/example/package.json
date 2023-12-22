@@ -11,7 +11,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.4",
     "redux": "^4.2.1",
-    "@reduxjs/toolkit": "^1.9.7"
+    "@reduxjs/toolkit": "^2.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",

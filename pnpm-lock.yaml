@@ -380,8 +380,8 @@ importers:
   packages/react-store:
     dependencies:
       '@reduxjs/toolkit':
-        specifier: ^1.9.7
-        version: 1.9.7(react-redux@9.0.4)(react@18.2.0)
+        specifier: ^2.0.1
+        version: 2.0.1(react-redux@9.0.4)(react@18.2.0)
       redux:
         specifier: ^4.2.1
         version: 4.2.1
@@ -399,8 +399,8 @@ importers:
   packages/react-store/example:
     dependencies:
       '@reduxjs/toolkit':
-        specifier: ^1.9.7
-        version: 1.9.7(react-redux@9.0.4)(react@18.2.0)
+        specifier: ^2.0.1
+        version: 2.0.1(react-redux@9.0.4)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -3627,23 +3627,23 @@ packages:
     resolution: {integrity: sha512-2LuNTFBIO0m7kKIQvvPHN6UE63VjpmL9rnEEaOOaiSPbZK+zUOYIzBAWcED+3XYzhYsd/0mD57VdxAEqqV52CQ==}
     dev: false
 
-  /@reduxjs/toolkit@1.9.7(react-redux@9.0.4)(react@18.2.0):
-    resolution: {integrity: sha512-t7v8ZPxhhKgOKtU+uyJT13lu4vL7az5aFi4IdoDs/eS548edn2M8Ik9h8fxgvMjGoAUVFSt6ZC1P5cWmQ014QQ==}
+  /@reduxjs/toolkit@2.0.1(react-redux@9.0.4)(react@18.2.0):
+    resolution: {integrity: sha512-fxIjrR9934cmS8YXIGd9e7s1XRsEU++aFc9DVNMFMRTM5Vtsg2DCRMj21eslGtDt43IUf9bJL3h5bwUlZleibA==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18
-      react-redux: ^7.2.1 || ^8.0.2
+      react-redux: ^7.2.1 || ^8.1.3 || ^9.0.0
     peerDependenciesMeta:
       react:
         optional: true
       react-redux:
         optional: true
     dependencies:
-      immer: 9.0.21
+      immer: 10.0.3
       react: 18.2.0
       react-redux: 9.0.4(@types/react@18.2.45)(react@18.2.0)(redux@4.2.1)
-      redux: 4.2.1
-      redux-thunk: 2.4.2(redux@4.2.1)
-      reselect: 4.1.8
+      redux: 5.0.0
+      redux-thunk: 3.1.0(redux@5.0.0)
+      reselect: 5.0.1
     dev: false
 
   /@remix-run/router@1.14.1:
@@ -8280,6 +8280,10 @@ packages:
       queue: 6.0.2
     dev: false
 
+  /immer@10.0.3:
+    resolution: {integrity: sha512-pwupu3eWfouuaowscykeckFmVTpqbzW+rXFCX8rQLkZzM9ftBmU/++Ra+o+L27mz03zJTlyV4UUr+fdKNffo4A==}
+    dev: false
+
   /immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
     dev: false
@@ -11376,18 +11380,22 @@ packages:
       minimatch: 3.1.2
     dev: false
 
-  /redux-thunk@2.4.2(redux@4.2.1):
-    resolution: {integrity: sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==}
+  /redux-thunk@3.1.0(redux@5.0.0):
+    resolution: {integrity: sha512-NW2r5T6ksUKXCabzhL9z+h206HQw/NJkcLm1GPImRQ8IzfXwRGqjVhKJGauHirT0DAuyy6hjdnMZaRoAcy0Klw==}
     peerDependencies:
-      redux: ^4
+      redux: ^5.0.0
     dependencies:
-      redux: 4.2.1
+      redux: 5.0.0
     dev: false
 
   /redux@4.2.1:
     resolution: {integrity: sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==}
     dependencies:
       '@babel/runtime': 7.23.6
+    dev: false
+
+  /redux@5.0.0:
+    resolution: {integrity: sha512-blLIYmYetpZMET6Q6uCY7Jtl/Im5OBldy+vNPauA8vvsdqyt66oep4EUpAMWNHauTC6xa9JuRPhRB72rY82QGA==}
     dev: false
 
   /reflect.getprototypeof@1.0.4:
@@ -11606,8 +11614,8 @@ packages:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
     dev: false
 
-  /reselect@4.1.8:
-    resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
+  /reselect@5.0.1:
+    resolution: {integrity: sha512-D72j2ubjgHpvuCiORWkOUxndHJrxDaSolheiz5CO+roz8ka97/4msh2E8F5qay4GawR5vzBt5MkbDHT+Rdy/Wg==}
     dev: false
 
   /resolve-alpn@1.2.1:

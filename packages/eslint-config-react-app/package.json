@@ -33,7 +33,7 @@
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "engines": {
-    "node": ">=14.21.3"
+    "node": ">=20.10.0"
   },
   "npmName": "@kazura/eslint-config-react-app",
   "publishConfig": {

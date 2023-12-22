@@ -1,41 +1,30 @@
-import { defineConfig } from 'komekko'
+import { type KomekkoOptions, defineConfig } from 'komekko'
+import pkg from './package.json'
+
+const fileName = pkg.name.split('/')[1]
+const name = 'WebStorage'
+const globals = {}
+
+const getOptions = (outFileName: string): KomekkoOptions => ({
+  outDir: './umd',
+  entries: [
+    {
+      input: './src/index.ts',
+      outFileName,
+      formats: ['umd'],
+    },
+  ],
+  rollupOptions: {
+    output: {
+      name,
+      globals,
+    },
+    external: [],
+  },
+})
 
 export default defineConfig([
   {},
-  {
-    outDir: './umd',
-    entries: [
-      {
-        input: './src/index.ts',
-        outFileName: 'web-storage.js',
-        formats: ['umd'],
-      },
-    ],
-    rollupOptions: {
-      output: {
-        name: 'WebStorage',
-        globals: {},
-      },
-      external: [],
-    },
-  },
-  {
-    outDir: './umd',
-    sourcemap: true,
-    minify: true,
-    entries: [
-      {
-        input: './src/index.ts',
-        outFileName: 'web-storage.min.js',
-        formats: ['umd'],
-      },
-    ],
-    rollupOptions: {
-      output: {
-        name: 'WebStorage',
-        globals: {},
-      },
-      external: [],
-    },
-  },
+  getOptions(fileName + '.js'),
+  { ...getOptions(fileName + '.min.js'), sourcemap: true, minify: true },
 ])

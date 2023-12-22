@@ -31,8 +31,8 @@
   },
   "peerDependencies": {
     "@types/react": ">=18.2.45",
-    "mobx": ">=6.12",
-    "react": ">=18.2"
+    "mobx": ">=6.12.0",
+    "react": ">=18.2.0"
   },
   "dependencies": {
     "@types/react": "^18.2.45",

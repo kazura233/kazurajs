@@ -28,7 +28,7 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@kazura/web-postmsg": ">=1.1"
+    "@kazura/web-postmsg": ">=1.1.0"
   },
   "dependencies": {
     "@kazura/web-postmsg": "^1.1.0"

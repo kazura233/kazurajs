@@ -32,12 +32,12 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
-  "engines": {
-    "node": ">=14.21.3"
-  },
   "npmName": "@kazura/eslint-config-react-app",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=20.10.0"
   }
 }

@@ -16,44 +16,25 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
-  "type": "module",
-  "main": "lib/index.js",
-  "umd:main": "dist/index.js",
-  "module": "es/index.js",
-  "types": "types/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "lib",
-    "es",
     "src",
-    "types",
-    "iife"
+    "umd"
   ],
   "scripts": {
-    "clean": "rimraf dist lib es types iife",
-    "dev": "rollup --config rollup.config.js --watch",
-    "build": "pnpm clean & rollup --config rollup.config.js"
+    "build": "komekko"
   },
   "peerDependencies": {
     "@kazura/web-util": ">=1.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.23.5",
     "@kazura/web-util": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.5",
-    "@babel/plugin-transform-runtime": "^7.23.4",
-    "@babel/preset-env": "^7.23.5",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-json": "^6.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-replace": "^5.0.5",
-    "@rollup/plugin-terser": "^0.4.4",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.6.1",
-    "rollup-plugin-typescript2": "^0.36.0",
+    "komekko": "workspace:*",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   },

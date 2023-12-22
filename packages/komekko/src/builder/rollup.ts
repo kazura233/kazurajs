@@ -280,6 +280,8 @@ export class RollupBuilder {
           },
 
           plugins: this.getInputPluginOption(),
+
+          ...this.options.rollupOptions,
         }
 
         console.log('>>>>>>>>>>', 'RollupBuilder->getRollupOptions->options->input', options.input)
@@ -420,7 +422,6 @@ export class RollupBuilder {
       externalLiveBindings: false,
       freeze: false,
       sourcemap: this.options.sourcemap,
-      ...this.options.rollupOptions?.output,
     }
   }
 
@@ -434,8 +435,6 @@ export class RollupBuilder {
       generatedCode: { constBindings: true },
       externalLiveBindings: false,
       freeze: false,
-      sourcemap: this.options.sourcemap,
-      ...this.options.rollupOptions?.output,
     }
   }
 
@@ -450,7 +449,6 @@ export class RollupBuilder {
       externalLiveBindings: false,
       freeze: false,
       sourcemap: this.options.sourcemap,
-      ...this.options.rollupOptions?.output,
     }
   }
 
@@ -464,7 +462,6 @@ export class RollupBuilder {
       externalLiveBindings: false,
       freeze: false,
       sourcemap: this.options.sourcemap,
-      ...this.options.rollupOptions?.output,
     }
   }
 

@@ -28,15 +28,15 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.2",
+    "@types/react": ">=18.2.45",
     "react": ">=18.2",
-    "react-router": ">=6.18"
+    "react-router": ">=6.21.1"
   },
   "dependencies": {
-    "@kazura/web-util": "^1.0.0",
-    "@types/react": "^18.2.0",
+    "@kazura/web-util": "^1.2.2",
+    "@types/react": "^18.2.45",
     "react": "^18.2.0",
-    "react-router": "^6.18.0"
+    "react-router": "^6.21.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -44,7 +44,7 @@
     "typescript": "^5.3.3"
   },
   "engines": {
-    "node": ">=20.5.0"
+    "node": ">=20.10.0"
   },
   "npmName": "@kazura/react-hooks",
   "publishConfig": {

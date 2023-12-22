@@ -36,13 +36,13 @@
   "dependencies": {
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.5",
     "@rollup/pluginutils": "^5.1.0",
     "citty": "^0.1.5",
     "defu": "^6.1.3",
-    "esbuild": "^0.19.9",
+    "esbuild": "^0.19.10",
     "jiti": "^1.21.0",
     "pathe": "^1.1.1",
     "pkg-types": "^1.0.3",
@@ -50,7 +50,7 @@
     "rollup-plugin-dts": "^6.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.5.9",
+    "@types/node": "^20.10.5",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
@@ -67,6 +67,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.5.0"
+    "node": ">=20.10.0"
   }
 }

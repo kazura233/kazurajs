@@ -31,12 +31,12 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "redux": ">=4.2",
-    "@reduxjs/toolkit": ">=1.9"
+    "redux": ">=4.2.1",
+    "@reduxjs/toolkit": ">=1.9.7"
   },
   "dependencies": {
-    "redux": "^4.2.0",
-    "@reduxjs/toolkit": "^1.9.0"
+    "redux": "^4.2.1",
+    "@reduxjs/toolkit": "^1.9.7"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -49,6 +49,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.5.0"
+    "node": ">=20.10.0"
   }
 }

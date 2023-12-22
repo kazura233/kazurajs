@@ -27,10 +27,6 @@ export interface BuildEntry {
    */
   input: string
   /**
-   * umd 模式下的全局变量名
-   */
-  name?: string
-  /**
    * 相对于 outDir 的文件路径
    */
   outFileName: string | ((input: string, format: ModuleFormat) => string)

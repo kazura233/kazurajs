@@ -440,11 +440,32 @@ export class RollupBuilder {
   }
 
   public getUMDOutputOptions(): OutputOptions {
-    return {} // TODO
+    return {
+      dir: this.options.outDir,
+      entryFileNames: (chunk: PreRenderedChunk) => this.getEntryFileNames(chunk),
+      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'umd'),
+      format: 'umd',
+      exports: 'auto',
+      generatedCode: { constBindings: true },
+      externalLiveBindings: false,
+      freeze: false,
+      sourcemap: this.options.sourcemap,
+      ...this.options.rollupOptions?.output,
+    }
   }
 
   public getIIFEOutputOptions(): OutputOptions {
-    return {} // TODO
+    return {
+      dir: this.options.outDir,
+      entryFileNames: (chunk: PreRenderedChunk) => this.getEntryFileNames(chunk),
+      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'iife'),
+      format: 'iife',
+      generatedCode: { constBindings: true },
+      externalLiveBindings: false,
+      freeze: false,
+      sourcemap: this.options.sourcemap,
+      ...this.options.rollupOptions?.output,
+    }
   }
 
   public getOutputOptionsByFormat(format: ModuleFormat): OutputOptions {

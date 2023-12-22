@@ -34,7 +34,7 @@ export class RollupBuilder {
   constructor(rootDir: string, pkg: PackageJson, buildOptions: KomekkoOptions) {
     this.rootDir = rootDir
     this.pkg = pkg
-    this.options = defu(this.defaultBuildOptions(), buildOptions)
+    this.options = defu(buildOptions, this.defaultBuildOptions())
     this.options.external.push(
       ...Object.keys(this.pkg.dependencies || {}),
       ...Object.keys(this.pkg.peerDependencies || {})
@@ -249,6 +249,9 @@ export class RollupBuilder {
   public getRollupOptions(): RollupOptions[] {
     const grouped = this.groupByFormat(this.options.entries)
     const external = this.options.external
+
+    const { output, ...ext } = this.options.rollupOptions
+
     return Object.entries(grouped)
       .filter(([, entries]) => entries.length > 0)
       .map(([format, entries]) => {
@@ -265,7 +268,7 @@ export class RollupBuilder {
             })
           ),
 
-          output: this.getOutputOptionsByFormat(format as ModuleFormat),
+          output: { ...this.getOutputOptionsByFormat(format as ModuleFormat), ...output },
 
           external(id) {
             const pkg = getpkg(id)
@@ -281,7 +284,7 @@ export class RollupBuilder {
 
           plugins: this.getInputPluginOption(),
 
-          ...this.options.rollupOptions,
+          ...ext,
         }
 
         console.log('>>>>>>>>>>', 'RollupBuilder->getRollupOptions->options->input', options.input)

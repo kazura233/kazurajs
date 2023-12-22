@@ -19,7 +19,7 @@ export async function build(rootDir: string = './', inputConfig: KomekkoOptions 
   console.log('>>>>>>>>>>', 'build->buildConfigs', buildConfigs)
 
   for (const buildConfig of buildConfigs) {
-    const builder = new RollupBuilder(rootDir, pkg, defu(inputConfig, buildConfig))
+    const builder = new RollupBuilder(rootDir, pkg, defu(buildConfig, inputConfig))
     builder.autoPreset()
     await builder.build()
     console.log('>>>>>>>>>>', 'Successfully built', '🎉')

@@ -1,9 +1,4 @@
 /node_modules
-package-lock.json
-yarn.lock
 /dist
-/lib
-/es
 /iife
-/types
 /umd

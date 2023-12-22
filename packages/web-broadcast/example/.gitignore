@@ -1,6 +1,3 @@
 /node_modules
-package-lock.json
-yarn.lock
-
-web-broadcast.js
-web-broadcast-proxy-iife.js
+/server1/js
+/server2/js

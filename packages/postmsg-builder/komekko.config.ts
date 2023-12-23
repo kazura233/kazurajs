@@ -21,7 +21,6 @@ const getOptions = (outFileName: string): KomekkoOptions => ({
       name,
       globals,
     },
-    external: [],
   },
 })
 

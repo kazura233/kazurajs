@@ -4,7 +4,7 @@ import type { RollupNodeResolveOptions } from '@rollup/plugin-node-resolve'
 import type { RollupJsonOptions } from '@rollup/plugin-json'
 import type { Options as RollupDtsOptions } from 'rollup-plugin-dts'
 import type commonjs from '@rollup/plugin-commonjs'
-import type { RollupOptions } from 'rollup'
+import type { RollupOptions } from './builder/rollup'
 import type { EsbuildOptions } from './plugins/esbuild'
 
 export type RollupCommonJSOptions = NonNullable<Parameters<typeof commonjs>[0]>
@@ -36,15 +36,23 @@ export interface BuildEntry {
 
 export interface BuildOptions {
   /**
-   * 默认：esnext，参考 https://esbuild.github.io/api/#target
+   * 默认：`esnext`
+   * 文档：https://esbuild.github.io/api/#target
    */
-  target: string
+  target: Required<EsbuildOptions>['target']
   /**
    * 默认：./
    */
   rootDir: string
+  /**
+   * 默认：`false`
+   */
   sourcemap: boolean
-  minify: boolean
+  /**
+   * 默认：`false`
+   * 文档：https://esbuild.github.io/api/#minify
+   */
+  minify: Required<EsbuildOptions>['minify']
   declaration: boolean
   /**
    * 默认：./dist
@@ -54,6 +62,9 @@ export interface BuildOptions {
   replace: { [str: string]: string }
   external: (string | RegExp)[]
   entries: BuildEntry[]
+  /**
+   * 其中 `output` 为合并，其他为覆盖。
+   */
   rollupOptions: RollupOptions
   rollupPluginsOptions: Partial<RollupPluginsOptions>
 }

@@ -31,11 +31,11 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "redux": ">=5.0.0",
+    "redux": ">=5.0.1",
     "@reduxjs/toolkit": ">=2.0.1"
   },
   "dependencies": {
-    "redux": "^5.0.0",
+    "redux": "^5.0.1",
     "@reduxjs/toolkit": "^2.0.1"
   },
   "devDependencies": {

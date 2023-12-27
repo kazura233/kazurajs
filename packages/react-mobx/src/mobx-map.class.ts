@@ -1,4 +1,6 @@
-import { Type } from './shared'
+export interface Type<T = any> extends Function {
+  new (...args: any[]): T
+}
 
 export class MobxMap {
   private map: Map<Type, InstanceType<Type>> = new Map()
@@ -35,4 +37,12 @@ export class MobxMap {
   }
 
   readonly [Symbol.toStringTag]: string = 'MobxMap'
+}
+
+export const createStores = (stores: Array<Type>): MobxMap => {
+  return new MobxMap(
+    stores.map((store) => {
+      return [store, new store()]
+    })
+  )
 }

@@ -50,7 +50,12 @@ export const createStores = (stores: Array<Type>): IStores => {
 export function useStore<T extends Type>(type: T): InstanceType<T> {
   const contextValue = React.useContext(MobXProviderContext)
 
-  console.log('Mobx -> useStore -> contextValue', contextValue)
+  console.log(
+    'Mobx -> useStore -> contextValue',
+    Object.prototype.toString.call(type),
+    type,
+    contextValue
+  )
 
   if (!contextValue.stores.has(type)) {
     throw new Error(`Store ${type.name} is not provided`)

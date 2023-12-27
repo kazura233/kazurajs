@@ -1,12 +1,15 @@
-import React, { FC, PropsWithChildren, useState, useEffect } from 'react'
+import React from 'react'
 import { MobxProviderContext } from './mobx-provider-context'
 import { type IObjectDidChange, observe } from 'mobx'
 import { type MobxProviderProps } from './types'
 
-export const MobxProvider: FC<PropsWithChildren<MobxProviderProps>> = ({ children, stores }) => {
-  const [contextValue, setContextValue] = useState({ stores })
+export const MobxProvider: React.FC<React.PropsWithChildren<MobxProviderProps>> = ({
+  children,
+  stores,
+}) => {
+  const [contextValue, setContextValue] = React.useState({ stores })
 
-  useEffect(() => {
+  React.useEffect(() => {
     const listener = (change: IObjectDidChange) => {
       console.log('MobxProvider -> observe -> listener -> change', change)
       setContextValue({ stores })
@@ -28,13 +31,13 @@ export const MobxProvider: FC<PropsWithChildren<MobxProviderProps>> = ({ childre
 
 MobxProvider.displayName = 'MobxProvider'
 
-export const MobxInactiveProvider: FC<PropsWithChildren<MobxProviderProps>> = ({
+export const MobxInactiveProvider: React.FC<React.PropsWithChildren<MobxProviderProps>> = ({
   children,
   stores,
 }) => {
-  const [contextValue, setContextValue] = useState({ stores })
+  const [contextValue, setContextValue] = React.useState({ stores })
 
-  useEffect(() => {
+  React.useEffect(() => {
     setContextValue({ stores })
   }, [stores])
 

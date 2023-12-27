@@ -4,7 +4,7 @@ import { arrayIncludes, getpkg, removeExtension } from '../utils'
 import type { PackageJson } from 'pkg-types'
 import Module from 'node:module'
 import defu from 'defu'
-import { InputPluginOption, OutputOptions, PreRenderedChunk, RollupOptions, rollup } from 'rollup'
+import { InputPluginOption, InputOptions, OutputOptions, PreRenderedChunk, rollup } from 'rollup'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import alias from '@rollup/plugin-alias'
@@ -14,6 +14,10 @@ import json from '@rollup/plugin-json'
 import { esbuildPlugin } from '../plugins/esbuild'
 
 const DEFAULT_EXTENSIONS = ['.ts', '.tsx', '.mjs', '.cjs', '.js', '.jsx', '.json']
+
+export interface RollupOptions extends InputOptions {
+  output?: OutputOptions
+}
 
 export type OutputDescriptor =
   | {
@@ -438,6 +442,7 @@ export class RollupBuilder {
       generatedCode: { constBindings: true },
       externalLiveBindings: false,
       freeze: false,
+      sourcemap: this.options.sourcemap,
     }
   }
 

@@ -13,7 +13,7 @@ export function useStore<T extends Type>(type: T): InstanceType<T> {
 
   console.log(
     'Mobx -> useStore -> contextValue',
-    Object.prototype.toString.call(store),
+    Object.getPrototypeOf(store).constructor.name,
     store,
     contextValue
   )

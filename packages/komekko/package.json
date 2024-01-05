@@ -46,7 +46,7 @@
     "jiti": "^1.21.0",
     "pathe": "^1.1.1",
     "pkg-types": "^1.0.3",
-    "rollup": "^4.9.2",
+    "rollup": "^4.9.3",
     "rollup-plugin-dts": "^6.1.0"
   },
   "devDependencies": {

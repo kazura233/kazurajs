@@ -28,13 +28,13 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.2.46",
+    "@types/react": ">=18.2.47",
     "react": ">=18.2.0",
     "react-router": ">=6.21.1"
   },
   "dependencies": {
     "@kazura/web-util": "^1.2.2",
-    "@types/react": "^18.2.46",
+    "@types/react": "^18.2.47",
     "react": "^18.2.0",
     "react-router": "^6.21.1"
   },

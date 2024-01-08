@@ -184,6 +184,10 @@ export const queueMicrotask: (callback: VoidFunction) => void =
  * @param lang
  */
 export function speak(text: string, lang: string): void {
+  if (speechSynthesis.speaking) {
+    speechSynthesis.cancel()
+  }
+
   const speechInstance = new SpeechSynthesisUtterance(text)
   speechInstance.lang = lang
   speechSynthesis.speak(speechInstance)

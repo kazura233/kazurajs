@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@googleapis/oauth2": "^1.0.5",
-    "google-auth-library": "^9.4.1",
+    "google-auth-library": "^9.4.2",
     "googleapis-common": "^7.0.1"
   },
   "devDependencies": {
@@ -42,6 +42,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.10.0"
+    "node": ">=20.11.0"
   }
 }

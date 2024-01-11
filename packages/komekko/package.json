@@ -44,13 +44,13 @@
     "defu": "^6.1.4",
     "esbuild": "^0.19.11",
     "jiti": "^1.21.0",
-    "pathe": "^1.1.1",
+    "pathe": "^1.1.2",
     "pkg-types": "^1.0.3",
     "rollup": "^4.9.4",
     "rollup-plugin-dts": "^6.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.10.6",
+    "@types/node": "^20.11.0",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
@@ -67,6 +67,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.10.0"
+    "node": ">=20.11.0"
   }
 }

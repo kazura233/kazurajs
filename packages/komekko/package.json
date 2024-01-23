@@ -42,11 +42,11 @@
     "@rollup/pluginutils": "^5.1.0",
     "citty": "^0.1.5",
     "defu": "^6.1.4",
-    "esbuild": "^0.19.11",
+    "esbuild": "^0.19.12",
     "jiti": "^1.21.0",
     "pathe": "^1.1.2",
     "pkg-types": "^1.0.3",
-    "rollup": "^4.9.5",
+    "rollup": "^4.9.6",
     "rollup-plugin-dts": "^6.1.0"
   },
   "devDependencies": {

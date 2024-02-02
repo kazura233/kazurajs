@@ -42,15 +42,15 @@
     "@rollup/pluginutils": "^5.1.0",
     "citty": "^0.1.5",
     "defu": "^6.1.4",
-    "esbuild": "^0.19.11",
+    "esbuild": "^0.19.12",
     "jiti": "^1.21.0",
     "pathe": "^1.1.2",
     "pkg-types": "^1.0.3",
-    "rollup": "^4.9.4",
+    "rollup": "^4.9.6",
     "rollup-plugin-dts": "^6.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
+    "@types/node": "^20.11.6",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {

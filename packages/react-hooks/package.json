@@ -28,15 +28,15 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.2.48",
+    "@types/react": ">=18.2.57",
     "react": ">=18.2.0",
-    "react-router": ">=6.21.3"
+    "react-router": ">=6.22.1"
   },
   "dependencies": {
     "@kazura/web-util": "^1.2.2",
-    "@types/react": "^18.2.48",
+    "@types/react": "^18.2.57",
     "react": "^18.2.0",
-    "react-router": "^6.21.3"
+    "react-router": "^6.22.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -49,6 +49,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.11.0"
+    "node": ">=20.11.1"
   }
 }

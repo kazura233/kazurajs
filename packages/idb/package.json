@@ -1,11 +1,11 @@
 {
-  "name": "@kazura/googleapis",
-  "version": "0.0.4",
-  "description": "googleapis",
+  "name": "@kazura/idb",
+  "version": "0.0.1",
+  "description": "indexedDB",
   "keywords": [
-    "googleapis"
+    "indexedDB"
   ],
-  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/googleapis#readme",
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/idb#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kazura233/kazurajs.git"
@@ -26,17 +26,12 @@
   "scripts": {
     "build": "komekko"
   },
-  "dependencies": {
-    "@googleapis/oauth2": "^1.0.5",
-    "google-auth-library": "^9.6.3",
-    "googleapis-common": "^7.0.1"
-  },
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   },
-  "npmName": "@kazura/googleapis",
+  "npmName": "@kazura/idb",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

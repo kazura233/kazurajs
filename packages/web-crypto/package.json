@@ -61,7 +61,7 @@
     "build": "komekko"
   },
   "dependencies": {
-    "@types/crypto-js": "^4.2.1",
+    "@types/crypto-js": "^4.2.2",
     "crypto-js": "^4.2.0",
     "jsencrypt": "^3.3.2"
   },
@@ -76,6 +76,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.11.0"
+    "node": ">=20.11.1"
   }
 }

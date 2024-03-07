@@ -35,7 +35,7 @@ export function isBase64(str: string, regex = true): boolean {
   }
 }
 
-const dataURLRegex = /^data:([a-zA-Z]+\/[a-zA-Z0-9]+);base64,(.*)$/
+const dataURLRegex = /^data:([a-zA-Z0-9\-]+\/[a-zA-Z0-9\+\.\-]+);base64,(.*)$/
 
 /**
  * 判断字符串是否是 DataURL

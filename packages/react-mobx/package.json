@@ -30,19 +30,19 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.2.57",
+    "@types/react": ">=18.2.64",
     "mobx": ">=6.12.0",
     "react": ">=18.2.0"
   },
   "dependencies": {
-    "@types/react": "^18.2.57",
+    "@types/react": "^18.2.64",
     "mobx": "^6.12.0",
     "react": "^18.2.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "npmName": "@kazura/react-mobx",
   "publishConfig": {

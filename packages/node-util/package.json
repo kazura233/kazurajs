@@ -37,7 +37,7 @@
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "npmName": "@kazura/node-util",
   "publishConfig": {

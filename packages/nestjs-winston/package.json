@@ -1,0 +1,41 @@
+{
+  "name": "@kazura/nestjs-winston",
+  "version": "0.0.1",
+  "description": "nestjs winston",
+  "keywords": [
+    "nestjs",
+    "winston",
+    "logger"
+  ],
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/nestjs-winston#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazura233/kazurajs.git"
+  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
+  "author": {
+    "name": "kazura233",
+    "email": "kazira233@gmail.com"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^10.2.10",
+    "winston": "^3.11.0",
+    "typescript": "^5.4.2"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0"
+  },
+  "npmName": "@kazura/nestjs-winston",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=20.11.1"
+  }
+}

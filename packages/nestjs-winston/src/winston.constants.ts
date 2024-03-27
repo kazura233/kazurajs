@@ -1,0 +1,2 @@
+export const WINSTON_MODULE_OPTIONS = Symbol('WINSTON_MODULE_OPTIONS');
+export const WINSTON_MODULE_PROVIDER = Symbol('WINSTON');

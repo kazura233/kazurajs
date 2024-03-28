@@ -1,0 +1,43 @@
+{
+  "name": "@kazura/nestjs-redis",
+  "version": "0.0.1",
+  "description": "nestjs redis",
+  "keywords": [
+    "nestjs",
+    "redis",
+    "ioredis"
+  ],
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/nestjs-redis#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazura233/kazurajs.git"
+  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
+  "author": {
+    "name": "kazura233",
+    "email": "kazira233@gmail.com"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^10.2.10",
+    "@types/uuid": "^9.0.4",
+    "ioredis": "^5.3.2",
+    "uuid": "^9.0.1",
+    "typescript": "^5.4.2"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0"
+  },
+  "npmName": "@kazura/nestjs-redis",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=20.11.1"
+  }
+}

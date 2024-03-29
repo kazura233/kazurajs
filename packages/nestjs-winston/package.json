@@ -23,12 +23,12 @@
     "build": "rm -rf dist && tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "@nestjs/common": "^10.2.10",
-    "winston": "^3.11.0",
-    "typescript": "^5.4.2"
+    "@nestjs/common": "^10.3.7",
+    "winston": "^3.13.0",
+    "typescript": "^5.4.3"
   },
   "peerDependencies": {
-    "@nestjs/common": "^10.0.0"
+    "@nestjs/common": "^10.3.7"
   },
   "npmName": "@kazura/nestjs-winston",
   "publishConfig": {
@@ -36,6 +36,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.11.1"
+    "node": ">=20.12.0"
   }
 }

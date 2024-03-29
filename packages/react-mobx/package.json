@@ -30,19 +30,19 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.2.64",
-    "mobx": ">=6.12.0",
+    "@types/react": ">=18.2.73",
+    "mobx": ">=6.12.3",
     "react": ">=18.2.0"
   },
   "dependencies": {
-    "@types/react": "^18.2.64",
-    "mobx": "^6.12.0",
+    "@types/react": "^18.2.73",
+    "mobx": "^6.12.3",
     "react": "^18.2.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   },
   "npmName": "@kazura/react-mobx",
   "publishConfig": {
@@ -50,6 +50,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.11.1"
+    "node": ">=20.12.0"
   }
 }

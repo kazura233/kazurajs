@@ -19,7 +19,7 @@
     "eslint": "^8.57.0"
   },
   "dependencies": {
-    "@babel/core": "^7.24.0",
+    "@babel/core": "^7.24.3",
     "@babel/eslint-parser": "^7.24.1",
     "@rushstack/eslint-patch": "^1.10.1",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
@@ -29,7 +29,7 @@
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "npmName": "@kazura/eslint-config-react-app",
@@ -38,6 +38,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.11.1"
+    "node": ">=20.12.0"
   }
 }

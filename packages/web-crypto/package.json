@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-crypto",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "web-crypto",
   "keywords": [
     "crypto",
@@ -44,6 +44,11 @@
       "require": "./dist/rsa-1024/index.cjs",
       "import": "./dist/rsa-1024/index.mjs",
       "types": "./dist/rsa-1024/index.d.ts"
+    },
+    "./rsa-2048": {
+      "require": "./dist/rsa-2048/index.cjs",
+      "import": "./dist/rsa-2048/index.mjs",
+      "types": "./dist/rsa-2048/index.d.ts"
     }
   },
   "main": "dist/index.cjs",
@@ -55,10 +60,13 @@
     "aes-128-ecb",
     "base64",
     "md5",
-    "rsa-1024"
+    "rsa-1024",
+    "rsa-2038"
   ],
   "scripts": {
-    "build": "komekko"
+    "build": "komekko",
+    "test:aes-128-ecb": "tsx ./src/aes-128-ecb/test.ts",
+    "test:rsa-2048": "tsx ./src/rsa-2048/test.ts"
   },
   "dependencies": {
     "@types/crypto-js": "^4.2.2",
@@ -68,6 +76,7 @@
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.2",
+    "tsx": "^4.7.2",
     "typescript": "^5.4.3"
   },
   "npmName": "@kazura/web-crypto",

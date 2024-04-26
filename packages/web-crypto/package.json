@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-crypto",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "web-crypto",
   "keywords": [
     "crypto",
@@ -61,7 +61,7 @@
     "base64",
     "md5",
     "rsa-1024",
-    "rsa-2038"
+    "rsa-2048"
   ],
   "scripts": {
     "build": "komekko",

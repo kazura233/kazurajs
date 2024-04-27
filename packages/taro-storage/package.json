@@ -28,15 +28,15 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@tarojs/taro": ">=3.6.25"
+    "@tarojs/taro": ">=3.6.28"
   },
   "dependencies": {
-    "@tarojs/taro": "^3.6.25"
+    "@tarojs/taro": "^3.6.28"
   },
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "npmName": "@kazura/taro-storage",
   "publishConfig": {
@@ -44,6 +44,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.12.0"
+    "node": ">=20.12.2"
   }
 }

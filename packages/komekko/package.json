@@ -45,16 +45,16 @@
     "esbuild": "^0.20.2",
     "jiti": "^1.21.0",
     "pathe": "^1.1.2",
-    "pkg-types": "^1.0.3",
-    "rollup": "^4.14.0",
+    "pkg-types": "^1.1.0",
+    "rollup": "^4.17.0",
     "rollup-plugin-dts": "^6.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.3",
-    "typescript": "^5.4.3"
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -67,6 +67,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.12.0"
+    "node": ">=20.12.2"
   }
 }

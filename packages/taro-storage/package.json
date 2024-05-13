@@ -28,10 +28,10 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@tarojs/taro": ">=3.6.28"
+    "@tarojs/taro": ">=3.6.29"
   },
   "dependencies": {
-    "@tarojs/taro": "^3.6.28"
+    "@tarojs/taro": "^3.6.29"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -44,6 +44,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.12.2"
+    "node": ">=20.13.1"
   }
 }

@@ -28,10 +28,10 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@kazura/web-util": ">=1.2.2"
+    "@kazura/web-util": ">=1.2.3"
   },
   "dependencies": {
-    "@kazura/web-util": "^1.2.2"
+    "@kazura/web-util": "^1.2.3"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -44,6 +44,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.12.2"
+    "node": ">=20.13.1"
   }
 }

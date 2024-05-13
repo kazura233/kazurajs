@@ -76,7 +76,7 @@
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.2",
-    "tsx": "^4.7.3",
+    "tsx": "^4.10.2",
     "typescript": "^5.4.5"
   },
   "npmName": "@kazura/web-crypto",
@@ -85,6 +85,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.12.2"
+    "node": ">=20.13.1"
   }
 }

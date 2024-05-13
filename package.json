@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@8.15.7",
+  "packageManager": "pnpm@8.15.8",
   "scripts": {
     "clean:all": "pnpm -r --filter=./packages/* run clean",
     "build:komekko": "pnpm -r --filter=./packages/komekko run build",

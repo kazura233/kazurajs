@@ -9,13 +9,13 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-redux": "^9.1.1",
+    "react-redux": "^9.1.2",
     "redux": "^5.0.1",
-    "@reduxjs/toolkit": "^2.2.3"
+    "@reduxjs/toolkit": "^2.2.4"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.3.1",
+    "@types/node": "^20.12.11",
+    "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "typescript": "^5.4.5",

@@ -34,4 +34,19 @@ export class Config {
   public get(key: string): any {
     return this.env[key]
   }
+
+  public getStringFromEnv(key: string): string {
+    const value = this.env[key]
+    return value ? value : ''
+  }
+
+  public getNumberFromEnv(key: string): number {
+    const value = this.env[key]
+    return value ? parseInt(value) : 0
+  }
+
+  public getBooleanFromEnv(key: string): boolean {
+    const value = this.env[key]
+    return value ? value.toLowerCase() === 'true' : false
+  }
 }

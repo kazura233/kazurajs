@@ -15,6 +15,7 @@ export * from './register-handle-paste'
 export * from './env'
 export * from './shared'
 export * from './audio-player'
+export * from './aspect'
 
 /**
  * 生成指定范围内的随机整数

@@ -251,8 +251,8 @@ importers:
         specifier: ^4.17.2
         version: 4.17.2
       rollup-plugin-dts:
-        specifier: ^6.1.0
-        version: 6.1.0(rollup@4.17.2)(typescript@5.4.5)
+        specifier: ^6.1.1
+        version: 6.1.1(rollup@4.17.2)(typescript@5.4.5)
     devDependencies:
       '@types/node':
         specifier: ^20.12.12
@@ -513,8 +513,8 @@ importers:
   packages/taro-storage:
     dependencies:
       '@tarojs/taro':
-        specifier: ^3.6.29
-        version: 3.6.29(@tarojs/helper@3.6.29)(@tarojs/runtime@3.6.29)
+        specifier: ^3.6.30
+        version: 3.6.30(@tarojs/helper@3.6.30)(@tarojs/runtime@3.6.30)
     devDependencies:
       komekko:
         specifier: workspace:*
@@ -579,8 +579,8 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
       tsx:
-        specifier: ^4.10.3
-        version: 4.10.3
+        specifier: ^4.10.5
+        version: 4.10.5
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
@@ -991,7 +991,7 @@ packages:
       '@babel/helper-module-imports': 7.22.15
       '@babel/helper-simple-access': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/helper-validator-identifier': 7.22.20
+      '@babel/helper-validator-identifier': 7.24.5
     dev: false
 
   /@babel/helper-module-transforms@7.24.5(@babel/core@7.24.5):
@@ -1118,7 +1118,7 @@ packages:
     resolution: {integrity: sha512-Yac1ao4flkTxTteCDZLEvdxg2fZfz1v8M4QpaGypq/WPDqg3ijHYbDfs+LG5hvzSoqaSZ9/Z9lKSP3CjZjv+pA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/helper-validator-identifier': 7.22.20
+      '@babel/helper-validator-identifier': 7.24.5
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.0.0
@@ -1773,7 +1773,7 @@ packages:
       '@babel/helper-hoist-variables': 7.22.5
       '@babel/helper-module-transforms': 7.23.3(@babel/core@7.24.5)
       '@babel/helper-plugin-utils': 7.22.5
-      '@babel/helper-validator-identifier': 7.22.20
+      '@babel/helper-validator-identifier': 7.24.5
     dev: false
 
   /@babel/plugin-transform-modules-umd@7.23.3(@babel/core@7.24.5):
@@ -4850,16 +4850,16 @@ packages:
       defer-to-connect: 2.0.1
     dev: false
 
-  /@tarojs/api@3.6.29:
-    resolution: {integrity: sha512-lfJRdLGmki1vJVgNqpPIz9yeP7cHVkXoS8j0VwImY6xVXHLdeMLVbifigOCRkCbpOAzW4mCAUieuz0AStTiagw==}
+  /@tarojs/api@3.6.30:
+    resolution: {integrity: sha512-+ez5VZVK4PCnmFeW9CkYWlfA76CVo1GqXNefazI63Blj8SbxUKsEk0KDY9vuSoHuL/UvsMugKn+bYaO+o6KTMA==}
     dependencies:
       '@babel/runtime': 7.24.5
-      '@tarojs/runtime': 3.6.29(@tarojs/shared@3.6.29)
-      '@tarojs/shared': 3.6.29
+      '@tarojs/runtime': 3.6.30(@tarojs/shared@3.6.30)
+      '@tarojs/shared': 3.6.30
     dev: false
 
-  /@tarojs/helper@3.6.29:
-    resolution: {integrity: sha512-aXuIF3JUS0l0QBr7+EVdGbJULaD4D6MwHro0aQ94BoREuApVDiAvsZlyeq7x7/2+QSK6JrQ9U7MLWEA8PSKF1A==}
+  /@tarojs/helper@3.6.30:
+    resolution: {integrity: sha512-q59t6sboGjklrcIKXXZLiRUle/CxGv/4/55sAmes1axFFX+28CYmkz5dZv8HrpYDlhFG2tbaaa4bRqyFvJX+Mg==}
     dependencies:
       '@babel/core': 7.24.5
       '@babel/parser': 7.24.5
@@ -4893,25 +4893,25 @@ packages:
       - supports-color
     dev: false
 
-  /@tarojs/runtime@3.6.29(@tarojs/shared@3.6.29):
-    resolution: {integrity: sha512-LK34SWbNkfdszPjadeXCbygiEb/+Xi3FTKBPBAyx622SRPpJDOYbBN7vHm7ieDXfbBMUjGsNK0RijBFWdoJ8Dg==}
+  /@tarojs/runtime@3.6.30(@tarojs/shared@3.6.30):
+    resolution: {integrity: sha512-EcyG7VMDQQa9oM+TzdXMmPYRAAK3X8Jf3+VhWs7yay8kmxz9K7qAZ4POt0X5eNK3lZkUrurwA7fGMO4kmv69MQ==}
     peerDependencies:
-      '@tarojs/shared': ~3.6.29
+      '@tarojs/shared': ~3.6.30
     dependencies:
-      '@tarojs/shared': 3.6.29
+      '@tarojs/shared': 3.6.30
       lodash-es: 4.17.21
       tslib: 2.6.2
     dev: false
 
-  /@tarojs/shared@3.6.29:
-    resolution: {integrity: sha512-Ut/7ATAbyeSJH6eAah8XoQaqb5hGfaFwzJd4sH1ywr2Jep9gjruptVFu6EJP7dVvGKgzqubIIAOZRxmXlgiA2g==}
+  /@tarojs/shared@3.6.30:
+    resolution: {integrity: sha512-lS70MNmPARc3W28ZWIWJ4y2fk52uVHmYgHmMsEy0SmcjARihn0ED2j/AIvDWsZR8vxt33KEnG/7ZH6ZgRlp0gA==}
     dev: false
 
-  /@tarojs/taro@3.6.29(@tarojs/helper@3.6.29)(@tarojs/runtime@3.6.29):
-    resolution: {integrity: sha512-sNltEsDIzV1Nvd6IiJJxNB1KcmN9Uc3+ESrwryBlN2tqCr+RgQEekK9eZAZA0ggEJ1EuEMELKjHWJfIbJW8B8A==}
+  /@tarojs/taro@3.6.30(@tarojs/helper@3.6.30)(@tarojs/runtime@3.6.30):
+    resolution: {integrity: sha512-NkkwoFLuJcop+zZ34EXZ7X7VSpI/MJ6q3QSYwpE6ciV31ky88CoO7qk46qu78eZeQr8MoyUs3J2vPV4gaRa+BA==}
     peerDependencies:
-      '@tarojs/helper': ~3.6.29
-      '@tarojs/runtime': ~3.6.29
+      '@tarojs/helper': ~3.6.30
+      '@tarojs/runtime': ~3.6.30
       '@types/react': '*'
       '@types/webpack': '*'
       '@types/webpack-dev-server': '*'
@@ -4929,9 +4929,9 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@tarojs/api': 3.6.29
-      '@tarojs/helper': 3.6.29
-      '@tarojs/runtime': 3.6.29(@tarojs/shared@3.6.29)
+      '@tarojs/api': 3.6.30
+      '@tarojs/helper': 3.6.30
+      '@tarojs/runtime': 3.6.30(@tarojs/shared@3.6.30)
     dev: false
 
   /@trysound/sax@0.2.0:
@@ -10269,6 +10269,12 @@ packages:
     dependencies:
       yallist: 4.0.0
 
+  /magic-string@0.30.10:
+    resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.15
+    dev: false
+
   /magic-string@0.30.5:
     resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}
     engines: {node: '>=12'}
@@ -13101,14 +13107,14 @@ packages:
       glob: 10.3.10
     dev: true
 
-  /rollup-plugin-dts@6.1.0(rollup@4.17.2)(typescript@5.4.5):
-    resolution: {integrity: sha512-ijSCPICkRMDKDLBK9torss07+8dl9UpY9z1N/zTeA1cIqdzMlpkV3MOOC7zukyvQfDyxa1s3Dl2+DeiP/G6DOw==}
+  /rollup-plugin-dts@6.1.1(rollup@4.17.2)(typescript@5.4.5):
+    resolution: {integrity: sha512-aSHRcJ6KG2IHIioYlvAOcEq6U99sVtqDDKVhnwt70rW6tsz3tv5OSjEiWcgzfsHdLyGXZ/3b/7b/+Za3Y6r1XA==}
     engines: {node: '>=16'}
     peerDependencies:
       rollup: ^3.29.4 || ^4
       typescript: ^4.5 || ^5.0
     dependencies:
-      magic-string: 0.30.5
+      magic-string: 0.30.10
       rollup: 4.17.2
       typescript: 5.4.5
     optionalDependencies:
@@ -14059,8 +14065,8 @@ packages:
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  /tsx@4.10.3:
-    resolution: {integrity: sha512-f0g60aFSVRVkzcQkEflh8fPLRfmt+HJHgWi/plG5UgvVaV+9TcpOwJ0sZJSACXmwmjMPg9yQR0BhTLbhkfV2uA==}
+  /tsx@4.10.5:
+    resolution: {integrity: sha512-twDSbf7Gtea4I2copqovUiNTEDrT8XNFXsuHpfGbdpW/z9ZW4fTghzzhAG0WfrCuJmJiOEY1nLIjq4u3oujRWQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:

@@ -13,6 +13,10 @@ export default class HttpClient {
     this.instance = HttpClient.http.create(this.config)
   }
 
+  public get interceptors() {
+    return this.instance.interceptors
+  }
+
   public request<T = any, D = any, R = HttpResponse<T, D>>(
     config: HttpRequestConfig<D>
   ): Promise<R> {
@@ -21,7 +25,10 @@ export default class HttpClient {
 
   public mergeConfig(config: HttpRequestConfig) {
     this.config = HttpClient.mergeConfig(this.config, config)
+    const { request, response } = this.instance.interceptors
     this.instance = HttpClient.http.create(this.config)
+    this.instance.interceptors.request = request
+    this.instance.interceptors.response = response
   }
 
   public exportHttpInstance() {

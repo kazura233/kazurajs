@@ -28,10 +28,10 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@kazura/web-util": ">=1.2.4"
+    "@kazura/web-util": ">=2.0.0"
   },
   "dependencies": {
-    "@kazura/web-util": "^1.2.4"
+    "@kazura/web-util": "^2.0.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",

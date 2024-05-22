@@ -1,0 +1,42 @@
+{
+  "name": "@kazura/common",
+  "version": "0.0.1",
+  "description": "kazura common",
+  "keywords": [
+    "common"
+  ],
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/common#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazura233/kazurajs.git"
+  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
+  "author": {
+    "name": "kazura233",
+    "email": "kazira233@gmail.com"
+  },
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "komekko"
+  },
+  "devDependencies": {
+    "komekko": "workspace:*",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  },
+  "npmName": "@kazura/common",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=20.13.1"
+  }
+}

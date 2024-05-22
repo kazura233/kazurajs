@@ -1,0 +1,45 @@
+{
+  "name": "@kazura/validator",
+  "version": "0.0.1",
+  "description": "kazura validator",
+  "keywords": [
+    "validator"
+  ],
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/validator#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazura233/kazurajs.git"
+  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
+  "author": {
+    "name": "kazura233",
+    "email": "kazira233@gmail.com"
+  },
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "komekko"
+  },
+  "dependencies": {
+    "@kazura/common": "^0.0.1"
+  },
+  "devDependencies": {
+    "komekko": "workspace:*",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  },
+  "npmName": "@kazura/validator",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=20.13.1"
+  }
+}

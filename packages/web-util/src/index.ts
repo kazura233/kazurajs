@@ -192,3 +192,14 @@ export function speak(text: string, lang: string): void {
   speechInstance.lang = lang
   speechSynthesis.speak(speechInstance)
 }
+
+/**
+ * 断言
+ * @param condition
+ * @param msg
+ */
+export function assert(condition: boolean, msg: string) {
+  if (!condition) {
+    throw new Error(msg)
+  }
+}

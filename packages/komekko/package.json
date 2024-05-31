@@ -50,7 +50,7 @@
     "rollup-plugin-dts": "^6.1.1"
   },
   "devDependencies": {
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.12.13",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
@@ -67,6 +67,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.13.1"
+    "node": ">=20.14.0"
   }
 }

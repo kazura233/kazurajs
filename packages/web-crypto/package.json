@@ -76,7 +76,7 @@
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.3",
-    "tsx": "^4.14.0",
+    "tsx": "^4.15.2",
     "typescript": "^5.4.5"
   },
   "npmName": "@kazura/web-crypto",

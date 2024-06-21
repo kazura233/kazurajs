@@ -41,7 +41,7 @@
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   },
   "npmName": "@kazura/react-hooks",
   "publishConfig": {
@@ -49,6 +49,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.14.0"
+    "node": ">=20.15.0"
   }
 }

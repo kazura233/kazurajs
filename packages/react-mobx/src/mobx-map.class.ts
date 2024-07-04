@@ -2,47 +2,75 @@ export interface Type<T = any> extends Function {
   new (...args: any[]): T
 }
 
+export type InjectionToken<T = any> = string | symbol | Type<T>
+
+export interface ClassProvider<T = any> {
+  provide: InjectionToken
+  useClass: Type<T>
+}
+
+export type Provider<T = any> = Type<any> | ClassProvider<T>
+
 export class MobxMap {
-  private map: Map<Type, InstanceType<Type>> = new Map()
+  private isInitialized: boolean = false
 
-  constructor(entries?: readonly (readonly [Type, InstanceType<Type>])[]) {
-    this.map = new Map(entries)
-  }
+  private raw: Map<InjectionToken, Type> = new Map()
 
-  get<T extends Type>(key: T): InstanceType<T> {
-    if (!this.map.has(key)) {
-      throw new Error(`MobxMap: key ${key} not found`)
+  private map: Map<InjectionToken, InstanceType<Type>> = new Map()
+
+  public constructor(providers?: Provider[]) {
+    if (providers) {
+      const iterable: [InjectionToken, Type][] = providers.map((provider) => {
+        if (provider && 'useClass' in provider) {
+          return [provider.provide, provider.useClass]
+        }
+        return [provider, provider]
+      })
+      this.raw = new Map(iterable)
     }
-    return this.map.get(key) as InstanceType<T>
+    this.init()
   }
 
-  has(key: Type): boolean {
-    return this.map.has(key)
+  public init() {
+    if (!this.isInitialized) {
+      this.isInitialized = true
+      const iterable: [InjectionToken, InstanceType<Type>][] = Array.from(this.raw.entries()).map(
+        ([key, value]) => [key, new value()]
+      )
+      this.map = new Map(iterable)
+    }
   }
 
-  values(): IterableIterator<InstanceType<Type>> {
+  public get<TInput = any, TResult = TInput>(typeOrToken: Type<TInput> | string | symbol): TResult {
+    if (!this.map.has(typeOrToken)) {
+      throw new Error(`MobxMap: key ${String(typeOrToken)} not found`)
+    }
+    return this.map.get(typeOrToken) as TResult
+  }
+
+  public has(token: InjectionToken): boolean {
+    return this.map.has(token)
+  }
+
+  public values(): IterableIterator<InstanceType<Type>> {
     return this.map.values()
   }
 
-  keys(): IterableIterator<Type> {
+  public keys(): IterableIterator<InjectionToken> {
     return this.map.keys()
   }
 
-  entries(): IterableIterator<[Type, InstanceType<Type>]> {
+  public entries(): IterableIterator<[InjectionToken, InstanceType<Type>]> {
     return this.map.entries()
   }
 
-  [Symbol.iterator](): IterableIterator<[Type, InstanceType<Type>]> {
+  public [Symbol.iterator](): IterableIterator<[InjectionToken, InstanceType<Type>]> {
     return this.map.entries()
   }
 
-  readonly [Symbol.toStringTag]: string = 'MobxMap'
+  public readonly [Symbol.toStringTag]: string = 'MobxMap'
 }
 
-export const createStores = (stores: Array<Type>): MobxMap => {
-  return new MobxMap(
-    stores.map((store) => {
-      return [store, new store()]
-    })
-  )
+export const createStores = (providers: Provider[]): MobxMap => {
+  return new MobxMap()
 }

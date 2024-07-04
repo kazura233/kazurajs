@@ -72,5 +72,5 @@ export class MobxMap {
 }
 
 export const createStores = (providers: Provider[]): MobxMap => {
-  return new MobxMap()
+  return new MobxMap(providers)
 }

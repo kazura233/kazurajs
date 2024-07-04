@@ -4,9 +4,15 @@ export interface Type<T = any> extends Function {
 
 export type InjectionToken<T = any> = string | symbol | Type<T>
 
+export enum Scope {
+  DEFAULT = 0,
+  LAZY = 1,
+}
+
 export interface ClassProvider<T = any> {
   provide: InjectionToken
   useClass: Type<T>
+  scope?: Scope
 }
 
 export type Provider<T = any> = Type<any> | ClassProvider<T>
@@ -14,17 +20,17 @@ export type Provider<T = any> = Type<any> | ClassProvider<T>
 export class MobxMap {
   private isInitialized: boolean = false
 
-  private raw: Map<InjectionToken, Type> = new Map()
+  private raw: Map<InjectionToken, ClassProvider> = new Map()
 
   private map: Map<InjectionToken, InstanceType<Type>> = new Map()
 
   public constructor(providers?: Provider[]) {
     if (providers) {
-      const iterable: [InjectionToken, Type][] = providers.map((provider) => {
+      const iterable: [InjectionToken, ClassProvider][] = providers.map((provider) => {
         if (provider && 'useClass' in provider) {
-          return [provider.provide, provider.useClass]
+          return [provider.provide, provider]
         }
-        return [provider, provider]
+        return [provider, { provide: provider, useClass: provider }]
       })
       this.raw = new Map(iterable)
     }
@@ -35,17 +41,32 @@ export class MobxMap {
     if (!this.isInitialized) {
       this.isInitialized = true
       const iterable: [InjectionToken, InstanceType<Type>][] = Array.from(this.raw.entries()).map(
-        ([key, value]) => [key, new value()]
+        ([, provider]) => {
+          if (provider.scope === Scope.LAZY) {
+            return [provider.provide, undefined]
+          }
+          return [provider.provide, new provider.useClass()]
+        }
       )
       this.map = new Map(iterable)
     }
   }
 
   public get<TInput = any, TResult = TInput>(typeOrToken: Type<TInput> | string | symbol): TResult {
-    if (!this.map.has(typeOrToken)) {
+    const result = this.map.get(typeOrToken)
+    if (result) {
+      return result as TResult
+    }
+
+    const provider = this.raw.get(typeOrToken)
+    if (!provider) {
       throw new Error(`MobxMap: key ${String(typeOrToken)} not found`)
     }
-    return this.map.get(typeOrToken) as TResult
+
+    const instance = new provider.useClass()
+    this.map.set(typeOrToken, instance)
+
+    return instance as TResult
   }
 
   public has(token: InjectionToken): boolean {

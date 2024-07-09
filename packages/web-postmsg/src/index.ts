@@ -48,7 +48,7 @@ export default class WebPostMsg implements IPostMsgAPI {
     return this.options.receiver
   }
   public set receiver(value: Window) {
-    this.receiver = value
+    this.options.receiver = value
   }
 
   /**

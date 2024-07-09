@@ -19,6 +19,7 @@ export interface PostMsgAPIOptions {
   receiver: Window
   channel: string
   receiveAllChannel?: boolean
+  self?: Window
 }
 
 export default class WebPostMsg implements IPostMsgAPI {
@@ -72,6 +73,7 @@ export default class WebPostMsg implements IPostMsgAPI {
     this.options = options
     this.channel = options.channel
 
+    if (options.self) this.self = options.self
     if (options.receiveAllChannel) this.receiveAllChannel = options.receiveAllChannel
 
     if (options.listeners) {

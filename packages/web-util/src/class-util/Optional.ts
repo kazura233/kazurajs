@@ -5,12 +5,6 @@
  */
 export class Optional<T> {
   /**
-   * `empty()` 方法返回的常见实例。
-   * @private
-   */
-  private static EMPTY = new Optional<any>(null)
-
-  /**
    * 构造一个包含描述值的实例。
    * @param value - 描述的值，调用者有责任确保该值非空，
    *                除非创建的是 `empty()` 方法返回的单例实例。
@@ -23,7 +17,7 @@ export class Optional<T> {
    * @returns 一个空的 `Optional` 实例
    */
   static empty<T>(): Optional<T> {
-    return Optional.EMPTY
+    return new Optional<any>(null)
   }
 
   /**

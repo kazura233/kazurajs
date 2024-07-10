@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-postmsg",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "web-postmsg",
   "keywords": [
     "postMessage"
@@ -28,10 +28,10 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@kazura/web-util": ">=2.0.0"
+    "@kazura/web-util": ">=2.0.1"
   },
   "dependencies": {
-    "@kazura/web-util": "^2.0.0"
+    "@kazura/web-util": "^2.0.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",

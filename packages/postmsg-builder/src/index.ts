@@ -14,7 +14,7 @@ export interface ParentOpenerReceiverOptions {
 export default class PostMsgBuilder {
   public iframe?: HTMLIFrameElement
 
-  public options: Required<PostMsgAPIOptions> = {
+  public options: PostMsgAPIOptions = {
     listeners: new Map<string, Listener>(),
     receiver: window,
     channel: WebPostMsg.generateUUID(),
@@ -78,7 +78,7 @@ export default class PostMsgBuilder {
    * @returns
    */
   public setListener(type: string, listener: Listener) {
-    this.options.listeners.set(type, listener)
+    this.options.listeners!.set(type, listener)
     return this
   }
 
@@ -88,7 +88,7 @@ export default class PostMsgBuilder {
    * @returns
    */
   public deleteListener(type: string) {
-    this.options.listeners.delete(type)
+    this.options.listeners!.delete(type)
     return this
   }
 

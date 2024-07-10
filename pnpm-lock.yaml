@@ -350,8 +350,8 @@ importers:
   packages/postmsg-builder:
     dependencies:
       '@kazura/web-postmsg':
-        specifier: ^1.1.0
-        version: 1.1.0(@kazura/web-util@packages+web-util)
+        specifier: ^2.0.0
+        version: link:../web-postmsg
     devDependencies:
       komekko:
         specifier: workspace:*
@@ -4274,16 +4274,6 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
-
-  /@kazura/web-postmsg@1.1.0(@kazura/web-util@packages+web-util):
-    resolution: {integrity: sha512-ZcYmPCnlXHYHjNurJubMMVdB+Ob5b3rorBvo1pYk6VwHUS/zk9rT4GM5RylXvfpGPb8WCaqdM/qBhSeEUEbf5g==}
-    engines: {node: '>=20.5.0'}
-    peerDependencies:
-      '@kazura/web-util': '>=1.0'
-    dependencies:
-      '@babel/runtime': 7.24.7
-      '@kazura/web-util': link:packages/web-util
-    dev: false
 
   /@leichtgewicht/ip-codec@2.0.4:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}

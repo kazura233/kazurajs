@@ -28,10 +28,10 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@kazura/web-postmsg": ">=2.0.0"
+    "@kazura/web-postmsg": ">=2.0.1"
   },
   "dependencies": {
-    "@kazura/web-postmsg": "^2.0.0"
+    "@kazura/web-postmsg": "^2.0.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",

@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@nestjs/common": "^10.3.10",
-    "winston": "^3.13.0",
+    "winston": "^3.13.1",
     "typescript": "^5.5.3"
   },
   "peerDependencies": {

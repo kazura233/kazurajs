@@ -125,10 +125,20 @@ export const arrayBufferViewToFile = (u8arr: Uint8Array, fileName: string, mime:
  * @param u8arr
  * @returns
  */
-export const arrayBufferViewBase64 = (u8arr: Uint8Array): string => {
+export const arrayBufferViewToBase64 = (u8arr: Uint8Array): string => {
   const buffer = u8arr.buffer
   const base64String = btoa(String.fromCharCode(...new Uint8Array(buffer)))
   return base64String
+}
+
+/**
+ * Uint8Array 转 Base64
+ * @param u8arr
+ * @param mime - 文件类型
+ * @returns
+ */
+export const arrayBufferViewToDataURL = (u8arr: Uint8Array, mime: string): string => {
+  return base64ToDataURL(arrayBufferViewToBase64(u8arr), mime)
 }
 
 // ===== ===== ===== ===== ===== File To ===== ===== ===== ===== ===== //
@@ -140,6 +150,15 @@ export const arrayBufferViewBase64 = (u8arr: Uint8Array): string => {
  */
 export const fileToBlob = (file: File): Blob => {
   return new Blob([file], { type: file.type })
+}
+
+/**
+ * File 转 DataURL
+ * @param file - File
+ * @returns - Promise 包装的 DataURL 字符串
+ */
+export const fileToDataURL = (file: File): Promise<string> => {
+  return blobToDataURL(fileToBlob(file))
 }
 
 /**
@@ -173,16 +192,26 @@ export const blobToFile = (blob: Blob, fileName: string): File => {
 }
 
 /**
- * Blob 转 Base64
+ * Blob 转 DataURL
  * @param blob - Blob
- * @returns - Promise 包装的 Base64 字符串
+ * @returns - Promise 包装的 DataURL 字符串
  */
-export const blobToBase64 = (blob: Blob): Promise<string> => {
+export const blobToDataURL = (blob: Blob): Promise<string> => {
   return new Promise<string>((resolve) => {
     const reader = new FileReader()
     reader.onloadend = (event: ProgressEvent<FileReader>) => resolve(event.target!.result as string)
     reader.readAsDataURL(blob)
   })
+}
+
+/**
+ * Blob 转 Base64
+ * @param blob - Blob
+ * @returns - Promise 包装的 Base64 字符串
+ */
+export const blobToBase64 = async (blob: Blob): Promise<string> => {
+  const data = await blobToDataURL(blob)
+  return dataURLToBase64(data)
 }
 
 /**

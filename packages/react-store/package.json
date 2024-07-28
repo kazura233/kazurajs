@@ -32,16 +32,16 @@
   },
   "peerDependencies": {
     "redux": ">=5.0.1",
-    "@reduxjs/toolkit": ">=2.2.6"
+    "@reduxjs/toolkit": ">=2.2.7"
   },
   "dependencies": {
     "redux": "^5.0.1",
-    "@reduxjs/toolkit": "^2.2.6"
+    "@reduxjs/toolkit": "^2.2.7"
   },
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "npmName": "@kazura/react-store",
   "publishConfig": {
@@ -49,6 +49,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.15.1"
+    "node": ">=20.16.0"
   }
 }

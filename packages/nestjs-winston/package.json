@@ -25,7 +25,7 @@
   "devDependencies": {
     "@nestjs/common": "^10.3.10",
     "winston": "^3.13.1",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "@nestjs/common": "^10.3.10"
@@ -36,6 +36,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.15.1"
+    "node": ">=20.16.0"
   }
 }

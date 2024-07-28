@@ -28,15 +28,15 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@kazura/web-util": ">=2.0.1"
+    "@kazura/web-util": ">=2.1.0"
   },
   "dependencies": {
-    "@kazura/web-util": "^2.0.1"
+    "@kazura/web-util": "^2.1.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "npmName": "@kazura/web-broadcast",
   "publishConfig": {
@@ -44,6 +44,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.15.1"
+    "node": ">=20.16.0"
   }
 }

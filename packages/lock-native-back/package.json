@@ -28,12 +28,12 @@
     "build": "komekko"
   },
   "dependencies": {
-    "@babel/runtime": "^7.24.8"
+    "@babel/runtime": "^7.25.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "npmName": "@kazura/lock-native-back",
   "publishConfig": {
@@ -41,6 +41,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.15.1"
+    "node": ">=20.16.0"
   }
 }

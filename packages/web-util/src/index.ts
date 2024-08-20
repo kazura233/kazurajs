@@ -204,18 +204,17 @@ export function assert(condition: boolean, msg: string) {
   }
 }
 
-export function withResolvers<T>(): [
-  Promise<T>,
-  (value: T | PromiseLike<T>) => void,
-  (reason?: any) => void
-] {
-  let resolve: (value: T | PromiseLike<T>) => void
-  let reject: (reason?: any) => void
+export interface PromiseWithResolvers<T> {
+  promise: Promise<T>
+  resolve: (value: T | PromiseLike<T>) => void
+  reject: (reason?: any) => void
+}
 
-  const promise = new Promise<T>((res, rej) => {
-    resolve = res
-    reject = rej
+export function withResolvers<T>(): PromiseWithResolvers<T> {
+  const out = {} as PromiseWithResolvers<T>
+  out.promise = new Promise<T>((resolve_, reject_) => {
+    out.resolve = resolve_
+    out.reject = reject_
   })
-
-  return [promise, resolve!, reject!]
+  return out
 }

@@ -50,7 +50,7 @@
     "@types/file-saver": "^2.0.7",
     "@types/uuid": "^9.0.8",
     "copy-to-clipboard": "^3.3.3",
-    "dayjs": "^1.11.12",
+    "dayjs": "^1.11.13",
     "file-saver": "^2.0.5",
     "uuid": "^9.0.1"
   },

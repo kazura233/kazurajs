@@ -29,11 +29,11 @@
     "build": "komekko"
   },
   "dependencies": {
-    "axios": "^1.7.4"
+    "axios": "^1.7.5"
   },
   "devDependencies": {
     "komekko": "workspace:*",
-    "tslib": "^2.6.3",
+    "tslib": "^2.7.0",
     "typescript": "^5.5.4"
   },
   "npmName": "@kazura/http-client",
@@ -42,6 +42,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.16.0"
+    "node": ">=20.17.0"
   }
 }

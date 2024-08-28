@@ -12,6 +12,7 @@ import dts from 'rollup-plugin-dts'
 import replace from '@rollup/plugin-replace'
 import json from '@rollup/plugin-json'
 import { esbuildPlugin } from '../plugins/esbuild'
+import { obfuscatePlugin } from '../plugins/obfuscator'
 
 const DEFAULT_EXTENSIONS = ['.ts', '.tsx', '.mjs', '.cjs', '.js', '.jsx', '.json']
 
@@ -527,6 +528,11 @@ export class RollupBuilder {
         commonjs({
           extensions: DEFAULT_EXTENSIONS,
           ...this.options.rollupPluginsOptions.commonJSOptions,
+        }),
+
+      this.options.rollupPluginsOptions.obfuscatorOptions &&
+        obfuscatePlugin({
+          ...this.options.rollupPluginsOptions.obfuscatorOptions,
         }),
     ].filter(Boolean)
   }

@@ -6,6 +6,7 @@ import type { Options as RollupDtsOptions } from 'rollup-plugin-dts'
 import type commonjs from '@rollup/plugin-commonjs'
 import type { RollupOptions } from './builder/rollup'
 import type { EsbuildOptions } from './plugins/esbuild'
+import { ObfuscatePluginOptions } from './plugins/obfuscator'
 
 export type RollupCommonJSOptions = NonNullable<Parameters<typeof commonjs>[0]>
 
@@ -17,6 +18,7 @@ export interface RollupPluginsOptions {
   esbuildOptions: EsbuildOptions | false
   commonJSOptions: RollupCommonJSOptions | false
   dtsOptions: RollupDtsOptions
+  obfuscatorOptions: ObfuscatePluginOptions | false
 }
 
 export type ModuleFormat = 'esm' | 'cjs' | 'umd' | 'iife'

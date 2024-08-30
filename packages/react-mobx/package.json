@@ -30,14 +30,14 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18",
-    "mobx": ">=6",
-    "react": ">=18"
+    "@types/react": ">=18.3.5",
+    "mobx": ">=6.13.1",
+    "react": ">=18.3.1"
   },
   "dependencies": {
-    "@types/react": "^18",
-    "mobx": "^6",
-    "react": "^18"
+    "@types/react": "^18.3.5",
+    "mobx": "^6.13.1",
+    "react": "^18.3.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -50,6 +50,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20.17.0"
   }
 }

@@ -150,7 +150,7 @@ export interface IForwardRefRenderFunctionOptions<P> {
 }
 
 export function defineForwardRefRenderFunction<T, P = {}>(
-  render: ForwardRefRenderFunction<T, P>,
+  render: ForwardRefRenderFunction<T, PropsWithoutRef<P>>,
   options?: IForwardRefRenderFunctionOptions<PropsWithoutRef<P> & RefAttributes<T>>
 ): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
   const component = forwardRef<T, P>(render)

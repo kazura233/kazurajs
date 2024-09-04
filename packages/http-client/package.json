@@ -29,7 +29,7 @@
     "build": "komekko"
   },
   "dependencies": {
-    "axios": "^1.7.6"
+    "axios": "^1.7.7"
   },
   "devDependencies": {
     "komekko": "workspace:*",

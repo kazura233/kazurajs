@@ -52,7 +52,7 @@
     "rollup-plugin-dts": "^6.1.1"
   },
   "devDependencies": {
-    "@types/node": "^20.16.2",
+    "@types/node": "^20.16.4",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {

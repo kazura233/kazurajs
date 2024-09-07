@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@kazura/react-mobx": "workspace:*",
-    "mobx": "^6.13.1",
+    "mobx": "^6.13.2",
     "mobx-react-lite": "^4.0.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

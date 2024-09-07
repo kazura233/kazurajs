@@ -397,8 +397,8 @@ importers:
         specifier: ^18.3.5
         version: 18.3.5
       mobx:
-        specifier: ^6.13.1
-        version: 6.13.1
+        specifier: ^6.13.2
+        version: 6.13.2
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -419,11 +419,11 @@ importers:
         specifier: workspace:*
         version: link:..
       mobx:
-        specifier: ^6.13.1
-        version: 6.13.1
+        specifier: ^6.13.2
+        version: 6.13.2
       mobx-react-lite:
         specifier: ^4.0.7
-        version: 4.0.7(mobx@6.13.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 4.0.7(mobx@6.13.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -5885,8 +5885,8 @@ packages:
       react-native:
         optional: true
 
-  mobx@6.13.1:
-    resolution: {integrity: sha512-ekLRxgjWJr8hVxj9ZKuClPwM/iHckx3euIJ3Np7zLVNtqJvfbbq7l370W/98C8EabdQ1pB5Jd3BbDWxJPNnaOg==}
+  mobx@6.13.2:
+    resolution: {integrity: sha512-GIubI2qf+P6lG6rSEG0T2pg3jV9/0+O0ncF09+0umRe75+Cbnh1KNLM1GvbTY9RSc7QuU+LcPNZfxDY8B+3XRg==}
 
   morgan@1.10.0:
     resolution: {integrity: sha512-AbegBVI4sh6El+1gNwvD5YIck7nSA36weD7xvIxG4in80j/UoK8AEGaWnnz8v1GxonMCltmlNs5ZKbGvl9b1XQ==}
@@ -14579,15 +14579,15 @@ snapshots:
       pkg-types: 1.2.0
       ufo: 1.5.4
 
-  mobx-react-lite@4.0.7(mobx@6.13.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  mobx-react-lite@4.0.7(mobx@6.13.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      mobx: 6.13.1
+      mobx: 6.13.2
       react: 18.3.1
       use-sync-external-store: 1.2.2(react@18.3.1)
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
-  mobx@6.13.1: {}
+  mobx@6.13.2: {}
 
   morgan@1.10.0:
     dependencies:

@@ -30,13 +30,13 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.3.8",
-    "mobx": ">=6.13.2",
+    "@types/react": ">=18.3.10",
+    "mobx": ">=6.13.3",
     "react": ">=18.3.1"
   },
   "dependencies": {
-    "@types/react": "^18.3.8",
-    "mobx": "^6.13.2",
+    "@types/react": "^18.3.10",
+    "mobx": "^6.13.3",
     "react": "^18.3.1"
   },
   "devDependencies": {

@@ -47,16 +47,16 @@
     "javascript-obfuscator": "^4.1.1",
     "jiti": "^1.21.6",
     "pathe": "^1.1.2",
-    "pkg-types": "^1.2.0",
-    "rollup": "^4.22.5",
+    "pkg-types": "^1.2.1",
+    "rollup": "^4.24.0",
     "rollup-plugin-dts": "^6.1.1"
   },
   "devDependencies": {
-    "@types/node": "^20.16.10",
-    "typescript": "^5.6.2"
+    "@types/node": "^20.16.13",
+    "typescript": "^5.6.3"
   },
   "peerDependencies": {
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -69,6 +69,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=20.17.0"
+    "node": ">=20.18.0"
   }
 }

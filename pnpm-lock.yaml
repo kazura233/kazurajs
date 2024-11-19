@@ -99,7 +99,7 @@ importers:
         version: 5.6.2
       vite:
         specifier: ^5.4.10
-        version: 5.4.10(@types/node@20.16.10)(terser@5.31.3)
+        version: 5.4.10(@types/node@22.9.1)(terser@5.31.3)
 
   packages/build-test/vite-lib:
     dependencies:
@@ -115,7 +115,7 @@ importers:
         version: 5.6.2
       vite:
         specifier: ^5.4.10
-        version: 5.4.10(@types/node@20.16.10)(terser@5.31.3)
+        version: 5.4.10(@types/node@22.9.1)(terser@5.31.3)
 
   packages/common:
     devDependencies:
@@ -270,8 +270,8 @@ importers:
         version: 6.1.1(rollup@4.22.5)(typescript@5.6.2)
     devDependencies:
       '@types/node':
-        specifier: ^20.16.10
-        version: 20.16.10
+        specifier: ^22.9.1
+        version: 22.9.1
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
@@ -432,8 +432,8 @@ importers:
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@types/node':
-        specifier: ^20.16.10
-        version: 20.16.10
+        specifier: ^22.9.1
+        version: 22.9.1
       '@types/react':
         specifier: ^18.3.10
         version: 18.3.10
@@ -442,13 +442,13 @@ importers:
         version: 18.3.0
       '@vitejs/plugin-react':
         specifier: ^4.3.1
-        version: 4.3.1(vite@5.4.10(@types/node@20.16.10)(terser@5.31.3))
+        version: 4.3.1(vite@5.4.10(@types/node@22.9.1)(terser@5.31.3))
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
       vite:
         specifier: ^5.4.10
-        version: 5.4.10(@types/node@20.16.10)(terser@5.31.3)
+        version: 5.4.10(@types/node@22.9.1)(terser@5.31.3)
 
   packages/react-store:
     dependencies:
@@ -488,8 +488,8 @@ importers:
         version: 5.0.1
     devDependencies:
       '@types/node':
-        specifier: ^20.16.10
-        version: 20.16.10
+        specifier: ^22.9.1
+        version: 22.9.1
       '@types/react':
         specifier: ^18.3.10
         version: 18.3.10
@@ -498,13 +498,13 @@ importers:
         version: 18.3.0
       '@vitejs/plugin-react':
         specifier: ^4.3.1
-        version: 4.3.1(vite@5.4.10(@types/node@20.16.10)(terser@5.31.3))
+        version: 4.3.1(vite@5.4.10(@types/node@22.9.1)(terser@5.31.3))
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
       vite:
         specifier: ^5.4.10
-        version: 5.4.10(@types/node@20.16.10)(terser@5.31.3)
+        version: 5.4.10(@types/node@22.9.1)(terser@5.31.3)
 
   packages/react-toolkit:
     dependencies:
@@ -2983,8 +2983,8 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@20.16.10':
-    resolution: {integrity: sha512-vQUKgWTjEIRFCvK6CyriPH3MZYiYlNy0fKiEYHWbcoWLEgs4opurGGKlebrTLqdSMIbXImH6XExNiIyNUv3WpA==}
+  '@types/node@22.9.1':
+    resolution: {integrity: sha512-p8Yy/8sw1caA8CdRIQBG5tiLHmxtQKObCijiAa9Ez+d4+PRffM4054xbju0msf+cvhJpnFEeNjxmVT/0ipktrg==}
 
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
@@ -10254,7 +10254,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
       '@types/yargs': 17.0.32
       chalk: 4.1.2
 
@@ -10759,20 +10759,20 @@ snapshots:
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/bonjour@3.5.13':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/connect-history-api-fallback@1.5.4':
     dependencies:
       '@types/express-serve-static-core': 4.19.5
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/crypto-js@4.2.2': {}
 
@@ -10800,7 +10800,7 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.5':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
       '@types/qs': 6.9.15
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -10817,7 +10817,7 @@ snapshots:
   '@types/fs-extra@11.0.4':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
     optional: true
 
   '@types/gtag.js@0.0.12': {}
@@ -10836,7 +10836,7 @@ snapshots:
 
   '@types/http-proxy@1.17.14':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -10854,7 +10854,7 @@ snapshots:
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
     optional: true
 
   '@types/mdast@4.0.4':
@@ -10871,11 +10871,11 @@ snapshots:
 
   '@types/node-forge@1.3.11':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/node@17.0.45': {}
 
-  '@types/node@20.16.10':
+  '@types/node@22.9.1':
     dependencies:
       undici-types: 6.19.8
 
@@ -10926,12 +10926,12 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/serve-index@1.9.4':
     dependencies:
@@ -10940,12 +10940,12 @@ snapshots:
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
       '@types/send': 0.17.4
 
   '@types/sockjs@0.3.36':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/triple-beam@1.3.5': {}
 
@@ -10961,7 +10961,7 @@ snapshots:
 
   '@types/ws@8.5.11':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -11052,14 +11052,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@4.3.1(vite@5.4.10(@types/node@20.16.10)(terser@5.31.3))':
+  '@vitejs/plugin-react@4.3.1(vite@5.4.10(@types/node@22.9.1)(terser@5.31.3))':
     dependencies:
       '@babel/core': 7.25.2
       '@babel/plugin-transform-react-jsx-self': 7.24.7(@babel/core@7.25.2)
       '@babel/plugin-transform-react-jsx-source': 7.24.7(@babel/core@7.25.2)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.4.10(@types/node@20.16.10)(terser@5.31.3)
+      vite: 5.4.10(@types/node@22.9.1)(terser@5.31.3)
     transitivePeerDependencies:
       - supports-color
 
@@ -12821,7 +12821,7 @@ snapshots:
 
   eval@0.1.8:
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
       require-like: 0.1.2
 
   event-stream@3.3.4:
@@ -13999,7 +13999,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -14007,13 +14007,13 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -16831,13 +16831,13 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@5.4.10(@types/node@20.16.10)(terser@5.31.3):
+  vite@5.4.10(@types/node@22.9.1)(terser@5.31.3):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
       rollup: 4.22.5
     optionalDependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1
       fsevents: 2.3.3
       terser: 5.31.3
 
@@ -17104,4 +17104,4 @@ snapshots:
   zx@8.1.8:
     optionalDependencies:
       '@types/fs-extra': 11.0.4
-      '@types/node': 20.16.10
+      '@types/node': 22.9.1

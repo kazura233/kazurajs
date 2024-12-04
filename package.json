@@ -2,9 +2,14 @@
   "private": true,
   "packageManager": "pnpm@9.11.0",
   "scripts": {
+    "use-proxy-install": "cross-env https_proxy=http://127.0.0.1:1087 http_proxy=http://127.0.0.1:1087 all_proxy=socks5://127.0.0.1:1086 pnpm install",
+    "upi": "pnpm run use-proxy-install",
     "clean:all": "pnpm -r --filter=./packages/* run clean",
     "build:komekko": "pnpm -r --filter=./packages/komekko run build",
     "build:all": "pnpm build:komekko & pnpm i & pnpm -r --filter=./packages/* run build",
     "docs:build": "pnpm -C docs build"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

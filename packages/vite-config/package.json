@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "komekko": "workspace:*",
-    "tslib": "^2.7.0",
-    "typescript": "^5.6.2"
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.2"
   },
   "npmName": "@kazura/vite-config",
   "publishConfig": {
@@ -39,6 +39,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.11.0"
+    "node": ">=22.12.0"
   }
 }

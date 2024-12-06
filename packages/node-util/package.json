@@ -31,7 +31,7 @@
     "@types/uuid": "^9.0.8",
     "pkg-types": "^1.2.1",
     "time2fa": "^1.4.2",
-    "uuid": "^9.0.1",
+    "uuid": "^11.0.3",
     "zx": "^8.2.4"
   },
   "devDependencies": {

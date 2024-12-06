@@ -52,7 +52,7 @@
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.13",
     "file-saver": "^2.0.5",
-    "uuid": "^9.0.1"
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "komekko": "workspace:*",

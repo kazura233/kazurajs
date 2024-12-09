@@ -28,7 +28,7 @@
     "build": "komekko"
   },
   "dependencies": {
-    "@types/uuid": "^9.0.8",
+    "@types/uuid": "^10.0.0",
     "pkg-types": "^1.2.1",
     "time2fa": "^1.4.2",
     "uuid": "^11.0.3",

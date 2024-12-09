@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@types/debug": "^4.1.12",
-    "debug": "^4.3.7",
+    "debug": "^4.4.0",
     "fast-glob": "^3.3.2"
   },
   "devDependencies": {

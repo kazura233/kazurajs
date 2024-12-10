@@ -23,12 +23,12 @@
     "build": "rm -rf dist && tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "@nestjs/common": "^10.4.13",
+    "@nestjs/common": "^10.4.15",
     "winston": "^3.17.0",
     "typescript": "^5.7.2"
   },
   "peerDependencies": {
-    "@nestjs/common": "^10.4.13"
+    "@nestjs/common": "^10.4.15"
   },
   "npmName": "@kazura/nestjs-winston",
   "publishConfig": {

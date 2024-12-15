@@ -9,16 +9,16 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-redux": "^9.1.2",
+    "react-redux": "^9.2.0",
     "redux": "^5.0.1",
-    "@reduxjs/toolkit": "^2.2.7"
+    "@reduxjs/toolkit": "^2.5.0"
   },
   "devDependencies": {
-    "@types/node": "^22.9.1",
-    "@types/react": "^18.3.10",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "typescript": "^5.6.2",
-    "vite": "^5.4.10"
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.16",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
   }
 }

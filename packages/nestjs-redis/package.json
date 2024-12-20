@@ -25,7 +25,7 @@
   "devDependencies": {
     "@nestjs/common": "^10.4.15",
     "@types/uuid": "^10.0.0",
-    "ioredis": "^5.4.1",
+    "ioredis": "^5.4.2",
     "uuid": "^11.0.3",
     "typescript": "^5.7.2"
   },

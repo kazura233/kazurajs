@@ -46,7 +46,7 @@
     "esbuild": "^0.24.2",
     "javascript-obfuscator": "^4.1.1",
     "jiti": "^2.4.2",
-    "pathe": "^1.1.2",
+    "pathe": "^2.0.2",
     "pkg-types": "^1.2.1",
     "rollup": "^4.29.1",
     "rollup-plugin-dts": "^6.1.1"

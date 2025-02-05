@@ -48,7 +48,7 @@
     "komekko": "workspace:*",
     "tslib": "^2.8.1",
     "typescript": "^5.7.2",
-    "vite": "^5.4.11"
+    "vite": "^6.1.0"
   },
   "npmName": "@kazura/vite-plugin-react-pages",
   "publishConfig": {

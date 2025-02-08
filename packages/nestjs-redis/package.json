@@ -23,14 +23,14 @@
     "build": "rm -rf dist && tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "@nestjs/common": "^10.4.15",
+    "@nestjs/common": "^11.0.8",
     "@types/uuid": "^10.0.0",
     "ioredis": "^5.4.2",
     "uuid": "^11.0.3",
     "typescript": "^5.7.2"
   },
   "peerDependencies": {
-    "@nestjs/common": "^10.4.15"
+    "@nestjs/common": "^11.0.8"
   },
   "npmName": "@kazura/nestjs-redis",
   "publishConfig": {

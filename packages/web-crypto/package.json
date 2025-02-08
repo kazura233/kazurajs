@@ -77,7 +77,7 @@
     "komekko": "workspace:*",
     "tslib": "^2.8.1",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   },
   "npmName": "@kazura/web-crypto",
   "publishConfig": {
@@ -85,6 +85,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.1"
   }
 }

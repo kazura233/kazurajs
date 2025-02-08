@@ -20,9 +20,9 @@
     "@rollup/plugin-node-resolve": "^15.3.1",
     "@rollup/plugin-replace": "^5.0.7",
     "rimraf": "^6.0.1",
-    "rollup": "^4.29.1",
+    "rollup": "^4.34.6",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.8.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }

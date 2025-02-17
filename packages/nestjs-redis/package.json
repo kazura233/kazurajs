@@ -25,9 +25,9 @@
   "devDependencies": {
     "@nestjs/common": "^10.4.15",
     "@types/uuid": "^10.0.0",
-    "ioredis": "^5.4.1",
-    "uuid": "^11.0.3",
-    "typescript": "^5.7.2"
+    "ioredis": "^5.5.0",
+    "uuid": "^11.0.5",
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "@nestjs/common": "^10.4.15"
@@ -38,6 +38,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.1"
   }
 }

@@ -30,13 +30,13 @@
   "peerDependencies": {
     "@types/react": ">=18.3.18",
     "react": ">=18.3.1",
-    "react-router": ">=7.1.5"
+    "react-router": ">=7.2.0"
   },
   "dependencies": {
     "@kazura/web-util": "^2.1.0",
     "@types/react": "^18.3.18",
     "react": "^18.3.1",
-    "react-router": "^7.1.5"
+    "react-router": "^7.2.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -49,6 +49,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.13.1"
+    "node": ">=22.14.0"
   }
 }

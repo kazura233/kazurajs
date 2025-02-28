@@ -28,12 +28,12 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.3.18",
-    "react": ">=18.3.1"
+    "@types/react": ">=19.0.10",
+    "react": ">=19.0.0"
   },
   "dependencies": {
-    "@types/react": "^18.3.18",
-    "react": "^18.3.1"
+    "@types/react": "^19.0.10",
+    "react": "^19.0.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",

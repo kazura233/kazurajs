@@ -12,12 +12,12 @@ export interface Options {
   /**
    * 需要忽略的目录
    */
-  exclude: string[]
+  exclude?: string[]
 
   /**
    * 需要扫描的文件扩展名
    */
-  extensions: string[]
+  extensions?: string[]
 }
 
 export interface ResolvedOptions extends Required<Options> {

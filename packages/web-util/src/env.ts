@@ -58,3 +58,21 @@ export function isNative(Ctor: any): boolean {
   }
   return false
 }
+
+/**
+ * 判断用户是否为 Windows 系统
+ */
+export const isFromWindows = (): boolean => {
+  return isBrowser() && navigator.userAgent.toLowerCase().includes('windows')
+}
+
+/**
+ * 判断用户是否为 Mac 系统
+ */
+export const isFromMac = (): boolean => {
+  return (
+    isBrowser() &&
+    (navigator.userAgent.toLowerCase().includes('macintosh') ||
+      navigator.userAgent.toLowerCase().includes('mac os'))
+  )
+}

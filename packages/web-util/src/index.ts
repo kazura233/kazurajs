@@ -162,7 +162,11 @@ export function getGlobal(): (Window & typeof globalThis) | undefined {
     return self
   }
 }
-
+/**
+ * 返回数组去重后的新数组
+ * @param arr - 输入数组
+ * @returns 去重后的数组
+ */
 export function unique<T>(arr: T[]): T[] {
   return Array.from(new Set(arr))
 }
@@ -170,7 +174,6 @@ export function unique<T>(arr: T[]): T[] {
 /**
  * 将微任务加入队列以在控制返回浏览器的事件循环之前的安全时间执行。
  * @param callback - 要执行的函数
- * @returns
  */
 export const queueMicrotask: (callback: VoidFunction) => void =
   window.queueMicrotask ||
@@ -179,9 +182,9 @@ export const queueMicrotask: (callback: VoidFunction) => void =
   }
 
 /**
- * 语音合成
- * @param text
- * @param lang
+ * 使用浏览器的语音合成 API 朗读文本。
+ * @param text - 要朗读的文本
+ * @param lang - 语言代码（例如 'en-US'、'zh-CN'）
  */
 export function speak(text: string, lang: string): void {
   if (speechSynthesis.speaking) {
@@ -194,9 +197,9 @@ export function speak(text: string, lang: string): void {
 }
 
 /**
- * 断言
- * @param condition
- * @param msg
+ * 断言条件为真，若条件为假则抛出错误。
+ * @param condition - 判断条件
+ * @param msg - 条件不满足时抛出的错误信息
  */
 export function assert(condition: boolean, msg: string) {
   if (!condition) {
@@ -204,12 +207,19 @@ export function assert(condition: boolean, msg: string) {
   }
 }
 
+/**
+ * 包含 Promise 及其解析和拒绝函数的接口。
+ */
 export interface PromiseWithResolvers<T> {
   promise: Promise<T>
   resolve: (value: T | PromiseLike<T>) => void
   reject: (reason?: any) => void
 }
 
+/**
+ * 创建带有解析（resolve）和拒绝（reject）函数的 Promise。
+ * @returns 包含 promise、resolve、reject 的对象
+ */
 export function withResolvers<T>(): PromiseWithResolvers<T> {
   const out = {} as PromiseWithResolvers<T>
   out.promise = new Promise<T>((resolve_, reject_) => {
@@ -217,4 +227,100 @@ export function withResolvers<T>(): PromiseWithResolvers<T> {
     out.reject = reject_
   })
   return out
+}
+
+/**
+ * 获取指定名称的 Cookie 值。
+ * @param name - Cookie 名称
+ * @returns 对应的 Cookie 值，若不存在返回 undefined
+ */
+export function getCookie(name: string): string | undefined {
+  const r = document.cookie.match(`\b${name}=([^;]*)\b`)
+  return r ? r[1] : undefined
+}
+
+/**
+ * 设置 Cookie 值。
+ * @param name - Cookie 名称
+ * @param value - Cookie 值
+ * @param expiration - 过期时间（可选）
+ */
+export function setCookie(name: string, value?: string, expiration?: Date): void {
+  const expirationDate = value ? expiration : new Date()
+  const expirationStr: string = expirationDate ? `expires=${expirationDate.toUTCString()};` : ''
+  document.cookie = `${name}=${value};${expirationStr}path=/`
+}
+
+/**
+ * 检查 localStorage 是否可用。
+ * @returns 若可用返回 true，否则返回 false
+ */
+export function localStorageAvailable(): boolean {
+  const testData = '@kazura/web-util#testData'
+
+  try {
+    const { localStorage } = window
+    localStorage.setItem(testData, testData)
+    localStorage.getItem(testData)
+    localStorage.removeItem(testData)
+  } catch (e) {
+    return false
+  }
+  return true
+}
+
+/**
+ * 判断当前页面是否通过 HTTPS 访问。
+ * @returns 若为 HTTPS 返回 true，否则返回 false
+ */
+export function isHttps(): boolean {
+  return window.location.href.startsWith('https://')
+}
+
+/**
+ * 判断当前页面是否通过 HTTP 访问。
+ * @returns 若为 HTTP 返回 true，否则返回 false
+ */
+export function isHttp(): boolean {
+  return window.location.href.startsWith('http://')
+}
+
+/**
+ * 判断当前页面是否在子 iframe 中嵌套。
+ * @returns 若在子 iframe 中返回 true，否则返回 false
+ */
+export function isInChildFrame(): boolean {
+  return window.parent !== window
+}
+
+/**
+ * 获取当前时区。
+ * @returns 当前时区的字符串（例如 'Asia/Shanghai'）
+ */
+export function getTimezone(): string {
+  return Intl.DateTimeFormat().resolvedOptions().timeZone
+}
+
+/**
+ * 获取当前时区的时差（以分钟为单位）。
+ * @returns 当前时区的时差（分钟）
+ */
+export function getTimezoneOffset(): number {
+  return new Date().getTimezoneOffset()
+}
+
+/**
+ * 获取浏览器的首选语言。
+ * @returns 浏览器语言字符串（例如 'en-US'、'zh-CN'）
+ */
+export function getLocaleLanguage(): string {
+  return navigator.language
+}
+
+/**
+ * 返回基于当前日期和 Math.random 模块生成的唯一标识符（UID）。
+ * @returns 生成的 UID 字符串
+ */
+export function generateUID(): string {
+  return Math.floor(Date.now() / 1000).toString(36) + Math.random().toString(36).slice(-6)
 }

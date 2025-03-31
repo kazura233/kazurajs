@@ -1,4 +1,4 @@
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
 
 export { dayjs }
 
@@ -25,39 +25,39 @@ export const formatDateStrSSS = (t?: string): string => {
 /**
  * 定义允许的输入类型
  */
-export type InputType = string | number | Dayjs
+export type ConfigType = dayjs.ConfigType
 
 /**
  * 格式化为 YYYY-MM-DD HH:mm:ss.SSS 格式
  */
-export const formatWithMilliseconds = (input: InputType): string => {
-  return dayjs(input).format('YYYY-MM-DD HH:mm:ss.SSS')
+export const formatWithMilliseconds = (date?: ConfigType): string => {
+  return dayjs(date).format('YYYY-MM-DD HH:mm:ss.SSS')
 }
 
 /**
  * 格式化为 YYYY-MM-DD HH:mm:ss 格式
  */
-export const formatWithSeconds = (input: InputType): string => {
-  return dayjs(input).format('YYYY-MM-DD HH:mm:ss')
+export const formatWithSeconds = (date?: ConfigType): string => {
+  return dayjs(date).format('YYYY-MM-DD HH:mm:ss')
 }
 
 /**
  * 格式化为 YYYY-MM-DD 格式
  */
-export const formatDate = (input: InputType): string => {
-  return dayjs(input).format('YYYY-MM-DD')
+export const formatDate = (date?: ConfigType): string => {
+  return dayjs(date).format('YYYY-MM-DD')
 }
 
 /**
  * 格式化为 YYYY-MM-DD 00:00:00
  */
-export const formatStartOfDay = (input: InputType): string => {
-  return dayjs(input).startOf('day').format('YYYY-MM-DD HH:mm:ss')
+export const formatStartOfDay = (date?: ConfigType): string => {
+  return dayjs(date).startOf('day').format('YYYY-MM-DD HH:mm:ss')
 }
 
 /**
  * 格式化为 YYYY-MM-DD 23:59:59
  */
-export const formatEndOfDay = (input: InputType): string => {
-  return dayjs(input).endOf('day').format('YYYY-MM-DD HH:mm:ss')
+export const formatEndOfDay = (date?: ConfigType): string => {
+  return dayjs(date).endOf('day').format('YYYY-MM-DD HH:mm:ss')
 }

@@ -30,18 +30,18 @@
   "peerDependencies": {
     "@types/react": ">=18.3.20",
     "react": ">=18.3.1",
-    "react-router": ">=7.4.0"
+    "react-router": ">=7.5.0"
   },
   "dependencies": {
-    "@kazura/web-util": "^2.1.0",
+    "@kazura/web-util": "^2.2.0",
     "@types/react": "^18.3.20",
     "react": "^18.3.1",
-    "react-router": "^7.4.0"
+    "react-router": "^7.5.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "npmName": "@kazura/react-hooks",
   "publishConfig": {

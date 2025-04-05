@@ -27,7 +27,7 @@
     "@types/uuid": "^10.0.0",
     "ioredis": "^5.6.0",
     "uuid": "^11.1.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "@nestjs/common": "^10.4.15"

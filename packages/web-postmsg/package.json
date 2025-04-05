@@ -28,15 +28,15 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@kazura/web-util": ">=2.1.0"
+    "@kazura/web-util": ">=2.2.0"
   },
   "dependencies": {
-    "@kazura/web-util": "^2.1.0"
+    "@kazura/web-util": "^2.2.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "npmName": "@kazura/web-postmsg",
   "publishConfig": {

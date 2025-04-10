@@ -13,7 +13,7 @@
     "@kazura/web-util": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "^5.8.2",
-    "vite": "^5.4.15"
+    "typescript": "^5.8.3",
+    "vite": "^5.4.18"
   }
 }

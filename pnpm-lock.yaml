@@ -299,8 +299,8 @@ importers:
   packages/nestjs-redis:
     devDependencies:
       '@nestjs/common':
-        specifier: ^10.4.15
-        version: 10.4.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+        specifier: ^11.0.15
+        version: 11.0.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@types/uuid':
         specifier: ^10.0.0
         version: 10.0.0
@@ -317,8 +317,8 @@ importers:
   packages/nestjs-winston:
     devDependencies:
       '@nestjs/common':
-        specifier: ^10.4.15
-        version: 10.4.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+        specifier: ^11.0.15
+        version: 11.0.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       typescript:
         specifier: ^5.8.2
         version: 5.8.2
@@ -358,7 +358,7 @@ importers:
     dependencies:
       '@kazura/web-postmsg':
         specifier: ^2.0.1
-        version: 2.0.1(@kazura/web-util@2.1.0)
+        version: 2.0.1(@kazura/web-util@2.2.0)
     devDependencies:
       komekko:
         specifier: workspace:*
@@ -2503,6 +2503,10 @@ packages:
     resolution: {integrity: sha512-Y7dVpDNdjEGvhLkKVtl+oNwt/5c9Eot5ejnqt1eao+2Ggn/kprZysRPGH9CxjpEt8N2kmyiJC8qL+iWFtKhumA==}
     engines: {node: '>=20.15.1'}
 
+  '@kazura/web-util@2.2.0':
+    resolution: {integrity: sha512-usUx57f1gTS/LBJ0IlXyYcKXa43XUpQqnVmfsC1ce/jZKLc1hoA54ve5QE61I+8Ho2JD0a+DLjDyKVfVDMCwkw==}
+    engines: {node: '>=22.14.0'}
+
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
 
@@ -2519,8 +2523,8 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@nestjs/common@10.4.15':
-    resolution: {integrity: sha512-vaLg1ZgwhG29BuLDxPA9OAcIlgqzp9/N8iG0wGapyUNTf4IY4O6zAHgN6QalwLhFxq7nOI021vdRojR1oF3bqg==}
+  '@nestjs/common@11.0.15':
+    resolution: {integrity: sha512-t35UKFKHGkNgErqzJYzvaNw1v7YpaX+CfOURif49+co/cJ/RTXEr/VRDKOFHtMj4T4tIOZAZbewXoG4RGcJs8Q==}
     peerDependencies:
       class-transformer: '*'
       class-validator: '*'
@@ -5027,6 +5031,10 @@ packages:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}
     engines: {node: '>= 0.6'}
 
+  fresh@2.0.0:
+    resolution: {integrity: sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A==}
+    engines: {node: '>= 0.8'}
+
   from@0.1.7:
     resolution: {integrity: sha512-twe20eF1OxVxp/ML/kq2p1uc6KvFK/+vs8WjEbeKmV2He22MKm7YF2ANIt+EOqhJ5L3K/SuuPhk0hWQDjOM23g==}
 
@@ -6359,12 +6367,20 @@ packages:
     resolution: {integrity: sha512-oHlN/w+3MQ3rba9rqFr6V/ypF10LSkdwUysQL7GkXoTgIWeV+tcXGA852TBxH+gsh8UWoyhR1hKcoMJTuWflpg==}
     engines: {node: '>= 0.6'}
 
+  mime-db@1.54.0:
+    resolution: {integrity: sha512-aU5EJuIN2WDemCcAp2vFBfp/m4EAhWJnUNSSw0ixs7/kXbd6Pg64EmwJkNdFhB8aWt1sH2CTXrLxo/iAGV3oPQ==}
+    engines: {node: '>= 0.6'}
+
   mime-types@2.1.18:
     resolution: {integrity: sha512-lc/aahn+t4/SWV/qcmumYjymLsWfN3ELhpmVuUFjgsORruuZPVSwAQryq+HHGvO/SI2KVX26bx+En+zhM8g8hQ==}
     engines: {node: '>= 0.6'}
 
   mime-types@2.1.35:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
+    engines: {node: '>= 0.6'}
+
+  mime-types@3.0.1:
+    resolution: {integrity: sha512-xRc4oEhT6eaBpU1XF7AjpOFD+xQmXNB5OVKwp4tqCuBpHLS/ZbBDrc07mYTDqVMg6PfxUjjNp85O6Cd2Z/5HWA==}
     engines: {node: '>= 0.6'}
 
   mime@1.6.0:
@@ -7753,8 +7769,8 @@ packages:
     resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
     engines: {node: '>= 0.8.0'}
 
-  send@1.1.0:
-    resolution: {integrity: sha512-v67WcEouB5GxbTWL/4NeToqcZiAWEq90N888fczVArY8A79J0L4FD7vj5hm3eUMua5EpoQ59wa/oovY6TLvRUA==}
+  send@1.2.0:
+    resolution: {integrity: sha512-uaW0WwXKpL9blXE2o0bRhoL2EGXIrZxQ2ZQ4mgcfoBxdFmQold+qWsD2jLrfZ0trjKL6vOw0j//eAwcALFjKSw==}
     engines: {node: '>= 18'}
 
   serialize-javascript@6.0.2:
@@ -11096,9 +11112,9 @@ snapshots:
 
   '@kazura/common@0.0.1': {}
 
-  '@kazura/web-postmsg@2.0.1(@kazura/web-util@2.1.0)':
+  '@kazura/web-postmsg@2.0.1(@kazura/web-util@2.2.0)':
     dependencies:
-      '@kazura/web-util': 2.1.0
+      '@kazura/web-util': 2.2.0
 
   '@kazura/web-util@2.1.0':
     dependencies:
@@ -11109,6 +11125,16 @@ snapshots:
       dayjs: 1.11.13
       file-saver: 2.0.5
       uuid: 9.0.1
+
+  '@kazura/web-util@2.2.0':
+    dependencies:
+      '@kazura/common': 0.0.1
+      '@types/file-saver': 2.0.7
+      '@types/uuid': 10.0.0
+      copy-to-clipboard: 3.3.3
+      dayjs: 1.11.13
+      file-saver: 2.0.5
+      uuid: 11.1.0
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
@@ -11148,7 +11174,7 @@ snapshots:
       '@types/react': 18.3.20
       react: 18.3.1
 
-  '@nestjs/common@10.4.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)':
+  '@nestjs/common@11.0.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)':
     dependencies:
       iterare: 1.2.1
       reflect-metadata: 0.2.2
@@ -11572,7 +11598,7 @@ snapshots:
   '@tarojs/helper@3.6.34':
     dependencies:
       '@babel/core': 7.26.10
-      '@babel/parser': 7.26.7
+      '@babel/parser': 7.27.0
       '@babel/plugin-proposal-decorators': 7.24.7(@babel/core@7.26.10)
       '@babel/plugin-proposal-object-rest-spread': 7.20.7(@babel/core@7.26.10)
       '@babel/plugin-transform-runtime': 7.25.9(@babel/core@7.26.10)
@@ -11580,7 +11606,7 @@ snapshots:
       '@babel/preset-typescript': 7.26.0(@babel/core@7.26.10)
       '@babel/register': 7.24.6(@babel/core@7.26.10)
       '@babel/runtime': 7.27.0
-      '@babel/traverse': 7.26.7
+      '@babel/traverse': 7.27.0
       '@swc/core': 1.3.96
       '@swc/register': 0.1.10(@swc/core@1.3.96)
       ansi-escapes: 4.3.2
@@ -14127,6 +14153,8 @@ snapshots:
 
   fresh@0.5.2: {}
 
+  fresh@2.0.0: {}
+
   from@0.1.7: {}
 
   fs-extra@10.1.0:
@@ -15291,7 +15319,7 @@ snapshots:
       object-assign: 4.1.1
       opn: 6.0.0
       proxy-middleware: 0.15.0
-      send: 1.1.0
+      send: 1.2.0
       serve-index: 1.9.1
     transitivePeerDependencies:
       - supports-color
@@ -15943,6 +15971,8 @@ snapshots:
 
   mime-db@1.53.0: {}
 
+  mime-db@1.54.0: {}
+
   mime-types@2.1.18:
     dependencies:
       mime-db: 1.33.0
@@ -15950,6 +15980,10 @@ snapshots:
   mime-types@2.1.35:
     dependencies:
       mime-db: 1.52.0
+
+  mime-types@3.0.1:
+    dependencies:
+      mime-db: 1.54.0
 
   mime@1.6.0: {}
 
@@ -17506,16 +17540,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  send@1.1.0:
+  send@1.2.0:
     dependencies:
       debug: 4.4.0
-      destroy: 1.2.0
       encodeurl: 2.0.0
       escape-html: 1.0.3
       etag: 1.8.1
-      fresh: 0.5.2
+      fresh: 2.0.0
       http-errors: 2.0.0
-      mime-types: 2.1.35
+      mime-types: 3.0.1
       ms: 2.1.3
       on-finished: 2.4.1
       range-parser: 1.2.1

@@ -299,8 +299,8 @@ importers:
   packages/nestjs-redis:
     devDependencies:
       '@nestjs/common':
-        specifier: ^10.4.15
-        version: 10.4.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+        specifier: ^11.0.15
+        version: 11.0.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@types/uuid':
         specifier: ^10.0.0
         version: 10.0.0
@@ -317,8 +317,8 @@ importers:
   packages/nestjs-winston:
     devDependencies:
       '@nestjs/common':
-        specifier: ^10.4.15
-        version: 10.4.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+        specifier: ^11.0.15
+        version: 11.0.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -2503,6 +2503,10 @@ packages:
     resolution: {integrity: sha512-usUx57f1gTS/LBJ0IlXyYcKXa43XUpQqnVmfsC1ce/jZKLc1hoA54ve5QE61I+8Ho2JD0a+DLjDyKVfVDMCwkw==}
     engines: {node: '>=22.14.0'}
 
+  '@kazura/web-util@2.2.0':
+    resolution: {integrity: sha512-usUx57f1gTS/LBJ0IlXyYcKXa43XUpQqnVmfsC1ce/jZKLc1hoA54ve5QE61I+8Ho2JD0a+DLjDyKVfVDMCwkw==}
+    engines: {node: '>=22.14.0'}
+
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
 
@@ -2519,8 +2523,8 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@nestjs/common@10.4.15':
-    resolution: {integrity: sha512-vaLg1ZgwhG29BuLDxPA9OAcIlgqzp9/N8iG0wGapyUNTf4IY4O6zAHgN6QalwLhFxq7nOI021vdRojR1oF3bqg==}
+  '@nestjs/common@11.0.15':
+    resolution: {integrity: sha512-t35UKFKHGkNgErqzJYzvaNw1v7YpaX+CfOURif49+co/cJ/RTXEr/VRDKOFHtMj4T4tIOZAZbewXoG4RGcJs8Q==}
     peerDependencies:
       class-transformer: '*'
       class-validator: '*'
@@ -11127,6 +11131,16 @@ snapshots:
       file-saver: 2.0.5
       uuid: 11.1.0
 
+  '@kazura/web-util@2.2.0':
+    dependencies:
+      '@kazura/common': 0.0.1
+      '@types/file-saver': 2.0.7
+      '@types/uuid': 10.0.0
+      copy-to-clipboard: 3.3.3
+      dayjs: 1.11.13
+      file-saver: 2.0.5
+      uuid: 11.1.0
+
   '@leichtgewicht/ip-codec@2.0.5': {}
 
   '@lukeed/csprng@1.1.0': {}
@@ -11165,7 +11179,7 @@ snapshots:
       '@types/react': 18.3.20
       react: 18.3.1
 
-  '@nestjs/common@10.4.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)':
+  '@nestjs/common@11.0.15(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)':
     dependencies:
       iterare: 1.2.1
       reflect-metadata: 0.2.2

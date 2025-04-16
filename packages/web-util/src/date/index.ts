@@ -2,6 +2,10 @@ import dayjs from 'dayjs'
 
 export { dayjs }
 
+export interface Formatter {
+  (date?: ConfigType): string
+}
+
 /**
  * 定义允许的输入类型
  */
@@ -10,98 +14,98 @@ export type ConfigType = dayjs.ConfigType
 /**
  * 格式化为 YYYY-MM-DD
  */
-export const formatDate = (date?: ConfigType): string => {
+export const formatDate: Formatter = (date) => {
   return dayjs(date).format('YYYY-MM-DD')
 }
 
 /**
  * 格式化为 YYYYMMDD
  */
-export const formatDateCompact = (date?: ConfigType): string => {
+export const formatDateCompact: Formatter = (date) => {
   return dayjs(date).format('YYYYMMDD')
 }
 
 /**
  * 格式化为 HH:mm
  */
-export const formatTime = (date?: ConfigType): string => {
+export const formatTime: Formatter = (date) => {
   return dayjs(date).format('HH:mm')
 }
 
 /**
  * 格式化为 YYYY-MM-DD HH:mm
  */
-export const formatDateTime = (date?: ConfigType): string => {
+export const formatDateTime: Formatter = (date) => {
   return dayjs(date).format('YYYY-MM-DD HH:mm')
 }
 
 /**
  * 格式化为 YYYY-MM-DD HH:mm:ss
  */
-export const formatWithSeconds = (date?: ConfigType): string => {
+export const formatWithSeconds: Formatter = (date) => {
   return dayjs(date).format('YYYY-MM-DD HH:mm:ss')
 }
 
 /**
  * 格式化为 YYYY-MM-DD HH:mm:ss.SSS
  */
-export const formatWithMilliseconds = (date?: ConfigType): string => {
+export const formatWithMilliseconds: Formatter = (date) => {
   return dayjs(date).format('YYYY-MM-DD HH:mm:ss.SSS')
 }
 
 /**
  * 格式化为 YYYY-MM-DD 00:00:00
  */
-export const formatStartOfDay = (date?: ConfigType): string => {
+export const formatStartOfDay: Formatter = (date) => {
   return dayjs(date).startOf('day').format('YYYY-MM-DD HH:mm:ss')
 }
 
 /**
  * 格式化为 YYYY-MM-DD 23:59:59
  */
-export const formatEndOfDay = (date?: ConfigType): string => {
+export const formatEndOfDay: Formatter = (date) => {
   return dayjs(date).endOf('day').format('YYYY-MM-DD HH:mm:ss')
 }
 
 /**
  * 格式化为 YYYY-MM
  */
-export const formatYearMonth = (date?: ConfigType): string => {
+export const formatYearMonth: Formatter = (date) => {
   return dayjs(date).format('YYYY-MM')
 }
 
 /**
  * 格式化为 YYYYMM
  */
-export const formatYearMonthCompact = (date?: ConfigType): string => {
+export const formatYearMonthCompact: Formatter = (date) => {
   return dayjs(date).format('YYYYMM')
 }
 
 /**
  * 格式化为 YYYY
  */
-export const formatYear = (date?: ConfigType): string => {
+export const formatYear: Formatter = (date) => {
   return dayjs(date).format('YYYY')
 }
 
 /**
  * 格式化为 MM-DD
  */
-export const formatMonthDay = (date?: ConfigType): string => {
+export const formatMonthDay: Formatter = (date) => {
   return dayjs(date).format('MM-DD')
 }
 
 /**
  * 格式化为 HH:mm:ss
  */
-export const formatTimeWithSeconds = (date?: ConfigType): string => {
+export const formatTimeWithSeconds: Formatter = (date) => {
   return dayjs(date).format('HH:mm:ss')
 }
 
 /**
  * 格式化为 HH:mm:ss.SSS
  */
-export const formatTimeWithMilliseconds = (date?: ConfigType): string => {
+export const formatTimeWithMilliseconds: Formatter = (date) => {
   return dayjs(date).format('HH:mm:ss.SSS')
 }
 

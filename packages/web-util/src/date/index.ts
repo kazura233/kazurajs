@@ -8,10 +8,10 @@ export { dayjs }
 export type ConfigType = dayjs.ConfigType
 
 /**
- * 格式化为 YYYY-MM-DD 或 YYYY/MM/DD 格式
+ * 格式化为 YYYY-MM-DD
  */
-export const formatDate = (date?: ConfigType, separator: '-' | '/' = '-'): string => {
-  return dayjs(date).format(`YYYY${separator}MM${separator}DD`)
+export const formatDate = (date?: ConfigType): string => {
+  return dayjs(date).format('YYYY-MM-DD')
 }
 
 /**
@@ -29,45 +29,45 @@ export const formatTime = (date?: ConfigType): string => {
 }
 
 /**
- * 格式化为 YYYY-MM-DD HH:mm 或 YYYY/MM/DD HH:mm
+ * 格式化为 YYYY-MM-DD HH:mm
  */
-export const formatDateTime = (date?: ConfigType, separator: '-' | '/' = '-'): string => {
-  return dayjs(date).format(`YYYY${separator}MM${separator}DD HH:mm`)
+export const formatDateTime = (date?: ConfigType): string => {
+  return dayjs(date).format('YYYY-MM-DD HH:mm')
 }
 
 /**
- * 格式化为 YYYY-MM-DD HH:mm:ss 或 YYYY/MM/DD HH:mm:ss
+ * 格式化为 YYYY-MM-DD HH:mm:ss
  */
-export const formatWithSeconds = (date?: ConfigType, separator: '-' | '/' = '-'): string => {
-  return dayjs(date).format(`YYYY${separator}MM${separator}DD HH:mm:ss`)
+export const formatWithSeconds = (date?: ConfigType): string => {
+  return dayjs(date).format('YYYY-MM-DD HH:mm:ss')
 }
 
 /**
- * 格式化为 YYYY-MM-DD HH:mm:ss.SSS 或 YYYY/MM/DD HH:mm:ss.SSS
+ * 格式化为 YYYY-MM-DD HH:mm:ss.SSS
  */
-export const formatWithMilliseconds = (date?: ConfigType, separator: '-' | '/' = '-'): string => {
-  return dayjs(date).format(`YYYY${separator}MM${separator}DD HH:mm:ss.SSS`)
+export const formatWithMilliseconds = (date?: ConfigType): string => {
+  return dayjs(date).format('YYYY-MM-DD HH:mm:ss.SSS')
 }
 
 /**
- * 格式化为 YYYY-MM-DD 00:00:00 或 YYYY/MM/DD 00:00:00
+ * 格式化为 YYYY-MM-DD 00:00:00
  */
-export const formatStartOfDay = (date?: ConfigType, separator: '-' | '/' = '-'): string => {
-  return dayjs(date).startOf('day').format(`YYYY${separator}MM${separator}DD HH:mm:ss`)
+export const formatStartOfDay = (date?: ConfigType): string => {
+  return dayjs(date).startOf('day').format('YYYY-MM-DD HH:mm:ss')
 }
 
 /**
- * 格式化为 YYYY-MM-DD 23:59:59 或 YYYY/MM/DD 23:59:59
+ * 格式化为 YYYY-MM-DD 23:59:59
  */
-export const formatEndOfDay = (date?: ConfigType, separator: '-' | '/' = '-'): string => {
-  return dayjs(date).endOf('day').format(`YYYY${separator}MM${separator}DD HH:mm:ss`)
+export const formatEndOfDay = (date?: ConfigType): string => {
+  return dayjs(date).endOf('day').format('YYYY-MM-DD HH:mm:ss')
 }
 
 /**
- * 格式化为 YYYY-MM 或 YYYY/MM
+ * 格式化为 YYYY-MM
  */
-export const formatYearMonth = (date?: ConfigType, separator: '-' | '/' = '-'): string => {
-  return dayjs(date).format(`YYYY${separator}MM`)
+export const formatYearMonth = (date?: ConfigType): string => {
+  return dayjs(date).format('YYYY-MM')
 }
 
 /**
@@ -85,10 +85,10 @@ export const formatYear = (date?: ConfigType): string => {
 }
 
 /**
- * 格式化为 MM-DD 或 MM/DD
+ * 格式化为 MM-DD
  */
-export const formatMonthDay = (date?: ConfigType, separator: '-' | '/' = '-'): string => {
-  return dayjs(date).format(`MM${separator}DD`)
+export const formatMonthDay = (date?: ConfigType): string => {
+  return dayjs(date).format('MM-DD')
 }
 
 /**

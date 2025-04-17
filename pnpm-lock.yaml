@@ -358,7 +358,7 @@ importers:
     dependencies:
       '@kazura/web-postmsg':
         specifier: ^2.0.1
-        version: 2.0.1(@kazura/web-util@2.2.0)
+        version: 2.0.1(@kazura/web-util@2.3.0)
     devDependencies:
       komekko:
         specifier: workspace:*
@@ -698,6 +698,9 @@ importers:
     dependencies:
       '@kazura/common':
         specifier: ^0.0.1
+        version: 0.0.1
+      '@kazura/validator':
+        specifier: 0.0.1
         version: 0.0.1
       '@types/file-saver':
         specifier: ^2.0.7
@@ -2493,6 +2496,10 @@ packages:
     resolution: {integrity: sha512-cwHicbE1lr4bV+0o3f+wWbAK1QXDet7ZKM0L/c4A0rEk1gTf2iUd2obszfP8HVRHk6e/HTCmJBXwtaDRuYIXHQ==}
     engines: {node: '>=20.13.1'}
 
+  '@kazura/validator@0.0.1':
+    resolution: {integrity: sha512-ZjJ2qXcJr8V7jZ4DUyEJP9TiiJKjPsHmheKXF5GZvWwqcT1rPi8NVgFQyFYLC+VkhKRwZgk42+QmHJtf/AXP3g==}
+    engines: {node: '>=20.13.1'}
+
   '@kazura/web-postmsg@2.0.1':
     resolution: {integrity: sha512-r/xe7FsHk/s1yXNXTO4l2mtGz+Lb0v1n6hQL1sY2DpVh67xPFjNQ7sEdN1/yoicG3+1xZL+nhk7Eky06xXvt6A==}
     engines: {node: '>=20.15.1'}
@@ -2501,6 +2508,10 @@ packages:
 
   '@kazura/web-util@2.2.0':
     resolution: {integrity: sha512-usUx57f1gTS/LBJ0IlXyYcKXa43XUpQqnVmfsC1ce/jZKLc1hoA54ve5QE61I+8Ho2JD0a+DLjDyKVfVDMCwkw==}
+    engines: {node: '>=22.14.0'}
+
+  '@kazura/web-util@2.3.0':
+    resolution: {integrity: sha512-RJMSnaRp7NhVuE1y4OLBO6+Da/HjU+Pj4cNFOlpQITpAFGrwB027skQM5FbljIMEuqsLDhX/2LQpW7TiFAkihQ==}
     engines: {node: '>=22.14.0'}
 
   '@leichtgewicht/ip-codec@2.0.5':
@@ -11113,11 +11124,25 @@ snapshots:
 
   '@kazura/common@0.0.1': {}
 
-  '@kazura/web-postmsg@2.0.1(@kazura/web-util@2.2.0)':
+  '@kazura/validator@0.0.1':
     dependencies:
-      '@kazura/web-util': 2.2.0
+      '@kazura/common': 0.0.1
+
+  '@kazura/web-postmsg@2.0.1(@kazura/web-util@2.3.0)':
+    dependencies:
+      '@kazura/web-util': 2.3.0
 
   '@kazura/web-util@2.2.0':
+    dependencies:
+      '@kazura/common': 0.0.1
+      '@types/file-saver': 2.0.7
+      '@types/uuid': 10.0.0
+      copy-to-clipboard: 3.3.3
+      dayjs: 1.11.13
+      file-saver: 2.0.5
+      uuid: 11.1.0
+
+  '@kazura/web-util@2.3.0':
     dependencies:
       '@kazura/common': 0.0.1
       '@types/file-saver': 2.0.7

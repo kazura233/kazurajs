@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-util",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "web-util",
   "keywords": [
     "util"
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@kazura/common": "^0.0.1",
+    "@kazura/validator": "0.0.1",
     "@types/file-saver": "^2.0.7",
     "@types/uuid": "^10.0.0",
     "copy-to-clipboard": "^3.3.3",

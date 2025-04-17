@@ -1,9 +1,10 @@
+import { isNotEmpty } from '@kazura/validator'
 import dayjs from 'dayjs'
 
 export { dayjs }
 
 export interface Formatter {
-  (date?: ConfigType): string
+  (date?: ConfigType): string | null
 }
 
 /**
@@ -15,110 +16,96 @@ export type ConfigType = dayjs.ConfigType
  * 格式化为 YYYY-MM-DD
  */
 export const formatDate: Formatter = (date) => {
-  return dayjs(date).format('YYYY-MM-DD')
+  return isNotEmpty(date) ? dayjs(date).format('YYYY-MM-DD') : null
 }
 
 /**
  * 格式化为 YYYYMMDD
  */
 export const formatDateCompact: Formatter = (date) => {
-  return dayjs(date).format('YYYYMMDD')
+  return isNotEmpty(date) ? dayjs(date).format('YYYYMMDD') : null
 }
 
 /**
  * 格式化为 HH:mm
  */
 export const formatTime: Formatter = (date) => {
-  return dayjs(date).format('HH:mm')
+  return isNotEmpty(date) ? dayjs(date).format('HH:mm') : null
 }
 
 /**
  * 格式化为 YYYY-MM-DD HH:mm
  */
 export const formatDateTime: Formatter = (date) => {
-  return dayjs(date).format('YYYY-MM-DD HH:mm')
+  return isNotEmpty(date) ? dayjs(date).format('YYYY-MM-DD HH:mm') : null
 }
 
 /**
  * 格式化为 YYYY-MM-DD HH:mm:ss
  */
 export const formatWithSeconds: Formatter = (date) => {
-  return dayjs(date).format('YYYY-MM-DD HH:mm:ss')
+  return isNotEmpty(date) ? dayjs(date).format('YYYY-MM-DD HH:mm:ss') : null
 }
 
 /**
  * 格式化为 YYYY-MM-DD HH:mm:ss.SSS
  */
 export const formatWithMilliseconds: Formatter = (date) => {
-  return dayjs(date).format('YYYY-MM-DD HH:mm:ss.SSS')
+  return isNotEmpty(date) ? dayjs(date).format('YYYY-MM-DD HH:mm:ss.SSS') : null
 }
 
 /**
  * 格式化为 YYYY-MM-DD 00:00:00
  */
 export const formatStartOfDay: Formatter = (date) => {
-  return dayjs(date).startOf('day').format('YYYY-MM-DD HH:mm:ss')
+  return isNotEmpty(date) ? dayjs(date).startOf('day').format('YYYY-MM-DD HH:mm:ss') : null
 }
 
 /**
  * 格式化为 YYYY-MM-DD 23:59:59
  */
 export const formatEndOfDay: Formatter = (date) => {
-  return dayjs(date).endOf('day').format('YYYY-MM-DD HH:mm:ss')
+  return isNotEmpty(date) ? dayjs(date).endOf('day').format('YYYY-MM-DD HH:mm:ss') : null
 }
 
 /**
  * 格式化为 YYYY-MM
  */
 export const formatYearMonth: Formatter = (date) => {
-  return dayjs(date).format('YYYY-MM')
+  return isNotEmpty(date) ? dayjs(date).format('YYYY-MM') : null
 }
 
 /**
  * 格式化为 YYYYMM
  */
 export const formatYearMonthCompact: Formatter = (date) => {
-  return dayjs(date).format('YYYYMM')
+  return isNotEmpty(date) ? dayjs(date).format('YYYYMM') : null
 }
 
 /**
  * 格式化为 YYYY
  */
 export const formatYear: Formatter = (date) => {
-  return dayjs(date).format('YYYY')
+  return isNotEmpty(date) ? dayjs(date).format('YYYY') : null
 }
 
 /**
  * 格式化为 MM-DD
  */
 export const formatMonthDay: Formatter = (date) => {
-  return dayjs(date).format('MM-DD')
+  return isNotEmpty(date) ? dayjs(date).format('MM-DD') : null
 }
 
 /**
  * 格式化为 HH:mm:ss
  */
 export const formatTimeWithSeconds: Formatter = (date) => {
-  return dayjs(date).format('HH:mm:ss')
+  return isNotEmpty(date) ? dayjs(date).format('HH:mm:ss') : null
 }
 
 /**
  * 格式化为 HH:mm:ss.SSS
  */
 export const formatTimeWithMilliseconds: Formatter = (date) => {
-  return dayjs(date).format('HH:mm:ss.SSS')
-}
-
-/**
- * 获取当前时间戳（秒）
- */
-export const getTimestampInSeconds = (date?: ConfigType): number => {
-  return dayjs(date).unix()
-}
-
-/**
- * 获取当前时间戳（毫秒）
- */
-export const getTimestampInMilliseconds = (date?: ConfigType): number => {
-  return dayjs(date).valueOf()
+  return isNotEmpty(date) ? dayjs(date).format('HH:mm:ss.SSS') : null
 }

@@ -97,6 +97,20 @@ export const formatMonthDay: Formatter = (date) => {
 }
 
 /**
+ * 格式化为 MM-DD HH:mm
+ */
+export const formatMonthDayTime: Formatter = (date) => {
+  return isNotEmpty(date) ? dayjs(date).format('MM-DD HH:mm') : ''
+}
+
+/**
+ * 格式化为 MM-DD HH:mm:ss
+ */
+export const formatMonthDayTimeWithSeconds: Formatter = (date) => {
+  return isNotEmpty(date) ? dayjs(date).format('MM-DD HH:mm:ss') : ''
+}
+
+/**
  * 格式化为 HH:mm:ss
  */
 export const formatTimeWithSeconds: Formatter = (date) => {

@@ -23,14 +23,14 @@
     "build": "rm -rf dist && tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "@nestjs/common": "^11.0.15",
+    "@nestjs/common": "^11.1.0",
     "@types/uuid": "^10.0.0",
-    "ioredis": "^5.6.0",
+    "ioredis": "^5.6.1",
     "uuid": "^11.1.0",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@nestjs/common": "^11.0.15"
+    "@nestjs/common": "^11.1.0"
   },
   "npmName": "@kazura/nestjs-redis",
   "publishConfig": {
@@ -38,6 +38,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.14.0"
+    "node": ">=22.15.0"
   }
 }

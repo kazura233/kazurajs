@@ -28,7 +28,7 @@
     "build": "komekko"
   },
   "dependencies": {
-    "@babel/runtime": "^7.27.0"
+    "@babel/runtime": "^7.27.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",

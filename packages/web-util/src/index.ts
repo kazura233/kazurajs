@@ -1,3 +1,5 @@
+import { isNumber } from '@kazura/validator'
+
 export * from './file'
 export * from './image'
 export * from './add-event-listener'
@@ -323,4 +325,26 @@ export function getLocaleLanguage(): string {
  */
 export function generateUID(): string {
   return Math.floor(Date.now() / 1000).toString(36) + Math.random().toString(36).slice(-6)
+}
+
+/**
+ * 将字节大小格式化为可读的字符串。
+ * @param bytes  要格式化的字节大小
+ * @returns 格式化后的文件大小字符串
+ */
+export function formatFileSize(bytes: number): string {
+  if (!isNumber(bytes) || bytes < 0) return 'Invalid size'
+
+  const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
+  const base = 1024
+
+  let i = 0
+  let size = bytes
+
+  while (size >= base && i < units.length - 1) {
+    size /= base
+    i++
+  }
+
+  return `${size.toFixed(2)} ${units[i]}`
 }

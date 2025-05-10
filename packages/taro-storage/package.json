@@ -28,10 +28,10 @@
     "build": "komekko"
   },
   "peerDependencies": {
-    "@tarojs/taro": ">=4.0.12"
+    "@tarojs/taro": ">=4.0.13"
   },
   "dependencies": {
-    "@tarojs/taro": "^4.0.12"
+    "@tarojs/taro": "^4.0.13"
   },
   "devDependencies": {
     "komekko": "workspace:*",

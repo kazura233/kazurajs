@@ -32,11 +32,11 @@
   },
   "peerDependencies": {
     "redux": ">=5.0.1",
-    "@reduxjs/toolkit": ">=2.7.0"
+    "@reduxjs/toolkit": ">=2.8.1"
   },
   "dependencies": {
     "redux": "^5.0.1",
-    "@reduxjs/toolkit": "^2.7.0"
+    "@reduxjs/toolkit": "^2.8.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",

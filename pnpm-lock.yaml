@@ -341,8 +341,8 @@ importers:
         specifier: ^11.1.0
         version: 11.1.0
       zx:
-        specifier: ^8.5.3
-        version: 8.5.3
+        specifier: ^8.5.4
+        version: 8.5.4
     devDependencies:
       komekko:
         specifier: workspace:*
@@ -8796,8 +8796,8 @@ packages:
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
-  zx@8.5.3:
-    resolution: {integrity: sha512-TsGLAt8Ngr4wDXLZmN9BT+6FWVLFbqdQ0qpXkV3tIfH7F+MgN/WUeSY7W4nNqAntjWunmnRaznpyxtJRPhCbUQ==}
+  zx@8.5.4:
+    resolution: {integrity: sha512-44oKea9Sa8ZnOkTnS6fRJpg3quzgnbB43nLrVfYnqE86J4sxgZMUDLezzKET/FdOAVkF4X+Alm9Bume+W+RW9Q==}
     engines: {node: '>= 12.17.0'}
     hasBin: true
 
@@ -9205,9 +9205,9 @@ snapshots:
 
   '@babel/plugin-proposal-object-rest-spread@7.20.7(@babel/core@7.27.1)':
     dependencies:
-      '@babel/compat-data': 7.26.5
+      '@babel/compat-data': 7.27.2
       '@babel/core': 7.27.1
-      '@babel/helper-compilation-targets': 7.26.5
+      '@babel/helper-compilation-targets': 7.27.2
       '@babel/helper-plugin-utils': 7.25.9
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.27.1)
       '@babel/plugin-transform-parameters': 7.25.9(@babel/core@7.27.1)
@@ -11726,7 +11726,7 @@ snapshots:
   '@tarojs/helper@3.6.34':
     dependencies:
       '@babel/core': 7.27.1
-      '@babel/parser': 7.27.0
+      '@babel/parser': 7.27.2
       '@babel/plugin-proposal-decorators': 7.24.7(@babel/core@7.27.1)
       '@babel/plugin-proposal-object-rest-spread': 7.20.7(@babel/core@7.27.1)
       '@babel/plugin-transform-runtime': 7.25.9(@babel/core@7.27.1)
@@ -11734,7 +11734,7 @@ snapshots:
       '@babel/preset-typescript': 7.26.0(@babel/core@7.27.1)
       '@babel/register': 7.24.6(@babel/core@7.27.1)
       '@babel/runtime': 7.27.1
-      '@babel/traverse': 7.27.0
+      '@babel/traverse': 7.27.1
       '@swc/core': 1.3.96
       '@swc/register': 0.1.10(@swc/core@1.3.96)
       ansi-escapes: 4.3.2
@@ -18935,4 +18935,4 @@ snapshots:
 
   zwitch@2.0.4: {}
 
-  zx@8.5.3: {}
+  zx@8.5.4: {}

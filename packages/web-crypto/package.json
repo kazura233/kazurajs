@@ -6,7 +6,8 @@
     "crypto",
     "rsa",
     "aes",
-    "md5"
+    "md5",
+    "sha256"
   ],
   "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/web-crypto#readme",
   "repository": {
@@ -40,6 +41,11 @@
       "import": "./dist/md5/index.mjs",
       "types": "./dist/md5/index.d.ts"
     },
+    "./sha256": {
+      "require": "./dist/sha256/index.cjs",
+      "import": "./dist/sha256/index.mjs",
+      "types": "./dist/sha256/index.d.ts"
+    },
     "./rsa-1024": {
       "require": "./dist/rsa-1024/index.cjs",
       "import": "./dist/rsa-1024/index.mjs",
@@ -60,6 +66,7 @@
     "aes-128-ecb",
     "base64",
     "md5",
+    "sha256",
     "rsa-1024",
     "rsa-2048"
   ],

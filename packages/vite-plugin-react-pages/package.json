@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@types/debug": "^4.1.12",
-    "debug": "^4.4.0",
+    "debug": "^4.4.1",
     "fast-glob": "^3.3.3"
   },
   "devDependencies": {
@@ -56,6 +56,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.15.0"
+    "node": ">=22.15.1"
   }
 }

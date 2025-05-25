@@ -6,7 +6,7 @@
     "upi": "pnpm run use-proxy-install",
     "clean:all": "pnpm -r --filter=./packages/* run clean",
     "build:komekko": "pnpm -r --filter=./packages/komekko run build",
-    "build:all": "pnpm build:komekko & pnpm i & pnpm -r --filter=./packages/* run build",
+    "build:all": "pnpm build:komekko && pnpm i && pnpm -r --filter=./packages/* run build",
     "docs:build": "pnpm -C docs build"
   },
   "devDependencies": {

@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "rollup --config rollup.config.js --watch",
-    "build": "pnpm clean & rollup --config rollup.config.js"
+    "build": "pnpm clean && rollup --config rollup.config.js"
   },
   "dependencies": {
     "@kazura/web-util": "workspace:*"

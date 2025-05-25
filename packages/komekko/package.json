@@ -32,7 +32,8 @@
     "src"
   ],
   "scripts": {
-    "build": "jiti ./src/cli"
+    "build": "jiti ./src/cli",
+    "build:debug": "DEBUG=komekko:* jiti ./src/cli"
   },
   "dependencies": {
     "@rollup/plugin-alias": "^5.1.1",
@@ -42,6 +43,7 @@
     "@rollup/plugin-replace": "^5.0.7",
     "@rollup/pluginutils": "^5.1.4",
     "citty": "^0.1.6",
+    "debug": "^4.4.1",
     "defu": "^6.1.4",
     "esbuild": "^0.25.4",
     "javascript-obfuscator": "^4.1.1",
@@ -52,6 +54,7 @@
     "rollup-plugin-dts": "^6.2.1"
   },
   "devDependencies": {
+    "@types/debug": "^4.1.12",
     "@types/node": "^22.15.21",
     "typescript": "^5.8.3"
   },

@@ -13,8 +13,14 @@ import replace from '@rollup/plugin-replace'
 import json from '@rollup/plugin-json'
 import { esbuildPlugin } from '../plugins/esbuild'
 import { obfuscatePlugin } from '../plugins/obfuscator'
+import debug from 'debug'
 
 const DEFAULT_EXTENSIONS = ['.ts', '.tsx', '.mjs', '.cjs', '.js', '.jsx', '.json']
+
+const log = {
+  info: debug('komekko:rollup:info'),
+  error: debug('komekko:rollup:error'),
+} as const
 
 export interface RollupOptions extends InputOptions {
   output?: OutputOptions
@@ -45,7 +51,7 @@ export class RollupBuilder {
       ...Object.keys(this.pkg.peerDependencies || {})
     )
 
-    console.log('>>>>>>>>>>', 'RollupBuilder->constructor->this.options', this.options)
+    log.info('>>>>>>>>>> RollupBuilder->constructor->this.options: %O', this.options)
   }
 
   public defaultBuildOptions(): BuildOptions {
@@ -94,7 +100,7 @@ export class RollupBuilder {
     }
 
     const entries = this.inferEntries()
-    console.log('>>>>>>>>>>', 'RollupBuilder->autoPreset->entries', entries)
+    log.info('>>>>>>>>>> RollupBuilder->autoPreset->entries: %O', entries)
 
     this.options.entries.push(...entries)
   }
@@ -198,8 +204,8 @@ export class RollupBuilder {
 
     return Object.entries(exports)
       .flatMap(([condition, exports]) => {
-        console.log('>>>>>>>>>>', 'RollupBuilder->extractExports->condition', condition)
-        console.log('>>>>>>>>>>', 'RollupBuilder->extractExports->exports', exports)
+        log.info('>>>>>>>>>> RollupBuilder->extractExports->condition: %s', condition)
+        log.info('>>>>>>>>>> RollupBuilder->extractExports->exports: %O', exports)
         if (typeof exports === 'string') {
           return this.inferExportType(condition, exports)
         }
@@ -257,7 +263,7 @@ export class RollupBuilder {
 
     const { output, ...ext } = this.options.rollupOptions
 
-    return Object.entries(grouped)
+    const options = Object.entries(grouped)
       .filter(([, entries]) => entries.length > 0)
       .map(([format, entries]) => {
         const options: RollupOptions = {
@@ -292,15 +298,12 @@ export class RollupBuilder {
           ...ext,
         }
 
-        console.log('>>>>>>>>>>', 'RollupBuilder->getRollupOptions->options->input', options.input)
-        console.log(
-          '>>>>>>>>>>',
-          'RollupBuilder->getRollupOptions->options->output',
-          options.output
-        )
-
+        log.info('>>>>>>>>>> RollupBuilder->getRollupOptions->options->input: %s', options.input)
+        log.info('>>>>>>>>>> RollupBuilder->getRollupOptions->options->output: %O', options.output)
         return options
       })
+
+    return options
   }
 
   resolveAliases() {
@@ -369,7 +372,7 @@ export class RollupBuilder {
 
     if (!entries.length) return
 
-    console.log('>>>>>>>>>>', 'RollupBuilder->writeTypes->entries', entries)
+    log.info('>>>>>>>>>> RollupBuilder->writeTypes->entries: %O', entries)
 
     const external = this.options.external
 
@@ -392,8 +395,8 @@ export class RollupBuilder {
       plugins: [...this.getInputPluginOption(), dts(this.options.rollupPluginsOptions.dtsOptions)],
     }
 
-    console.log('>>>>>>>>>>', 'RollupBuilder->writeTypes->options->input', options.input)
-    console.log('>>>>>>>>>>', 'RollupBuilder->writeTypes->options->output', options.output)
+    log.info('>>>>>>>>>> RollupBuilder->writeTypes->options->input: %s', options.input)
+    log.info('>>>>>>>>>> RollupBuilder->writeTypes->options->output: %O', options.output)
 
     const rollupBuild = await rollup(options)
     await rollupBuild.write(options.output as OutputOptions)

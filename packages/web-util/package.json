@@ -43,7 +43,8 @@
     "date"
   ],
   "scripts": {
-    "build": "komekko"
+    "build": "komekko",
+    "build:debug": "DEBUG=komekko:* komekko"
   },
   "dependencies": {
     "@kazura/common": "^0.0.1",

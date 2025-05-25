@@ -2,6 +2,11 @@
 import { defineCommand, runMain } from 'citty'
 import { name, version, description } from '../package.json'
 import { build } from './build'
+import debug from 'debug'
+
+const log = {
+  error: debug('komekko:cli:error'),
+} as const
 
 const main = defineCommand({
   meta: {
@@ -29,7 +34,7 @@ const main = defineCommand({
       sourcemap: args.sourcemap,
       minify: args.minify,
     }).catch((error) => {
-      console.error(`Error building ${args.dir}: ${error}`)
+      log.error(`Error building ${args.dir}: %O`, error)
       throw error
     })
   },

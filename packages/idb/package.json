@@ -24,10 +24,13 @@
     "src"
   ],
   "scripts": {
-    "build": "komekko"
+    "clean": "rimraf dist",
+    "build": "pnpm clean && komekko",
+    "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "devDependencies": {
     "komekko": "workspace:*",
+    "rimraf": "^6.0.1",
     "tslib": "^2.8.1",
     "typescript": "^5.8.3"
   },

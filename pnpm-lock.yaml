@@ -126,6 +126,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -190,6 +193,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -206,6 +212,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -218,6 +227,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -295,6 +307,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -353,6 +368,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -369,6 +387,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -394,6 +415,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -416,6 +440,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -472,6 +499,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -528,6 +558,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -544,6 +577,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -560,6 +596,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -572,6 +611,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -603,6 +645,9 @@ importers:
       react-router:
         specifier: ^7.6.0
         version: 7.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -622,6 +667,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -650,6 +698,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -665,6 +716,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -681,6 +735,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -693,6 +750,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -730,6 +790,9 @@ importers:
       komekko:
         specifier: workspace:*
         version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1

@@ -26,7 +26,9 @@
     "src"
   ],
   "scripts": {
-    "build": "komekko"
+    "clean": "rimraf dist",
+    "build": "pnpm clean && komekko",
+    "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "peerDependencies": {
     "vite": "^4.0.0 || ^5.0.0 || ^6.0.0"
@@ -46,6 +48,7 @@
     "react": "^18.3.1",
     "react-router": "^7.6.0",
     "komekko": "workspace:*",
+    "rimraf": "^6.0.1",
     "tslib": "^2.8.1",
     "typescript": "^5.8.3",
     "vite": "^6.3.5"

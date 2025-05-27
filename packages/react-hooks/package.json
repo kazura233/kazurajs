@@ -30,15 +30,15 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.3.22",
+    "@types/react": ">=18.3.23",
     "react": ">=18.3.1",
-    "react-router": ">=7.6.0"
+    "react-router": ">=7.6.1"
   },
   "dependencies": {
     "@kazura/web-util": "^2.4.2",
-    "@types/react": "^18.3.22",
+    "@types/react": "^18.3.23",
     "react": "^18.3.1",
-    "react-router": "^7.6.0"
+    "react-router": "^7.6.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",

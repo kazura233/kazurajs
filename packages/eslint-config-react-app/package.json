@@ -19,7 +19,7 @@
     "eslint": "^8.57.1"
   },
   "dependencies": {
-    "@babel/core": "^7.27.1",
+    "@babel/core": "^7.27.3",
     "@babel/eslint-parser": "^7.27.1",
     "@rushstack/eslint-patch": "^1.11.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",

@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto'
 
 import type { PackageJson } from 'pkg-types'
 
+export * from './ocr'
 export * from './git'
 export * from './totp'
 export * from './worker.class'

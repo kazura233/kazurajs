@@ -48,3 +48,17 @@ export const toTypeString = (value: unknown): string => {
 export const toRawType = (value: unknown): string => {
   return toTypeString(value).slice(8, -1)
 }
+
+export const NUM_CASE = '0123456789'
+
+export const LOWER_CASE = 'abcdefghijklmnopqrstuvwxyz'
+
+export const UPPER_CASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+export const MIX_LOWER_UPPER_CASE = LOWER_CASE + UPPER_CASE
+
+export const MIX_LOWER_NUM_CASE = LOWER_CASE + NUM_CASE
+
+export const MIX_UPPER_NUM_CASE = UPPER_CASE + NUM_CASE
+
+export const MIX_LOWER_UPPER_NUM_CASE = LOWER_CASE + UPPER_CASE + NUM_CASE

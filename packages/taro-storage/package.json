@@ -30,10 +30,10 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "peerDependencies": {
-    "@tarojs/taro": ">=4.1.1"
+    "@tarojs/taro": ">=4.1.2"
   },
   "dependencies": {
-    "@tarojs/taro": "^4.1.1"
+    "@tarojs/taro": "^4.1.2"
   },
   "devDependencies": {
     "komekko": "workspace:*",

@@ -4,25 +4,32 @@ import {
   ValidTotpConfig,
   generateSecret as generateTotpSecret,
   generateUrl as generateTotpUrl,
+  TotpConfig,
 } from 'time2fa'
 
-export class Totp {
-  public static readonly config: ValidTotpConfig = generateConfig()
+export class TotpBase {
+  public readonly config: ValidTotpConfig
 
-  public static generateSecret(): string {
-    return generateTotpSecret(Totp.config.secretSize)
+  public constructor(config?: TotpConfig) {
+    this.config = generateConfig(config)
   }
 
-  public static generatePasscodes(secret: string): string {
-    const backupCodes = __Totp.generatePasscodes({ secret }, Totp.config)
+  public generateSecret(): string {
+    return generateTotpSecret(this.config.secretSize)
+  }
+
+  public generatePasscodes(secret: string): string {
+    const backupCodes = __Totp.generatePasscodes({ secret }, this.config)
     return backupCodes[0]
   }
 
-  public static validate(passcode: string, secret: string): boolean {
-    return __Totp.validate({ passcode, secret }, Totp.config)
+  public validate(passcode: string, secret: string): boolean {
+    return __Totp.validate({ passcode, secret }, this.config)
   }
 
-  public static generateUrl(issuer: string, user: string, secret: string): string {
-    return generateTotpUrl({ issuer, user, secret }, Totp.config)
+  public generateUrl(issuer: string, user: string, secret: string): string {
+    return generateTotpUrl({ issuer, user, secret }, this.config)
   }
 }
+
+export const Totp = new TotpBase()

@@ -1,6 +1,6 @@
 {
   "name": "@kazura/node-util",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "node-util",
   "keywords": [
     "node",
@@ -31,10 +31,11 @@
   },
   "dependencies": {
     "@types/uuid": "^10.0.0",
+    "ddddocr-node": "^1.1.0",
     "pkg-types": "^1.3.1",
     "time2fa": "^1.4.2",
     "uuid": "^11.1.0",
-    "zx": "^8.5.4"
+    "zx": "^8.5.5"
   },
   "devDependencies": {
     "komekko": "workspace:*",

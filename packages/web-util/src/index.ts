@@ -334,17 +334,8 @@ export function generateUID(): string {
  */
 export function formatFileSize(bytes: number): string {
   if (!isNumber(bytes) || bytes < 0) return 'Invalid size'
-
+  if (bytes === 0) return '0 B'
   const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
-  const base = 1024
-
-  let i = 0
-  let size = bytes
-
-  while (size >= base && i < units.length - 1) {
-    size /= base
-    i++
-  }
-
-  return `${size.toFixed(2)} ${units[i]}`
+  const i = Math.floor(Math.log(bytes) / Math.log(1024))
+  return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + units[i]
 }

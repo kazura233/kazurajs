@@ -184,8 +184,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       google-auth-library:
-        specifier: ^9.15.1
-        version: 9.15.1
+        specifier: ^10.0.0
+        version: 10.0.0
       googleapis-common:
         specifier: ^7.2.0
         version: 7.2.0
@@ -5413,6 +5413,10 @@ packages:
     resolution: {integrity: sha512-DSrkyMTfAnAm4ks9Go20QGOcXEyW/NmZhvTYBU2rb4afBB393WIMQPWPEDMl/k8xqiNN9HYq2zao3oWXsdl2Tg==}
     engines: {node: '>=14'}
 
+  gaxios@7.0.0:
+    resolution: {integrity: sha512-wHVbHPzSEelanEE5L21HGwtYrMwzFn37nbLMtYj/Efz5R71ZpfAVNad8Rc33SUKFDcWTcQMo4g/VIEBz+CthuA==}
+    engines: {node: '>=18'}
+
   gaxios@7.0.0-rc.6:
     resolution: {integrity: sha512-osVFpgeBiwTM2AVI9MXvb8iWzM6oSMbTVWc65Gm5BgBlE+nUA6PBHFMaYpqjZx1AhUH7aPOZq78WcRAM6hhAwA==}
     engines: {node: '>=18'}
@@ -5421,8 +5425,8 @@ packages:
     resolution: {integrity: sha512-Jh/AIwwgaxan+7ZUUmRLCjtchyDiqh4KjBJ5tW3plBZb5iL/BPcso8A5DlzeD9qlw0duCamnNdpFjxwaT0KyKg==}
     engines: {node: '>=14'}
 
-  gcp-metadata@7.0.0-rc.1:
-    resolution: {integrity: sha512-E6c+AdIaK1LNA839OyotiTca+B2IG1nDlMjnlcck8JjXn3fVgx57Ib9i6iL1/iqN7bA3EUQdcRRu+HqOCOABIg==}
+  gcp-metadata@7.0.0:
+    resolution: {integrity: sha512-3PfRTzvT3Msu0Hy8Gf9ypxJvaClG2IB9pyH0r8QOmRBW5mUcrHgYpF4GYP+XulDbfhxEhBYtJtJJQb5S2wM+LA==}
     engines: {node: '>=18'}
 
   gensync@1.0.0-beta.2:
@@ -5529,8 +5533,8 @@ packages:
     resolution: {integrity: sha512-Y1zNGV+pzQdh7H39l9zgB4PJqjRNqydvdYCDG4HFXM4XuvSaQQlEc91IU1yALL8gUTDomgBAfz3XJdmUS+oo0w==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  google-auth-library@10.0.0-rc.3:
-    resolution: {integrity: sha512-WC9wfEKK0bk3seWKsDn2loduLth6JWKTsrbWftzrhPuzpwnVXb5oi2+aa0JDBxLBDdkGesLvTQ67F2nZ7leq1Q==}
+  google-auth-library@10.0.0:
+    resolution: {integrity: sha512-ZNuWhitYMHJmIP1komAdVyJaJgpy+HL2bWDxM2JK41o/SiSiaOtsV6pwiGwYwJvZxBuxauYZ7vLEc7eqo3NxRw==}
     engines: {node: '>=18'}
 
   google-auth-library@9.15.1:
@@ -5577,8 +5581,8 @@ packages:
     resolution: {integrity: sha512-pCcEwRi+TKpMlxAQObHDQ56KawURgyAf6jtIY046fJ5tIv3zDe/LEIubckAO8fj6JnAxLdmWkUfNyulQ2iKdEw==}
     engines: {node: '>=14.0.0'}
 
-  gtoken@8.0.0-rc.1:
-    resolution: {integrity: sha512-UjE/egX6ixArdcCKOkheuFQ4XN4/0gX92nd2JPVEYuRU2sWHAWuOVGnowm1fQUdQtaxqn1n8H0hOb2LCaUhJ3A==}
+  gtoken@8.0.0:
+    resolution: {integrity: sha512-+CqsMbHPiSTdtSO14O51eMNlrp9N79gmeqmXeouJOhfucAedHw9noVe/n5uJk3tbKE6a+6ZCQg3RPhVhHByAIw==}
     engines: {node: '>=18'}
 
   gzip-size@6.0.0:
@@ -9560,7 +9564,7 @@ snapshots:
       '@babel/compat-data': 7.27.2
       '@babel/core': 7.27.4
       '@babel/helper-compilation-targets': 7.27.2
-      '@babel/helper-plugin-utils': 7.25.9
+      '@babel/helper-plugin-utils': 7.27.1
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.27.4)
       '@babel/plugin-transform-parameters': 7.25.9(@babel/core@7.27.4)
 
@@ -9638,7 +9642,7 @@ snapshots:
   '@babel/plugin-syntax-object-rest-spread@7.8.3(@babel/core@7.27.4)':
     dependencies:
       '@babel/core': 7.27.4
-      '@babel/helper-plugin-utils': 7.25.9
+      '@babel/helper-plugin-utils': 7.27.1
 
   '@babel/plugin-syntax-optional-chaining@7.8.3(@babel/core@7.27.4)':
     dependencies:
@@ -15010,6 +15014,14 @@ snapshots:
       - encoding
       - supports-color
 
+  gaxios@7.0.0:
+    dependencies:
+      extend: 3.0.2
+      https-proxy-agent: 7.0.5
+      node-fetch: 3.3.2
+    transitivePeerDependencies:
+      - supports-color
+
   gaxios@7.0.0-rc.6:
     dependencies:
       extend: 3.0.2
@@ -15026,9 +15038,9 @@ snapshots:
       - encoding
       - supports-color
 
-  gcp-metadata@7.0.0-rc.1:
+  gcp-metadata@7.0.0:
     dependencies:
-      gaxios: 7.0.0-rc.6
+      gaxios: 7.0.0
       google-logging-utils: 1.1.1
       json-bigint: 1.0.0
     transitivePeerDependencies:
@@ -15179,14 +15191,14 @@ snapshots:
       merge2: 1.4.1
       slash: 4.0.0
 
-  google-auth-library@10.0.0-rc.3:
+  google-auth-library@10.0.0:
     dependencies:
       base64-js: 1.5.1
       ecdsa-sig-formatter: 1.0.11
-      gaxios: 7.0.0-rc.6
-      gcp-metadata: 7.0.0-rc.1
+      gaxios: 7.0.0
+      gcp-metadata: 7.0.0
       google-logging-utils: 1.1.1
-      gtoken: 8.0.0-rc.1
+      gtoken: 8.0.0
       jws: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -15221,7 +15233,7 @@ snapshots:
     dependencies:
       extend: 3.0.2
       gaxios: 7.0.0-rc.6
-      google-auth-library: 10.0.0-rc.3
+      google-auth-library: 10.0.0
       qs: 6.12.3
       url-template: 2.0.8
     transitivePeerDependencies:
@@ -15268,9 +15280,9 @@ snapshots:
       - encoding
       - supports-color
 
-  gtoken@8.0.0-rc.1:
+  gtoken@8.0.0:
     dependencies:
-      gaxios: 7.0.0-rc.6
+      gaxios: 7.0.0
       jws: 4.0.0
     transitivePeerDependencies:
       - supports-color

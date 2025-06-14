@@ -31,7 +31,7 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "dependencies": {
-    "axios": "^1.9.0"
+    "axios": "^1.10.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",

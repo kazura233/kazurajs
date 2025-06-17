@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-util",
-  "version": "2.4.2",
+  "version": "2.4.4",
   "description": "web-util",
   "keywords": [
     "util"
@@ -36,6 +36,11 @@
       "require": "./dist/date/local.cjs",
       "import": "./dist/date/local.mjs",
       "types": "./dist/date/local.d.ts"
+    },
+    "./xss": {
+      "require": "./dist/xss/index.cjs",
+      "import": "./dist/xss/index.mjs",
+      "types": "./dist/xss/index.d.ts"
     }
   },
   "main": "dist/index.cjs",
@@ -59,6 +64,7 @@
     "@types/uuid": "^10.0.0",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.13",
+    "dompurify": "^3.2.6",
     "file-saver": "^2.0.5",
     "uuid": "^11.1.0"
   },

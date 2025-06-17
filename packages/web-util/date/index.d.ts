@@ -1,1 +1,1 @@
-export * from '../dist/date'
+export * from '../dist/date/index'

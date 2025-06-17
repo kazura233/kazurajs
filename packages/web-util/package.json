@@ -31,6 +31,11 @@
       "require": "./dist/date/index.cjs",
       "import": "./dist/date/index.mjs",
       "types": "./dist/date/index.d.ts"
+    },
+    "./date/local": {
+      "require": "./dist/date/local.cjs",
+      "import": "./dist/date/local.mjs",
+      "types": "./dist/date/local.d.ts"
     }
   },
   "main": "dist/index.cjs",

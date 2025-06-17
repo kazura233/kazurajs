@@ -379,7 +379,13 @@ export class RollupBuilder {
     const options: RollupOptions = {
       input: Object.fromEntries(entries.map((entry) => [entry.outFileName, entry.input])),
 
-      output: this.getESMOutputOptions(),
+      output: {
+        ...this.getESMOutputOptions(),
+        chunkFileNames: (chunk: PreRenderedChunk) => {
+          const name = this.getChunkFilename(chunk, 'esm')
+          return removeExtension(name) + '.d.ts'
+        },
+      },
 
       external(id) {
         const pkg = getpkg(id)
@@ -417,7 +423,8 @@ export class RollupBuilder {
     if (chunk.isDynamicEntry) {
       return `chunks/[name].${ext}`
     }
-    const name = getpkg(this.pkg.name)
+    const pkgName = getpkg(this.pkg.name)
+    const name = pkgName.split('/').pop()
     return `shared/${name}.[hash].${ext}`
   }
 

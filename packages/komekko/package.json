@@ -32,8 +32,9 @@
     "src"
   ],
   "scripts": {
-    "build": "jiti ./src/cli",
-    "build:debug": "DEBUG=komekko:* jiti ./src/cli"
+    "clean": "rimraf dist",
+    "build": "pnpm clean && jiti ./src/cli",
+    "build:debug": "DEBUG=komekko:* pnpm clean && jiti ./src/cli"
   },
   "dependencies": {
     "@rollup/plugin-alias": "^5.1.1",
@@ -56,6 +57,7 @@
   "devDependencies": {
     "@types/debug": "^4.1.12",
     "@types/node": "^22.15.31",
+    "rimraf": "^6.0.1",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {

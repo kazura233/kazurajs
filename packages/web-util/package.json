@@ -41,6 +41,11 @@
       "require": "./dist/xss/index.cjs",
       "import": "./dist/xss/index.mjs",
       "types": "./dist/xss/index.d.ts"
+    },
+    "./decimal": {
+      "require": "./dist/decimal/index.cjs",
+      "import": "./dist/decimal/index.mjs",
+      "types": "./dist/decimal/index.d.ts"
     }
   },
   "main": "dist/index.cjs",
@@ -60,8 +65,10 @@
   "dependencies": {
     "@kazura/common": "^0.0.1",
     "@kazura/validator": "0.0.1",
+    "@types/big.js": "^6.2.2",
     "@types/file-saver": "^2.0.7",
     "@types/uuid": "^10.0.0",
+    "big.js": "^7.0.1",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.13",
     "dompurify": "^3.2.6",

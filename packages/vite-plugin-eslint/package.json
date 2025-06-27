@@ -1,0 +1,57 @@
+{
+  "name": "@kazura/vite-plugin-eslint",
+  "version": "0.0.1",
+  "description": "ESLint plugin for vite.",
+  "keywords": [
+    "eslint",
+    "vite-plugin"
+  ],
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/vite-plugin-eslint#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazura233/kazurajs.git"
+  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
+  "author": {
+    "name": "kazura233",
+    "email": "kazira233@gmail.com"
+  },
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "pnpm clean && komekko",
+    "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
+  },
+  "dependencies": {
+    "@rollup/pluginutils": "^4.2.1",
+    "@types/eslint": "^8.4.5",
+    "rollup": "^2.77.2"
+  },
+  "devDependencies": {
+    "komekko": "workspace:*",
+    "rimraf": "^6.0.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3",
+    "eslint": "^8.21.0",
+    "vite": "^3.0.8"
+  },
+  "peerDependencies": {
+    "eslint": ">=7",
+    "vite": ">=2"
+  },
+  "npmName": "@kazura/vite-plugin-eslint",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=22.16.0"
+  }
+}

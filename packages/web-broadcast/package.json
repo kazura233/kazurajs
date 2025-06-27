@@ -30,10 +30,10 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "peerDependencies": {
-    "@kazura/web-util": ">=2.4.4"
+    "@kazura/web-util": ">=2.5.0"
   },
   "dependencies": {
-    "@kazura/web-util": "^2.4.4"
+    "@kazura/web-util": "^2.5.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",

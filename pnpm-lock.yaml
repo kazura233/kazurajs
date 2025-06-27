@@ -630,8 +630,8 @@ importers:
   packages/vite-plugin-eslint:
     dependencies:
       '@rollup/pluginutils':
-        specifier: ^4.2.1
-        version: 4.2.1
+        specifier: ^5.2.0
+        version: 5.2.0(rollup@2.79.2)
       '@types/eslint':
         specifier: ^8.4.5
         version: 8.56.12
@@ -11521,6 +11521,14 @@ snapshots:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
+
+  '@rollup/pluginutils@5.2.0(rollup@2.79.2)':
+    dependencies:
+      '@types/estree': 1.0.8
+      estree-walker: 2.0.2
+      picomatch: 4.0.2
+    optionalDependencies:
+      rollup: 2.79.2
 
   '@rollup/pluginutils@5.2.0(rollup@4.44.1)':
     dependencies:

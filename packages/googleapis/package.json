@@ -29,7 +29,7 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "dependencies": {
-    "@googleapis/oauth2": "^2.0.1",
+    "@googleapis/oauth2": "^3.0.1",
     "google-auth-library": "^10.1.0",
     "googleapis-common": "^8.0.0"
   },

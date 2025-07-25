@@ -6,5 +6,5 @@ export interface UIMessage<Content, Config, Instance> {
   info(content: Content): Instance
   loading(content: Content): Instance
   config(config: Config): void
-  destroy(id: string | number): void
+  destroy(id?: string | number): void
 }

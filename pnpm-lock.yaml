@@ -636,8 +636,8 @@ importers:
         specifier: ^8.56.12
         version: 8.56.12
       rollup:
-        specifier: ^2.79.2
-        version: 2.79.2
+        specifier: ^4.46.2
+        version: 4.46.2
     devDependencies:
       eslint:
         specifier: ^8.57.1

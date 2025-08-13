@@ -729,8 +729,8 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0
       jsencrypt:
-        specifier: ^3.3.2
-        version: 3.3.2
+        specifier: ^3.5.4
+        version: 3.5.4
     devDependencies:
       komekko:
         specifier: workspace:*
@@ -6238,8 +6238,8 @@ packages:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
 
-  jsencrypt@3.3.2:
-    resolution: {integrity: sha512-arQR1R1ESGdAxY7ZheWr12wCaF2yF47v5qpB76TtV64H1pyGudk9Hvw8Y9tb/FiTIaaTRUyaSnm5T/Y53Ghm/A==}
+  jsencrypt@3.5.4:
+    resolution: {integrity: sha512-kNjfYEMNASxrDGsmcSQh/rUTmcoRfSUkxnAz+MMywM8jtGu+fFEZ3nJjHM58zscVnwR0fYmG9sGkTDjqUdpiwA==}
 
   jsesc@3.0.2:
     resolution: {integrity: sha512-xKqzzWXDttJuOcawBt4KnKHHIf5oQ/Cxax+0PWFG+DFDgHNAdi+TXECADI+RYiFUMmx8792xsMbbgXj4CwnP4g==}
@@ -15798,7 +15798,7 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  jsencrypt@3.3.2: {}
+  jsencrypt@3.5.4: {}
 
   jsesc@3.0.2: {}
 

@@ -80,7 +80,7 @@
   "dependencies": {
     "@types/crypto-js": "^4.2.2",
     "crypto-js": "^4.2.0",
-    "jsencrypt": "^3.3.2"
+    "jsencrypt": "^3.5.4"
   },
   "devDependencies": {
     "komekko": "workspace:*",

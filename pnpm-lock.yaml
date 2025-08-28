@@ -555,11 +555,17 @@ importers:
   packages/react-toolkit:
     dependencies:
       '@types/react':
-        specifier: ^18.3.23
+        specifier: ^18.3.3
         version: 18.3.23
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.7(@types/react@18.3.23)
       react:
         specifier: ^18.3.1
         version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
     devDependencies:
       komekko:
         specifier: workspace:*

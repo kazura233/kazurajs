@@ -11,6 +11,8 @@ import type {
 
 import { memo, forwardRef } from 'react'
 
+export * from './dom'
+
 export interface IFunctionComponentOptions<P> {
   /**
    * Used to declare the types of the props accepted by the

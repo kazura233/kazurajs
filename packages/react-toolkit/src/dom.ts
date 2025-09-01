@@ -1,19 +1,19 @@
 import type * as React from 'react'
-import type { Root } from 'react-dom/client'
+import type { Container, Root, RootOptions } from 'react-dom/client'
 import { createRoot } from 'react-dom/client'
 
-const rootMap = new WeakMap<Element | DocumentFragment, Root>()
+const rootMap = new WeakMap<Container, Root>()
 
-export function render(node: React.ReactElement, container: Element | DocumentFragment) {
+export function render(node: React.ReactNode, container: Container, options?: RootOptions) {
   let root = rootMap.get(container)
   if (!root) {
-    root = createRoot(container)
+    root = createRoot(container, options)
     rootMap.set(container, root)
   }
   root.render(node)
 }
 
-export function unmount(container: Element | DocumentFragment) {
+export function unmount(container: Container) {
   const root = rootMap.get(container)
   if (root) {
     root.unmount()

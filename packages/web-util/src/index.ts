@@ -17,6 +17,7 @@ export * from './env'
 export * from './audio-player'
 export * from './aspect'
 export * from './class-util'
+export * from './network'
 
 /**
  * 生成指定范围内的随机整数

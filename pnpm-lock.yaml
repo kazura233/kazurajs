@@ -388,7 +388,7 @@ importers:
     dependencies:
       '@kazura/web-postmsg':
         specifier: ^2.0.1
-        version: 2.0.1(@kazura/web-util@2.5.0)
+        version: 2.0.1(@kazura/web-util@2.5.1)
     devDependencies:
       komekko:
         specifier: workspace:*
@@ -636,8 +636,8 @@ importers:
   packages/vite-plugin-eslint:
     dependencies:
       '@rollup/pluginutils':
-        specifier: ^4.2.1
-        version: 4.2.1
+        specifier: ^5.3.0
+        version: 5.3.0(rollup@2.79.2)
       '@types/eslint':
         specifier: ^8.56.12
         version: 8.56.12
@@ -2778,6 +2778,10 @@ packages:
     resolution: {integrity: sha512-xdr5WVTWUZM3FvKnBMMQc95G1bFyPgYQ2GKlBYo/TC+DB1iTRhFurw5war9AQ2f8CllkF2JNM863jAfYMHVLkg==}
     engines: {node: '>=22.16.0'}
 
+  '@kazura/web-util@2.5.1':
+    resolution: {integrity: sha512-5ibKKz8TrlDAIbh5zbgwFMeKHxPU4xtGv0kwDXQgK4Z0bi2mWViW9IExu641MyOXsd3tkj09FpVVC3esZQoeXg==}
+    engines: {node: '>=22.18.0'}
+
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
 
@@ -2902,6 +2906,15 @@ packages:
 
   '@rollup/pluginutils@5.2.0':
     resolution: {integrity: sha512-qWJ2ZTbmumwiLFomfzTyt5Kng4hwPi9rwCYN4SHb6eaRU1KNO4ccxINHr/VhH4GgPlt1XfSTLX2LBTme8ne4Zw==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+
+  '@rollup/pluginutils@5.3.0':
+    resolution: {integrity: sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
@@ -11701,11 +11714,25 @@ snapshots:
     dependencies:
       '@kazura/common': 0.0.1
 
-  '@kazura/web-postmsg@2.0.1(@kazura/web-util@2.5.0)':
+  '@kazura/web-postmsg@2.0.1(@kazura/web-util@2.5.1)':
     dependencies:
-      '@kazura/web-util': 2.5.0
+      '@kazura/web-util': 2.5.1
 
   '@kazura/web-util@2.5.0':
+    dependencies:
+      '@kazura/common': 0.0.1
+      '@kazura/validator': 0.0.1
+      '@types/big.js': 6.2.2
+      '@types/file-saver': 2.0.7
+      '@types/uuid': 10.0.0
+      big.js: 7.0.1
+      copy-to-clipboard: 3.3.3
+      dayjs: 1.11.13
+      dompurify: 3.2.6
+      file-saver: 2.0.5
+      uuid: 11.1.0
+
+  '@kazura/web-util@2.5.1':
     dependencies:
       '@kazura/common': 0.0.1
       '@kazura/validator': 0.0.1
@@ -11867,6 +11894,14 @@ snapshots:
       picomatch: 4.0.2
     optionalDependencies:
       rollup: 4.46.2
+
+  '@rollup/pluginutils@5.3.0(rollup@2.79.2)':
+    dependencies:
+      '@types/estree': 1.0.8
+      estree-walker: 2.0.2
+      picomatch: 4.0.2
+    optionalDependencies:
+      rollup: 2.79.2
 
   '@rollup/rollup-android-arm-eabi@4.46.2':
     optional: true

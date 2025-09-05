@@ -136,6 +136,25 @@ importers:
         specifier: ^5.9.2
         version: 5.9.2
 
+  packages/di:
+    dependencies:
+      '@wendellhu/redi':
+        specifier: ^1.0.0
+        version: 1.0.0(react@18.3.1)
+    devDependencies:
+      komekko:
+        specifier: workspace:*
+        version: link:../komekko
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
+      tslib:
+        specifier: ^2.8.1
+        version: 2.8.1
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
+
   packages/eslint-config-react-app:
     dependencies:
       '@babel/core':
@@ -388,7 +407,7 @@ importers:
     dependencies:
       '@kazura/web-postmsg':
         specifier: ^2.0.1
-        version: 2.0.1(@kazura/web-util@2.5.0)
+        version: 2.0.1(@kazura/web-util@2.5.1)
     devDependencies:
       komekko:
         specifier: workspace:*
@@ -2778,6 +2797,10 @@ packages:
     resolution: {integrity: sha512-xdr5WVTWUZM3FvKnBMMQc95G1bFyPgYQ2GKlBYo/TC+DB1iTRhFurw5war9AQ2f8CllkF2JNM863jAfYMHVLkg==}
     engines: {node: '>=22.16.0'}
 
+  '@kazura/web-util@2.5.1':
+    resolution: {integrity: sha512-5ibKKz8TrlDAIbh5zbgwFMeKHxPU4xtGv0kwDXQgK4Z0bi2mWViW9IExu641MyOXsd3tkj09FpVVC3esZQoeXg==}
+    engines: {node: '>=22.18.0'}
+
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
 
@@ -3723,6 +3746,15 @@ packages:
 
   '@webgpu/types@0.1.38':
     resolution: {integrity: sha512-7LrhVKz2PRh+DD7+S+PVaFd5HxaWQvoMqBbsV9fNJO1pjUs1P8bM2vQVNfk+3URTqbuTI7gkXi0rfsN0IadoBA==}
+
+  '@wendellhu/redi@1.0.0':
+    resolution: {integrity: sha512-FZhvlxYVdRh2omad2iJot9A+9lXqjF+V30crFtj60W2141bBq+WiU9AiLqGWDW1ePS/i4iqaccWhj3t78W8S3A==}
+    engines: {node: '>=22.12.0'}
+    peerDependencies:
+      react: '>=16.8.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -11701,11 +11733,25 @@ snapshots:
     dependencies:
       '@kazura/common': 0.0.1
 
-  '@kazura/web-postmsg@2.0.1(@kazura/web-util@2.5.0)':
+  '@kazura/web-postmsg@2.0.1(@kazura/web-util@2.5.1)':
     dependencies:
-      '@kazura/web-util': 2.5.0
+      '@kazura/web-util': 2.5.1
 
   '@kazura/web-util@2.5.0':
+    dependencies:
+      '@kazura/common': 0.0.1
+      '@kazura/validator': 0.0.1
+      '@types/big.js': 6.2.2
+      '@types/file-saver': 2.0.7
+      '@types/uuid': 10.0.0
+      big.js: 7.0.1
+      copy-to-clipboard: 3.3.3
+      dayjs: 1.11.13
+      dompurify: 3.2.6
+      file-saver: 2.0.5
+      uuid: 11.1.0
+
+  '@kazura/web-util@2.5.1':
     dependencies:
       '@kazura/common': 0.0.1
       '@kazura/validator': 0.0.1
@@ -12745,6 +12791,10 @@ snapshots:
       '@xtuc/long': 4.2.2
 
   '@webgpu/types@0.1.38': {}
+
+  '@wendellhu/redi@1.0.0(react@18.3.1)':
+    optionalDependencies:
+      react: 18.3.1
 
   '@xtuc/ieee754@1.2.0': {}
 

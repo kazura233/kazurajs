@@ -1,0 +1,48 @@
+{
+  "name": "@kazura/di",
+  "version": "0.0.1",
+  "description": "dependency injection",
+  "keywords": [
+    "dependency injection"
+  ],
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/di#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazura233/kazurajs.git"
+  },
+  "bugs": "https://github.com/kazura233/kazurajs/issues",
+  "author": {
+    "name": "kazura233",
+    "email": "kazira233@gmail.com"
+  },
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "pnpm clean && komekko",
+    "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
+  },
+  "dependencies": {
+    "@wendellhu/redi": "^1.0.0"
+  },
+  "devDependencies": {
+    "komekko": "workspace:*",
+    "rimraf": "^6.0.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2"
+  },
+  "npmName": "@kazura/di",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

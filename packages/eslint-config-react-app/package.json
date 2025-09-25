@@ -19,8 +19,8 @@
     "eslint": "^8.57.1"
   },
   "dependencies": {
-    "@babel/core": "^7.28.0",
-    "@babel/eslint-parser": "^7.28.0",
+    "@babel/core": "^7.28.4",
+    "@babel/eslint-parser": "^7.28.4",
     "@rushstack/eslint-patch": "^1.12.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
@@ -38,6 +38,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.20.0"
   }
 }

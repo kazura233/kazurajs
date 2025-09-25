@@ -29,7 +29,7 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "dependencies": {
-    "@wendellhu/redi": "^1.0.0"
+    "@wendellhu/redi": "^1.0.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -43,6 +43,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.20.0"
   }
 }

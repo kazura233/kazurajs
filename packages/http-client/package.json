@@ -31,7 +31,7 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "dependencies": {
-    "axios": "^1.11.0"
+    "axios": "^1.12.2"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -45,6 +45,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.20.0"
   }
 }

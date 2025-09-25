@@ -40,18 +40,18 @@
   },
   "dependencies": {
     "@types/debug": "^4.1.12",
-    "debug": "^4.4.1",
+    "debug": "^4.4.3",
     "fast-glob": "^3.3.3"
   },
   "devDependencies": {
-    "@antfu/utils": "^9.2.0",
+    "@antfu/utils": "^9.2.1",
     "react": "^18.3.1",
-    "react-router": "^7.7.1",
+    "react-router": "^7.9.2",
     "komekko": "workspace:*",
     "rimraf": "^6.0.1",
     "tslib": "^2.8.1",
     "typescript": "^5.9.2",
-    "vite": "^6.3.5"
+    "vite": "^6.3.6"
   },
   "npmName": "@kazura/vite-plugin-react-pages",
   "publishConfig": {
@@ -59,6 +59,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.20.0"
   }
 }

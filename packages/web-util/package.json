@@ -67,13 +67,12 @@
     "@kazura/validator": "0.0.1",
     "@types/big.js": "^6.2.2",
     "@types/file-saver": "^2.0.7",
-    "@types/uuid": "^10.0.0",
     "big.js": "^7.0.1",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.18",
     "dompurify": "^3.2.7",
     "file-saver": "^2.0.5",
-    "uuid": "^11.1.0"
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",

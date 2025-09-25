@@ -30,10 +30,10 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "peerDependencies": {
-    "@kazura/web-util": ">=2.5.0"
+    "@kazura/web-util": ">=2.5.1"
   },
   "dependencies": {
-    "@kazura/web-util": "^2.5.0"
+    "@kazura/web-util": "^2.5.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -47,6 +47,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.20.0"
   }
 }

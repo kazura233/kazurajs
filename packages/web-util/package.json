@@ -70,8 +70,8 @@
     "@types/uuid": "^10.0.0",
     "big.js": "^7.0.1",
     "copy-to-clipboard": "^3.3.3",
-    "dayjs": "^1.11.13",
-    "dompurify": "^3.2.6",
+    "dayjs": "^1.11.18",
+    "dompurify": "^3.2.7",
     "file-saver": "^2.0.5",
     "uuid": "^11.1.0"
   },
@@ -87,6 +87,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.20.0"
   }
 }

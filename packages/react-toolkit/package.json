@@ -30,12 +30,12 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.3.23",
+    "@types/react": ">=18.3.24",
     "react": ">=18.3.1"
   },
   "dependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "^18.3.24",
+    "@types/react-dom": "^18.3.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -51,6 +51,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.20.0"
   }
 }

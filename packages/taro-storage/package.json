@@ -30,10 +30,10 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "peerDependencies": {
-    "@tarojs/taro": ">=4.1.5"
+    "@tarojs/taro": ">=4.1.7"
   },
   "dependencies": {
-    "@tarojs/taro": "^4.1.5"
+    "@tarojs/taro": "^4.1.7"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -47,6 +47,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.20.0"
   }
 }

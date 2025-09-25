@@ -67,7 +67,7 @@
     "@kazura/validator": "0.0.1",
     "@types/big.js": "^6.2.2",
     "@types/file-saver": "^2.0.7",
-    "@types/uuid": "^10.0.0",
+    "@types/uuid": "^11.0.0",
     "big.js": "^7.0.1",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.13",

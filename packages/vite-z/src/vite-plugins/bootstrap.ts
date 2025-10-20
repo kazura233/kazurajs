@@ -117,14 +117,24 @@ export function viteBootstrapPlugin(): Plugin[] {
     },
     {
       name: 'vite-plugin-bootstrap:post',
+
       enforce: 'post',
 
-      transformIndexHtml(html) {
+      transformIndexHtml() {
         if (state.isBuild && state.generatedFileName && state.bootstrapClasses.length > 0) {
-          const scriptTag = `    <script type="module" crossorigin src="./${state.generatedFileName}"></script>`
-          return html.replace('</body>', `${scriptTag}\n  </body>`)
+          return [
+            {
+              tag: 'script',
+              attrs: {
+                type: 'module',
+                crossorigin: true,
+                src: `./${state.generatedFileName}`,
+              },
+              injectTo: 'body',
+            },
+          ]
         }
-        return html
+        return []
       },
     },
   ]

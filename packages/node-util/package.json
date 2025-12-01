@@ -1,6 +1,6 @@
 {
   "name": "@kazura/node-util",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "node-util",
   "keywords": [
     "node",
@@ -30,9 +30,13 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "dependencies": {
+    "@types/archiver": "^7.0.0",
+    "@types/unzipper": "^0.10.11",
+    "archiver": "^7.0.1",
     "ddddocr-node": "^1.1.0",
     "pkg-types": "^1.3.1",
     "time2fa": "^1.4.2",
+    "unzipper": "^0.12.3",
     "uuid": "^13.0.0",
     "zx": "^8.8.3"
   },

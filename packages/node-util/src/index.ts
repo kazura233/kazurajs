@@ -7,6 +7,7 @@ import type { PackageJson } from 'pkg-types'
 export * from './ocr'
 export * from './git'
 export * from './totp'
+export * from './zip'
 export * from './worker.class'
 export * from './task-worker.class'
 

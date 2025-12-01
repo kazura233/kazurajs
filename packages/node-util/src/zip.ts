@@ -11,14 +11,19 @@ export async function zip(sourceDir: string, outPath: string): Promise<void> {
   const output = fs.createWriteStream(outPath)
   const archive = archiver('zip', { zlib: { level: 9 } })
 
+  archive.on('error', (err) => {
+    throw err
+  })
+
   archive.pipe(output)
+
   archive.directory(sourceDir, false)
 
   await archive.finalize()
 
   await new Promise<void>((resolve, reject) => {
-    output.on('close', () => resolve())
-    output.on('error', (err) => reject(err))
+    output.on('close', resolve)
+    output.on('error', reject)
   })
 }
 

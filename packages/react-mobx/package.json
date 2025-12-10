@@ -32,7 +32,6 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "peerDependencies": {
-    "@types/react": ">=18.3.24",
     "mobx": ">=6.13.7",
     "react": ">=18.3.1"
   },

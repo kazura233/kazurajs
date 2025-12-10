@@ -1,6 +1,6 @@
 {
   "name": "@kazura/react-mobx",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "react-mobx",
   "keywords": [
     "react",
@@ -36,12 +36,11 @@
     "mobx": ">=6.13.7",
     "react": ">=18.3.1"
   },
-  "dependencies": {
-    "@types/react": "^18.3.24",
-    "mobx": "^6.13.7",
-    "react": "^18.3.1"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/react": "^19.2.7",
+    "mobx": "^6.13.7",
+    "react": "^19.2.1",
     "komekko": "workspace:*",
     "rimraf": "^6.0.1",
     "tslib": "^2.8.1",

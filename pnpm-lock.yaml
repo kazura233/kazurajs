@@ -457,20 +457,19 @@ importers:
         version: 5.9.2
 
   packages/react-mobx:
-    dependencies:
+    devDependencies:
       '@types/react':
-        specifier: ^18.3.24
-        version: 18.3.24
+        specifier: ^19.2.7
+        version: 19.2.7
+      komekko:
+        specifier: workspace:*
+        version: link:../komekko
       mobx:
         specifier: ^6.13.7
         version: 6.13.7
       react:
-        specifier: ^18.3.1
-        version: 18.3.1
-    devDependencies:
-      komekko:
-        specifier: workspace:*
-        version: link:../komekko
+        specifier: ^19.2.1
+        version: 19.2.1
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1

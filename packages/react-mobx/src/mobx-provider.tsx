@@ -9,7 +9,7 @@ export const MobxProvider: React.FC<React.PropsWithChildren<MobxProviderProps>> 
 }) => {
   const [contextValue, setContextValue] = React.useState({ stores })
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const listener = (change: IObjectDidChange) => {
       console.log('MobxProvider -> observe -> listener -> change', change)
       setContextValue({ stores })
@@ -37,7 +37,7 @@ export const MobxInactiveProvider: React.FC<React.PropsWithChildren<MobxProvider
 }) => {
   const [contextValue, setContextValue] = React.useState({ stores })
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     setContextValue({ stores })
   }, [stores])
 

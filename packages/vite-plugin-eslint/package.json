@@ -30,7 +30,7 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "dependencies": {
-    "@rollup/pluginutils": "^4.2.1",
+    "@rollup/pluginutils": "^5.3.0",
     "@types/eslint": "^8.56.12",
     "rollup": "^2.79.2"
   },

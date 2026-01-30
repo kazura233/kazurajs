@@ -32,7 +32,7 @@
   "dependencies": {
     "@rollup/pluginutils": "^4.2.1",
     "@types/eslint": "^8.56.12",
-    "rollup": "^2.79.2"
+    "rollup": "^4.57.1"
   },
   "devDependencies": {
     "komekko": "workspace:*",

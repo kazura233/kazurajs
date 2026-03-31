@@ -1,12 +1,11 @@
 {
-  "name": "@kazura/node-util",
-  "version": "1.0.0",
-  "description": "node-util",
+  "name": "@kazura/ocr",
+  "version": "0.1.0",
+  "description": "ocr",
   "keywords": [
-    "node",
-    "util"
+    "ocr"
   ],
-  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/node-util#readme",
+  "homepage": "https://github.com/kazura233/kazurajs/tree/master/packages/ocr#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kazura233/kazurajs.git"
@@ -30,14 +29,7 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "dependencies": {
-    "@types/archiver": "^7.0.0",
-    "@types/unzipper": "^0.10.11",
-    "archiver": "^7.0.1",
-    "pkg-types": "^1.3.1",
-    "time2fa": "^1.4.2",
-    "unzipper": "^0.12.3",
-    "uuid": "^13.0.0",
-    "zx": "^8.8.3"
+    "ddddocr-node": "^2.2.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",
@@ -45,7 +37,7 @@
     "tslib": "^2.8.1",
     "typescript": "^5.9.2"
   },
-  "npmName": "@kazura/node-util",
+  "npmName": "@kazura/ocr",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

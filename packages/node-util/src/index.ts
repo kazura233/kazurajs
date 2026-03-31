@@ -4,7 +4,6 @@ import { createHash } from 'node:crypto'
 
 import type { PackageJson } from 'pkg-types'
 
-export * from './ocr'
 export * from './git'
 export * from './totp'
 export * from './zip'
@@ -38,7 +37,7 @@ export interface LookupFileOptions {
 export function lookupFile(
   dir: string,
   formats: string[],
-  options?: LookupFileOptions
+  options?: LookupFileOptions,
 ): string | undefined {
   for (const format of formats) {
     const fullPath = path.join(dir, format)

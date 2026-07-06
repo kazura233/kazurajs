@@ -1,0 +1,50 @@
+---
+description: KazuraJS monorepo 项目规范与构建指南
+globs:
+alwaysApply: true
+---
+
+# KazuraJS 项目规范
+
+KazuraJS 是一个 pnpm monorepo，包含独立发布的 `@kazura/*` JavaScript/TypeScript 工具库（Web、React、Node.js、NestJS、构建工具）。`packages/` 下每个目录是独立 npm 包，各自有版本和 `dist` 输出。
+
+要求 Node `>=22.20.0`，包管理器 pnpm。
+
+## 常用命令（仓库根目录）
+
+- `pnpm build:komekko` — 先构建 komekko 构建工具
+- `pnpm build:all` — 完整流水线：构建 komekko → 重新安装 → 构建所有包
+- `pnpm clean:all` — 对所有包执行 rimraf dist
+- `pnpm docs:build` — 构建 Docusaurus 文档站
+
+单包操作（进入 `packages/<name>/`）：
+- `pnpm build` — `rimraf dist && komekko`
+- `pnpm build:debug` — 同上加 `DEBUG=komekko:*`
+
+没有配置 test runner / linter，不要假设 `pnpm test` / `pnpm lint` 存在。
+
+## 构建系统：komekko
+
+`komekko`（`packages/komekko/`）是仓库内自建的构建工具，基于 Rollup + esbuild，支持 ESM / CJS / UMD / IIFE 输出、`.d.ts` 生成、压缩、sourcemap、代码混淆。
+
+- **构建顺序很重要**：komekko 必须先编译，其它包才能构建。`pnpm build:all` 已处理顺序。单独构建某包若报 komekko 找不到，先跑 `pnpm build:komekko`。
+- komekko 自举运行：通过 `jiti ./src/cli` 直接执行自身 TypeScript 源码。
+
+入口推导：读 `komekko.config.ts`（如有）+ `package.json`。若 config 有 `entries` 则直接用，否则从 `exports` / `main` 反推（`dist/xxx.mjs` → `src/xxx.ts`）。大部分包无需 config，新增入口只需加 `exports` 子路径和对应 `src/` 文件。`komekko.config.ts` 仅用于非默认输出（如 UMD）。`defineConfig` 支持单对象或数组。
+
+## 包的约定
+
+- 源码 `src/`，产物 `dist/`（gitignore）
+- `exports` 字段以 `require` / `import` / `types` 条件指向 `dist/*.cjs` / `dist/*.mjs` / `dist/*.d.ts`
+- `@kazura/common` 和 `@kazura/di` 是内部支撑包
+- 跨包依赖用 `workspace:*` 或固定版本
+
+## 工作区布局
+
+`pnpm-workspace.yaml` 包含 `packages/*`、`docs/`（Docusaurus）、`*/example` 示例应用、`packages/build-test/*`（验证用临时工程，不发布）。
+
+文档发布地址：https://kazura233.github.io/kazurajs
+
+## 语言偏好
+
+使用中文回复用户，包括总结和设计文档。

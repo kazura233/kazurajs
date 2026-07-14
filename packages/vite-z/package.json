@@ -17,16 +17,17 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./vite-plugin-bootstrap": {
-      "require": "./dist/vite-plugins/index.cjs",
+      "types": "./dist/vite-plugins/index.d.ts",
       "import": "./dist/vite-plugins/index.mjs",
-      "types": "./dist/vite-plugins/index.d.ts"
+      "require": "./dist/vite-plugins/index.cjs"
     }
   },
   "main": "dist/index.cjs",

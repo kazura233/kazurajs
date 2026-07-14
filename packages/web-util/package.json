@@ -16,36 +16,37 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./save-file": {
-      "require": "./dist/save-file/index.cjs",
+      "types": "./dist/save-file/index.d.ts",
       "import": "./dist/save-file/index.mjs",
-      "types": "./dist/save-file/index.d.ts"
+      "require": "./dist/save-file/index.cjs"
     },
     "./date": {
-      "require": "./dist/date/index.cjs",
+      "types": "./dist/date/index.d.ts",
       "import": "./dist/date/index.mjs",
-      "types": "./dist/date/index.d.ts"
+      "require": "./dist/date/index.cjs"
     },
     "./date/local": {
-      "require": "./dist/date/local.cjs",
+      "types": "./dist/date/local.d.ts",
       "import": "./dist/date/local.mjs",
-      "types": "./dist/date/local.d.ts"
+      "require": "./dist/date/local.cjs"
     },
     "./xss": {
-      "require": "./dist/xss/index.cjs",
+      "types": "./dist/xss/index.d.ts",
       "import": "./dist/xss/index.mjs",
-      "types": "./dist/xss/index.d.ts"
+      "require": "./dist/xss/index.cjs"
     },
     "./decimal": {
-      "require": "./dist/decimal/index.cjs",
+      "types": "./dist/decimal/index.d.ts",
       "import": "./dist/decimal/index.mjs",
-      "types": "./dist/decimal/index.d.ts"
+      "require": "./dist/decimal/index.cjs"
     }
   },
   "main": "dist/index.cjs",

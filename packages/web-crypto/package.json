@@ -20,41 +20,42 @@
     "email": "kazira233@gmail.com"
   },
   "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./aes-128-ecb": {
-      "require": "./dist/aes-128-ecb/index.cjs",
+      "types": "./dist/aes-128-ecb/index.d.ts",
       "import": "./dist/aes-128-ecb/index.mjs",
-      "types": "./dist/aes-128-ecb/index.d.ts"
+      "require": "./dist/aes-128-ecb/index.cjs"
     },
     "./base64": {
-      "require": "./dist/base64/index.cjs",
+      "types": "./dist/base64/index.d.ts",
       "import": "./dist/base64/index.mjs",
-      "types": "./dist/base64/index.d.ts"
+      "require": "./dist/base64/index.cjs"
     },
     "./md5": {
-      "require": "./dist/md5/index.cjs",
+      "types": "./dist/md5/index.d.ts",
       "import": "./dist/md5/index.mjs",
-      "types": "./dist/md5/index.d.ts"
+      "require": "./dist/md5/index.cjs"
     },
     "./sha256": {
-      "require": "./dist/sha256/index.cjs",
+      "types": "./dist/sha256/index.d.ts",
       "import": "./dist/sha256/index.mjs",
-      "types": "./dist/sha256/index.d.ts"
+      "require": "./dist/sha256/index.cjs"
     },
     "./rsa-1024": {
-      "require": "./dist/rsa-1024/index.cjs",
+      "types": "./dist/rsa-1024/index.d.ts",
       "import": "./dist/rsa-1024/index.mjs",
-      "types": "./dist/rsa-1024/index.d.ts"
+      "require": "./dist/rsa-1024/index.cjs"
     },
     "./rsa-2048": {
-      "require": "./dist/rsa-2048/index.cjs",
+      "types": "./dist/rsa-2048/index.d.ts",
       "import": "./dist/rsa-2048/index.mjs",
-      "types": "./dist/rsa-2048/index.d.ts"
+      "require": "./dist/rsa-2048/index.cjs"
     }
   },
   "main": "dist/index.cjs",

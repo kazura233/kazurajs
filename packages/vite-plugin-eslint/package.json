@@ -1,6 +1,6 @@
 {
   "name": "@kazura/vite-plugin-eslint",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "ESLint plugin for vite.",
   "keywords": [
     "eslint",

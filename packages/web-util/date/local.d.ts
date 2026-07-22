@@ -1,1 +1,1 @@
-export * from '../dist/date/local'
+export * from '../dist/date/local.d.cts'

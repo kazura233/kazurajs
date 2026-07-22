@@ -1,1 +1,1 @@
-export * from '../dist/decimal/index'
+export * from '../dist/decimal/index.d.cts'

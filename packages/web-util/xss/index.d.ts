@@ -1,1 +1,1 @@
-export * from '../dist/xss/index'
+export * from '../dist/xss/index.d.cts'

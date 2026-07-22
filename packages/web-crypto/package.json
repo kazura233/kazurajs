@@ -23,39 +23,74 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./aes-128-ecb": {
-      "types": "./dist/aes-128-ecb/index.d.ts",
-      "import": "./dist/aes-128-ecb/index.mjs",
-      "require": "./dist/aes-128-ecb/index.cjs"
+      "import": {
+        "types": "./dist/aes-128-ecb/index.d.mts",
+        "default": "./dist/aes-128-ecb/index.mjs"
+      },
+      "require": {
+        "types": "./dist/aes-128-ecb/index.d.cts",
+        "default": "./dist/aes-128-ecb/index.cjs"
+      }
     },
     "./base64": {
-      "types": "./dist/base64/index.d.ts",
-      "import": "./dist/base64/index.mjs",
-      "require": "./dist/base64/index.cjs"
+      "import": {
+        "types": "./dist/base64/index.d.mts",
+        "default": "./dist/base64/index.mjs"
+      },
+      "require": {
+        "types": "./dist/base64/index.d.cts",
+        "default": "./dist/base64/index.cjs"
+      }
     },
     "./md5": {
-      "types": "./dist/md5/index.d.ts",
-      "import": "./dist/md5/index.mjs",
-      "require": "./dist/md5/index.cjs"
+      "import": {
+        "types": "./dist/md5/index.d.mts",
+        "default": "./dist/md5/index.mjs"
+      },
+      "require": {
+        "types": "./dist/md5/index.d.cts",
+        "default": "./dist/md5/index.cjs"
+      }
     },
     "./sha256": {
-      "types": "./dist/sha256/index.d.ts",
-      "import": "./dist/sha256/index.mjs",
-      "require": "./dist/sha256/index.cjs"
+      "import": {
+        "types": "./dist/sha256/index.d.mts",
+        "default": "./dist/sha256/index.mjs"
+      },
+      "require": {
+        "types": "./dist/sha256/index.d.cts",
+        "default": "./dist/sha256/index.cjs"
+      }
     },
     "./rsa-1024": {
-      "types": "./dist/rsa-1024/index.d.ts",
-      "import": "./dist/rsa-1024/index.mjs",
-      "require": "./dist/rsa-1024/index.cjs"
+      "import": {
+        "types": "./dist/rsa-1024/index.d.mts",
+        "default": "./dist/rsa-1024/index.mjs"
+      },
+      "require": {
+        "types": "./dist/rsa-1024/index.d.cts",
+        "default": "./dist/rsa-1024/index.cjs"
+      }
     },
     "./rsa-2048": {
-      "types": "./dist/rsa-2048/index.d.ts",
-      "import": "./dist/rsa-2048/index.mjs",
-      "require": "./dist/rsa-2048/index.cjs"
+      "import": {
+        "types": "./dist/rsa-2048/index.d.mts",
+        "default": "./dist/rsa-2048/index.mjs"
+      },
+      "require": {
+        "types": "./dist/rsa-2048/index.d.cts",
+        "default": "./dist/rsa-2048/index.cjs"
+      }
     }
   },
   "main": "dist/index.cjs",

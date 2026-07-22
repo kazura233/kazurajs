@@ -19,34 +19,64 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./save-file": {
-      "types": "./dist/save-file/index.d.ts",
-      "import": "./dist/save-file/index.mjs",
-      "require": "./dist/save-file/index.cjs"
+      "import": {
+        "types": "./dist/save-file/index.d.mts",
+        "default": "./dist/save-file/index.mjs"
+      },
+      "require": {
+        "types": "./dist/save-file/index.d.cts",
+        "default": "./dist/save-file/index.cjs"
+      }
     },
     "./date": {
-      "types": "./dist/date/index.d.ts",
-      "import": "./dist/date/index.mjs",
-      "require": "./dist/date/index.cjs"
+      "import": {
+        "types": "./dist/date/index.d.mts",
+        "default": "./dist/date/index.mjs"
+      },
+      "require": {
+        "types": "./dist/date/index.d.cts",
+        "default": "./dist/date/index.cjs"
+      }
     },
     "./date/local": {
-      "types": "./dist/date/local.d.ts",
-      "import": "./dist/date/local.mjs",
-      "require": "./dist/date/local.cjs"
+      "import": {
+        "types": "./dist/date/local.d.mts",
+        "default": "./dist/date/local.mjs"
+      },
+      "require": {
+        "types": "./dist/date/local.d.cts",
+        "default": "./dist/date/local.cjs"
+      }
     },
     "./xss": {
-      "types": "./dist/xss/index.d.ts",
-      "import": "./dist/xss/index.mjs",
-      "require": "./dist/xss/index.cjs"
+      "import": {
+        "types": "./dist/xss/index.d.mts",
+        "default": "./dist/xss/index.mjs"
+      },
+      "require": {
+        "types": "./dist/xss/index.d.cts",
+        "default": "./dist/xss/index.cjs"
+      }
     },
     "./decimal": {
-      "types": "./dist/decimal/index.d.ts",
-      "import": "./dist/decimal/index.mjs",
-      "require": "./dist/decimal/index.cjs"
+      "import": {
+        "types": "./dist/decimal/index.d.mts",
+        "default": "./dist/decimal/index.mjs"
+      },
+      "require": {
+        "types": "./dist/decimal/index.d.cts",
+        "default": "./dist/decimal/index.cjs"
+      }
     }
   },
   "main": "dist/index.cjs",

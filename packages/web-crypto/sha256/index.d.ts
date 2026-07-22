@@ -1,1 +1,1 @@
-export * from '../dist/sha256'
+export * from '../dist/sha256/index.d.cts'

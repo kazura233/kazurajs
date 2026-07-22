@@ -1,6 +1,7 @@
 import { extname, relative } from 'pathe'
 import type { Plugin, PluginContext } from 'rollup'
-import { Loader, TransformResult, CommonOptions, transform } from 'esbuild'
+import type { Loader, TransformResult, CommonOptions } from 'esbuild'
+import { transform } from 'esbuild'
 import { createFilter } from '@rollup/pluginutils'
 import type { FilterPattern } from '@rollup/pluginutils'
 

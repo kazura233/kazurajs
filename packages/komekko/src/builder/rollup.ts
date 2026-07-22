@@ -4,7 +4,8 @@ import { arrayIncludes, getpkg, removeExtension } from '../utils'
 import type { PackageJson } from 'pkg-types'
 import Module from 'node:module'
 import defu from 'defu'
-import { InputPluginOption, InputOptions, OutputOptions, PreRenderedChunk, rollup } from 'rollup'
+import type { InputPluginOption, InputOptions, OutputOptions, PreRenderedChunk } from 'rollup'
+import { rollup } from 'rollup'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import alias from '@rollup/plugin-alias'
@@ -14,6 +15,7 @@ import json from '@rollup/plugin-json'
 import { esbuildPlugin } from '../plugins/esbuild'
 import { obfuscatePlugin } from '../plugins/obfuscator'
 import debug from 'debug'
+import { fixCJSExportTypePlugin } from '../plugins/cjs'
 
 const DEFAULT_EXTENSIONS = ['.ts', '.tsx', '.mjs', '.cjs', '.js', '.jsx', '.json']
 
@@ -33,6 +35,7 @@ export type OutputDescriptor =
     }
   | {
       file: string
+      format: ModuleFormat
       declaration: boolean
     }
 
@@ -48,7 +51,7 @@ export class RollupBuilder {
     this.options = defu(buildOptions, this.defaultBuildOptions())
     this.options.external.push(
       ...Object.keys(this.pkg.dependencies || {}),
-      ...Object.keys(this.pkg.peerDependencies || {})
+      ...Object.keys(this.pkg.peerDependencies || {}),
     )
 
     log.info('>>>>>>>>>> RollupBuilder->constructor->this.options: %O', this.options)
@@ -86,7 +89,12 @@ export class RollupBuilder {
         },
         esbuildOptions: {},
         dtsOptions: {
-          compilerOptions: { preserveSymlinks: false },
+          compilerOptions: {
+            // https://github.com/Swatinem/rollup-plugin-dts/issues/143
+            preserveSymlinks: false,
+            // https://github.com/Swatinem/rollup-plugin-dts/issues/127
+            composite: false,
+          },
           respectExternal: true,
         },
       },
@@ -131,10 +139,10 @@ export class RollupBuilder {
     }
 
     if (this.pkg.types || this.pkg.typings) {
-      outputs.push({
-        file: this.pkg.types || this.pkg.typings!,
-        declaration: true,
-      })
+      const output = this.inferExportType('', this.pkg.types || this.pkg.typings!)
+      if (output) {
+        outputs.push(output)
+      }
     }
 
     return outputs.map<BuildEntry>((output) => {
@@ -153,11 +161,14 @@ export class RollupBuilder {
 
       input = removeExtension(input)
 
-      return <BuildEntry>{
+      const declaration = 'declaration' in output ? output.declaration : undefined
+      const format = 'format' in output ? output.format : undefined
+
+      return {
         input: resolve(this.options.rootDir, input),
         outFileName: outFileName,
-        declaration: 'declaration' in output ? output.declaration : undefined,
-        formats: 'format' in output ? [output.format] : [],
+        declaration,
+        formats: format ? [format] : [],
       }
     })
   }
@@ -174,8 +185,10 @@ export class RollupBuilder {
     if (!$2) return
 
     if (typeof $2 === 'boolean') {
-      if (!$1.endsWith('.d.ts')) {
-        throw new Error(`Expected declaration file to end with .d.ts, received ${$1}`)
+      if (!$1.endsWith('.d.ts') && !$1.endsWith('.d.mts') && !$1.endsWith('.d.cts')) {
+        throw new Error(
+          `Expected declaration file to end with .d.ts, .d.mts, or .d.cts, received ${$1}`,
+        )
       }
     }
 
@@ -215,8 +228,14 @@ export class RollupBuilder {
   }
 
   public inferExportType(condition: string, file: string): OutputDescriptor | null {
+    if (file.endsWith('.d.mts')) {
+      return { file, format: 'esm', declaration: true }
+    }
+    if (file.endsWith('.d.cts')) {
+      return { file, format: 'cjs', declaration: true }
+    }
     if (file.endsWith('.d.ts')) {
-      return { file, declaration: true }
+      return { file, format: 'cjs', declaration: true }
     }
     if (file.endsWith('.mjs')) {
       return { file, format: 'esm' }
@@ -276,14 +295,15 @@ export class RollupBuilder {
               this.checkOutFileName(outFileName)
               this.checkExtension(outFileName, format as ModuleFormat)
               return [outFileName, entry.input]
-            })
+            }),
           ),
 
           output: { ...this.getOutputOptionsByFormat(format as ModuleFormat), ...output },
 
-          external(id) {
-            const pkg = getpkg(id)
-            const isExplicitExternal = arrayIncludes(external, pkg) || arrayIncludes(external, id)
+          external(originalId) {
+            const pkgName = getpkg(originalId)
+            const isExplicitExternal =
+              arrayIncludes(external, pkgName) || arrayIncludes(external, originalId)
             return isExplicitExternal
           },
 
@@ -319,14 +339,14 @@ export class RollupBuilder {
           Object.fromEntries(
             this.options.rollupPluginsOptions.aliasOptions.entries.map((entry) => {
               return [entry.find, entry.replacement]
-            })
-          )
+            }),
+          ),
         )
       } else {
         Object.assign(
           aliases,
           this.options.rollupPluginsOptions.aliasOptions.entries ||
-            this.options.rollupPluginsOptions.aliasOptions
+            this.options.rollupPluginsOptions.aliasOptions,
         )
       }
     }
@@ -337,7 +357,7 @@ export class RollupBuilder {
   groupByFormat(buildEntries: BuildEntry[]): Record<ModuleFormat, BuildEntry[]> {
     return buildEntries.reduce<Record<ModuleFormat, BuildEntry[]>>(
       (map, entry) => {
-        if (entry.formats && entry.formats.length) {
+        if (entry.formats && entry.formats.length && !entry.declaration) {
           for (const format of entry.formats) {
             map[format].push(entry)
           }
@@ -349,19 +369,18 @@ export class RollupBuilder {
         cjs: [],
         umd: [],
         iife: [],
-      }
+      },
     )
   }
 
   public async writeTypes() {
-    const entries = this.options.entries
+    const entries: BuildEntry[] = this.options.entries
       .filter(({ declaration }) => declaration)
       .map((entry) => {
-        let outFileName =
+        const outFileName =
           typeof entry.outFileName === 'string'
             ? entry.outFileName
-            : entry.outFileName(entry.input, 'esm')
-        outFileName = removeExtension(outFileName) + '.d.ts'
+            : entry.outFileName(entry.input, entry.formats[0])
         this.checkOutFileName(outFileName)
         this.checkExtension(outFileName, true)
         return {
@@ -376,50 +395,66 @@ export class RollupBuilder {
 
     const external = this.options.external
 
-    const options: RollupOptions = {
-      input: Object.fromEntries(entries.map((entry) => [entry.outFileName, entry.input])),
+    for (const entry of entries) {
+      const outFileName = entry.outFileName as string
+      const format = entry.formats[0]
 
-      output: {
-        ...this.getESMOutputOptions(),
-        chunkFileNames: (chunk: PreRenderedChunk) => {
-          const name = this.getChunkFilename(chunk, 'esm')
-          return removeExtension(name) + '.d.ts'
+      const outputOptions =
+        format === 'esm' ? this.getESMOutputOptions() : this.getCJSOutputOptions()
+
+      const chunkExt = outFileName.endsWith('.d.mts')
+        ? 'd.mts'
+        : outFileName.endsWith('.d.cts')
+          ? 'd.cts'
+          : 'd.ts'
+
+      const options: RollupOptions = {
+        input: { [outFileName]: entry.input },
+
+        output: {
+          ...outputOptions,
+          chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, chunkExt),
         },
-      },
 
-      external(id) {
-        const pkg = getpkg(id)
-        const isExplicitExternal = arrayIncludes(external, pkg) || arrayIncludes(external, id)
-        return isExplicitExternal
-      },
+        external(originalId) {
+          const pkgName = getpkg(originalId)
+          const isExplicitExternal =
+            arrayIncludes(external, pkgName) || arrayIncludes(external, originalId)
+          return isExplicitExternal
+        },
 
-      onwarn(warning, rollupWarn) {
-        if (!warning.code || !['CIRCULAR_DEPENDENCY'].includes(warning.code)) {
-          rollupWarn(warning)
-        }
-      },
-      plugins: [...this.getInputPluginOption(), dts(this.options.rollupPluginsOptions.dtsOptions)],
+        onwarn(warning, rollupWarn) {
+          if (!warning.code || !['CIRCULAR_DEPENDENCY'].includes(warning.code)) {
+            rollupWarn(warning)
+          }
+        },
+        plugins: [
+          ...this.getInputPluginOption(),
+          dts(this.options.rollupPluginsOptions.dtsOptions),
+          fixCJSExportTypePlugin(),
+        ].filter(
+          (plugin): plugin is NonNullable<Exclude<typeof plugin, false>> =>
+            /**
+             * rollup-plugin-dts 和 rollup-plugin-commonjs 冲突：
+             * https://github.com/Swatinem/rollup-plugin-dts?tab=readme-ov-file#what-to-expect
+             */
+            !!plugin && (!('name' in plugin) || plugin.name !== 'commonjs'),
+        ),
+      }
+
+      log.info('>>>>>>>>>> RollupBuilder->writeTypes->options->input: %s', options.input)
+      log.info('>>>>>>>>>> RollupBuilder->writeTypes->options->output: %O', options.output)
+
+      const rollupBuild = await rollup(options)
+      await rollupBuild.write(options.output as OutputOptions)
     }
-
-    log.info('>>>>>>>>>> RollupBuilder->writeTypes->options->input: %s', options.input)
-    log.info('>>>>>>>>>> RollupBuilder->writeTypes->options->output: %O', options.output)
-
-    const rollupBuild = await rollup(options)
-    await rollupBuild.write(options.output as OutputOptions)
   }
 
   public getEntryFileNames(chunk: PreRenderedChunk) {
     return chunk.name
   }
 
-  public getChunkFilename(chunk: PreRenderedChunk, format: ModuleFormat) {
-    let ext: string = 'js'
-    if (format === 'esm') {
-      ext = 'mjs'
-    } else if (format === 'cjs') {
-      ext = 'cjs'
-    }
-
+  public getChunkFilename(chunk: PreRenderedChunk, ext: string) {
     if (chunk.isDynamicEntry) {
       return `chunks/[name].${ext}`
     }
@@ -447,7 +482,7 @@ export class RollupBuilder {
     return {
       dir: this.options.outDir,
       entryFileNames: (chunk: PreRenderedChunk) => this.getEntryFileNames(chunk),
-      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'esm'),
+      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'mjs'),
       format: 'esm',
       exports: 'auto',
       generatedCode: { constBindings: true },
@@ -461,7 +496,7 @@ export class RollupBuilder {
     return {
       dir: this.options.outDir,
       entryFileNames: (chunk: PreRenderedChunk) => this.getEntryFileNames(chunk),
-      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'umd'),
+      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'js'),
       format: 'umd',
       exports: 'auto',
       generatedCode: { constBindings: true },
@@ -475,7 +510,7 @@ export class RollupBuilder {
     return {
       dir: this.options.outDir,
       entryFileNames: (chunk: PreRenderedChunk) => this.getEntryFileNames(chunk),
-      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'iife'),
+      chunkFileNames: (chunk: PreRenderedChunk) => this.getChunkFilename(chunk, 'js'),
       format: 'iife',
       generatedCode: { constBindings: true },
       externalLiveBindings: false,
@@ -518,6 +553,7 @@ export class RollupBuilder {
       this.options.rollupPluginsOptions.nodeResolveOptions &&
         nodeResolve({
           extensions: DEFAULT_EXTENSIONS,
+          exportConditions: ['production'],
           ...this.options.rollupPluginsOptions.nodeResolveOptions,
         }),
 

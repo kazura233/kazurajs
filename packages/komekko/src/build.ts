@@ -29,7 +29,7 @@ export async function build(rootDir: string = './', inputConfig: KomekkoOptions 
     })) || {}
 
   const buildConfigs = (Array.isArray(komekkoConfig) ? komekkoConfig : [komekkoConfig]).filter(
-    Boolean
+    Boolean,
   )
   log.info('>>>>>>>>>> build->buildConfigs: %O', buildConfigs)
 

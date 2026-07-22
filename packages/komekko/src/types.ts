@@ -6,7 +6,7 @@ import type { Options as RollupDtsOptions } from 'rollup-plugin-dts'
 import type commonjs from '@rollup/plugin-commonjs'
 import type { RollupOptions } from './builder/rollup'
 import type { EsbuildOptions } from './plugins/esbuild'
-import { ObfuscatePluginOptions } from './plugins/obfuscator'
+import type { ObfuscatePluginOptions } from './plugins/obfuscator'
 
 export type RollupCommonJSOptions = NonNullable<Parameters<typeof commonjs>[0]>
 
@@ -76,7 +76,7 @@ export interface KomekkoOptions extends Partial<BuildOptions> {}
 export function defineConfig(options: KomekkoOptions): KomekkoOptions
 export function defineConfig(options: KomekkoOptions[]): KomekkoOptions[]
 export function defineConfig(
-  $1: KomekkoOptions | KomekkoOptions[]
+  $1: KomekkoOptions | KomekkoOptions[],
 ): KomekkoOptions | KomekkoOptions[] {
   return $1
 }

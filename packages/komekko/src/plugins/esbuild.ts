@@ -1,11 +1,11 @@
-import { extname, relative } from 'pathe'
 import type { Plugin, PluginContext } from 'rollup'
+import type { FilterPattern } from '@rollup/pluginutils'
 import type { Loader, TransformResult, CommonOptions } from 'esbuild'
 import { transform } from 'esbuild'
+import { extname, relative } from 'pathe'
 import { createFilter } from '@rollup/pluginutils'
-import type { FilterPattern } from '@rollup/pluginutils'
 
-const loaders: { [ext: string]: Loader } = {
+const DefaultLoaders: { [ext: string]: Loader } = {
   '.js': 'js',
   '.mjs': 'js',
   '.cjs': 'js',
@@ -18,11 +18,7 @@ const loaders: { [ext: string]: Loader } = {
   '.jsx': 'jsx',
 }
 
-const getLoader = (id = '') => {
-  return loaders[extname(id)]
-}
-
-const printWarnings = (id: string, result: TransformResult, plugin: PluginContext) => {
+function printWarnings(id: string, result: TransformResult, plugin: PluginContext): void {
   if (result.warnings) {
     for (const warning of result.warnings) {
       let message = '[esbuild]'
@@ -40,16 +36,40 @@ const printWarnings = (id: string, result: TransformResult, plugin: PluginContex
 export type EsbuildOptions = CommonOptions & {
   include?: FilterPattern
   exclude?: FilterPattern
+
+  loaders?: {
+    [ext: string]: Loader | false
+  }
 }
 
 export function esbuildPlugin(options: EsbuildOptions): Plugin {
-  const { include = /\.(ts|js|tsx|jsx)$/, exclude = /node_modules/, ...esbuildOptions } = options
+  const {
+    include = new RegExp(Object.keys(DefaultLoaders).join('|')),
+    exclude = /node_modules/,
+    loaders: loaderOptions,
+    ...esbuildOptions
+  } = options
+
+  const loaders = { ...DefaultLoaders }
+  if (loaderOptions) {
+    for (const [key, value] of Object.entries(loaderOptions)) {
+      if (typeof value === 'string') {
+        loaders[key] = value
+      } else if (value === false) {
+        delete loaders[key]
+      }
+    }
+  }
+  const getLoader = (id = ''): Loader | undefined => {
+    return loaders[extname(id)]
+  }
 
   const filter = createFilter(include, exclude)
 
   return {
     name: 'komekko:esbuild',
-    async transform(code, id) {
+
+    async transform(code, id): Promise<null | { code: string; map: any }> {
       if (!filter(id)) {
         return null
       }
@@ -67,15 +87,13 @@ export function esbuildPlugin(options: EsbuildOptions): Plugin {
 
       printWarnings(id, result, this)
 
-      return (
-        result.code && {
-          code: result.code,
-          map: result.map || null,
-        }
-      )
+      return {
+        code: result.code || '',
+        map: result.map || null,
+      }
     },
 
-    async renderChunk(code, { fileName }) {
+    async renderChunk(code, { fileName }): Promise<null | undefined | { code: string; map: any }> {
       if (!options.minify) {
         return null
       }
@@ -96,11 +114,9 @@ export function esbuildPlugin(options: EsbuildOptions): Plugin {
         minify: true,
       })
 
-      if (result.code) {
-        return {
-          code: result.code,
-          map: result.map || null,
-        }
+      return {
+        code: result.code || '',
+        map: result.map || null,
       }
     },
   }

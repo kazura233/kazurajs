@@ -430,8 +430,8 @@ export class RollupBuilder {
         },
         plugins: [
           ...this.getInputPluginOption(),
-          dts(this.options.rollupPluginsOptions.dtsOptions),
           fixCJSExportTypePlugin(),
+          dts(this.options.rollupPluginsOptions.dtsOptions),
         ].filter(
           (plugin): plugin is NonNullable<Exclude<typeof plugin, false>> =>
             /**

@@ -7,7 +7,7 @@ const log = {
 } as const
 
 export function fixCJSExportTypePlugin(): Plugin {
-  const regexp = /\.d\.c?ts$/
+  const regexp = /\.d\.c?ts$/ // d.ts and d.cts
   return FixDtsDefaultCjsExportsPlugin({
     warn: (msg) => log.warn(msg),
     matcher: (info) => {

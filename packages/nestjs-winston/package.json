@@ -17,8 +17,13 @@
     "name": "kazura233",
     "email": "kazira233@gmail.com"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json"
   },

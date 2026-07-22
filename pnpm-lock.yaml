@@ -678,8 +678,8 @@ importers:
         specifier: ^8.56.12
         version: 8.56.12
       rollup:
-        specifier: ^2.79.2
-        version: 2.79.2
+        specifier: ^4.62.2
+        version: 4.62.2
     devDependencies:
       eslint:
         specifier: ^8.57.1
@@ -4099,6 +4099,7 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@vercel/blob@2.6.1':
     resolution: {integrity: sha512-KTJytw85j1XQBxjN5d6UXI7fIWNQe1jotn4nWN+0hePqLs+Qi1B3jHdQcSKFGF0m2rsy9uhPT6GOXMtHe3qNzg==}

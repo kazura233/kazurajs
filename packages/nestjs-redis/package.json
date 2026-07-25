@@ -28,10 +28,10 @@
     "build": "rm -rf dist && tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "@nestjs/common": "^11.1.6",
-    "ioredis": "^5.8.0",
-    "uuid": "^13.0.0",
-    "typescript": "^5.9.2"
+    "@nestjs/common": "^11.1.28",
+    "ioredis": "^5.11.1",
+    "uuid": "^13.0.2",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.1.6"

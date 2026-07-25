@@ -26,7 +26,7 @@
     "build": "rm -rf dist && tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@googleapis/oauth2": "^3.0.1",
+    "@googleapis/oauth2": "^5.0.1",
     "google-auth-library": "^10.9.1",
     "googleapis-common": "^8.0.3"
   },

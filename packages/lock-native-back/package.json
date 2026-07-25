@@ -43,7 +43,7 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "dependencies": {
-    "@babel/runtime": "^7.29.7"
+    "@babel/runtime": "^8.0.0"
   },
   "devDependencies": {
     "komekko": "workspace:*",

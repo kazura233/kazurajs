@@ -833,8 +833,8 @@ importers:
         specifier: 0.0.1
         version: 0.0.1
       '@types/big.js':
-        specifier: ^6.2.2
-        version: 6.2.2
+        specifier: ^7.0.0
+        version: 7.0.0
       '@types/file-saver':
         specifier: ^2.0.7
         version: 2.0.7
@@ -3742,6 +3742,9 @@ packages:
 
   '@types/big.js@6.2.2':
     resolution: {integrity: sha512-e2cOW9YlVzFY2iScnGBBkplKsrn2CsObHQ2Hiw4V1sSyiGbgWL8IyqE3zFi1Pt5o1pdAtYkDAIsF3KKUPjdzaA==}
+
+  '@types/big.js@7.0.0':
+    resolution: {integrity: sha512-WfAGp7IbJvyB8EmWK4tJD24rJRAL6uVbw3LV/hJntFNam+os9KWKj0PzXo8rRRpjupYK8U0M8FoBB8dBhWF2dg==}
 
   '@types/body-parser@1.19.6':
     resolution: {integrity: sha512-HLFeCYgz89uk22N5Qg3dvGvsv46B8GLvKKo1zKG4NybA8U2DiEO3w9lqGg29t/tfLRJpJ6iQxnVw4OnB7MoM9g==}
@@ -13795,6 +13798,8 @@ snapshots:
       '@babel/types': 7.28.4
 
   '@types/big.js@6.2.2': {}
+
+  '@types/big.js@7.0.0': {}
 
   '@types/body-parser@1.19.6':
     dependencies:

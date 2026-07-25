@@ -27,11 +27,11 @@
   },
   "dependencies": {
     "@googleapis/oauth2": "^3.0.1",
-    "google-auth-library": "^10.3.0",
-    "googleapis-common": "^8.0.0"
+    "google-auth-library": "^10.9.1",
+    "googleapis-common": "^8.0.3"
   },
   "devDependencies": {
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "npmName": "@kazura/googleapis",
   "publishConfig": {

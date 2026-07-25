@@ -48,7 +48,7 @@
     "defu": "^6.1.7",
     "esbuild": "^0.28.1",
     "fix-dts-default-cjs-exports": "^1.0.1",
-    "javascript-obfuscator": "^5.4.7",
+    "javascript-obfuscator": "^5.5.0",
     "jiti": "^2.7.0",
     "pathe": "^2.0.3",
     "pkg-types": "^2.3.1",

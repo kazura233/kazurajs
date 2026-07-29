@@ -1,6 +1,6 @@
 {
   "name": "@kazura/web-crypto",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "description": "web-crypto",
   "keywords": [
     "crypto",
@@ -40,6 +40,16 @@
       "require": {
         "types": "./dist/aes-128-ecb/index.d.cts",
         "default": "./dist/aes-128-ecb/index.cjs"
+      }
+    },
+    "./aes-256-cbc": {
+      "import": {
+        "types": "./dist/aes-256-cbc/index.d.mts",
+        "default": "./dist/aes-256-cbc/index.mjs"
+      },
+      "require": {
+        "types": "./dist/aes-256-cbc/index.d.cts",
+        "default": "./dist/aes-256-cbc/index.cjs"
       }
     },
     "./base64": {
@@ -100,6 +110,7 @@
     "dist",
     "src",
     "aes-128-ecb",
+    "aes-256-cbc",
     "base64",
     "md5",
     "sha256",

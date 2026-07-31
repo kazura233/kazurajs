@@ -2,8 +2,6 @@
   "private": true,
   "packageManager": "pnpm@10.17.1",
   "scripts": {
-    "use-proxy-install": "cross-env https_proxy=http://127.0.0.1:1087 http_proxy=http://127.0.0.1:1087 all_proxy=socks5://127.0.0.1:1086 pnpm install",
-    "upi": "pnpm run use-proxy-install",
     "clean:all": "pnpm -r --filter=./packages/* run clean",
     "clean:modules": "find . -type d -name node_modules -prune -print0 | xargs -0 rm -rf",
     "build:komekko": "pnpm -r --filter=./packages/komekko run build",

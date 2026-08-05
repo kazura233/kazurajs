@@ -30,7 +30,7 @@
   "devDependencies": {
     "@nestjs/common": "^11.1.28",
     "ioredis": "^5.11.1",
-    "uuid": "^13.0.2",
+    "uuid": "^14.0.1",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {

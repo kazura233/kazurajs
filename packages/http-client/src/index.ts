@@ -4,6 +4,14 @@ import type { HttpInstance, HttpRequestConfig, HttpResponse, HttpStatic } from '
 export * from './types'
 
 export default class HttpClient {
+  public static readonly http: HttpStatic = axios
+  public static readonly HttpStatusCode = HttpClient.http.HttpStatusCode
+  public static readonly HttpHeaders = HttpClient.http.AxiosHeaders
+  public static readonly HttpError = HttpClient.http.AxiosError
+  public static readonly isHttpError = HttpClient.http.isAxiosError
+  public static readonly toFormData = HttpClient.http.toFormData
+  public static readonly formToJSON = HttpClient.http.formToJSON
+
   private instance: HttpInstance
 
   private config: HttpRequestConfig
@@ -18,7 +26,7 @@ export default class HttpClient {
   }
 
   public request<T = any, D = any, R = HttpResponse<T, D>>(
-    config: HttpRequestConfig<D>
+    config: HttpRequestConfig<D>,
   ): Promise<R> {
     return this.instance.request<T, R, D>(config)
   }
@@ -35,17 +43,14 @@ export default class HttpClient {
     return this.instance
   }
 
-  public static readonly http: HttpStatic = axios
-
   public static create(config?: HttpRequestConfig) {
     return new HttpClient(config)
   }
 
   public static mergeConfig(
     config1: HttpRequestConfig,
-    config2: HttpRequestConfig
+    config2: HttpRequestConfig,
   ): HttpRequestConfig {
-    // @ts-ignore
     return HttpClient.http.mergeConfig(config1, config2)
   }
 }

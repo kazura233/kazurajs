@@ -1,9 +1,10 @@
 import React from 'react'
+import { toJS } from 'mobx'
 import { MobxProviderContext } from './mobx-provider-context'
 import { type Type } from './mobx-map.class'
 
 export function useStore<TInput = any, TResult = TInput>(
-  typeOrToken: Type<TInput> | string | symbol
+  typeOrToken: Type<TInput> | string | symbol,
 ): TResult {
   const contextValue = React.useContext(MobxProviderContext)
 
@@ -13,18 +14,24 @@ export function useStore<TInput = any, TResult = TInput>(
         typeof typeOrToken === 'function' && 'name' in typeOrToken
           ? typeOrToken.name
           : String(typeOrToken)
-      } is not provided`
+      } is not provided`,
     )
   }
 
   const store = contextValue.stores.get(typeOrToken) as TResult
 
-  console.log(
-    'Mobx -> useStore -> contextValue',
-    Object.getPrototypeOf(store).constructor.name,
-    store,
-    contextValue
+  const stores = Object.fromEntries(
+    Array.from(contextValue.stores.entries(), ([token, instance]) => [
+      typeof token === 'function' ? token.name : String(token),
+      toJS(Object.assign({}, instance)),
+    ]),
   )
+
+  console.log('Mobx -> useStore -> contextValue', {
+    storeType: Object.getPrototypeOf(store).constructor.name,
+    store: toJS(Object.assign({}, store)),
+    contextValue: { stores },
+  })
 
   return store
 }

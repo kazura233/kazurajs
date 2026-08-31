@@ -1,6 +1,6 @@
 import React from 'react'
 import { MobxProviderContext } from './mobx-provider-context'
-import { type IObjectDidChange, observe } from 'mobx'
+import { type IObjectDidChange, observe, toJS } from 'mobx'
 import { type MobxProviderProps } from './types'
 
 export const MobxProvider: React.FC<React.PropsWithChildren<MobxProviderProps>> = ({
@@ -11,7 +11,10 @@ export const MobxProvider: React.FC<React.PropsWithChildren<MobxProviderProps>> 
 
   React.useLayoutEffect(() => {
     const listener = (change: IObjectDidChange) => {
-      console.log('MobxProvider -> observe -> listener -> change', change)
+      console.log('MobxProvider -> observe -> listener -> change', {
+        ...change,
+        object: toJS(Object.assign({}, change.object)),
+      })
       setContextValue({ stores })
     }
 

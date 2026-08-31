@@ -2,7 +2,8 @@
   "compilerOptions": {
     "target": "es2023",
     "lib": [
-      "ES2023"
+      "ES2023",
+      "DOM"
     ],
     "jsx": "react-jsx",
     "module": "Preserve",
@@ -12,7 +13,6 @@
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "erasableSyntaxOnly": true,
     "noImplicitOverride": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,

@@ -13,7 +13,7 @@ export const MobxProvider: React.FC<React.PropsWithChildren<MobxProviderProps>> 
     const listener = (change: IObjectDidChange) => {
       console.log('MobxProvider -> observe -> listener -> change', {
         ...change,
-        object: toJS(Object.assign({}, change.object)),
+        object: toJS(change.object),
       })
       setContextValue({ stores })
     }

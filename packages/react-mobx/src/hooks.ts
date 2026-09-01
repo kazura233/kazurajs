@@ -23,13 +23,13 @@ export function useStore<TInput = any, TResult = TInput>(
   const stores = Object.fromEntries(
     Array.from(contextValue.stores.entries(), ([token, instance]) => [
       typeof token === 'function' ? token.name : String(token),
-      toJS(Object.assign({}, instance)),
+      toJS(instance),
     ]),
   )
 
   console.log('Mobx -> useStore -> contextValue', {
     storeType: Object.getPrototypeOf(store).constructor.name,
-    store: toJS(Object.assign({}, store)),
+    store: toJS(store),
     contextValue: { stores },
   })
 

@@ -52,7 +52,7 @@
   "devDependencies": {
     "@types/react": "^19.2.17",
     "react": "^19.2.8",
-    "react-router": "^7.18.1",
+    "react-router": "^8.3.1",
     "komekko": "workspace:*",
     "rimraf": "^6.1.3",
     "tslib": "^2.8.1",

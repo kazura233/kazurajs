@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "ts-morph": "^27.0.2",
-    "vite": "^7.3.6"
+    "vite": "^8.2.2"
   },
   "devDependencies": {
     "komekko": "workspace:*",

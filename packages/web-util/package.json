@@ -103,7 +103,7 @@
     "dayjs": "^1.11.21",
     "dompurify": "^3.4.12",
     "file-saver": "^2.0.5",
-    "uuid": "^13.0.2"
+    "uuid": "^14.0.2"
   },
   "devDependencies": {
     "komekko": "workspace:*",

@@ -53,7 +53,7 @@
     "build:debug": "DEBUG=komekko:* pnpm clean && komekko"
   },
   "dependencies": {
-    "ts-morph": "^27.0.2",
+    "ts-morph": "^28.0.0",
     "vite": "^7.3.6"
   },
   "devDependencies": {

@@ -99,7 +99,7 @@
     "@types/big.js": "^7.0.0",
     "@types/file-saver": "^2.0.7",
     "big.js": "^7.0.1",
-    "copy-to-clipboard": "^3.3.3",
+    "copy-to-clipboard": "^4.0.2",
     "dayjs": "^1.11.21",
     "dompurify": "^3.4.12",
     "file-saver": "^2.0.5",

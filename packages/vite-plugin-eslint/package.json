@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@rollup/pluginutils": "^5.4.0",
-    "@types/eslint": "^8.56.12",
+    "@types/eslint": "^9.6.1",
     "rollup": "^4.62.3"
   },
   "devDependencies": {

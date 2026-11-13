@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@googleapis/oauth2": "^5.0.1",
-    "google-auth-library": "10.5.0",
+    "google-auth-library": "10.9.1",
     "googleapis-common": "^8.0.3"
   },
   "devDependencies": {

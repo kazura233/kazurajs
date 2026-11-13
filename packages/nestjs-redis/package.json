@@ -28,7 +28,7 @@
     "build": "rm -rf dist && tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "@nestjs/common": "^11.1.28",
+    "@nestjs/common": "^11.2.10",
     "ioredis": "^5.11.1",
     "uuid": "^14.0.3",
     "typescript": "^5.9.3"

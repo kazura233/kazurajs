@@ -203,8 +203,8 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1
       google-auth-library:
-        specifier: 10.9.1
-        version: 10.9.1
+        specifier: 10.5.0
+        version: 10.5.0
       googleapis-common:
         specifier: ^8.0.3
         version: 8.0.3
